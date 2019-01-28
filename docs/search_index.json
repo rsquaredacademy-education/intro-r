@@ -1,0 +1,13 @@
+[
+["index.html", "Introduction to R Welcome", " Introduction to R Aravind Hebbali Welcome "],
+["intro.html", "Chapter 1 Introduction", " Chapter 1 Introduction "],
+["installation.html", "Chapter 2 Installing R", " Chapter 2 Installing R "],
+["datatypes.html", "Chapter 3 Data Types", " Chapter 3 Data Types "],
+["help.html", "Chapter 4 Getting Help in R", " Chapter 4 Getting Help in R "],
+["vectors.html", "Chapter 5 Vectors", " Chapter 5 Vectors "],
+["dataframes.html", "Chapter 6 Dataframes", " Chapter 6 Dataframes "],
+["factors.html", "Chapter 7 Factors", " Chapter 7 Factors "],
+["lists.html", "Chapter 8 Lists", " Chapter 8 Lists "],
+["packages.html", "Chapter 9 R Packages", " Chapter 9 R Packages "],
+["references.html", "References", " References "]
+]
