@@ -1,0 +1,89 @@
+# Dataframes {#dataframes}
+
+## Introduction
+
+In this chapter, we will learn to:
+
+- create dataframe
+- select columns 
+- select rows
+- utitlity functions
+
+## Create dataframes
+
+Use `data.frame` to create dataframes. Below is the function syntax:
+
+```{r df1}
+args(data.frame)
+```
+
+Data frames are basically lists with elements of equal lenght and as such, they are heterogeneous. Let us create a dataframe:
+
+```{r df2}
+name <- c('John', 'Jack', 'Jill')
+age <- c(29, 25, 27)
+graduate <- c(TRUE, TRUE, FALSE)
+students <- data.frame(name, age, graduate)
+students
+```
+
+## Basic Information
+
+```{r df3, collapse=TRUE}
+class(students)
+names(students)
+colnames(students)
+str(students)
+dim(students)
+nrow(students)
+ncol(students)
+```
+
+## Select Columns
+
+### Single Column
+
+- `[]`
+- `[[]]`
+- `$`
+
+```{r df4, collapse=TRUE}
+# using [
+students[1]
+
+# using [[
+students[[1]]
+
+# using $
+students$name
+```
+
+### Multiple Columns
+
+```{r df5, collapse=TRUE}
+students[, 1:3]
+
+students[, c(1, 3)]
+```
+
+## Select Rows
+
+```{r df6, collapse=TRUE}
+# single row
+students[1, ]
+
+# multiple row
+students[c(1, 3), ]
+```
+
+If you have observed carefully, the column `names` has been coerced to type 
+factor. This happens because of a default argument in `data.frame` which is 
+`stringsAsFactors` which is set to `TRUE`. If you do not want to treat it as 
+`factors`, set the argument to `FALSE`.
+
+```{r df7}
+students <- data.frame(name, age, graduate, stringsAsFactors = FALSE)
+```
+
+
+

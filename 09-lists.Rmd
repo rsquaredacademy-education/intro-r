@@ -1,0 +1,110 @@
+# Lists {#lists}
+
+## Introduction
+
+Lists are very useful as they are heterogeneous i.e. they can contain different data types. If you remember, vectors and matrices are homogeneous i.e. they can contain only one type of data. If you include different data types, they will all be coerced to the same type. With lists, it is different. In this chapter, we will delve deeper into lists.
+
+- how to create lists
+- access list elements
+- name list elements
+- coerce other R objects to list
+- coerce list to other R objects
+
+## Creating Lists
+
+To create a list, we use the `list()` function. Let us create a simple list to demonstrate how they can contain different data types.
+
+```{r list1}
+# numeric vector
+vect1 <- 1:10
+
+# character vector 
+vect2 <- c('Jack', 'John', 'Jill')
+
+# logical vector
+vect3 <- c(TRUE, FALSE)
+
+# matrix
+mat <- matrix(data = 1:9, nrow = 3)
+
+# list
+l <- list(vect1, vect2, vect3, mat)
+l
+```
+
+If you observe the output, all the elements of the list retain their data types. Now let us learn how to access the elements of the list.
+
+## Access List Elements
+
+You can access the elements of a list using the following operators:
+
+- `[[`
+- `[`
+- `$`
+
+Let us try them one by one.
+
+```{r list2}
+# using [[
+l[[1]]
+
+# using [
+l[1]
+```
+
+`[[` returns a vector while `[` returns a list. The `$` operator can be used only when we have named elements in the list. Let us add names to the elements. Use the `names()` function to add names to the list.
+
+```{r list3}
+# named elements
+names(l) <- c('vect1', 'vect2', 'vect3', 'mat')
+l
+
+# use $
+l$vect1
+
+# use [[
+l[['vect1']]
+
+# use [
+l['vect1']
+```
+
+## Coerce other objects
+
+You can coerce other objects to list using `as.list()`.
+
+```{r list4}
+# vector
+vect1 <- 1:10
+as.list(vect1)
+
+# matrix
+mat <- matrix(data = 1:9, nrow = 3)
+as.list(mat)
+```
+
+## Coerce list to other objects
+
+Use `unlist()` to coerce a list to vector.
+
+```{r list5}
+# unlist
+unlist(l)
+
+# remove names
+unlist(l, use.names = FALSE)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+

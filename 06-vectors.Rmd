@@ -1,0 +1,461 @@
+# Vectors {#vectors}
+
+## Introduction
+
+Vector is the most basic data structure in R. It is a sequence of elements of the same data type. If the elements are of different data types, they will be coerced to a common type that can accommodate all the elements. Vectors are generally created using `c()` (concatenate function), although depending on the data type of vector being created, other methods can be used.
+
+## Numeric Vector
+
+We will create a numeric vector using `c()` but you can use any function that creates a sequence of numbers. After that we will use `is.vector()` to check if it is a vector and `class` to check the data type.
+
+```{r vect1}
+# create a numeric vector
+num_vect <- c(1, 2, 3)
+
+# display the vector
+num_vect
+
+# check if it is a vector
+is.vector(num_vect)
+
+# check data type
+class(num_vect)
+```
+
+Let us look at other ways to create a sequence of numbers. We leave it as an exercise to the reader to understand the functions using `help`.
+
+```{r vect2}
+# using colon
+vect1 <- 1:10
+vect1
+
+# using rep
+vect2 <- rep(1, 5)
+vect2
+
+# using seq
+vect3 <- seq(10)
+vect3
+```
+
+## Integer Vector
+
+Creating an integer vector is similar to numeric vector except that we need to instruct R to treat the data as `integer` and not `numeric` or `double`. We will use the same methods we used for creating numeric vectors. To specify that the data is of type `integer`, we suffix the number with `L`.
+
+```{r vect3}
+# integer vector
+int_vect <- c(1L, 2L, 3L)
+int_vect
+
+# check data type
+class(int_vect)
+
+# using colon
+vect1 <- 1L:10L
+vect1
+
+# using rep
+vect2 <- rep(1L, 5)
+vect2
+
+# using seq
+vect3 <- seq(10L)
+vect3
+```
+
+## Character Vector
+
+A character vector may contain a single character, a word or a group of words. The elements must be enclosed in single or double quotations.
+
+```{r vect4}
+# character vector
+greetings <- c("hello", "good morning")
+greetings
+
+# check data type
+class(greetings)
+```
+
+## Logical Vector
+
+A vector of logical values will either contain `TRUE` or `FALSE` or both.
+
+```{r vect5}
+# logical vector
+vect_logic <- c(TRUE, FALSE, TRUE, TRUE, FALSE)
+vect_logic
+
+# check data type
+class(vect_logic)
+```
+
+In fact, you can create an `integer` vector and coerce it to type `logical`.
+
+```{r vect6}
+# integer vector
+int_vect <- rep(0L:1L, 3)
+int_vect
+
+# coerce to logical vector
+log_vect <- as.logical(int_vect)
+log_vect
+
+# check data type
+class(log_vect)
+```
+
+## Naming Vector Elements
+
+It is possible to name the different elements of a vector. The advantage of naming vector elements is that we can later on use these names to access the elements. Use `names()` to specify the names of a vector. You can specify the names while creating the vector or add them later.
+
+### Method 1: Create vector and add names later
+
+```{r vect8, collapse=TRUE}
+# create vector and add names later
+vect1 <- c(1, 2, 3)
+
+# name the elements of the vector
+names(vect1) <- c("One", "Two", "Three")
+
+# call vect1
+vect1
+```
+
+### Method 2: Specify names while creating vector
+
+```{r vect9, collapse=TRUE}
+# specify names while creating vector
+vect2 <- c(John = 1, Jack = 2, Jill = 3, Jovial = 4)
+
+# call vect2
+vect2
+```
+
+## Vector Coercion
+
+Vectors are homogeneous i.e. all the elements of the vector must be of the same type. If we try to create a vector by combining different data types, the elements will be coerced to the most flexible type. The below table shows the order in which coercion occurs. 
+
+`character` data type is the most flexible while `logical` data type is the least flexible. If you try to combine any other data type with `character`, all the elements will be coerced to type `character`. In the absence of `character` data, all elements will be coerced to `numeric`. Finally, if the data does not include `character` or `numeric` types, all the elements will be coerced to `integer` type. 
+
+### Case 1: Different Data Types
+
+```{r vect10, collapse=TRUE}
+# vector of different data types
+vect1 <- c(1, 1L, 'one', TRUE)
+
+# call vect1
+vect1
+
+# check data type
+class(vect1)
+``` 
+
+### Case 2: Numeric, Integer and Logical
+
+```{r vect11, collapse=TRUE}
+# vector of different data types
+vect1 <- c(1, 1L, TRUE)
+
+# call vect1
+vect1
+
+# check data type
+class(vect1)
+``` 
+
+### Case : Integer and Logical
+
+```{r vect12, collapse=TRUE}
+# vector of different data types
+vect1 <- c(1L, TRUE)
+
+# call vect1
+vect1
+
+# check data type
+class(vect1)
+``` 
+
+To summarize, below is the order in which coercion takes place:
+
+## Vector Operations
+
+In this section, we look at simple operations that can be performed on vectors in R. Remember that the nature of the operations depends upon the type of data. Below are a few examples:
+
+### Case 1: Vectors of same length
+
+```{r vect13, collapse=TRUE}
+# create two vectors
+vect1 <- c(1, 3, 8, 4)
+vect2 <- c(2, 7, 1, 9)
+
+# addition
+vect1 + vect2
+
+# subtraction
+vect1 - vect2
+
+# multiplication
+vect1 * vect2
+
+# division
+vect1 / vect2
+```
+
+### Case 2: Vectors of different length
+
+In the previous case, the length i.e. the number of elements in the vectors were same. What happens if the length of the vectors are unequal? In such cases, the shorter vector is recycled to match the length of the longer vector. The below example should clear this concept:
+
+```{r vect14, collapse=TRUE}
+# create two vectors
+vect1 <- c(2, 7)
+vect2 <- c(1, 8, 5, 2)
+
+# addition
+vect1 + vect2
+
+# subtraction
+vect1 - vect2
+
+# multiplication
+vect1 * vect2
+
+# division
+vect1 / vect2
+```
+
+## Missing Data
+
+Missing data is a reality. No matter how careful you are in collecting data for your analysis, chances are always high that you end up with some missing data. In R missing values are represented by `NA`. In this section, we will focus on the following:
+
+- test for missing data
+- remove missing data
+- exclude missing data from analysis
+
+### Detect missing data
+
+We first create a vector with missing values. After that, we will use `is.na()` to test whether the data contains missing values. `is.na()` returns a logical vector equal to the length of the vector being tested. Another function that can be used for detecting missing values is `complete.cases()`. Below is an example:
+
+```{r vect15, collapse=TRUE}
+# vector with missing values
+vect1 <- c(1, 3, NA, 5, 2)
+
+# use is.na
+is.na(vect1)
+
+# use complete.cases
+complete.cases(vect1)
+```
+
+### Omit missing data
+
+In the presensce of missing data, all computations in R will return `NA`. To avoid this, we might want to remove the missing data before doing any computation. `na.omit()` will remove all missing values from the data. Let us look at an example:
+
+```{r vect16, collapse=TRUE}
+# vector with missing values
+vect1 <- c(1, 3, NA, 5, 2)
+
+# call vect1
+vect1
+
+# omit missing values
+na.omit(vect1)
+```
+
+### Exclude missing data
+
+To exclude missing values from computations, use `na.rm` and set it to `TRUE`. 
+
+```{r vect17, collapse=TRUE}
+# vector with missing values
+vect1 <- c(1, 3, NA, 5, 2)
+
+# compute mean
+mean(vect1)
+
+# compute mean by excluding missing value
+mean(vect1, na.rm = TRUE)
+```
+
+## Index Vectors
+
+One of the most important steps in data analysis is selecting a subset of data from a bigger data set. Indexing helps in retrieving values individually or a set of values that meet a specific criteria. In this post, we look at various ways of indexing/subsetting vectors.
+
+`[]` is the index operator in R. We can use various expressions within `[]` to subset data. In R, **index positions begin at 1 and not 0**. To begin with, let us look at values in different index positions:
+
+```{r vect30}
+# random sample of 10 values
+vect1 <- sample(10)
+vect1
+
+# return third element
+vect1[3]
+
+# return seventh element
+vect1[7]	
+```
+
+### Out of range index
+
+```{r vect31}
+# random sample of 10 values
+vect1 <- sample(10)
+vect1
+
+# return value at index 0
+vect1[0]
+
+# length of the vector
+length(vect1)
+
+# out of range index
+vect1[11]	
+```
+
+In the first case, we specified the index as 0 and in the second case we used the index 11, which is greater than the length of the vector. R returns an empty vector in the first case and `NA` in the second case.
+
+### Negative Index
+
+Using a negative index will delete the value in the said index position. Unlike other languages, it will not index elements from the
+end of the vector counting backwards. Let us look at an example to understand how negative index works in R:
+
+```{r vect32}
+# random sample of 10 values
+vect1 <- sample(10)
+vect1
+
+# drop third element
+vect1[-3]
+
+# drop seventh element
+vect1[-7]	
+```
+
+### Subset Multiple Elements
+
+If we do not specify anything within `[]`, all the elements in the vector will be returned. We can specify the index elements using any expression that generates a sequence of integers. Let us look at a few examples:
+
+```{r vect33}
+# random sample of 10 values
+vect1 <- sample(10)
+vect1
+
+# return all elements
+vect1[]
+
+# return first 5 values
+vect1[1:5]
+
+# return all values from the 5th position
+end <- length(vect1)
+vect1[5:end]
+```
+
+If you are using the colon to generate the index positions, you will have to specify both the starting and ending position, else, R will return an error.
+
+What if we want elements that are not in a sequence as we saw in the last example? In such cases, we have to create a vector using `c()` and use it to extract elements from the original vector. Below is an example:
+
+```{r vect34}
+# random sample of 10 values
+vect1 <- sample(10)
+vect1
+
+# extract 2nd, 5th and 7th element
+select <- c(2, 5, 7)
+vect1[select]
+
+# extract elements in position 1 to 4, 6 and 9
+select <- c(1:4, 6, 9)
+vect1[select]
+```
+
+### Subset Named Vectors
+
+Vectors can be subset using the name of the elements. **When using name of elements for subsetting, ensure that the names are enclosed in single or double quotations**, else R will return an error. Let us look at a few examples:
+
+```{r vect35}
+vect1 <- c(score1 = 8, score2 = 6, score3 = 9)
+vect1
+
+# extract score2
+vect1['score2']
+
+# extract score1 and score3
+vect1[c('score1', 'score3')]
+```
+
+### Subset using logical values
+
+Logical values can be used to subset vectors. They are not very flexible but can be used for simple indexing. In all of the below examples, the logical vectors are recycled to match the length of the vector from which we subset data:
+
+```{r vect36}
+# random sample of 10 values
+vect1 <- sample(10)
+vect1
+
+# returns all values
+vect1[TRUE]
+
+# empty vector
+vect1[FALSE]
+
+# values in odd positions
+vect1[c(TRUE, FALSE)]
+
+# values in even positions
+vect1[c(FALSE, TRUE)]
+```
+
+### Subset using logical expressions
+
+Logical expressions can be used to extract elements that meet specific criteria. This method is most flexible and useful as we can combine multiple conditions using relational and logical operators. Before we use logical expressions, let us spend some time understanding comparison and logical operators as we will be using them extensively hereafter.
+
+#### Comparison Operators
+
+When you create an expression using a comparison operator, the output is always a logical value i.e. `TRUE` or `FALSE`. Let us see how we can use comparison operators to subset data:
+
+```{r vect37}
+# random sample of 10 values
+vect1 <- sample(10)
+vect1
+
+# return elements greater than 5
+vect1 > 5
+vect1[vect1 > 5]
+
+# return elements greater than or equal to 5
+vect1 >= 5
+vect1[vect1 >= 5]
+
+# return elements lesser than 5
+vect1 < 5
+vect1[vect1 < 5]
+
+# return elements lesser than or equal to 5
+vect1 <= 5
+vect1[vect1 <= 5]
+
+# return elements equal to 5
+vect1 == 5
+vect1[vect1 == 5]
+
+# return elements not equal to 5
+vect1 != 5
+vect1[vect1 != 5]
+```
+
+### Logical Operators
+
+Let us combine comparison and logical operators to create expressions and use them to subset vectors:
+
+```{r vect38}
+# random sample of 10 values
+vect1 <- sample(10)
+vect1
+
+# return all elements less than 8 or divisible by 3
+vect1[(vect1 < 8 | (vect1 %% 3 == 0))]
+
+# return all elements less than 7 or divisible by 2
+vect1[(vect1 < 7 | (vect1 %% 2 == 0))]
+```

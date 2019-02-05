@@ -1,0 +1,30 @@
+# Factors {#factors}
+
+## Introduction
+
+In this chapter, we will learn to:
+
+- create factors
+- order levels
+- specify labels
+- check levels
+- number of levels
+
+Categorical or qualitative data in R is treated as data type `factor`. 
+
+## Create Factors
+
+```{r f1}
+args(factor)
+```
+
+```{r f2}
+devices <- factor(c('Mobile', 'Tablet', 'Desktop'))
+devices
+
+# number of levels
+nlevels(devices)
+
+# levels
+levels(devices)
+```

@@ -1,0 +1,161 @@
+# Data Types {#datatypes}
+
+## Introduction
+
+In this chapter, we will learn about the following data types:
+
+- numeric/double
+- integer
+- character
+- logical
+- date/time
+
+## Numeric
+
+In R, numbers are represented by the data type `numeric`. We will first create a variable and assign it a value. Next we will learn a few methods of checking the type of the variable.
+
+```{r dtype1}
+# create two variables
+number1 <- 3.5
+number2 <- 3
+
+# check data type
+class(number1)
+class(number2)
+
+# check if data type is numeric
+is.numeric(number1)
+is.numeric(number2)
+```
+
+If you carefully observe, `integers` are also treated as `numeric/double`. We will learn to create integers in a while. In the meanwhile, we have introduced two new funtions in the above example:
+
+- `class()`: returns the `class` or `type` 
+- `is.numeric()`: tests whether the variable is of type `numeric`
+
+## Integer
+
+Unless specified otherwise, integers are treated as `numeric` or `double`. In this section, we will learn to create variables of the type `integer` and to convert other data types to `integer`.
+
+- create a variable `number1` and assign it the value `3`
+- check the data type of `number1` using `class`
+- create a second variable `number2` using `as.integer` and assign it the value `3`
+- check the data type of `number2` using `class`
+- finally use `is.integer` to check the data type of both `number1` and `number2`
+
+```{r dtype2}
+# create a variable and assign it an integer value
+number1 <- 3
+
+# create another variable using as.integer
+number2 <- as.integer(3)
+
+# check the data type
+class(number1)
+class(number2)
+
+# use is.integer to check data type
+is.integer(number1)
+is.integer(number2)
+```
+
+## Character
+
+Letters, words and group of words are represented by the data type `character`. All data of type `character` must be enclosed in single or double quotation marks. In fact any value enclosed in quotes will be treated as `character`. Let us create two variables to store the first and last name of a some random guy.
+
+```{r dtype3}
+# first name
+first_name <- "jovial"
+
+# last name
+last_name <- 'mann'
+
+# check data type
+class(first_name)
+class(last_name)
+
+# use is.charactert to check data type
+is.character(first_name)
+is.character(last_name)
+```
+
+You can coerce any data type to `character` using `as.character()`. 
+
+```{r dtype4}
+# create variable of different data types
+age <- as.integer(30) # integer
+score <- 9.8          # numeric/double
+opt_course <- TRUE    # logical
+today <- Sys.time()   # date time
+
+as.character(age) 
+as.character(score)
+as.character(opt_course)
+as.character(today)
+```
+
+## Logical
+
+Logical data types take only 2 values. Either `TRUE` or `FALSE`. Sich data types are created when we compare two objects in R using 
+comparison or logical operators.
+
+- create two variables `x` and `y`
+- assign them the values `TRUE` and `FALSE` respectively
+- use `is.logical` to check data type
+- use `as.logical` to coerce other data types to `logical`
+
+```{r dtype5}
+# create variables x and y
+x <- TRUE
+y <- FALSE
+
+# check data type
+class(x)
+is.logical(y)
+```
+
+The outcome of comparison operators is always `logical`. In the below example, we compare two numbers to see the outcome.
+
+```{r dtype6}
+# create two numeric variables
+x <- 3
+y <- 4
+
+# compare x and y
+x > y
+x < y
+
+# store the result
+z <- x > y
+class(z)
+```
+
+`TRUE` is represented by all numbers except `0`. `FALSE` is represented only by `0` and no other numbers.
+
+```{r dtype7}
+# TRUE and FALSE are represented by 1 and 0
+as.logical(1)
+as.logical(0)
+
+# using numbers
+as.numeric(TRUE)
+as.numeric(FALSE)
+
+# using different numbers
+as.logical(-2, -1.5, -1, 0, 1, 2)
+```
+
+Use `as.logical()` to coerce other data types to `logical`.
+
+```{r dtype8}
+# create variable of different data types
+age <- as.integer(30) # integer
+score <- 9.8          # numeric/double
+opt_course <- TRUE    # logical
+today <- Sys.time()   # date time
+
+as.logical(age) 
+as.logical(score)
+as.logical(opt_course)
+as.logical(today)
+```

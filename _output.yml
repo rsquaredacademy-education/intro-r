@@ -2,7 +2,9 @@ bookdown::gitbook:
   css: style.css
   config:
     toc:
+      collapse: subsection
+      scroll_highlight: yes
       before: |
-        <li><a href="./">Introduction to R</a></li>
+        <li><a href="https://github.com/rsquaredacademy-education/intro-r">Introduction to R</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>

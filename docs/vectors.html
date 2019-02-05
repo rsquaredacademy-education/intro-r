@@ -48,6 +48,71 @@
 
 
 
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -62,19 +127,130 @@
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Introduction to R</a></li>
+<li><a href="https://github.com/rsquaredacademy-education/intro-r">Introduction to R</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
-<li class="chapter" data-level="2" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>2</b> Installing R</a></li>
-<li class="chapter" data-level="3" data-path="datatypes.html"><a href="datatypes.html"><i class="fa fa-check"></i><b>3</b> Data Types</a></li>
-<li class="chapter" data-level="4" data-path="help.html"><a href="help.html"><i class="fa fa-check"></i><b>4</b> Getting Help in R</a></li>
-<li class="chapter" data-level="5" data-path="vectors.html"><a href="vectors.html"><i class="fa fa-check"></i><b>5</b> Vectors</a></li>
-<li class="chapter" data-level="6" data-path="dataframes.html"><a href="dataframes.html"><i class="fa fa-check"></i><b>6</b> Dataframes</a></li>
-<li class="chapter" data-level="7" data-path="factors.html"><a href="factors.html"><i class="fa fa-check"></i><b>7</b> Factors</a></li>
-<li class="chapter" data-level="8" data-path="lists.html"><a href="lists.html"><i class="fa fa-check"></i><b>8</b> Lists</a></li>
-<li class="chapter" data-level="9" data-path="packages.html"><a href="packages.html"><i class="fa fa-check"></i><b>9</b> R Packages</a></li>
+<li class="chapter" data-level="2" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>2</b> Installation</a><ul>
+<li class="chapter" data-level="2.1" data-path="installation.html"><a href="installation.html#r"><i class="fa fa-check"></i><b>2.1</b> R</a></li>
+<li class="chapter" data-level="2.2" data-path="installation.html"><a href="installation.html#rstudio"><i class="fa fa-check"></i><b>2.2</b> RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="variables.html"><a href="variables.html"><i class="fa fa-check"></i><b>3</b> Variables</a><ul>
+<li class="chapter" data-level="3.1" data-path="variables.html"><a href="variables.html#introduction"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="variables.html"><a href="variables.html#what-is-a-variable"><i class="fa fa-check"></i><b>3.2</b> What is a variable?</a></li>
+<li class="chapter" data-level="3.3" data-path="variables.html"><a href="variables.html#creating-variables"><i class="fa fa-check"></i><b>3.3</b> Creating Variables</a></li>
+<li class="chapter" data-level="3.4" data-path="variables.html"><a href="variables.html#using-variables"><i class="fa fa-check"></i><b>3.4</b> Using Variables</a></li>
+<li class="chapter" data-level="3.5" data-path="variables.html"><a href="variables.html#components-of-a-variable"><i class="fa fa-check"></i><b>3.5</b> Components of a Variable</a></li>
+<li class="chapter" data-level="3.6" data-path="variables.html"><a href="variables.html#naming-conventions"><i class="fa fa-check"></i><b>3.6</b> Naming Conventions</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="datatypes.html"><a href="datatypes.html"><i class="fa fa-check"></i><b>4</b> Data Types</a><ul>
+<li class="chapter" data-level="4.1" data-path="datatypes.html"><a href="datatypes.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="datatypes.html"><a href="datatypes.html#numeric"><i class="fa fa-check"></i><b>4.2</b> Numeric</a></li>
+<li class="chapter" data-level="4.3" data-path="datatypes.html"><a href="datatypes.html#integer"><i class="fa fa-check"></i><b>4.3</b> Integer</a></li>
+<li class="chapter" data-level="4.4" data-path="datatypes.html"><a href="datatypes.html#character"><i class="fa fa-check"></i><b>4.4</b> Character</a></li>
+<li class="chapter" data-level="4.5" data-path="datatypes.html"><a href="datatypes.html#logical"><i class="fa fa-check"></i><b>4.5</b> Logical</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="help.html"><a href="help.html"><i class="fa fa-check"></i><b>5</b> Getting Help in R</a><ul>
+<li class="chapter" data-level="5.1" data-path="help.html"><a href="help.html#introduction-2"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="help.html"><a href="help.html#online-resources"><i class="fa fa-check"></i><b>5.2</b> Online Resources</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="help.html"><a href="help.html#r-bloggers"><i class="fa fa-check"></i><b>5.2.1</b> R Bloggers</a></li>
+<li class="chapter" data-level="5.2.2" data-path="help.html"><a href="help.html#stack-overflow"><i class="fa fa-check"></i><b>5.2.2</b> Stack Overflow</a></li>
+<li class="chapter" data-level="5.2.3" data-path="help.html"><a href="help.html#twitter"><i class="fa fa-check"></i><b>5.2.3</b> Twitter</a></li>
+<li class="chapter" data-level="5.2.4" data-path="help.html"><a href="help.html#rstudio-community"><i class="fa fa-check"></i><b>5.2.4</b> RStudio Community</a></li>
+<li class="chapter" data-level="5.2.5" data-path="help.html"><a href="help.html#rstudio-1"><i class="fa fa-check"></i><b>5.2.5</b> RStudio</a></li>
+<li class="chapter" data-level="5.2.6" data-path="help.html"><a href="help.html#reddit"><i class="fa fa-check"></i><b>5.2.6</b> Reddit</a></li>
+<li class="chapter" data-level="5.2.7" data-path="help.html"><a href="help.html#r-weekly"><i class="fa fa-check"></i><b>5.2.7</b> R Weekly</a></li>
+<li class="chapter" data-level="5.2.8" data-path="help.html"><a href="help.html#r-user-groups"><i class="fa fa-check"></i><b>5.2.8</b> R User Groups</a></li>
+<li class="chapter" data-level="5.2.9" data-path="help.html"><a href="help.html#data-helpers"><i class="fa fa-check"></i><b>5.2.9</b> Data Helpers</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="help.html"><a href="help.html#internal"><i class="fa fa-check"></i><b>5.3</b> Internal</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="help.html"><a href="help.html#help.start"><i class="fa fa-check"></i><b>5.3.1</b> help.start</a></li>
+<li class="chapter" data-level="5.3.2" data-path="help.html"><a href="help.html#help-1"><i class="fa fa-check"></i><b>5.3.2</b> help</a></li>
+<li class="chapter" data-level="5.3.3" data-path="help.html"><a href="help.html#help.search"><i class="fa fa-check"></i><b>5.3.3</b> help.search</a></li>
+<li class="chapter" data-level="5.3.4" data-path="help.html"><a href="help.html#demo"><i class="fa fa-check"></i><b>5.3.4</b> demo</a></li>
+<li class="chapter" data-level="5.3.5" data-path="help.html"><a href="help.html#example"><i class="fa fa-check"></i><b>5.3.5</b> example</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="help.html"><a href="help.html#package-documentation"><i class="fa fa-check"></i><b>5.4</b> Package Documentation</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="help.html"><a href="help.html#library"><i class="fa fa-check"></i><b>5.4.1</b> library</a></li>
+<li class="chapter" data-level="5.4.2" data-path="help.html"><a href="help.html#vignette"><i class="fa fa-check"></i><b>5.4.2</b> vignette</a></li>
+<li class="chapter" data-level="5.4.3" data-path="help.html"><a href="help.html#browsevignettes"><i class="fa fa-check"></i><b>5.4.3</b> browseVignettes</a></li>
+<li class="chapter" data-level="5.4.4" data-path="help.html"><a href="help.html#rsitesearch"><i class="fa fa-check"></i><b>5.4.4</b> RsiteSearch</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="vectors.html"><a href="vectors.html"><i class="fa fa-check"></i><b>6</b> Vectors</a><ul>
+<li class="chapter" data-level="6.1" data-path="vectors.html"><a href="vectors.html#introduction-3"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="vectors.html"><a href="vectors.html#numeric-vector"><i class="fa fa-check"></i><b>6.2</b> Numeric Vector</a></li>
+<li class="chapter" data-level="6.3" data-path="vectors.html"><a href="vectors.html#integer-vector"><i class="fa fa-check"></i><b>6.3</b> Integer Vector</a></li>
+<li class="chapter" data-level="6.4" data-path="vectors.html"><a href="vectors.html#character-vector"><i class="fa fa-check"></i><b>6.4</b> Character Vector</a></li>
+<li class="chapter" data-level="6.5" data-path="vectors.html"><a href="vectors.html#logical-vector"><i class="fa fa-check"></i><b>6.5</b> Logical Vector</a></li>
+<li class="chapter" data-level="6.6" data-path="vectors.html"><a href="vectors.html#naming-vector-elements"><i class="fa fa-check"></i><b>6.6</b> Naming Vector Elements</a><ul>
+<li class="chapter" data-level="6.6.1" data-path="vectors.html"><a href="vectors.html#method-1-create-vector-and-add-names-later"><i class="fa fa-check"></i><b>6.6.1</b> Method 1: Create vector and add names later</a></li>
+<li class="chapter" data-level="6.6.2" data-path="vectors.html"><a href="vectors.html#method-2-specify-names-while-creating-vector"><i class="fa fa-check"></i><b>6.6.2</b> Method 2: Specify names while creating vector</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="vectors.html"><a href="vectors.html#vector-coercion"><i class="fa fa-check"></i><b>6.7</b> Vector Coercion</a><ul>
+<li class="chapter" data-level="6.7.1" data-path="vectors.html"><a href="vectors.html#case-1-different-data-types"><i class="fa fa-check"></i><b>6.7.1</b> Case 1: Different Data Types</a></li>
+<li class="chapter" data-level="6.7.2" data-path="vectors.html"><a href="vectors.html#case-2-numeric-integer-and-logical"><i class="fa fa-check"></i><b>6.7.2</b> Case 2: Numeric, Integer and Logical</a></li>
+<li class="chapter" data-level="6.7.3" data-path="vectors.html"><a href="vectors.html#case-integer-and-logical"><i class="fa fa-check"></i><b>6.7.3</b> Case : Integer and Logical</a></li>
+</ul></li>
+<li class="chapter" data-level="6.8" data-path="vectors.html"><a href="vectors.html#vector-operations"><i class="fa fa-check"></i><b>6.8</b> Vector Operations</a><ul>
+<li class="chapter" data-level="6.8.1" data-path="vectors.html"><a href="vectors.html#case-1-vectors-of-same-length"><i class="fa fa-check"></i><b>6.8.1</b> Case 1: Vectors of same length</a></li>
+<li class="chapter" data-level="6.8.2" data-path="vectors.html"><a href="vectors.html#case-2-vectors-of-different-length"><i class="fa fa-check"></i><b>6.8.2</b> Case 2: Vectors of different length</a></li>
+</ul></li>
+<li class="chapter" data-level="6.9" data-path="vectors.html"><a href="vectors.html#missing-data"><i class="fa fa-check"></i><b>6.9</b> Missing Data</a><ul>
+<li class="chapter" data-level="6.9.1" data-path="vectors.html"><a href="vectors.html#detect-missing-data"><i class="fa fa-check"></i><b>6.9.1</b> Detect missing data</a></li>
+<li class="chapter" data-level="6.9.2" data-path="vectors.html"><a href="vectors.html#omit-missing-data"><i class="fa fa-check"></i><b>6.9.2</b> Omit missing data</a></li>
+<li class="chapter" data-level="6.9.3" data-path="vectors.html"><a href="vectors.html#exclude-missing-data"><i class="fa fa-check"></i><b>6.9.3</b> Exclude missing data</a></li>
+</ul></li>
+<li class="chapter" data-level="6.10" data-path="vectors.html"><a href="vectors.html#index-vectors"><i class="fa fa-check"></i><b>6.10</b> Index Vectors</a><ul>
+<li class="chapter" data-level="6.10.1" data-path="vectors.html"><a href="vectors.html#out-of-range-index"><i class="fa fa-check"></i><b>6.10.1</b> Out of range index</a></li>
+<li class="chapter" data-level="6.10.2" data-path="vectors.html"><a href="vectors.html#negative-index"><i class="fa fa-check"></i><b>6.10.2</b> Negative Index</a></li>
+<li class="chapter" data-level="6.10.3" data-path="vectors.html"><a href="vectors.html#subset-multiple-elements"><i class="fa fa-check"></i><b>6.10.3</b> Subset Multiple Elements</a></li>
+<li class="chapter" data-level="6.10.4" data-path="vectors.html"><a href="vectors.html#subset-named-vectors"><i class="fa fa-check"></i><b>6.10.4</b> Subset Named Vectors</a></li>
+<li class="chapter" data-level="6.10.5" data-path="vectors.html"><a href="vectors.html#subset-using-logical-values"><i class="fa fa-check"></i><b>6.10.5</b> Subset using logical values</a></li>
+<li class="chapter" data-level="6.10.6" data-path="vectors.html"><a href="vectors.html#subset-using-logical-expressions"><i class="fa fa-check"></i><b>6.10.6</b> Subset using logical expressions</a></li>
+<li class="chapter" data-level="6.10.7" data-path="vectors.html"><a href="vectors.html#logical-operators"><i class="fa fa-check"></i><b>6.10.7</b> Logical Operators</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="dataframes.html"><a href="dataframes.html"><i class="fa fa-check"></i><b>7</b> Dataframes</a><ul>
+<li class="chapter" data-level="7.1" data-path="dataframes.html"><a href="dataframes.html#introduction-4"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="dataframes.html"><a href="dataframes.html#create-dataframes"><i class="fa fa-check"></i><b>7.2</b> Create dataframes</a></li>
+<li class="chapter" data-level="7.3" data-path="dataframes.html"><a href="dataframes.html#basic-information"><i class="fa fa-check"></i><b>7.3</b> Basic Information</a></li>
+<li class="chapter" data-level="7.4" data-path="dataframes.html"><a href="dataframes.html#select-columns"><i class="fa fa-check"></i><b>7.4</b> Select Columns</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="dataframes.html"><a href="dataframes.html#single-column"><i class="fa fa-check"></i><b>7.4.1</b> Single Column</a></li>
+<li class="chapter" data-level="7.4.2" data-path="dataframes.html"><a href="dataframes.html#multiple-columns"><i class="fa fa-check"></i><b>7.4.2</b> Multiple Columns</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="dataframes.html"><a href="dataframes.html#select-rows"><i class="fa fa-check"></i><b>7.5</b> Select Rows</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="factors.html"><a href="factors.html"><i class="fa fa-check"></i><b>8</b> Factors</a><ul>
+<li class="chapter" data-level="8.1" data-path="factors.html"><a href="factors.html#introduction-5"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.2" data-path="factors.html"><a href="factors.html#create-factors"><i class="fa fa-check"></i><b>8.2</b> Create Factors</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="lists.html"><a href="lists.html"><i class="fa fa-check"></i><b>9</b> Lists</a><ul>
+<li class="chapter" data-level="9.1" data-path="lists.html"><a href="lists.html#introduction-6"><i class="fa fa-check"></i><b>9.1</b> Introduction</a></li>
+<li class="chapter" data-level="9.2" data-path="lists.html"><a href="lists.html#creating-lists"><i class="fa fa-check"></i><b>9.2</b> Creating Lists</a></li>
+<li class="chapter" data-level="9.3" data-path="lists.html"><a href="lists.html#access-list-elements"><i class="fa fa-check"></i><b>9.3</b> Access List Elements</a></li>
+<li class="chapter" data-level="9.4" data-path="lists.html"><a href="lists.html#coerce-other-objects"><i class="fa fa-check"></i><b>9.4</b> Coerce other objects</a></li>
+<li class="chapter" data-level="9.5" data-path="lists.html"><a href="lists.html#coerce-list-to-other-objects"><i class="fa fa-check"></i><b>9.5</b> Coerce list to other objects</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="packages.html"><a href="packages.html"><i class="fa fa-check"></i><b>10</b> R Packages</a><ul>
+<li class="chapter" data-level="10.1" data-path="packages.html"><a href="packages.html#introduction-7"><i class="fa fa-check"></i><b>10.1</b> Introduction</a></li>
+<li class="chapter" data-level="10.2" data-path="packages.html"><a href="packages.html#install-packages"><i class="fa fa-check"></i><b>10.2</b> Install Packages</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="packages.html"><a href="packages.html#cran"><i class="fa fa-check"></i><b>10.2.1</b> CRAN</a></li>
+<li class="chapter" data-level="10.2.2" data-path="packages.html"><a href="packages.html#github"><i class="fa fa-check"></i><b>10.2.2</b> GitHub</a></li>
+<li class="chapter" data-level="10.2.3" data-path="packages.html"><a href="packages.html#bitbucket"><i class="fa fa-check"></i><b>10.2.3</b> BitBucket</a></li>
+<li class="chapter" data-level="10.2.4" data-path="packages.html"><a href="packages.html#bioconductor"><i class="fa fa-check"></i><b>10.2.4</b> Bioconductor</a></li>
+<li class="chapter" data-level="10.2.5" data-path="packages.html"><a href="packages.html#rforge"><i class="fa fa-check"></i><b>10.2.5</b> rForge</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="packages.html"><a href="packages.html#install-different-versions"><i class="fa fa-check"></i><b>10.3</b> Install Different Versions</a></li>
+<li class="chapter" data-level="10.4" data-path="packages.html"><a href="packages.html#installed-packages"><i class="fa fa-check"></i><b>10.4</b> Installed Packages</a></li>
+<li class="chapter" data-level="10.5" data-path="packages.html"><a href="packages.html#library-paths"><i class="fa fa-check"></i><b>10.5</b> Library Paths</a><ul>
+<li class="chapter" data-level="10.5.1" data-path="packages.html"><a href="packages.html#install"><i class="fa fa-check"></i><b>10.5.1</b> Install</a></li>
+<li class="chapter" data-level="10.5.2" data-path="packages.html"><a href="packages.html#load"><i class="fa fa-check"></i><b>10.5.2</b> Load</a></li>
+<li class="chapter" data-level="10.5.3" data-path="packages.html"><a href="packages.html#update-packages"><i class="fa fa-check"></i><b>10.5.3</b> Update Packages</a></li>
+<li class="chapter" data-level="10.5.4" data-path="packages.html"><a href="packages.html#remove-packages"><i class="fa fa-check"></i><b>10.5.4</b> Remove Packages</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -96,8 +272,445 @@
 
             <section class="normal" id="section-">
 <div id="vectors" class="section level1">
-<h1><span class="header-section-number">Chapter 5</span> Vectors</h1>
+<h1><span class="header-section-number">Chapter 6</span> Vectors</h1>
+<div id="introduction-3" class="section level2">
+<h2><span class="header-section-number">6.1</span> Introduction</h2>
+<p>Vector is the most basic data structure in R. It is a sequence of elements of the same data type. If the elements are of different data types, they will be coerced to a common type that can accommodate all the elements. Vectors are generally created using <code>c()</code> (concatenate function), although depending on the data type of vector being created, other methods can be used.</p>
+</div>
+<div id="numeric-vector" class="section level2">
+<h2><span class="header-section-number">6.2</span> Numeric Vector</h2>
+<p>We will create a numeric vector using <code>c()</code> but you can use any function that creates a sequence of numbers. After that we will use <code>is.vector()</code> to check if it is a vector and <code>class</code> to check the data type.</p>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb84-1" data-line-number="1"><span class="co"># create a numeric vector</span></a>
+<a class="sourceLine" id="cb84-2" data-line-number="2">num_vect &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb84-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb84-4" data-line-number="4"><span class="co"># display the vector</span></a>
+<a class="sourceLine" id="cb84-5" data-line-number="5">num_vect</a></code></pre></div>
+<pre><code>## [1] 1 2 3</code></pre>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" data-line-number="1"><span class="co"># check if it is a vector</span></a>
+<a class="sourceLine" id="cb86-2" data-line-number="2"><span class="kw">is.vector</span>(num_vect)</a></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb88-1" data-line-number="1"><span class="co"># check data type</span></a>
+<a class="sourceLine" id="cb88-2" data-line-number="2"><span class="kw">class</span>(num_vect)</a></code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<p>Let us look at other ways to create a sequence of numbers. We leave it as an exercise to the reader to understand the functions using <code>help</code>.</p>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" data-line-number="1"><span class="co"># using colon</span></a>
+<a class="sourceLine" id="cb90-2" data-line-number="2">vect1 &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span></a>
+<a class="sourceLine" id="cb90-3" data-line-number="3">vect1</a></code></pre></div>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb92-1" data-line-number="1"><span class="co"># using rep</span></a>
+<a class="sourceLine" id="cb92-2" data-line-number="2">vect2 &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">1</span>, <span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb92-3" data-line-number="3">vect2</a></code></pre></div>
+<pre><code>## [1] 1 1 1 1 1</code></pre>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb94-1" data-line-number="1"><span class="co"># using seq</span></a>
+<a class="sourceLine" id="cb94-2" data-line-number="2">vect3 &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb94-3" data-line-number="3">vect3</a></code></pre></div>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+</div>
+<div id="integer-vector" class="section level2">
+<h2><span class="header-section-number">6.3</span> Integer Vector</h2>
+<p>Creating an integer vector is similar to numeric vector except that we need to instruct R to treat the data as <code>integer</code> and not <code>numeric</code> or <code>double</code>. We will use the same methods we used for creating numeric vectors. To specify that the data is of type <code>integer</code>, we suffix the number with <code>L</code>.</p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb96-1" data-line-number="1"><span class="co"># integer vector</span></a>
+<a class="sourceLine" id="cb96-2" data-line-number="2">int_vect &lt;-<span class="st"> </span><span class="kw">c</span>(1L, 2L, 3L)</a>
+<a class="sourceLine" id="cb96-3" data-line-number="3">int_vect</a></code></pre></div>
+<pre><code>## [1] 1 2 3</code></pre>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb98-1" data-line-number="1"><span class="co"># check data type</span></a>
+<a class="sourceLine" id="cb98-2" data-line-number="2"><span class="kw">class</span>(int_vect)</a></code></pre></div>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb100-1" data-line-number="1"><span class="co"># using colon</span></a>
+<a class="sourceLine" id="cb100-2" data-line-number="2">vect1 &lt;-<span class="st"> </span>1L<span class="op">:</span>10L</a>
+<a class="sourceLine" id="cb100-3" data-line-number="3">vect1</a></code></pre></div>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb102-1" data-line-number="1"><span class="co"># using rep</span></a>
+<a class="sourceLine" id="cb102-2" data-line-number="2">vect2 &lt;-<span class="st"> </span><span class="kw">rep</span>(1L, <span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb102-3" data-line-number="3">vect2</a></code></pre></div>
+<pre><code>## [1] 1 1 1 1 1</code></pre>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb104-1" data-line-number="1"><span class="co"># using seq</span></a>
+<a class="sourceLine" id="cb104-2" data-line-number="2">vect3 &lt;-<span class="st"> </span><span class="kw">seq</span>(10L)</a>
+<a class="sourceLine" id="cb104-3" data-line-number="3">vect3</a></code></pre></div>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+</div>
+<div id="character-vector" class="section level2">
+<h2><span class="header-section-number">6.4</span> Character Vector</h2>
+<p>A character vector may contain a single character, a word or a group of words. The elements must be enclosed in single or double quotations.</p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb106-1" data-line-number="1"><span class="co"># character vector</span></a>
+<a class="sourceLine" id="cb106-2" data-line-number="2">greetings &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;good morning&quot;</span>)</a>
+<a class="sourceLine" id="cb106-3" data-line-number="3">greetings</a></code></pre></div>
+<pre><code>## [1] &quot;hello&quot;        &quot;good morning&quot;</code></pre>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb108-1" data-line-number="1"><span class="co"># check data type</span></a>
+<a class="sourceLine" id="cb108-2" data-line-number="2"><span class="kw">class</span>(greetings)</a></code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+</div>
+<div id="logical-vector" class="section level2">
+<h2><span class="header-section-number">6.5</span> Logical Vector</h2>
+<p>A vector of logical values will either contain <code>TRUE</code> or <code>FALSE</code> or both.</p>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb110-1" data-line-number="1"><span class="co"># logical vector</span></a>
+<a class="sourceLine" id="cb110-2" data-line-number="2">vect_logic &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb110-3" data-line-number="3">vect_logic</a></code></pre></div>
+<pre><code>## [1]  TRUE FALSE  TRUE  TRUE FALSE</code></pre>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb112-1" data-line-number="1"><span class="co"># check data type</span></a>
+<a class="sourceLine" id="cb112-2" data-line-number="2"><span class="kw">class</span>(vect_logic)</a></code></pre></div>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+<p>In fact, you can create an <code>integer</code> vector and coerce it to type <code>logical</code>.</p>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb114-1" data-line-number="1"><span class="co"># integer vector</span></a>
+<a class="sourceLine" id="cb114-2" data-line-number="2">int_vect &lt;-<span class="st"> </span><span class="kw">rep</span>(0L<span class="op">:</span>1L, <span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb114-3" data-line-number="3">int_vect</a></code></pre></div>
+<pre><code>## [1] 0 1 0 1 0 1</code></pre>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb116-1" data-line-number="1"><span class="co"># coerce to logical vector</span></a>
+<a class="sourceLine" id="cb116-2" data-line-number="2">log_vect &lt;-<span class="st"> </span><span class="kw">as.logical</span>(int_vect)</a>
+<a class="sourceLine" id="cb116-3" data-line-number="3">log_vect</a></code></pre></div>
+<pre><code>## [1] FALSE  TRUE FALSE  TRUE FALSE  TRUE</code></pre>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb118-1" data-line-number="1"><span class="co"># check data type</span></a>
+<a class="sourceLine" id="cb118-2" data-line-number="2"><span class="kw">class</span>(log_vect)</a></code></pre></div>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+</div>
+<div id="naming-vector-elements" class="section level2">
+<h2><span class="header-section-number">6.6</span> Naming Vector Elements</h2>
+<p>It is possible to name the different elements of a vector. The advantage of naming vector elements is that we can later on use these names to access the elements. Use <code>names()</code> to specify the names of a vector. You can specify the names while creating the vector or add them later.</p>
+<div id="method-1-create-vector-and-add-names-later" class="section level3">
+<h3><span class="header-section-number">6.6.1</span> Method 1: Create vector and add names later</h3>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb120-1" data-line-number="1"><span class="co"># create vector and add names later</span></a>
+<a class="sourceLine" id="cb120-2" data-line-number="2">vect1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb120-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb120-4" data-line-number="4"><span class="co"># name the elements of the vector</span></a>
+<a class="sourceLine" id="cb120-5" data-line-number="5"><span class="kw">names</span>(vect1) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;One&quot;</span>, <span class="st">&quot;Two&quot;</span>, <span class="st">&quot;Three&quot;</span>)</a>
+<a class="sourceLine" id="cb120-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb120-7" data-line-number="7"><span class="co"># call vect1</span></a>
+<a class="sourceLine" id="cb120-8" data-line-number="8">vect1</a>
+<a class="sourceLine" id="cb120-9" data-line-number="9">##   One   Two Three </a>
+<a class="sourceLine" id="cb120-10" data-line-number="10">##     1     2     3</a></code></pre></div>
+</div>
+<div id="method-2-specify-names-while-creating-vector" class="section level3">
+<h3><span class="header-section-number">6.6.2</span> Method 2: Specify names while creating vector</h3>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb121-1" data-line-number="1"><span class="co"># specify names while creating vector</span></a>
+<a class="sourceLine" id="cb121-2" data-line-number="2">vect2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">John =</span> <span class="dv">1</span>, <span class="dt">Jack =</span> <span class="dv">2</span>, <span class="dt">Jill =</span> <span class="dv">3</span>, <span class="dt">Jovial =</span> <span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb121-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb121-4" data-line-number="4"><span class="co"># call vect2</span></a>
+<a class="sourceLine" id="cb121-5" data-line-number="5">vect2</a>
+<a class="sourceLine" id="cb121-6" data-line-number="6">##   John   Jack   Jill Jovial </a>
+<a class="sourceLine" id="cb121-7" data-line-number="7">##      1      2      3      4</a></code></pre></div>
+</div>
+</div>
+<div id="vector-coercion" class="section level2">
+<h2><span class="header-section-number">6.7</span> Vector Coercion</h2>
+<p>Vectors are homogeneous i.e. all the elements of the vector must be of the same type. If we try to create a vector by combining different data types, the elements will be coerced to the most flexible type. The below table shows the order in which coercion occurs.</p>
+<p><code>character</code> data type is the most flexible while <code>logical</code> data type is the least flexible. If you try to combine any other data type with <code>character</code>, all the elements will be coerced to type <code>character</code>. In the absence of <code>character</code> data, all elements will be coerced to <code>numeric</code>. Finally, if the data does not include <code>character</code> or <code>numeric</code> types, all the elements will be coerced to <code>integer</code> type.</p>
+<div id="case-1-different-data-types" class="section level3">
+<h3><span class="header-section-number">6.7.1</span> Case 1: Different Data Types</h3>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb122-1" data-line-number="1"><span class="co"># vector of different data types</span></a>
+<a class="sourceLine" id="cb122-2" data-line-number="2">vect1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, 1L, <span class="st">&#39;one&#39;</span>, <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb122-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb122-4" data-line-number="4"><span class="co"># call vect1</span></a>
+<a class="sourceLine" id="cb122-5" data-line-number="5">vect1</a>
+<a class="sourceLine" id="cb122-6" data-line-number="6">## [1] &quot;1&quot;    &quot;1&quot;    &quot;one&quot;  &quot;TRUE&quot;</a>
+<a class="sourceLine" id="cb122-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb122-8" data-line-number="8"><span class="co"># check data type</span></a>
+<a class="sourceLine" id="cb122-9" data-line-number="9"><span class="kw">class</span>(vect1)</a>
+<a class="sourceLine" id="cb122-10" data-line-number="10">## [1] &quot;character&quot;</a></code></pre></div>
+</div>
+<div id="case-2-numeric-integer-and-logical" class="section level3">
+<h3><span class="header-section-number">6.7.2</span> Case 2: Numeric, Integer and Logical</h3>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb123-1" data-line-number="1"><span class="co"># vector of different data types</span></a>
+<a class="sourceLine" id="cb123-2" data-line-number="2">vect1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, 1L, <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb123-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb123-4" data-line-number="4"><span class="co"># call vect1</span></a>
+<a class="sourceLine" id="cb123-5" data-line-number="5">vect1</a>
+<a class="sourceLine" id="cb123-6" data-line-number="6">## [1] 1 1 1</a>
+<a class="sourceLine" id="cb123-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb123-8" data-line-number="8"><span class="co"># check data type</span></a>
+<a class="sourceLine" id="cb123-9" data-line-number="9"><span class="kw">class</span>(vect1)</a>
+<a class="sourceLine" id="cb123-10" data-line-number="10">## [1] &quot;numeric&quot;</a></code></pre></div>
+</div>
+<div id="case-integer-and-logical" class="section level3">
+<h3><span class="header-section-number">6.7.3</span> Case : Integer and Logical</h3>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb124-1" data-line-number="1"><span class="co"># vector of different data types</span></a>
+<a class="sourceLine" id="cb124-2" data-line-number="2">vect1 &lt;-<span class="st"> </span><span class="kw">c</span>(1L, <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb124-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb124-4" data-line-number="4"><span class="co"># call vect1</span></a>
+<a class="sourceLine" id="cb124-5" data-line-number="5">vect1</a>
+<a class="sourceLine" id="cb124-6" data-line-number="6">## [1] 1 1</a>
+<a class="sourceLine" id="cb124-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb124-8" data-line-number="8"><span class="co"># check data type</span></a>
+<a class="sourceLine" id="cb124-9" data-line-number="9"><span class="kw">class</span>(vect1)</a>
+<a class="sourceLine" id="cb124-10" data-line-number="10">## [1] &quot;integer&quot;</a></code></pre></div>
+<p>To summarize, below is the order in which coercion takes place:</p>
+</div>
+</div>
+<div id="vector-operations" class="section level2">
+<h2><span class="header-section-number">6.8</span> Vector Operations</h2>
+<p>In this section, we look at simple operations that can be performed on vectors in R. Remember that the nature of the operations depends upon the type of data. Below are a few examples:</p>
+<div id="case-1-vectors-of-same-length" class="section level3">
+<h3><span class="header-section-number">6.8.1</span> Case 1: Vectors of same length</h3>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" data-line-number="1"><span class="co"># create two vectors</span></a>
+<a class="sourceLine" id="cb125-2" data-line-number="2">vect1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">8</span>, <span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb125-3" data-line-number="3">vect2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">7</span>, <span class="dv">1</span>, <span class="dv">9</span>)</a>
+<a class="sourceLine" id="cb125-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb125-5" data-line-number="5"><span class="co"># addition</span></a>
+<a class="sourceLine" id="cb125-6" data-line-number="6">vect1 <span class="op">+</span><span class="st"> </span>vect2</a>
+<a class="sourceLine" id="cb125-7" data-line-number="7">## [1]  3 10  9 13</a>
+<a class="sourceLine" id="cb125-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb125-9" data-line-number="9"><span class="co"># subtraction</span></a>
+<a class="sourceLine" id="cb125-10" data-line-number="10">vect1 <span class="op">-</span><span class="st"> </span>vect2</a>
+<a class="sourceLine" id="cb125-11" data-line-number="11">## [1] -1 -4  7 -5</a>
+<a class="sourceLine" id="cb125-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb125-13" data-line-number="13"><span class="co"># multiplication</span></a>
+<a class="sourceLine" id="cb125-14" data-line-number="14">vect1 <span class="op">*</span><span class="st"> </span>vect2</a>
+<a class="sourceLine" id="cb125-15" data-line-number="15">## [1]  2 21  8 36</a>
+<a class="sourceLine" id="cb125-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb125-17" data-line-number="17"><span class="co"># division</span></a>
+<a class="sourceLine" id="cb125-18" data-line-number="18">vect1 <span class="op">/</span><span class="st"> </span>vect2</a>
+<a class="sourceLine" id="cb125-19" data-line-number="19">## [1] 0.5000000 0.4285714 8.0000000 0.4444444</a></code></pre></div>
+</div>
+<div id="case-2-vectors-of-different-length" class="section level3">
+<h3><span class="header-section-number">6.8.2</span> Case 2: Vectors of different length</h3>
+<p>In the previous case, the length i.e. the number of elements in the vectors were same. What happens if the length of the vectors are unequal? In such cases, the shorter vector is recycled to match the length of the longer vector. The below example should clear this concept:</p>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb126-1" data-line-number="1"><span class="co"># create two vectors</span></a>
+<a class="sourceLine" id="cb126-2" data-line-number="2">vect1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">7</span>)</a>
+<a class="sourceLine" id="cb126-3" data-line-number="3">vect2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">8</span>, <span class="dv">5</span>, <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb126-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb126-5" data-line-number="5"><span class="co"># addition</span></a>
+<a class="sourceLine" id="cb126-6" data-line-number="6">vect1 <span class="op">+</span><span class="st"> </span>vect2</a>
+<a class="sourceLine" id="cb126-7" data-line-number="7">## [1]  3 15  7  9</a>
+<a class="sourceLine" id="cb126-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb126-9" data-line-number="9"><span class="co"># subtraction</span></a>
+<a class="sourceLine" id="cb126-10" data-line-number="10">vect1 <span class="op">-</span><span class="st"> </span>vect2</a>
+<a class="sourceLine" id="cb126-11" data-line-number="11">## [1]  1 -1 -3  5</a>
+<a class="sourceLine" id="cb126-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb126-13" data-line-number="13"><span class="co"># multiplication</span></a>
+<a class="sourceLine" id="cb126-14" data-line-number="14">vect1 <span class="op">*</span><span class="st"> </span>vect2</a>
+<a class="sourceLine" id="cb126-15" data-line-number="15">## [1]  2 56 10 14</a>
+<a class="sourceLine" id="cb126-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb126-17" data-line-number="17"><span class="co"># division</span></a>
+<a class="sourceLine" id="cb126-18" data-line-number="18">vect1 <span class="op">/</span><span class="st"> </span>vect2</a>
+<a class="sourceLine" id="cb126-19" data-line-number="19">## [1] 2.000 0.875 0.400 3.500</a></code></pre></div>
+</div>
+</div>
+<div id="missing-data" class="section level2">
+<h2><span class="header-section-number">6.9</span> Missing Data</h2>
+<p>Missing data is a reality. No matter how careful you are in collecting data for your analysis, chances are always high that you end up with some missing data. In R missing values are represented by <code>NA</code>. In this section, we will focus on the following:</p>
+<ul>
+<li>test for missing data</li>
+<li>remove missing data</li>
+<li>exclude missing data from analysis</li>
+</ul>
+<div id="detect-missing-data" class="section level3">
+<h3><span class="header-section-number">6.9.1</span> Detect missing data</h3>
+<p>We first create a vector with missing values. After that, we will use <code>is.na()</code> to test whether the data contains missing values. <code>is.na()</code> returns a logical vector equal to the length of the vector being tested. Another function that can be used for detecting missing values is <code>complete.cases()</code>. Below is an example:</p>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb127-1" data-line-number="1"><span class="co"># vector with missing values</span></a>
+<a class="sourceLine" id="cb127-2" data-line-number="2">vect1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="ot">NA</span>, <span class="dv">5</span>, <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb127-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb127-4" data-line-number="4"><span class="co"># use is.na</span></a>
+<a class="sourceLine" id="cb127-5" data-line-number="5"><span class="kw">is.na</span>(vect1)</a>
+<a class="sourceLine" id="cb127-6" data-line-number="6">## [1] FALSE FALSE  TRUE FALSE FALSE</a>
+<a class="sourceLine" id="cb127-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb127-8" data-line-number="8"><span class="co"># use complete.cases</span></a>
+<a class="sourceLine" id="cb127-9" data-line-number="9"><span class="kw">complete.cases</span>(vect1)</a>
+<a class="sourceLine" id="cb127-10" data-line-number="10">## [1]  TRUE  TRUE FALSE  TRUE  TRUE</a></code></pre></div>
+</div>
+<div id="omit-missing-data" class="section level3">
+<h3><span class="header-section-number">6.9.2</span> Omit missing data</h3>
+<p>In the presensce of missing data, all computations in R will return <code>NA</code>. To avoid this, we might want to remove the missing data before doing any computation. <code>na.omit()</code> will remove all missing values from the data. Let us look at an example:</p>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb128-1" data-line-number="1"><span class="co"># vector with missing values</span></a>
+<a class="sourceLine" id="cb128-2" data-line-number="2">vect1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="ot">NA</span>, <span class="dv">5</span>, <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb128-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb128-4" data-line-number="4"><span class="co"># call vect1</span></a>
+<a class="sourceLine" id="cb128-5" data-line-number="5">vect1</a>
+<a class="sourceLine" id="cb128-6" data-line-number="6">## [1]  1  3 NA  5  2</a>
+<a class="sourceLine" id="cb128-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb128-8" data-line-number="8"><span class="co"># omit missing values</span></a>
+<a class="sourceLine" id="cb128-9" data-line-number="9"><span class="kw">na.omit</span>(vect1)</a>
+<a class="sourceLine" id="cb128-10" data-line-number="10">## [1] 1 3 5 2</a>
+<a class="sourceLine" id="cb128-11" data-line-number="11">## attr(,&quot;na.action&quot;)</a>
+<a class="sourceLine" id="cb128-12" data-line-number="12">## [1] 3</a>
+<a class="sourceLine" id="cb128-13" data-line-number="13">## attr(,&quot;class&quot;)</a>
+<a class="sourceLine" id="cb128-14" data-line-number="14">## [1] &quot;omit&quot;</a></code></pre></div>
+</div>
+<div id="exclude-missing-data" class="section level3">
+<h3><span class="header-section-number">6.9.3</span> Exclude missing data</h3>
+<p>To exclude missing values from computations, use <code>na.rm</code> and set it to <code>TRUE</code>.</p>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb129-1" data-line-number="1"><span class="co"># vector with missing values</span></a>
+<a class="sourceLine" id="cb129-2" data-line-number="2">vect1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="ot">NA</span>, <span class="dv">5</span>, <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb129-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb129-4" data-line-number="4"><span class="co"># compute mean</span></a>
+<a class="sourceLine" id="cb129-5" data-line-number="5"><span class="kw">mean</span>(vect1)</a>
+<a class="sourceLine" id="cb129-6" data-line-number="6">## [1] NA</a>
+<a class="sourceLine" id="cb129-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb129-8" data-line-number="8"><span class="co"># compute mean by excluding missing value</span></a>
+<a class="sourceLine" id="cb129-9" data-line-number="9"><span class="kw">mean</span>(vect1, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb129-10" data-line-number="10">## [1] 2.75</a></code></pre></div>
+</div>
+</div>
+<div id="index-vectors" class="section level2">
+<h2><span class="header-section-number">6.10</span> Index Vectors</h2>
+<p>One of the most important steps in data analysis is selecting a subset of data from a bigger data set. Indexing helps in retrieving values individually or a set of values that meet a specific criteria. In this post, we look at various ways of indexing/subsetting vectors.</p>
+<p><code>[]</code> is the index operator in R. We can use various expressions within <code>[]</code> to subset data. In R, <strong>index positions begin at 1 and not 0</strong>. To begin with, let us look at values in different index positions:</p>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb130-1" data-line-number="1"><span class="co"># random sample of 10 values</span></a>
+<a class="sourceLine" id="cb130-2" data-line-number="2">vect1 &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb130-3" data-line-number="3">vect1</a></code></pre></div>
+<pre><code>##  [1]  6  8  2 10  1  3  4  7  9  5</code></pre>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb132-1" data-line-number="1"><span class="co"># return third element</span></a>
+<a class="sourceLine" id="cb132-2" data-line-number="2">vect1[<span class="dv">3</span>]</a></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb134-1" data-line-number="1"><span class="co"># return seventh element</span></a>
+<a class="sourceLine" id="cb134-2" data-line-number="2">vect1[<span class="dv">7</span>]    </a></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<div id="out-of-range-index" class="section level3">
+<h3><span class="header-section-number">6.10.1</span> Out of range index</h3>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb136-1" data-line-number="1"><span class="co"># random sample of 10 values</span></a>
+<a class="sourceLine" id="cb136-2" data-line-number="2">vect1 &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb136-3" data-line-number="3">vect1</a></code></pre></div>
+<pre><code>##  [1] 10  7  5  8  4  1  3  2  6  9</code></pre>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb138-1" data-line-number="1"><span class="co"># return value at index 0</span></a>
+<a class="sourceLine" id="cb138-2" data-line-number="2">vect1[<span class="dv">0</span>]</a></code></pre></div>
+<pre><code>## integer(0)</code></pre>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb140-1" data-line-number="1"><span class="co"># length of the vector</span></a>
+<a class="sourceLine" id="cb140-2" data-line-number="2"><span class="kw">length</span>(vect1)</a></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb142-1" data-line-number="1"><span class="co"># out of range index</span></a>
+<a class="sourceLine" id="cb142-2" data-line-number="2">vect1[<span class="dv">11</span>]   </a></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<p>In the first case, we specified the index as 0 and in the second case we used the index 11, which is greater than the length of the vector. R returns an empty vector in the first case and <code>NA</code> in the second case.</p>
+</div>
+<div id="negative-index" class="section level3">
+<h3><span class="header-section-number">6.10.2</span> Negative Index</h3>
+<p>Using a negative index will delete the value in the said index position. Unlike other languages, it will not index elements from the
+end of the vector counting backwards. Let us look at an example to understand how negative index works in R:</p>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb144-1" data-line-number="1"><span class="co"># random sample of 10 values</span></a>
+<a class="sourceLine" id="cb144-2" data-line-number="2">vect1 &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb144-3" data-line-number="3">vect1</a></code></pre></div>
+<pre><code>##  [1]  3  9  1  4 10  5  7  6  8  2</code></pre>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb146-1" data-line-number="1"><span class="co"># drop third element</span></a>
+<a class="sourceLine" id="cb146-2" data-line-number="2">vect1[<span class="op">-</span><span class="dv">3</span>]</a></code></pre></div>
+<pre><code>## [1]  3  9  4 10  5  7  6  8  2</code></pre>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb148-1" data-line-number="1"><span class="co"># drop seventh element</span></a>
+<a class="sourceLine" id="cb148-2" data-line-number="2">vect1[<span class="op">-</span><span class="dv">7</span>]   </a></code></pre></div>
+<pre><code>## [1]  3  9  1  4 10  5  6  8  2</code></pre>
+</div>
+<div id="subset-multiple-elements" class="section level3">
+<h3><span class="header-section-number">6.10.3</span> Subset Multiple Elements</h3>
+<p>If we do not specify anything within <code>[]</code>, all the elements in the vector will be returned. We can specify the index elements using any expression that generates a sequence of integers. Let us look at a few examples:</p>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb150-1" data-line-number="1"><span class="co"># random sample of 10 values</span></a>
+<a class="sourceLine" id="cb150-2" data-line-number="2">vect1 &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb150-3" data-line-number="3">vect1</a></code></pre></div>
+<pre><code>##  [1]  4  3  1  6  8 10  5  2  9  7</code></pre>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb152-1" data-line-number="1"><span class="co"># return all elements</span></a>
+<a class="sourceLine" id="cb152-2" data-line-number="2">vect1[]</a></code></pre></div>
+<pre><code>##  [1]  4  3  1  6  8 10  5  2  9  7</code></pre>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb154-1" data-line-number="1"><span class="co"># return first 5 values</span></a>
+<a class="sourceLine" id="cb154-2" data-line-number="2">vect1[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]</a></code></pre></div>
+<pre><code>## [1] 4 3 1 6 8</code></pre>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb156-1" data-line-number="1"><span class="co"># return all values from the 5th position</span></a>
+<a class="sourceLine" id="cb156-2" data-line-number="2">end &lt;-<span class="st"> </span><span class="kw">length</span>(vect1)</a>
+<a class="sourceLine" id="cb156-3" data-line-number="3">vect1[<span class="dv">5</span><span class="op">:</span>end]</a></code></pre></div>
+<pre><code>## [1]  8 10  5  2  9  7</code></pre>
+<p>If you are using the colon to generate the index positions, you will have to specify both the starting and ending position, else, R will return an error.</p>
+<p>What if we want elements that are not in a sequence as we saw in the last example? In such cases, we have to create a vector using <code>c()</code> and use it to extract elements from the original vector. Below is an example:</p>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb158-1" data-line-number="1"><span class="co"># random sample of 10 values</span></a>
+<a class="sourceLine" id="cb158-2" data-line-number="2">vect1 &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb158-3" data-line-number="3">vect1</a></code></pre></div>
+<pre><code>##  [1]  9  8  1  7  5  6  3 10  2  4</code></pre>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb160-1" data-line-number="1"><span class="co"># extract 2nd, 5th and 7th element</span></a>
+<a class="sourceLine" id="cb160-2" data-line-number="2">select &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">7</span>)</a>
+<a class="sourceLine" id="cb160-3" data-line-number="3">vect1[select]</a></code></pre></div>
+<pre><code>## [1] 8 5 3</code></pre>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb162-1" data-line-number="1"><span class="co"># extract elements in position 1 to 4, 6 and 9</span></a>
+<a class="sourceLine" id="cb162-2" data-line-number="2">select &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">9</span>)</a>
+<a class="sourceLine" id="cb162-3" data-line-number="3">vect1[select]</a></code></pre></div>
+<pre><code>## [1] 9 8 1 7 6 2</code></pre>
+</div>
+<div id="subset-named-vectors" class="section level3">
+<h3><span class="header-section-number">6.10.4</span> Subset Named Vectors</h3>
+<p>Vectors can be subset using the name of the elements. <strong>When using name of elements for subsetting, ensure that the names are enclosed in single or double quotations</strong>, else R will return an error. Let us look at a few examples:</p>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb164-1" data-line-number="1">vect1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">score1 =</span> <span class="dv">8</span>, <span class="dt">score2 =</span> <span class="dv">6</span>, <span class="dt">score3 =</span> <span class="dv">9</span>)</a>
+<a class="sourceLine" id="cb164-2" data-line-number="2">vect1</a></code></pre></div>
+<pre><code>## score1 score2 score3 
+##      8      6      9</code></pre>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb166-1" data-line-number="1"><span class="co"># extract score2</span></a>
+<a class="sourceLine" id="cb166-2" data-line-number="2">vect1[<span class="st">&#39;score2&#39;</span>]</a></code></pre></div>
+<pre><code>## score2 
+##      6</code></pre>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb168-1" data-line-number="1"><span class="co"># extract score1 and score3</span></a>
+<a class="sourceLine" id="cb168-2" data-line-number="2">vect1[<span class="kw">c</span>(<span class="st">&#39;score1&#39;</span>, <span class="st">&#39;score3&#39;</span>)]</a></code></pre></div>
+<pre><code>## score1 score3 
+##      8      9</code></pre>
+</div>
+<div id="subset-using-logical-values" class="section level3">
+<h3><span class="header-section-number">6.10.5</span> Subset using logical values</h3>
+<p>Logical values can be used to subset vectors. They are not very flexible but can be used for simple indexing. In all of the below examples, the logical vectors are recycled to match the length of the vector from which we subset data:</p>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb170-1" data-line-number="1"><span class="co"># random sample of 10 values</span></a>
+<a class="sourceLine" id="cb170-2" data-line-number="2">vect1 &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb170-3" data-line-number="3">vect1</a></code></pre></div>
+<pre><code>##  [1]  8  6 10  3  7  4  5  9  2  1</code></pre>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb172-1" data-line-number="1"><span class="co"># returns all values</span></a>
+<a class="sourceLine" id="cb172-2" data-line-number="2">vect1[<span class="ot">TRUE</span>]</a></code></pre></div>
+<pre><code>##  [1]  8  6 10  3  7  4  5  9  2  1</code></pre>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb174-1" data-line-number="1"><span class="co"># empty vector</span></a>
+<a class="sourceLine" id="cb174-2" data-line-number="2">vect1[<span class="ot">FALSE</span>]</a></code></pre></div>
+<pre><code>## integer(0)</code></pre>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb176-1" data-line-number="1"><span class="co"># values in odd positions</span></a>
+<a class="sourceLine" id="cb176-2" data-line-number="2">vect1[<span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>)]</a></code></pre></div>
+<pre><code>## [1]  8 10  7  5  2</code></pre>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb178-1" data-line-number="1"><span class="co"># values in even positions</span></a>
+<a class="sourceLine" id="cb178-2" data-line-number="2">vect1[<span class="kw">c</span>(<span class="ot">FALSE</span>, <span class="ot">TRUE</span>)]</a></code></pre></div>
+<pre><code>## [1] 6 3 4 9 1</code></pre>
+</div>
+<div id="subset-using-logical-expressions" class="section level3">
+<h3><span class="header-section-number">6.10.6</span> Subset using logical expressions</h3>
+<p>Logical expressions can be used to extract elements that meet specific criteria. This method is most flexible and useful as we can combine multiple conditions using relational and logical operators. Before we use logical expressions, let us spend some time understanding comparison and logical operators as we will be using them extensively hereafter.</p>
+<div id="comparison-operators" class="section level4">
+<h4><span class="header-section-number">6.10.6.1</span> Comparison Operators</h4>
+<p>When you create an expression using a comparison operator, the output is always a logical value i.e. <code>TRUE</code> or <code>FALSE</code>. Let us see how we can use comparison operators to subset data:</p>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb180-1" data-line-number="1"><span class="co"># random sample of 10 values</span></a>
+<a class="sourceLine" id="cb180-2" data-line-number="2">vect1 &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb180-3" data-line-number="3">vect1</a></code></pre></div>
+<pre><code>##  [1]  6  9  2  3  1  5  8  7 10  4</code></pre>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb182-1" data-line-number="1"><span class="co"># return elements greater than 5</span></a>
+<a class="sourceLine" id="cb182-2" data-line-number="2">vect1 <span class="op">&gt;</span><span class="st"> </span><span class="dv">5</span></a></code></pre></div>
+<pre><code>##  [1]  TRUE  TRUE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE FALSE</code></pre>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb184-1" data-line-number="1">vect1[vect1 <span class="op">&gt;</span><span class="st"> </span><span class="dv">5</span>]</a></code></pre></div>
+<pre><code>## [1]  6  9  8  7 10</code></pre>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb186-1" data-line-number="1"><span class="co"># return elements greater than or equal to 5</span></a>
+<a class="sourceLine" id="cb186-2" data-line-number="2">vect1 <span class="op">&gt;=</span><span class="st"> </span><span class="dv">5</span></a></code></pre></div>
+<pre><code>##  [1]  TRUE  TRUE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE FALSE</code></pre>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb188-1" data-line-number="1">vect1[vect1 <span class="op">&gt;=</span><span class="st"> </span><span class="dv">5</span>]</a></code></pre></div>
+<pre><code>## [1]  6  9  5  8  7 10</code></pre>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb190-1" data-line-number="1"><span class="co"># return elements lesser than 5</span></a>
+<a class="sourceLine" id="cb190-2" data-line-number="2">vect1 <span class="op">&lt;</span><span class="st"> </span><span class="dv">5</span></a></code></pre></div>
+<pre><code>##  [1] FALSE FALSE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE  TRUE</code></pre>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb192-1" data-line-number="1">vect1[vect1 <span class="op">&lt;</span><span class="st"> </span><span class="dv">5</span>]</a></code></pre></div>
+<pre><code>## [1] 2 3 1 4</code></pre>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb194-1" data-line-number="1"><span class="co"># return elements lesser than or equal to 5</span></a>
+<a class="sourceLine" id="cb194-2" data-line-number="2">vect1 <span class="op">&lt;=</span><span class="st"> </span><span class="dv">5</span></a></code></pre></div>
+<pre><code>##  [1] FALSE FALSE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE  TRUE</code></pre>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb196-1" data-line-number="1">vect1[vect1 <span class="op">&lt;=</span><span class="st"> </span><span class="dv">5</span>]</a></code></pre></div>
+<pre><code>## [1] 2 3 1 5 4</code></pre>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb198-1" data-line-number="1"><span class="co"># return elements equal to 5</span></a>
+<a class="sourceLine" id="cb198-2" data-line-number="2">vect1 <span class="op">==</span><span class="st"> </span><span class="dv">5</span></a></code></pre></div>
+<pre><code>##  [1] FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE</code></pre>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb200-1" data-line-number="1">vect1[vect1 <span class="op">==</span><span class="st"> </span><span class="dv">5</span>]</a></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb202-1" data-line-number="1"><span class="co"># return elements not equal to 5</span></a>
+<a class="sourceLine" id="cb202-2" data-line-number="2">vect1 <span class="op">!=</span><span class="st"> </span><span class="dv">5</span></a></code></pre></div>
+<pre><code>##  [1]  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE</code></pre>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb204-1" data-line-number="1">vect1[vect1 <span class="op">!=</span><span class="st"> </span><span class="dv">5</span>]</a></code></pre></div>
+<pre><code>## [1]  6  9  2  3  1  8  7 10  4</code></pre>
+</div>
+</div>
+<div id="logical-operators" class="section level3">
+<h3><span class="header-section-number">6.10.7</span> Logical Operators</h3>
+<p>Let us combine comparison and logical operators to create expressions and use them to subset vectors:</p>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb206-1" data-line-number="1"><span class="co"># random sample of 10 values</span></a>
+<a class="sourceLine" id="cb206-2" data-line-number="2">vect1 &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb206-3" data-line-number="3">vect1</a></code></pre></div>
+<pre><code>##  [1]  6  7 10  9  5  2  4  3  8  1</code></pre>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb208-1" data-line-number="1"><span class="co"># return all elements less than 8 or divisible by 3</span></a>
+<a class="sourceLine" id="cb208-2" data-line-number="2">vect1[(vect1 <span class="op">&lt;</span><span class="st"> </span><span class="dv">8</span> <span class="op">|</span><span class="st"> </span>(vect1 <span class="op">%%</span><span class="st"> </span><span class="dv">3</span> <span class="op">==</span><span class="st"> </span><span class="dv">0</span>))]</a></code></pre></div>
+<pre><code>## [1] 6 7 9 5 2 4 3 1</code></pre>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb210-1" data-line-number="1"><span class="co"># return all elements less than 7 or divisible by 2</span></a>
+<a class="sourceLine" id="cb210-2" data-line-number="2">vect1[(vect1 <span class="op">&lt;</span><span class="st"> </span><span class="dv">7</span> <span class="op">|</span><span class="st"> </span>(vect1 <span class="op">%%</span><span class="st"> </span><span class="dv">2</span> <span class="op">==</span><span class="st"> </span><span class="dv">0</span>))]</a></code></pre></div>
+<pre><code>## [1]  6 10  5  2  4  3  8  1</code></pre>
 
+</div>
+</div>
 </div>
             </section>
 
@@ -140,7 +753,8 @@ gitbook.start({
 },
 "download": null,
 "toc": {
-"collapse": "subsection"
+"collapse": "subsection",
+"scroll_highlight": true
 }
 });
 });

@@ -1,0 +1,136 @@
+# R Packages {#packages}
+
+## Introduction
+
+In this chapter, we will learn about R packages. Packages are fundamental to R. There are approximately 15000 packages available on [CRAN](https://cran.r-project.org/) or the Comprehensive R Archive Network.
+
+Packages are available for different [topics](https://cran.r-project.org/web/views/). You should always look for a package before writing code from scratch. In case you have written your own codes for a new analysis or topic, do share it with the R community by converting the code into a package. You can learn more about building R packages from [R Packages](https://r-pkgs.had.co.nz/), a book written by [Hadley Wickham](https://hadley.nz/).
+
+In this post, we will learn to:
+
+- install R packages from 
+    - CRAN
+    - GitHub
+    - BitBucket
+    - Bioconductor
+    - rForge
+- install different versions of a package
+- load, update & remove installed packages
+- access package documentation
+
+## Install Packages
+
+### CRAN
+
+Packages from CRAN can be installed using `install.packages()`. The name of the package must be enclosed in single or double quotes.
+
+```{r install1, eval=FALSE}
+install.packages('ggplot2')
+```
+
+### GitHub
+
+Some R packages are made available on [GitHub](https://github.com/) before releasing them on CRAN. Such packages can be installed using `install_github()` from [devtools](https://cran.r-project.org/web/packages/devtools/index.html) or [remotes](https://cran.r-project.org/web/packages/remotes/index.html) package. You need tp specify the name of the repository and the package. For example, to download [ggplot2](https://ggplot2.tidyverse.org/) or [dplyr](https://dplyr.tidyverse.org/), below is the code:
+
+```{r install2, eval=FALSE}
+devtools::install_github("tidyverse/ggplot2")
+remotes::install_github("tidyverse/dplyr")
+```
+
+### BitBucket
+
+[Bitbucket](https://bitbucket.org/) is similar to GitHub. You can install packages from Bitbucket using `install_bitbucket()` from devtools or remotes pacakge.
+
+```{r install3, eval=FALSE}
+devtools::install_bitbucket("dannavarro/lsr-package")
+remotes::install_bitbucket("dannavarro/lsr-package")
+```
+
+### Bioconductor
+
+[Bioconductor](https://www.bioconductor.org/) provides tools for analysis and comprehension of high throughput genomic data. Packages hosted on Bioconductor can be installed in multiple ways:
+
+#### devtools
+
+Use `install_bioc()` from devtools.
+
+```{r install4, eval=FALSE}
+install_bioc("SummarizedExperiment")
+```
+
+#### biocLite
+
+Use `biocLite()` function.
+
+```{r install5, eval=FALSE}
+source('http://bioconductor.org/biocLite.R')
+biocLite('GenomicFeatures')
+```
+
+### rForge
+
+Many R packages are hosted at [R-Forge](https://r-forge.r-project.org/), a platform for development of R packages. 
+
+```{r install6, eval=FALSE}
+install.packages('quantstrat', repos = 'https://r-forge.r-project.org/')
+```
+
+## Install Different Versions
+
+Now that we have learnt how to install packages, let us look at installing different versions of the same package.
+
+```{r install7, eval=FALSE}
+remotes::install_version('dplyr', version = 0.5.0)
+```
+
+If you want to install the latest release from GitHub, append `@*release` to the repository name. For example, to install the latest release of dplyr:
+
+```{r install8, eval=FALSE}
+remotes::install_github('tidyverse/dplyr@*release')
+```
+
+## Installed Packages
+
+- `installed.packages()`: view currently installed packages
+- `library('package_name')`: load packages
+- `autoload('function_name', 'package_name')`: load functions and data from packages only when called in the script
+- `available.package()`: packages available for installation
+- `old.packages()`: packages which have new versions available
+- `new.packages()`: packages already not installed
+- `update.packages()`: update packages which have new versions
+- `remove.packages('package_name')`: remove installed packages
+
+## Library Paths
+
+Library is a directory that contains all installed packages. Usually there will be more than one R library in your systme. You can find the location of the libraries using `.libPaths()`.
+
+```{r install9}
+.libPaths()
+```
+
+You can use `lib.loc` when you want to install, load, update and remove packages from a particular library.
+
+### Install
+
+```{r install10, eval=FALSE}
+install.packages('stringr', lib.loc = "C:/Program Files/R/R-3.4.1/library")
+```
+
+### Load
+
+```{r install11, eval=FALSE}
+library(lubridate, lib.loc = "C:/Program Files/R/R-3.4.1/library")
+```
+
+### Update Packages
+
+```{r install12, eval=FALSE}
+update.packages(lib.loc = "C:/Program Files/R/R-3.4.1/library")
+```
+
+### Remove Packages
+
+```{r install13, eval=FALSE}
+remove.packages(lib.loc = "C:/Program Files/R/R-3.4.1/library")
+```
+

@@ -1,2 +1,5 @@
-# Installing R {#installation}
+# Installation {#installation}
 
+## R
+
+## RStudio

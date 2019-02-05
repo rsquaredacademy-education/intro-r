@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="dataframes.html">
-<link rel="next" href="lists.html">
+<link rel="prev" href="installation.html">
+<link rel="next" href="datatypes.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -271,36 +271,75 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="factors" class="section level1">
-<h1><span class="header-section-number">Chapter 8</span> Factors</h1>
-<div id="introduction-5" class="section level2">
-<h2><span class="header-section-number">8.1</span> Introduction</h2>
-<p>In this chapter, we will learn to:</p>
-<ul>
-<li>create factors</li>
-<li>order levels</li>
-<li>specify labels</li>
-<li>check levels</li>
-<li>number of levels</li>
-</ul>
-<p>Categorical or qualitative data in R is treated as data type <code>factor</code>.</p>
+<div id="variables" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Variables</h1>
+<div id="introduction" class="section level2">
+<h2><span class="header-section-number">3.1</span> Introduction</h2>
+<p>In the previous post, we learnt to install RStudio. In this post, we will learn about variables and data types. You can skip this post, if you have prior experience in any other programming language.</p>
 </div>
-<div id="create-factors" class="section level2">
-<h2><span class="header-section-number">8.2</span> Create Factors</h2>
-<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb221-1" data-line-number="1"><span class="kw">args</span>(factor)</a></code></pre></div>
-<pre><code>## function (x = character(), levels, labels = levels, exclude = NA, 
-##     ordered = is.ordered(x), nmax = NA) 
-## NULL</code></pre>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb223-1" data-line-number="1">devices &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&#39;Mobile&#39;</span>, <span class="st">&#39;Tablet&#39;</span>, <span class="st">&#39;Desktop&#39;</span>))</a>
-<a class="sourceLine" id="cb223-2" data-line-number="2">devices</a></code></pre></div>
-<pre><code>## [1] Mobile  Tablet  Desktop
-## Levels: Desktop Mobile Tablet</code></pre>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb225-1" data-line-number="1"><span class="co"># number of levels</span></a>
-<a class="sourceLine" id="cb225-2" data-line-number="2"><span class="kw">nlevels</span>(devices)</a></code></pre></div>
+<div id="what-is-a-variable" class="section level2">
+<h2><span class="header-section-number">3.2</span> What is a variable?</h2>
+<ul>
+<li>variables are the fundamental elements of any programming language</li>
+<li>they are used to represent values that are likely to change</li>
+<li>they reference memory locations that store information/data</li>
+</ul>
+<p>Let us use a simple case study to understand variables. Suppose you are computing the area of a circle whose radius is 3. In R, you can do this straight away as shown below:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="fl">3.14</span> <span class="op">*</span><span class="st"> </span><span class="dv">3</span> <span class="op">*</span><span class="st"> </span><span class="dv">3</span></a></code></pre></div>
+<pre><code>## [1] 28.26</code></pre>
+<p>But you cannot reuse the radius or the area computed in any other analysis or computation. Let us see how variables can change the above scenario and help us in reusing values and computations.</p>
+</div>
+<div id="creating-variables" class="section level2">
+<h2><span class="header-section-number">3.3</span> Creating Variables</h2>
+<p>A variable consists of 3 components:</p>
+<ul>
+<li>variable name</li>
+<li>assignment operator</li>
+<li>variable value</li>
+</ul>
+<p>We can store the value of the radius by creating a variable and assigning it the value. In this case, we create a variable
+called <code>radius</code> and assign it the value <code>3</code> using the assignment operator <code>&lt;-</code>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">radius &lt;-<span class="st"> </span><span class="dv">3</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">radius</a></code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb227-1" data-line-number="1"><span class="co"># levels</span></a>
-<a class="sourceLine" id="cb227-2" data-line-number="2"><span class="kw">levels</span>(devices)</a></code></pre></div>
-<pre><code>## [1] &quot;Desktop&quot; &quot;Mobile&quot;  &quot;Tablet&quot;</code></pre>
+<p>Now that we have learnt to create variables, let us see how we can use them for other computations. For our case study,
+we will use the <code>radius</code> variable to compute the area of a circle.</p>
+</div>
+<div id="using-variables" class="section level2">
+<h2><span class="header-section-number">3.4</span> Using Variables</h2>
+<p>We will create two variables, <code>radius</code> and <code>pi</code>, and use them to compute the area of a circle and store it in another variable <code>area</code>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co"># assign value 3 to variable radius</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">radius &lt;-<span class="st"> </span><span class="dv">3</span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co"># assign value 3.14 to variable pi</span></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5">pi &lt;-<span class="st"> </span><span class="fl">3.14</span></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co"># compute area of circle</span></a>
+<a class="sourceLine" id="cb5-8" data-line-number="8">area &lt;-<span class="st"> </span>pi <span class="op">*</span><span class="st"> </span>radius <span class="op">*</span><span class="st"> </span>radius</a>
+<a class="sourceLine" id="cb5-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co"># call radius</span></a>
+<a class="sourceLine" id="cb5-11" data-line-number="11">radius</a></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co"># call area </span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">area</a></code></pre></div>
+<pre><code>## [1] 28.26</code></pre>
+</div>
+<div id="components-of-a-variable" class="section level2">
+<h2><span class="header-section-number">3.5</span> Components of a Variable</h2>
+<center>
+<img src = "/post/components.png" width = "800" height = "600">
+</center>
+</div>
+<div id="naming-conventions" class="section level2">
+<h2><span class="header-section-number">3.6</span> Naming Conventions</h2>
+<ul>
+<li>Name must begin with a letter. Do not use numbers, dollar sign (<code>$</code>) or underscore (<code>_</code>).</li>
+<li>The name can contain numbers or underscore. Do not use dash (<code>-</code>) or period (<code>.</code>).</li>
+<li>Do not use the names of keywords and avoid using the names of built in functions.</li>
+<li>Variables are case sensitive; <code>average</code> and <code>Average</code> would be different variables.</li>
+<li>Use names that are descriptive. Generally, variable names should be nouns.</li>
+<li>If the name is made of more than one word, use underscore to separate the words.</li>
+</ul>
 
 </div>
 </div>
@@ -309,8 +348,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="dataframes.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="lists.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="installation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="datatypes.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
