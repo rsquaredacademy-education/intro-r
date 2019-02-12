@@ -130,7 +130,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="https://github.com/rsquaredacademy-education/intro-r/">Introduction to R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#structure-of-the-book"><i class="fa fa-check"></i>Structure of the book</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#software-information"><i class="fa fa-check"></i>Software information</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the Author</a></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
 <li class="chapter" data-level="2" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>2</b> Installation</a><ul>
 <li class="chapter" data-level="2.1" data-path="installation.html"><a href="installation.html#r"><i class="fa fa-check"></i><b>2.1</b> R</a></li>
@@ -287,19 +291,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="create-factors" class="section level2">
 <h2><span class="header-section-number">8.2</span> Create Factors</h2>
-<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb221-1" data-line-number="1"><span class="kw">args</span>(factor)</a></code></pre></div>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb223-1" data-line-number="1"><span class="kw">args</span>(factor)</a></code></pre></div>
 <pre><code>## function (x = character(), levels, labels = levels, exclude = NA, 
 ##     ordered = is.ordered(x), nmax = NA) 
 ## NULL</code></pre>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb223-1" data-line-number="1">devices &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&#39;Mobile&#39;</span>, <span class="st">&#39;Tablet&#39;</span>, <span class="st">&#39;Desktop&#39;</span>))</a>
-<a class="sourceLine" id="cb223-2" data-line-number="2">devices</a></code></pre></div>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb225-1" data-line-number="1">devices &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&#39;Mobile&#39;</span>, <span class="st">&#39;Tablet&#39;</span>, <span class="st">&#39;Desktop&#39;</span>))</a>
+<a class="sourceLine" id="cb225-2" data-line-number="2">devices</a></code></pre></div>
 <pre><code>## [1] Mobile  Tablet  Desktop
 ## Levels: Desktop Mobile Tablet</code></pre>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb225-1" data-line-number="1"><span class="co"># number of levels</span></a>
-<a class="sourceLine" id="cb225-2" data-line-number="2"><span class="kw">nlevels</span>(devices)</a></code></pre></div>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb227-1" data-line-number="1"><span class="co"># number of levels</span></a>
+<a class="sourceLine" id="cb227-2" data-line-number="2"><span class="kw">nlevels</span>(devices)</a></code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb227-1" data-line-number="1"><span class="co"># levels</span></a>
-<a class="sourceLine" id="cb227-2" data-line-number="2"><span class="kw">levels</span>(devices)</a></code></pre></div>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb229-1" data-line-number="1"><span class="co"># levels</span></a>
+<a class="sourceLine" id="cb229-2" data-line-number="2"><span class="kw">levels</span>(devices)</a></code></pre></div>
 <pre><code>## [1] &quot;Desktop&quot; &quot;Mobile&quot;  &quot;Tablet&quot;</code></pre>
 
 </div>

@@ -130,7 +130,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="https://github.com/rsquaredacademy-education/intro-r/">Introduction to R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#structure-of-the-book"><i class="fa fa-check"></i>Structure of the book</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#software-information"><i class="fa fa-check"></i>Software information</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the Author</a></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
 <li class="chapter" data-level="2" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>2</b> Installation</a><ul>
 <li class="chapter" data-level="2.1" data-path="installation.html"><a href="installation.html#r"><i class="fa fa-check"></i><b>2.1</b> R</a></li>
@@ -297,19 +301,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="cran" class="section level3">
 <h3><span class="header-section-number">10.2.1</span> CRAN</h3>
 <p>Packages from CRAN can be installed using <code>install.packages()</code>. The name of the package must be enclosed in single or double quotes.</p>
-<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb251-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&#39;ggplot2&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb253-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&#39;ggplot2&#39;</span>)</a></code></pre></div>
 </div>
 <div id="github" class="section level3">
 <h3><span class="header-section-number">10.2.2</span> GitHub</h3>
 <p>Some R packages are made available on <a href="https://github.com/">GitHub</a> before releasing them on CRAN. Such packages can be installed using <code>install_github()</code> from <a href="https://cran.r-project.org/web/packages/devtools/index.html">devtools</a> or <a href="https://cran.r-project.org/web/packages/remotes/index.html">remotes</a> package. You need tp specify the name of the repository and the package. For example, to download <a href="https://ggplot2.tidyverse.org/">ggplot2</a> or <a href="https://dplyr.tidyverse.org/">dplyr</a>, below is the code:</p>
-<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb252-1" data-line-number="1">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;tidyverse/ggplot2&quot;</span>)</a>
-<a class="sourceLine" id="cb252-2" data-line-number="2">remotes<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;tidyverse/dplyr&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb254-1" data-line-number="1">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;tidyverse/ggplot2&quot;</span>)</a>
+<a class="sourceLine" id="cb254-2" data-line-number="2">remotes<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;tidyverse/dplyr&quot;</span>)</a></code></pre></div>
 </div>
 <div id="bitbucket" class="section level3">
 <h3><span class="header-section-number">10.2.3</span> BitBucket</h3>
 <p><a href="https://bitbucket.org/">Bitbucket</a> is similar to GitHub. You can install packages from Bitbucket using <code>install_bitbucket()</code> from devtools or remotes pacakge.</p>
-<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb253-1" data-line-number="1">devtools<span class="op">::</span><span class="kw">install_bitbucket</span>(<span class="st">&quot;dannavarro/lsr-package&quot;</span>)</a>
-<a class="sourceLine" id="cb253-2" data-line-number="2">remotes<span class="op">::</span><span class="kw">install_bitbucket</span>(<span class="st">&quot;dannavarro/lsr-package&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb255-1" data-line-number="1">devtools<span class="op">::</span><span class="kw">install_bitbucket</span>(<span class="st">&quot;dannavarro/lsr-package&quot;</span>)</a>
+<a class="sourceLine" id="cb255-2" data-line-number="2">remotes<span class="op">::</span><span class="kw">install_bitbucket</span>(<span class="st">&quot;dannavarro/lsr-package&quot;</span>)</a></code></pre></div>
 </div>
 <div id="bioconductor" class="section level3">
 <h3><span class="header-section-number">10.2.4</span> Bioconductor</h3>
@@ -317,27 +321,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="devtools" class="section level4">
 <h4><span class="header-section-number">10.2.4.1</span> devtools</h4>
 <p>Use <code>install_bioc()</code> from devtools.</p>
-<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb254-1" data-line-number="1"><span class="kw">install_bioc</span>(<span class="st">&quot;SummarizedExperiment&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb256-1" data-line-number="1"><span class="kw">install_bioc</span>(<span class="st">&quot;SummarizedExperiment&quot;</span>)</a></code></pre></div>
 </div>
 <div id="bioclite" class="section level4">
 <h4><span class="header-section-number">10.2.4.2</span> biocLite</h4>
 <p>Use <code>biocLite()</code> function.</p>
-<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb255-1" data-line-number="1"><span class="kw">source</span>(<span class="st">&#39;http://bioconductor.org/biocLite.R&#39;</span>)</a>
-<a class="sourceLine" id="cb255-2" data-line-number="2"><span class="kw">biocLite</span>(<span class="st">&#39;GenomicFeatures&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb257-1" data-line-number="1"><span class="kw">source</span>(<span class="st">&#39;http://bioconductor.org/biocLite.R&#39;</span>)</a>
+<a class="sourceLine" id="cb257-2" data-line-number="2"><span class="kw">biocLite</span>(<span class="st">&#39;GenomicFeatures&#39;</span>)</a></code></pre></div>
 </div>
 </div>
 <div id="rforge" class="section level3">
 <h3><span class="header-section-number">10.2.5</span> rForge</h3>
 <p>Many R packages are hosted at <a href="https://r-forge.r-project.org/">R-Forge</a>, a platform for development of R packages.</p>
-<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb256-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&#39;quantstrat&#39;</span>, <span class="dt">repos =</span> <span class="st">&#39;https://r-forge.r-project.org/&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb258-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&#39;quantstrat&#39;</span>, <span class="dt">repos =</span> <span class="st">&#39;https://r-forge.r-project.org/&#39;</span>)</a></code></pre></div>
 </div>
 </div>
 <div id="install-different-versions" class="section level2">
 <h2><span class="header-section-number">10.3</span> Install Different Versions</h2>
 <p>Now that we have learnt how to install packages, let us look at installing different versions of the same package.</p>
-<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb257-1" data-line-number="1">remotes<span class="op">::</span><span class="kw">install_version</span>(<span class="st">&#39;dplyr&#39;</span>, <span class="dt">version =</span> <span class="dv">0</span>.<span class="fl">5.0</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb259-1" data-line-number="1">remotes<span class="op">::</span><span class="kw">install_version</span>(<span class="st">&#39;dplyr&#39;</span>, <span class="dt">version =</span> <span class="dv">0</span>.<span class="fl">5.0</span>)</a></code></pre></div>
 <p>If you want to install the latest release from GitHub, append <code>@*release</code> to the repository name. For example, to install the latest release of dplyr:</p>
-<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb258-1" data-line-number="1">remotes<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&#39;tidyverse/dplyr@*release&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb260-1" data-line-number="1">remotes<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&#39;tidyverse/dplyr@*release&#39;</span>)</a></code></pre></div>
 </div>
 <div id="installed-packages" class="section level2">
 <h2><span class="header-section-number">10.4</span> Installed Packages</h2>
@@ -355,25 +359,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="library-paths" class="section level2">
 <h2><span class="header-section-number">10.5</span> Library Paths</h2>
 <p>Library is a directory that contains all installed packages. Usually there will be more than one R library in your systme. You can find the location of the libraries using <code>.libPaths()</code>.</p>
-<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb259-1" data-line-number="1"><span class="kw">.libPaths</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb261-1" data-line-number="1"><span class="kw">.libPaths</span>()</a></code></pre></div>
 <pre><code>## [1] &quot;C:/Users/HP/Documents/R/win-library&quot;
 ## [2] &quot;C:/Program Files/R/R-3.5.1/library&quot;</code></pre>
 <p>You can use <code>lib.loc</code> when you want to install, load, update and remove packages from a particular library.</p>
 <div id="install" class="section level3">
 <h3><span class="header-section-number">10.5.1</span> Install</h3>
-<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb261-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&#39;stringr&#39;</span>, <span class="dt">lib.loc =</span> <span class="st">&quot;C:/Program Files/R/R-3.4.1/library&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb263-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&#39;stringr&#39;</span>, <span class="dt">lib.loc =</span> <span class="st">&quot;C:/Program Files/R/R-3.4.1/library&quot;</span>)</a></code></pre></div>
 </div>
 <div id="load" class="section level3">
 <h3><span class="header-section-number">10.5.2</span> Load</h3>
-<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb262-1" data-line-number="1"><span class="kw">library</span>(lubridate, <span class="dt">lib.loc =</span> <span class="st">&quot;C:/Program Files/R/R-3.4.1/library&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb264-1" data-line-number="1"><span class="kw">library</span>(lubridate, <span class="dt">lib.loc =</span> <span class="st">&quot;C:/Program Files/R/R-3.4.1/library&quot;</span>)</a></code></pre></div>
 </div>
 <div id="update-packages" class="section level3">
 <h3><span class="header-section-number">10.5.3</span> Update Packages</h3>
-<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb263-1" data-line-number="1"><span class="kw">update.packages</span>(<span class="dt">lib.loc =</span> <span class="st">&quot;C:/Program Files/R/R-3.4.1/library&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb265-1" data-line-number="1"><span class="kw">update.packages</span>(<span class="dt">lib.loc =</span> <span class="st">&quot;C:/Program Files/R/R-3.4.1/library&quot;</span>)</a></code></pre></div>
 </div>
 <div id="remove-packages" class="section level3">
 <h3><span class="header-section-number">10.5.4</span> Remove Packages</h3>
-<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb264-1" data-line-number="1"><span class="kw">remove.packages</span>(<span class="dt">lib.loc =</span> <span class="st">&quot;C:/Program Files/R/R-3.4.1/library&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb266-1" data-line-number="1"><span class="kw">remove.packages</span>(<span class="dt">lib.loc =</span> <span class="st">&quot;C:/Program Files/R/R-3.4.1/library&quot;</span>)</a></code></pre></div>
 
 </div>
 </div>
