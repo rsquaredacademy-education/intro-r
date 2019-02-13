@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In the previous post, we learnt to install RStudio. In this post, we will learn about variables and data types. You can skip this post, if you have prior experience in any other programming language.
+In the previous chapter, we learnt to install RStudio. In this chapter, we will learn about variables and data types. You can skip this chapter, if you have prior experience in any other programming language.
 
 ## What is a variable?
 
@@ -60,9 +60,10 @@ area
 
 ## Components of a Variable
 
-<center>
-<img src = "/post/components.png" width = "800" height = "600">
-</center>
+
+```{r img1, fig.align='center', echo=FALSE}
+knitr::include_graphics('img/components.png')
+```
 
 ## Naming Conventions
 

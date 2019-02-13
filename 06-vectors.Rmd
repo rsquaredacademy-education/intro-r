@@ -279,7 +279,7 @@ mean(vect1, na.rm = TRUE)
 
 ## Index Vectors
 
-One of the most important steps in data analysis is selecting a subset of data from a bigger data set. Indexing helps in retrieving values individually or a set of values that meet a specific criteria. In this post, we look at various ways of indexing/subsetting vectors.
+One of the most important steps in data analysis is selecting a subset of data from a bigger data set. Indexing helps in retrieving values individually or a set of values that meet a specific criteria. In this chapter, we look at various ways of indexing/subsetting vectors.
 
 `[]` is the index operator in R. We can use various expressions within `[]` to subset data. In R, **index positions begin at 1 and not 0**. To begin with, let us look at values in different index positions:
 
