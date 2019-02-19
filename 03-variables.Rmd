@@ -60,7 +60,6 @@ area
 
 ## Components of a Variable
 
-
 ```{r img1, fig.align='center', echo=FALSE}
 knitr::include_graphics('img/components.png')
 ```

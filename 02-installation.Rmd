@@ -1,5 +1,13 @@
-# Installation {#installation}
+# Installation {#install}
 
 ## R
 
+```{r installr, echo=FALSE}
+knitr::include_url("https://www.youtube.com/embed/VJ6-ZxVUNzw")
+```
+
 ## RStudio
+
+```{r installrstudio, echo=FALSE}
+knitr::include_url("https://www.youtube.com/embed/_askhjFWlHA")
+```
