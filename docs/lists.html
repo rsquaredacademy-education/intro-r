@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Introduction to R</title>
-  <meta name="description" content="A simple introduction to the R programming language.">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 9 Lists | Introduction to R</title>
+  <meta name="description" content="A simple introduction to the R programming language." />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Introduction to R" />
+  <meta property="og:title" content="Chapter 9 Lists | Introduction to R" />
   <meta property="og:type" content="book" />
   
   
@@ -17,29 +16,31 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Introduction to R" />
+  <meta name="twitter:title" content="Chapter 9 Lists | Introduction to R" />
   
   <meta name="twitter:description" content="A simple introduction to the R programming language." />
   
 
-<meta name="author" content="Aravind Hebbali">
+<meta name="author" content="Aravind Hebbali" />
 
 
-<meta name="date" content="2019-02-19">
+<meta name="date" content="2020-06-20" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="factors.html">
-<link rel="next" href="packages.html">
+<link rel="prev" href="factors.html"/>
+<link rel="next" href="packages.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
@@ -47,31 +48,41 @@
 
 
 
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-57270671-37"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-57270671-37');
+</script>
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -80,9 +91,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -305,21 +316,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="creating-lists" class="section level2">
 <h2><span class="header-section-number">9.2</span> Creating Lists</h2>
 <p>To create a list, we use the <code>list()</code> function. Let us create a simple list to demonstrate how they can contain different data types.</p>
-<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb231-1" data-line-number="1"><span class="co"># numeric vector</span></a>
-<a class="sourceLine" id="cb231-2" data-line-number="2">vect1 &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span></a>
-<a class="sourceLine" id="cb231-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb231-4" data-line-number="4"><span class="co"># character vector </span></a>
-<a class="sourceLine" id="cb231-5" data-line-number="5">vect2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;Jack&#39;</span>, <span class="st">&#39;John&#39;</span>, <span class="st">&#39;Jill&#39;</span>)</a>
-<a class="sourceLine" id="cb231-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb231-7" data-line-number="7"><span class="co"># logical vector</span></a>
-<a class="sourceLine" id="cb231-8" data-line-number="8">vect3 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb231-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb231-10" data-line-number="10"><span class="co"># matrix</span></a>
-<a class="sourceLine" id="cb231-11" data-line-number="11">mat &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dt">data =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">9</span>, <span class="dt">nrow =</span> <span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb231-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb231-13" data-line-number="13"><span class="co"># list</span></a>
-<a class="sourceLine" id="cb231-14" data-line-number="14">l &lt;-<span class="st"> </span><span class="kw">list</span>(vect1, vect2, vect3, mat)</a>
-<a class="sourceLine" id="cb231-15" data-line-number="15">l</a></code></pre></div>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="lists.html#cb232-1"></a><span class="co"># numeric vector</span></span>
+<span id="cb232-2"><a href="lists.html#cb232-2"></a>vect1 &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span></span>
+<span id="cb232-3"><a href="lists.html#cb232-3"></a></span>
+<span id="cb232-4"><a href="lists.html#cb232-4"></a><span class="co"># character vector </span></span>
+<span id="cb232-5"><a href="lists.html#cb232-5"></a>vect2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;Jack&#39;</span>, <span class="st">&#39;John&#39;</span>, <span class="st">&#39;Jill&#39;</span>)</span>
+<span id="cb232-6"><a href="lists.html#cb232-6"></a></span>
+<span id="cb232-7"><a href="lists.html#cb232-7"></a><span class="co"># logical vector</span></span>
+<span id="cb232-8"><a href="lists.html#cb232-8"></a>vect3 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>)</span>
+<span id="cb232-9"><a href="lists.html#cb232-9"></a></span>
+<span id="cb232-10"><a href="lists.html#cb232-10"></a><span class="co"># matrix</span></span>
+<span id="cb232-11"><a href="lists.html#cb232-11"></a>mat &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dt">data =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">9</span>, <span class="dt">nrow =</span> <span class="dv">3</span>)</span>
+<span id="cb232-12"><a href="lists.html#cb232-12"></a></span>
+<span id="cb232-13"><a href="lists.html#cb232-13"></a><span class="co"># list</span></span>
+<span id="cb232-14"><a href="lists.html#cb232-14"></a>l &lt;-<span class="st"> </span><span class="kw">list</span>(vect1, vect2, vect3, mat)</span>
+<span id="cb232-15"><a href="lists.html#cb232-15"></a>l</span></code></pre></div>
 <pre><code>## [[1]]
 ##  [1]  1  2  3  4  5  6  7  8  9 10
 ## 
@@ -345,17 +356,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>$</code></li>
 </ul>
 <p>Let us try them one by one.</p>
-<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb233-1" data-line-number="1"><span class="co"># using [[</span></a>
-<a class="sourceLine" id="cb233-2" data-line-number="2">l[[<span class="dv">1</span>]]</a></code></pre></div>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="lists.html#cb234-1"></a><span class="co"># using [[</span></span>
+<span id="cb234-2"><a href="lists.html#cb234-2"></a>l[[<span class="dv">1</span>]]</span></code></pre></div>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb235-1" data-line-number="1"><span class="co"># using [</span></a>
-<a class="sourceLine" id="cb235-2" data-line-number="2">l[<span class="dv">1</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="lists.html#cb236-1"></a><span class="co"># using [</span></span>
+<span id="cb236-2"><a href="lists.html#cb236-2"></a>l[<span class="dv">1</span>]</span></code></pre></div>
 <pre><code>## [[1]]
 ##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 <p><code>[[</code> returns a vector while <code>[</code> returns a list. The <code>$</code> operator can be used only when we have named elements in the list. Let us add names to the elements. Use the <code>names()</code> function to add names to the list.</p>
-<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb237-1" data-line-number="1"><span class="co"># named elements</span></a>
-<a class="sourceLine" id="cb237-2" data-line-number="2"><span class="kw">names</span>(l) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;vect1&#39;</span>, <span class="st">&#39;vect2&#39;</span>, <span class="st">&#39;vect3&#39;</span>, <span class="st">&#39;mat&#39;</span>)</a>
-<a class="sourceLine" id="cb237-3" data-line-number="3">l</a></code></pre></div>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="lists.html#cb238-1"></a><span class="co"># named elements</span></span>
+<span id="cb238-2"><a href="lists.html#cb238-2"></a><span class="kw">names</span>(l) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;vect1&#39;</span>, <span class="st">&#39;vect2&#39;</span>, <span class="st">&#39;vect3&#39;</span>, <span class="st">&#39;mat&#39;</span>)</span>
+<span id="cb238-3"><a href="lists.html#cb238-3"></a>l</span></code></pre></div>
 <pre><code>## $vect1
 ##  [1]  1  2  3  4  5  6  7  8  9 10
 ## 
@@ -370,23 +381,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [1,]    1    4    7
 ## [2,]    2    5    8
 ## [3,]    3    6    9</code></pre>
-<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb239-1" data-line-number="1"><span class="co"># use $</span></a>
-<a class="sourceLine" id="cb239-2" data-line-number="2">l<span class="op">$</span>vect1</a></code></pre></div>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="lists.html#cb240-1"></a><span class="co"># use $</span></span>
+<span id="cb240-2"><a href="lists.html#cb240-2"></a>l<span class="op">$</span>vect1</span></code></pre></div>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb241-1" data-line-number="1"><span class="co"># use [[</span></a>
-<a class="sourceLine" id="cb241-2" data-line-number="2">l[[<span class="st">&#39;vect1&#39;</span>]]</a></code></pre></div>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="lists.html#cb242-1"></a><span class="co"># use [[</span></span>
+<span id="cb242-2"><a href="lists.html#cb242-2"></a>l[[<span class="st">&#39;vect1&#39;</span>]]</span></code></pre></div>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb243-1" data-line-number="1"><span class="co"># use [</span></a>
-<a class="sourceLine" id="cb243-2" data-line-number="2">l[<span class="st">&#39;vect1&#39;</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="lists.html#cb244-1"></a><span class="co"># use [</span></span>
+<span id="cb244-2"><a href="lists.html#cb244-2"></a>l[<span class="st">&#39;vect1&#39;</span>]</span></code></pre></div>
 <pre><code>## $vect1
 ##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 </div>
 <div id="coerce-other-objects" class="section level2">
 <h2><span class="header-section-number">9.4</span> Coerce other objects</h2>
 <p>You can coerce other objects to list using <code>as.list()</code>.</p>
-<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb245-1" data-line-number="1"><span class="co"># vector</span></a>
-<a class="sourceLine" id="cb245-2" data-line-number="2">vect1 &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span></a>
-<a class="sourceLine" id="cb245-3" data-line-number="3"><span class="kw">as.list</span>(vect1)</a></code></pre></div>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="lists.html#cb246-1"></a><span class="co"># vector</span></span>
+<span id="cb246-2"><a href="lists.html#cb246-2"></a>vect1 &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span></span>
+<span id="cb246-3"><a href="lists.html#cb246-3"></a><span class="kw">as.list</span>(vect1)</span></code></pre></div>
 <pre><code>## [[1]]
 ## [1] 1
 ## 
@@ -416,9 +427,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## [[10]]
 ## [1] 10</code></pre>
-<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb247-1" data-line-number="1"><span class="co"># matrix</span></a>
-<a class="sourceLine" id="cb247-2" data-line-number="2">mat &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dt">data =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">9</span>, <span class="dt">nrow =</span> <span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb247-3" data-line-number="3"><span class="kw">as.list</span>(mat)</a></code></pre></div>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="lists.html#cb248-1"></a><span class="co"># matrix</span></span>
+<span id="cb248-2"><a href="lists.html#cb248-2"></a>mat &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dt">data =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">9</span>, <span class="dt">nrow =</span> <span class="dv">3</span>)</span>
+<span id="cb248-3"><a href="lists.html#cb248-3"></a><span class="kw">as.list</span>(mat)</span></code></pre></div>
 <pre><code>## [[1]]
 ## [1] 1
 ## 
@@ -449,19 +460,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="coerce-list-to-other-objects" class="section level2">
 <h2><span class="header-section-number">9.5</span> Coerce list to other objects</h2>
 <p>Use <code>unlist()</code> to coerce a list to vector.</p>
-<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb249-1" data-line-number="1"><span class="co"># unlist</span></a>
-<a class="sourceLine" id="cb249-2" data-line-number="2"><span class="kw">unlist</span>(l)</a></code></pre></div>
-<pre><code>##  vect11  vect12  vect13  vect14  vect15  vect16  vect17  vect18  vect19 
-##     &quot;1&quot;     &quot;2&quot;     &quot;3&quot;     &quot;4&quot;     &quot;5&quot;     &quot;6&quot;     &quot;7&quot;     &quot;8&quot;     &quot;9&quot; 
-## vect110  vect21  vect22  vect23  vect31  vect32    mat1    mat2    mat3 
-##    &quot;10&quot;  &quot;Jack&quot;  &quot;John&quot;  &quot;Jill&quot;  &quot;TRUE&quot; &quot;FALSE&quot;     &quot;1&quot;     &quot;2&quot;     &quot;3&quot; 
-##    mat4    mat5    mat6    mat7    mat8    mat9 
-##     &quot;4&quot;     &quot;5&quot;     &quot;6&quot;     &quot;7&quot;     &quot;8&quot;     &quot;9&quot;</code></pre>
-<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb251-1" data-line-number="1"><span class="co"># remove names</span></a>
-<a class="sourceLine" id="cb251-2" data-line-number="2"><span class="kw">unlist</span>(l, <span class="dt">use.names =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
-<pre><code>##  [1] &quot;1&quot;     &quot;2&quot;     &quot;3&quot;     &quot;4&quot;     &quot;5&quot;     &quot;6&quot;     &quot;7&quot;     &quot;8&quot;    
-##  [9] &quot;9&quot;     &quot;10&quot;    &quot;Jack&quot;  &quot;John&quot;  &quot;Jill&quot;  &quot;TRUE&quot;  &quot;FALSE&quot; &quot;1&quot;    
-## [17] &quot;2&quot;     &quot;3&quot;     &quot;4&quot;     &quot;5&quot;     &quot;6&quot;     &quot;7&quot;     &quot;8&quot;     &quot;9&quot;</code></pre>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="lists.html#cb250-1"></a><span class="co"># unlist</span></span>
+<span id="cb250-2"><a href="lists.html#cb250-2"></a><span class="kw">unlist</span>(l)</span></code></pre></div>
+<pre><code>##  vect11  vect12  vect13  vect14  vect15  vect16  vect17  vect18  vect19 vect110 
+##     &quot;1&quot;     &quot;2&quot;     &quot;3&quot;     &quot;4&quot;     &quot;5&quot;     &quot;6&quot;     &quot;7&quot;     &quot;8&quot;     &quot;9&quot;    &quot;10&quot; 
+##  vect21  vect22  vect23  vect31  vect32    mat1    mat2    mat3    mat4    mat5 
+##  &quot;Jack&quot;  &quot;John&quot;  &quot;Jill&quot;  &quot;TRUE&quot; &quot;FALSE&quot;     &quot;1&quot;     &quot;2&quot;     &quot;3&quot;     &quot;4&quot;     &quot;5&quot; 
+##    mat6    mat7    mat8    mat9 
+##     &quot;6&quot;     &quot;7&quot;     &quot;8&quot;     &quot;9&quot;</code></pre>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="lists.html#cb252-1"></a><span class="co"># remove names</span></span>
+<span id="cb252-2"><a href="lists.html#cb252-2"></a><span class="kw">unlist</span>(l, <span class="dt">use.names =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>##  [1] &quot;1&quot;     &quot;2&quot;     &quot;3&quot;     &quot;4&quot;     &quot;5&quot;     &quot;6&quot;     &quot;7&quot;     &quot;8&quot;     &quot;9&quot;    
+## [10] &quot;10&quot;    &quot;Jack&quot;  &quot;John&quot;  &quot;Jill&quot;  &quot;TRUE&quot;  &quot;FALSE&quot; &quot;1&quot;     &quot;2&quot;     &quot;3&quot;    
+## [19] &quot;4&quot;     &quot;5&quot;     &quot;6&quot;     &quot;7&quot;     &quot;8&quot;     &quot;9&quot;</code></pre>
 
 </div>
 </div>
@@ -476,11 +487,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -488,12 +501,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -501,6 +513,14 @@ gitbook.start({
 "size": 2
 },
 "edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },

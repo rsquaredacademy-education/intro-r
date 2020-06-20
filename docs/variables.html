@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Introduction to R</title>
-  <meta name="description" content="A simple introduction to the R programming language.">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Variables | Introduction to R</title>
+  <meta name="description" content="A simple introduction to the R programming language." />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Introduction to R" />
+  <meta property="og:title" content="Chapter 3 Variables | Introduction to R" />
   <meta property="og:type" content="book" />
   
   
@@ -17,29 +16,31 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Introduction to R" />
+  <meta name="twitter:title" content="Chapter 3 Variables | Introduction to R" />
   
   <meta name="twitter:description" content="A simple introduction to the R programming language." />
   
 
-<meta name="author" content="Aravind Hebbali">
+<meta name="author" content="Aravind Hebbali" />
 
 
-<meta name="date" content="2019-02-19">
+<meta name="date" content="2020-06-20" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="install.html">
-<link rel="next" href="datatypes.html">
+<link rel="prev" href="install.html"/>
+<link rel="next" href="datatypes.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
@@ -47,31 +48,41 @@
 
 
 
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-57270671-37"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-57270671-37');
+</script>
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -80,9 +91,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -303,7 +314,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>they reference memory locations that store information/data</li>
 </ul>
 <p>Let us use a simple case study to understand variables. Suppose you are computing the area of a circle whose radius is 3. In R, you can do this straight away as shown below:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="fl">3.14</span> <span class="op">*</span><span class="st"> </span><span class="dv">3</span> <span class="op">*</span><span class="st"> </span><span class="dv">3</span></a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="variables.html#cb3-1"></a><span class="fl">3.14</span> <span class="op">*</span><span class="st"> </span><span class="dv">3</span> <span class="op">*</span><span class="st"> </span><span class="dv">3</span></span></code></pre></div>
 <pre><code>## [1] 28.26</code></pre>
 <p>But you cannot reuse the radius or the area computed in any other analysis or computation. Let us see how variables can change the above scenario and help us in reusing values and computations.</p>
 </div>
@@ -317,8 +328,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>We can store the value of the radius by creating a variable and assigning it the value. In this case, we create a variable
 called <code>radius</code> and assign it the value <code>3</code> using the assignment operator <code>&lt;-</code>.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">radius &lt;-<span class="st"> </span><span class="dv">3</span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2">radius</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="variables.html#cb5-1"></a>radius &lt;-<span class="st"> </span><span class="dv">3</span></span>
+<span id="cb5-2"><a href="variables.html#cb5-2"></a>radius</span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
 <p>Now that we have learnt to create variables, let us see how we can use them for other computations. For our case study,
 we will use the <code>radius</code> variable to compute the area of a circle.</p>
@@ -326,25 +337,25 @@ we will use the <code>radius</code> variable to compute the area of a circle.</p
 <div id="using-variables" class="section level2">
 <h2><span class="header-section-number">3.4</span> Using Variables</h2>
 <p>We will create two variables, <code>radius</code> and <code>pi</code>, and use them to compute the area of a circle and store it in another variable <code>area</code>.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co"># assign value 3 to variable radius</span></a>
-<a class="sourceLine" id="cb7-2" data-line-number="2">radius &lt;-<span class="st"> </span><span class="dv">3</span></a>
-<a class="sourceLine" id="cb7-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="co"># assign value 3.14 to variable pi</span></a>
-<a class="sourceLine" id="cb7-5" data-line-number="5">pi &lt;-<span class="st"> </span><span class="fl">3.14</span></a>
-<a class="sourceLine" id="cb7-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb7-7" data-line-number="7"><span class="co"># compute area of circle</span></a>
-<a class="sourceLine" id="cb7-8" data-line-number="8">area &lt;-<span class="st"> </span>pi <span class="op">*</span><span class="st"> </span>radius <span class="op">*</span><span class="st"> </span>radius</a>
-<a class="sourceLine" id="cb7-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb7-10" data-line-number="10"><span class="co"># call radius</span></a>
-<a class="sourceLine" id="cb7-11" data-line-number="11">radius</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="variables.html#cb7-1"></a><span class="co"># assign value 3 to variable radius</span></span>
+<span id="cb7-2"><a href="variables.html#cb7-2"></a>radius &lt;-<span class="st"> </span><span class="dv">3</span></span>
+<span id="cb7-3"><a href="variables.html#cb7-3"></a></span>
+<span id="cb7-4"><a href="variables.html#cb7-4"></a><span class="co"># assign value 3.14 to variable pi</span></span>
+<span id="cb7-5"><a href="variables.html#cb7-5"></a>pi &lt;-<span class="st"> </span><span class="fl">3.14</span></span>
+<span id="cb7-6"><a href="variables.html#cb7-6"></a></span>
+<span id="cb7-7"><a href="variables.html#cb7-7"></a><span class="co"># compute area of circle</span></span>
+<span id="cb7-8"><a href="variables.html#cb7-8"></a>area &lt;-<span class="st"> </span>pi <span class="op">*</span><span class="st"> </span>radius <span class="op">*</span><span class="st"> </span>radius</span>
+<span id="cb7-9"><a href="variables.html#cb7-9"></a></span>
+<span id="cb7-10"><a href="variables.html#cb7-10"></a><span class="co"># call radius</span></span>
+<span id="cb7-11"><a href="variables.html#cb7-11"></a>radius</span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="co"># call area </span></a>
-<a class="sourceLine" id="cb9-2" data-line-number="2">area</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="variables.html#cb9-1"></a><span class="co"># call area </span></span>
+<span id="cb9-2"><a href="variables.html#cb9-2"></a>area</span></code></pre></div>
 <pre><code>## [1] 28.26</code></pre>
 </div>
 <div id="components-of-a-variable" class="section level2">
 <h2><span class="header-section-number">3.5</span> Components of a Variable</h2>
-<p><img src="img/components.png" width="370" style="display: block; margin: auto;" /></p>
+<p><img src="img/components.png" style="display: block; margin: auto;" /></p>
 </div>
 <div id="naming-conventions" class="section level2">
 <h2><span class="header-section-number">3.6</span> Naming Conventions</h2>
@@ -370,11 +381,13 @@ we will use the <code>radius</code> variable to compute the area of a circle.</p
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -382,12 +395,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -395,6 +407,14 @@ gitbook.start({
 "size": 2
 },
 "edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },
