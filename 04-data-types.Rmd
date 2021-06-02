@@ -1,4 +1,4 @@
-# Data Types {#datatypes}
+# Data Types in R {#data-types-in-r}
 
 ## Introduction
 

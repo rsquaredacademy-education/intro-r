@@ -1,4 +1,4 @@
-# Getting Help in R {#help}
+# Getting Help in R {#getting-help-in-r}
 
 ## Introduction
 

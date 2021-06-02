@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Introduction to R</title>
+  <title>Chapter 5 Getting Help in R | Introduction to R</title>
   <meta name="description" content="A simple introduction to the R programming language." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Introduction to R" />
+  <meta property="og:title" content="Chapter 5 Getting Help in R | Introduction to R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Introduction to R" />
+  <meta name="twitter:title" content="Chapter 5 Getting Help in R | Introduction to R" />
   
   <meta name="twitter:description" content="A simple introduction to the R programming language." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="about-the-author.html"/>
+<link rel="prev" href="data-types-in-r.html"/>
+<link rel="next" href="vectors-in-r.html"/>
 <script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -329,53 +329,208 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Introduction to R</h1>
-<p class="author"><em>Aravind Hebbali</em></p>
-<p class="date" style="margin-top: 1.5em;"><em>2021-06-02</em></p>
+<div id="getting-help-in-r" class="section level1" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Getting Help in R</h1>
+<div id="introduction-2" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Introduction</h2>
+<p>In this chapter, we will learn about the different methods of getting help in R. Often we get stuck while doing some analysis as either we do not know the correct function to use or its syntax. It is important for anyone who is new to R to know the right place to look for help. There are two ways to look for help in R:</p>
+<ul>
+<li>built in help system</li>
+<li>online</li>
+</ul>
+<p>In the first section, we will look at various ways to access the built in help system of R. In the second section, we will look at various online resources that can supplement the built in help system. Let us get started!</p>
 </div>
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
-<p><img src="img/intro-r.png" width="60%" style="display: block; margin: auto;" /></p>
-<p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
-<div id="structure-of-the-book" class="section level2 unnumbered">
-<h2>Structure of the book</h2>
-<p>Chapter <a href="#intro"><strong>??</strong></a> gives a quick overview of R and its evolution over the last
-2 decades. Chapter <a href="introduction-to-r.html#installation">1.3</a> acts as a guide for installing R and
-RStudio. Chapters <a href="#variables"><strong>??</strong></a> and <a href="#datatypes"><strong>??</strong></a> introduce the reader to
-variables and data types in R. Chapter <a href="getting-help-in-r.html#help">5.3.2</a> shows the right place and right
-way to ask for help. Chapters <a href="#vectors"><strong>??</strong></a> to <a href="#lists"><strong>??</strong></a> introduce the basic
-data structures in R. Chapter <a href="#packages"><strong>??</strong></a> explores the R package system.</p>
+<div id="online-resources" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Online Resources</h2>
+<div id="r-bloggers" class="section level3" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> R Bloggers</h3>
+<p><a href="https://www.r-bloggers.com/">R Bloggers</a> aggregates blogs written in english from across the globe. This is the first place you want to visit if you want help with R, data analysis, visualization and machine learning. There are blogs on a wide range of topics and the latest content is delivered to your inbox if you subscribe. If you are a blogger yourself, share it with th R community by adding your blog to R Bloggers.</p>
 </div>
-<div id="software-information" class="section level2 unnumbered">
-<h2>Software information</h2>
-<p>The R session information when compiling this book is shown below:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
-<pre><code>## R version 4.1.0 (2021-05-18)
-## Platform: x86_64-w64-mingw32/x64 (64-bit)
-## Running under: Windows 10 x64 (build 19042)
+<div id="stack-overflow" class="section level3" number="5.2.2">
+<h3><span class="header-section-number">5.2.2</span> Stack Overflow</h3>
+<p><a href="https://stackoverflow.com/questions/tagged/r">Stack Overflow</a> is a great place to visit if you are having trouble with R code or packages. Chances are high that someone has already encountered the same or similar problem and you can use the answers given by R experts. In case you have encountered a new problem or issue, you can ask for help by providing a reproducible example of your analysis along with the R code. Use the <a href="http://reprex.tidyverse.org/">reprex</a> package to create reproducible examples.</p>
+</div>
+<div id="twitter" class="section level3" number="5.2.3">
+<h3><span class="header-section-number">5.2.3</span> Twitter</h3>
+<p>The R community is very active on Twitter and there are lot of R experts who are willing to help those who are new to R. Use the hashtag <a href="https://twitter.com/search?q=%23rstats">#rstats</a> if you are asking for help or guidance on Twitter.</p>
+</div>
+<div id="rstudio-community" class="section level3" number="5.2.4">
+<h3><span class="header-section-number">5.2.4</span> RStudio Community</h3>
+<p><a href="https://community.rstudio.com/">RStudio Community</a> is similar to Stack Overflow. You can ask questions
+related to RStudio, Shiny and tidyverse.</p>
+</div>
+<div id="rstudio-2" class="section level3" number="5.2.5">
+<h3><span class="header-section-number">5.2.5</span> RStudio</h3>
+<p><a href="https://resources.rstudio.com/">RStudio</a> has very good resources including cheatsheets, webinars and blogs.</p>
+</div>
+<div id="reddit" class="section level3" number="5.2.6">
+<h3><span class="header-section-number">5.2.6</span> Reddit</h3>
+<p><a href="https://www.reddit.com/r/rstats/">Reddit</a> is another place where you can look for help. The discussions are moderated by R experts. There are subreddits for <a href="https://www.reddit.com/r/rstats/">Rstats</a>, <a href="https://www.reddit.com/r/Rlanguage/">Rlanguage</a>, <a href="https://www.reddit.com/r/rshiny/">Rstudio</a> and <a href="https://www.reddit.com/r/RStudio/">Rshiny</a>.</p>
+</div>
+<div id="r-weekly" class="section level3" number="5.2.7">
+<h3><span class="header-section-number">5.2.7</span> R Weekly</h3>
+<p>Visit <a href="https://rweekly.org/">RWeekly</a> to get regular updates about the R community. You can find information about new packages, blogs, conferences, workshops, tutorials and R jobs.</p>
+</div>
+<div id="r-user-groups" class="section level3" number="5.2.8">
+<h3><span class="header-section-number">5.2.8</span> R User Groups</h3>
+<p>There are several R User Groups active across the globe. You can find the list <a href="https://jumpingrivers.github.io/meetingsR/r-user-groups.html">here</a>. Join the local user group to meet, discuss and learn from other R enthusiasts and experts.</p>
+</div>
+<div id="data-helpers" class="section level3" number="5.2.9">
+<h3><span class="header-section-number">5.2.9</span> Data Helpers</h3>
+<p><a href="http://www.datahelpers.org/">Data Helpers</a> is a list of data analysts, scientists and engineers willing to offer guidance put together by <a href="https://twitter.com/AngeBassa/">Angela Bassa</a>. Visit the website to learn more about how you can approach for help and guidance.</p>
+</div>
+</div>
+<div id="internal" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Internal</h2>
+<p>In this section, we will look at the following functions:</p>
+<ul>
+<li><code>help.start()</code></li>
+<li><code>help()</code></li>
+<li><code>?</code></li>
+<li><code>??</code></li>
+<li><code>help.search()</code></li>
+<li><code>demo()</code></li>
+<li><code>example()</code></li>
+<li><code>library()</code></li>
+<li><code>vignette()</code></li>
+<li><code>browseVignettes()</code></li>
+</ul>
+<div id="help.start" class="section level3" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> help.start</h3>
+<p>The <code>help.start()</code> function opens the documetation page in your browser. Here you can find manuals, reference and other materials.</p>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="getting-help-in-r.html#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">help.start</span>()</span></code></pre></div>
+<pre><code>## starting httpd help server ... done</code></pre>
+<pre><code>## If nothing happens, you should open
+## &#39;http://127.0.0.1:28961/doc/html/index.html&#39; yourself</code></pre>
+</div>
+<div id="help" class="section level3" number="5.3.2">
+<h3><span class="header-section-number">5.3.2</span> help</h3>
+<p>Use <code>help()</code> to access the documentation of functions and data sets. <code>?</code> is a shortcut for <code>help()</code> and returns the same information.</p>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="getting-help-in-r.html#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(plot)</span>
+<span id="cb74-2"><a href="getting-help-in-r.html#cb74-2" aria-hidden="true" tabindex="-1"></a>?plot</span></code></pre></div>
+</div>
+<div id="help.search" class="section level3" number="5.3.3">
+<h3><span class="header-section-number">5.3.3</span> help.search</h3>
+<p><code>help.search()</code> will search all sources of documentation and return those that match the search string. <code>??</code> is a shortcut for <code>help.search()</code> and returns the same information.</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="getting-help-in-r.html#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">help.search</span>(<span class="st">&#39;regression&#39;</span>)</span>
+<span id="cb75-2"><a href="getting-help-in-r.html#cb75-2" aria-hidden="true" tabindex="-1"></a>??regression</span></code></pre></div>
+</div>
+<div id="demo" class="section level3" number="5.3.4">
+<h3><span class="header-section-number">5.3.4</span> demo</h3>
+<p>demo displays an interactive demonstration of certain topics provided in a R package. Typing <code>demo()</code> in the console will list the demos available in all the R packages installed.</p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="getting-help-in-r.html#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">demo</span>()</span>
+<span id="cb76-2"><a href="getting-help-in-r.html#cb76-2" aria-hidden="true" tabindex="-1"></a><span class="fu">demo</span>(scoping)</span></code></pre></div>
+<pre><code>## 
 ## 
-## Matrix products: default
+##  demo(scoping)
+##  ---- ~~~~~~~
 ## 
-## locale:
-## [1] LC_COLLATE=English_United States.1252 
-## [2] LC_CTYPE=English_United States.1252   
-## [3] LC_MONETARY=English_United States.1252
-## [4] LC_NUMERIC=C                          
-## [5] LC_TIME=English_United States.1252    
+## &gt; ## Here is a little example which shows a fundamental difference between
+## &gt; ## R and S.  It is a little example from Abelson and Sussman which models
+## &gt; ## the way in which bank accounts work.    It shows how R functions can
+## &gt; ## encapsulate state information.
+## &gt; ##
+## &gt; ## When invoked, &quot;open.account&quot; defines and returns three functions
+## &gt; ## in a list.  Because the variable &quot;total&quot; exists in the environment
+## &gt; ## where these functions are defined they have access to its value.
+## &gt; ## This is even true when &quot;open.account&quot; has returned.  The only way
+## &gt; ## to access the value of &quot;total&quot; is through the accessor functions
+## &gt; ## withdraw, deposit and balance.  Separate accounts maintain their
+## &gt; ## own balances.
+## &gt; ##
+## &gt; ## This is a very nifty way of creating &quot;closures&quot; and a little thought
+## &gt; ## will show you that there are many ways of using this in statistics.
+## &gt; 
+## &gt; #  Copyright (C) 1997-8 The R Core Team
+## &gt; 
+## &gt; open.account &lt;- function(total) {
+## + 
+## +     list(
+## +     deposit = function(amount) {
+## +         if(amount &lt;= 0)
+## +         stop(&quot;Deposits must be positive!\n&quot;)
+## +         total &lt;&lt;- total + amount
+## +         cat(amount,&quot;deposited. Your balance is&quot;, total, &quot;\n\n&quot;)
+## +     },
+## +     withdraw = function(amount) {
+## +         if(amount &gt; total)
+## +         stop(&quot;You don&#39;t have that much money!\n&quot;)
+## +         total &lt;&lt;- total - amount
+## +         cat(amount,&quot;withdrawn.  Your balance is&quot;, total, &quot;\n\n&quot;)
+## +     },
+## +     balance = function() {
+## +         cat(&quot;Your balance is&quot;, total, &quot;\n\n&quot;)
+## +     }
+## +     )
+## + }
 ## 
-## attached base packages:
-## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## &gt; ross &lt;- open.account(100)
 ## 
-## loaded via a namespace (and not attached):
-##  [1] bookdown_0.22     digest_0.6.27     R6_2.5.0          jsonlite_1.7.2   
-##  [5] magrittr_2.0.1    evaluate_0.14     highr_0.9         stringi_1.6.2    
-##  [9] rlang_0.4.11      rstudioapi_0.13   jquerylib_0.1.4   bslib_0.2.5.1    
-## [13] rmarkdown_2.8     tools_4.1.0       stringr_1.4.0     xfun_0.23        
-## [17] yaml_2.2.1        compiler_4.1.0    htmltools_0.5.1.1 knitr_1.33       
-## [21] sass_0.4.0</code></pre>
-<p>We do not add prompts (<code>&gt;</code> and <code>+</code>) to R source code in this book, and we comment out the text output with two hashes <code>##</code> by default, as you can see from the R session information above. This is for your convenience when you want to copy and run the code (the text output will be ignored since it is commented out). Package names are in bold text (e.g., <strong>rmarkdown</strong>), and function names are followed by parentheses (e.g., <code>bookdown::render_book()</code>). The double-colon operator <code>::</code> means accessing an object from a package.</p>
+## &gt; robert &lt;- open.account(200)
+## 
+## &gt; ross$withdraw(30)
+## 30 withdrawn.  Your balance is 70 
+## 
+## 
+## &gt; ross$balance()
+## Your balance is 70 
+## 
+## 
+## &gt; robert$balance()
+## Your balance is 200 
+## 
+## 
+## &gt; ross$deposit(50)
+## 50 deposited. Your balance is 120 
+## 
+## 
+## &gt; ross$balance()
+## Your balance is 120 
+## 
+## 
+## &gt; try(ross$withdraw(500)) # no way..
+## Error in ross$withdraw(500) : You don&#39;t have that much money!</code></pre>
+</div>
+<div id="example" class="section level3" number="5.3.5">
+<h3><span class="header-section-number">5.3.5</span> example</h3>
+<p><code>example()</code> displays examples of the specified topic if available.</p>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="getting-help-in-r.html#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">example</span>(<span class="st">&#39;mean&#39;</span>)</span></code></pre></div>
+<pre><code>## 
+## mean&gt; x &lt;- c(0:10, 50)
+## 
+## mean&gt; xm &lt;- mean(x)
+## 
+## mean&gt; c(xm, mean(x, trim = 0.10))
+## [1] 8.75 5.50</code></pre>
+</div>
+</div>
+<div id="package-documentation" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> Package Documentation</h2>
+<div id="library" class="section level3" number="5.4.1">
+<h3><span class="header-section-number">5.4.1</span> library</h3>
+<p>Access the documentation of a package using <code>help()</code> inside <code>library()</code>. The package need not be installed for accessing the documentation.</p>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="getting-help-in-r.html#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="at">help =</span> <span class="st">&#39;ggplot2&#39;</span>)</span></code></pre></div>
+</div>
+<div id="vignette" class="section level3" number="5.4.2">
+<h3><span class="header-section-number">5.4.2</span> vignette</h3>
+<p>A vignette is a long form guide to a R package. You can access the vignettes available using <code>vignette()</code>. It will display alist of vignettes available in installed packages.</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="getting-help-in-r.html#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vignette</span>()</span></code></pre></div>
+<p>To access a specific vignette from a package, specify the name of the vignette and the package.</p>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="getting-help-in-r.html#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vignette</span>(<span class="st">&#39;dplyr&#39;</span>, <span class="at">package =</span> <span class="st">&#39;dplyr&#39;</span>)</span></code></pre></div>
+</div>
+<div id="browsevignettes" class="section level3" number="5.4.3">
+<h3><span class="header-section-number">5.4.3</span> browseVignettes</h3>
+<p><code>browseVignettes()</code> is another way to access the vignettes in installed packages. It will list the vignettes in each package along with links to the web page and R code.</p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="getting-help-in-r.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">browseVignettes</span>()</span></code></pre></div>
+</div>
+<div id="rsitesearch" class="section level3" number="5.4.4">
+<h3><span class="header-section-number">5.4.4</span> RsiteSearch</h3>
+<p><code>RsiteSearch()</code> will search for a specified topics in help pages, vignettes and task views using the search engine at this <a href="http://search.r-project.org/">link</a> and return the result in a browser.</p>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="getting-help-in-r.html#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="fu">RSiteSearch</span>(<span class="st">&#39;glm&#39;</span>)</span></code></pre></div>
+<pre><code>## A search query has been submitted to http://search.r-project.org
+## The results page should open in your browser shortly</code></pre>
 
+</div>
 </div>
 </div>
             </section>
@@ -383,8 +538,8 @@ data structures in R. Chapter <a href="#packages"><strong>??</strong></a> explor
           </div>
         </div>
       </div>
-
-<a href="about-the-author.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="data-types-in-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="vectors-in-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Introduction to R</title>
+  <title>Chapter 3 Variables in R | Introduction to R</title>
   <meta name="description" content="A simple introduction to the R programming language." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Introduction to R" />
+  <meta property="og:title" content="Chapter 3 Variables in R | Introduction to R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Introduction to R" />
+  <meta name="twitter:title" content="Chapter 3 Variables in R | Introduction to R" />
   
   <meta name="twitter:description" content="A simple introduction to the R programming language." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="about-the-author.html"/>
+<link rel="prev" href="install-r-and-rstudio.html"/>
+<link rel="next" href="data-types-in-r.html"/>
 <script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -329,52 +329,73 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Introduction to R</h1>
-<p class="author"><em>Aravind Hebbali</em></p>
-<p class="date" style="margin-top: 1.5em;"><em>2021-06-02</em></p>
+<div id="variables-in-r" class="section level1" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Variables in R</h1>
+<div id="introduction" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Introduction</h2>
+<p>In the previous chapter, we learnt to install RStudio. In this chapter, we will learn about variables and data types. You can skip this chapter, if you have prior experience in any other programming language.</p>
 </div>
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
-<p><img src="img/intro-r.png" width="60%" style="display: block; margin: auto;" /></p>
-<p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
-<div id="structure-of-the-book" class="section level2 unnumbered">
-<h2>Structure of the book</h2>
-<p>Chapter <a href="#intro"><strong>??</strong></a> gives a quick overview of R and its evolution over the last
-2 decades. Chapter <a href="introduction-to-r.html#installation">1.3</a> acts as a guide for installing R and
-RStudio. Chapters <a href="#variables"><strong>??</strong></a> and <a href="#datatypes"><strong>??</strong></a> introduce the reader to
-variables and data types in R. Chapter <a href="getting-help-in-r.html#help">5.3.2</a> shows the right place and right
-way to ask for help. Chapters <a href="#vectors"><strong>??</strong></a> to <a href="#lists"><strong>??</strong></a> introduce the basic
-data structures in R. Chapter <a href="#packages"><strong>??</strong></a> explores the R package system.</p>
+<div id="what-is-a-variable" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> What is a variable?</h2>
+<ul>
+<li>variables are the fundamental elements of any programming language</li>
+<li>they are used to represent values that are likely to change</li>
+<li>they reference memory locations that store information/data</li>
+</ul>
+<p>Let us use a simple case study to understand variables. Suppose you are computing the area of a circle whose radius is 3. In R, you can do this straight away as shown below:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="variables-in-r.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fl">3.14</span> <span class="sc">*</span> <span class="dv">3</span> <span class="sc">*</span> <span class="dv">3</span></span></code></pre></div>
+<pre><code>## [1] 28.26</code></pre>
+<p>But you cannot reuse the radius or the area computed in any other analysis or computation. Let us see how variables can change the above scenario and help us in reusing values and computations.</p>
 </div>
-<div id="software-information" class="section level2 unnumbered">
-<h2>Software information</h2>
-<p>The R session information when compiling this book is shown below:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
-<pre><code>## R version 4.1.0 (2021-05-18)
-## Platform: x86_64-w64-mingw32/x64 (64-bit)
-## Running under: Windows 10 x64 (build 19042)
-## 
-## Matrix products: default
-## 
-## locale:
-## [1] LC_COLLATE=English_United States.1252 
-## [2] LC_CTYPE=English_United States.1252   
-## [3] LC_MONETARY=English_United States.1252
-## [4] LC_NUMERIC=C                          
-## [5] LC_TIME=English_United States.1252    
-## 
-## attached base packages:
-## [1] stats     graphics  grDevices utils     datasets  methods   base     
-## 
-## loaded via a namespace (and not attached):
-##  [1] bookdown_0.22     digest_0.6.27     R6_2.5.0          jsonlite_1.7.2   
-##  [5] magrittr_2.0.1    evaluate_0.14     highr_0.9         stringi_1.6.2    
-##  [9] rlang_0.4.11      rstudioapi_0.13   jquerylib_0.1.4   bslib_0.2.5.1    
-## [13] rmarkdown_2.8     tools_4.1.0       stringr_1.4.0     xfun_0.23        
-## [17] yaml_2.2.1        compiler_4.1.0    htmltools_0.5.1.1 knitr_1.33       
-## [21] sass_0.4.0</code></pre>
-<p>We do not add prompts (<code>&gt;</code> and <code>+</code>) to R source code in this book, and we comment out the text output with two hashes <code>##</code> by default, as you can see from the R session information above. This is for your convenience when you want to copy and run the code (the text output will be ignored since it is commented out). Package names are in bold text (e.g., <strong>rmarkdown</strong>), and function names are followed by parentheses (e.g., <code>bookdown::render_book()</code>). The double-colon operator <code>::</code> means accessing an object from a package.</p>
+<div id="creating-variables" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Creating Variables</h2>
+<p>A variable consists of 3 components:</p>
+<ul>
+<li>variable name</li>
+<li>assignment operator</li>
+<li>variable value</li>
+</ul>
+<p>We can store the value of the radius by creating a variable and assigning it the value. In this case, we create a variable
+called <code>radius</code> and assign it the value <code>3</code> using the assignment operator <code>&lt;-</code>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="variables-in-r.html#cb5-1" aria-hidden="true" tabindex="-1"></a>radius <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb5-2"><a href="variables-in-r.html#cb5-2" aria-hidden="true" tabindex="-1"></a>radius</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<p>Now that we have learnt to create variables, let us see how we can use them for other computations. For our case study,
+we will use the <code>radius</code> variable to compute the area of a circle.</p>
+</div>
+<div id="using-variables" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Using Variables</h2>
+<p>We will create two variables, <code>radius</code> and <code>pi</code>, and use them to compute the area of a circle and store it in another variable <code>area</code>.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="variables-in-r.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># assign value 3 to variable radius</span></span>
+<span id="cb7-2"><a href="variables-in-r.html#cb7-2" aria-hidden="true" tabindex="-1"></a>radius <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb7-3"><a href="variables-in-r.html#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="variables-in-r.html#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># assign value 3.14 to variable pi</span></span>
+<span id="cb7-5"><a href="variables-in-r.html#cb7-5" aria-hidden="true" tabindex="-1"></a>pi <span class="ot">&lt;-</span> <span class="fl">3.14</span></span>
+<span id="cb7-6"><a href="variables-in-r.html#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="variables-in-r.html#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># compute area of circle</span></span>
+<span id="cb7-8"><a href="variables-in-r.html#cb7-8" aria-hidden="true" tabindex="-1"></a>area <span class="ot">&lt;-</span> pi <span class="sc">*</span> radius <span class="sc">*</span> radius</span>
+<span id="cb7-9"><a href="variables-in-r.html#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="variables-in-r.html#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># call radius</span></span>
+<span id="cb7-11"><a href="variables-in-r.html#cb7-11" aria-hidden="true" tabindex="-1"></a>radius</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="variables-in-r.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># call area </span></span>
+<span id="cb9-2"><a href="variables-in-r.html#cb9-2" aria-hidden="true" tabindex="-1"></a>area</span></code></pre></div>
+<pre><code>## [1] 28.26</code></pre>
+</div>
+<div id="components-of-a-variable" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> Components of a Variable</h2>
+<p><img src="img/components.png" width="370" style="display: block; margin: auto;" /></p>
+</div>
+<div id="naming-conventions" class="section level2" number="3.6">
+<h2><span class="header-section-number">3.6</span> Naming Conventions</h2>
+<ul>
+<li>Name must begin with a letter. Do not use numbers, dollar sign (<code>$</code>) or underscore (<code>_</code>).</li>
+<li>The name can contain numbers or underscore. Do not use dash (<code>-</code>) or period (<code>.</code>).</li>
+<li>Do not use the names of keywords and avoid using the names of built in functions.</li>
+<li>Variables are case sensitive; <code>average</code> and <code>Average</code> would be different variables.</li>
+<li>Use names that are descriptive. Generally, variable names should be nouns.</li>
+<li>If the name is made of more than one word, use underscore to separate the words.</li>
+</ul>
 
 </div>
 </div>
@@ -383,8 +404,8 @@ data structures in R. Chapter <a href="#packages"><strong>??</strong></a> explor
           </div>
         </div>
       </div>
-
-<a href="about-the-author.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="install-r-and-rstudio.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-types-in-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

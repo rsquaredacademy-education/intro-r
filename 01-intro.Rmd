@@ -1,4 +1,4 @@
-# Introduction {#intro}
+# Introduction to R {#introduction-to-r}
 
 ## Overview
 

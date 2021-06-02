@@ -1,4 +1,4 @@
-# Factors {#factors}
+# Factors in R {#factors-in-r}
 
 ## Introduction
 

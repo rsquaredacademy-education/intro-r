@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Introduction to R</title>
+  <title>Chapter 8 Factors in R | Introduction to R</title>
   <meta name="description" content="A simple introduction to the R programming language." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Introduction to R" />
+  <meta property="og:title" content="Chapter 8 Factors in R | Introduction to R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Introduction to R" />
+  <meta name="twitter:title" content="Chapter 8 Factors in R | Introduction to R" />
   
   <meta name="twitter:description" content="A simple introduction to the R programming language." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="about-the-author.html"/>
+<link rel="prev" href="data-frames-in-r.html"/>
+<link rel="next" href="lists-in-r.html"/>
 <script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -329,52 +329,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Introduction to R</h1>
-<p class="author"><em>Aravind Hebbali</em></p>
-<p class="date" style="margin-top: 1.5em;"><em>2021-06-02</em></p>
+<div id="factors-in-r" class="section level1" number="8">
+<h1><span class="header-section-number">Chapter 8</span> Factors in R</h1>
+<div id="introduction-5" class="section level2" number="8.1">
+<h2><span class="header-section-number">8.1</span> Introduction</h2>
+<p>In this chapter, we will learn to:</p>
+<ul>
+<li>create factors</li>
+<li>order levels</li>
+<li>specify labels</li>
+<li>check levels</li>
+<li>number of levels</li>
+</ul>
+<p>Categorical or qualitative data in R is treated as data type <code>factor</code>.</p>
 </div>
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
-<p><img src="img/intro-r.png" width="60%" style="display: block; margin: auto;" /></p>
-<p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
-<div id="structure-of-the-book" class="section level2 unnumbered">
-<h2>Structure of the book</h2>
-<p>Chapter <a href="#intro"><strong>??</strong></a> gives a quick overview of R and its evolution over the last
-2 decades. Chapter <a href="introduction-to-r.html#installation">1.3</a> acts as a guide for installing R and
-RStudio. Chapters <a href="#variables"><strong>??</strong></a> and <a href="#datatypes"><strong>??</strong></a> introduce the reader to
-variables and data types in R. Chapter <a href="getting-help-in-r.html#help">5.3.2</a> shows the right place and right
-way to ask for help. Chapters <a href="#vectors"><strong>??</strong></a> to <a href="#lists"><strong>??</strong></a> introduce the basic
-data structures in R. Chapter <a href="#packages"><strong>??</strong></a> explores the R package system.</p>
-</div>
-<div id="software-information" class="section level2 unnumbered">
-<h2>Software information</h2>
-<p>The R session information when compiling this book is shown below:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
-<pre><code>## R version 4.1.0 (2021-05-18)
-## Platform: x86_64-w64-mingw32/x64 (64-bit)
-## Running under: Windows 10 x64 (build 19042)
-## 
-## Matrix products: default
-## 
-## locale:
-## [1] LC_COLLATE=English_United States.1252 
-## [2] LC_CTYPE=English_United States.1252   
-## [3] LC_MONETARY=English_United States.1252
-## [4] LC_NUMERIC=C                          
-## [5] LC_TIME=English_United States.1252    
-## 
-## attached base packages:
-## [1] stats     graphics  grDevices utils     datasets  methods   base     
-## 
-## loaded via a namespace (and not attached):
-##  [1] bookdown_0.22     digest_0.6.27     R6_2.5.0          jsonlite_1.7.2   
-##  [5] magrittr_2.0.1    evaluate_0.14     highr_0.9         stringi_1.6.2    
-##  [9] rlang_0.4.11      rstudioapi_0.13   jquerylib_0.1.4   bslib_0.2.5.1    
-## [13] rmarkdown_2.8     tools_4.1.0       stringr_1.4.0     xfun_0.23        
-## [17] yaml_2.2.1        compiler_4.1.0    htmltools_0.5.1.1 knitr_1.33       
-## [21] sass_0.4.0</code></pre>
-<p>We do not add prompts (<code>&gt;</code> and <code>+</code>) to R source code in this book, and we comment out the text output with two hashes <code>##</code> by default, as you can see from the R session information above. This is for your convenience when you want to copy and run the code (the text output will be ignored since it is commented out). Package names are in bold text (e.g., <strong>rmarkdown</strong>), and function names are followed by parentheses (e.g., <code>bookdown::render_book()</code>). The double-colon operator <code>::</code> means accessing an object from a package.</p>
+<div id="create-factors" class="section level2" number="8.2">
+<h2><span class="header-section-number">8.2</span> Create Factors</h2>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="factors-in-r.html#cb223-1" aria-hidden="true" tabindex="-1"></a><span class="fu">args</span>(factor)</span></code></pre></div>
+<pre><code>## function (x = character(), levels, labels = levels, exclude = NA, 
+##     ordered = is.ordered(x), nmax = NA) 
+## NULL</code></pre>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="factors-in-r.html#cb225-1" aria-hidden="true" tabindex="-1"></a>devices <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&#39;Mobile&#39;</span>, <span class="st">&#39;Tablet&#39;</span>, <span class="st">&#39;Desktop&#39;</span>))</span>
+<span id="cb225-2"><a href="factors-in-r.html#cb225-2" aria-hidden="true" tabindex="-1"></a>devices</span></code></pre></div>
+<pre><code>## [1] Mobile  Tablet  Desktop
+## Levels: Desktop Mobile Tablet</code></pre>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="factors-in-r.html#cb227-1" aria-hidden="true" tabindex="-1"></a><span class="co"># number of levels</span></span>
+<span id="cb227-2"><a href="factors-in-r.html#cb227-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nlevels</span>(devices)</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="factors-in-r.html#cb229-1" aria-hidden="true" tabindex="-1"></a><span class="co"># levels</span></span>
+<span id="cb229-2"><a href="factors-in-r.html#cb229-2" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(devices)</span></code></pre></div>
+<pre><code>## [1] &quot;Desktop&quot; &quot;Mobile&quot;  &quot;Tablet&quot;</code></pre>
 
 </div>
 </div>
@@ -383,8 +367,8 @@ data structures in R. Chapter <a href="#packages"><strong>??</strong></a> explor
           </div>
         </div>
       </div>
-
-<a href="about-the-author.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="data-frames-in-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="lists-in-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

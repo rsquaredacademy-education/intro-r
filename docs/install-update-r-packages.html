@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Introduction to R</title>
+  <title>Chapter 10 Install &amp; Update R Packages | Introduction to R</title>
   <meta name="description" content="A simple introduction to the R programming language." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Introduction to R" />
+  <meta property="og:title" content="Chapter 10 Install &amp; Update R Packages | Introduction to R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Introduction to R" />
+  <meta name="twitter:title" content="Chapter 10 Install &amp; Update R Packages | Introduction to R" />
   
   <meta name="twitter:description" content="A simple introduction to the R programming language." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="lists-in-r.html"/>
 
-<link rel="next" href="about-the-author.html"/>
 <script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -329,53 +329,110 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Introduction to R</h1>
-<p class="author"><em>Aravind Hebbali</em></p>
-<p class="date" style="margin-top: 1.5em;"><em>2021-06-02</em></p>
+<div id="install-update-r-packages" class="section level1" number="10">
+<h1><span class="header-section-number">Chapter 10</span> Install &amp; Update R Packages</h1>
+<div id="introduction-7" class="section level2" number="10.1">
+<h2><span class="header-section-number">10.1</span> Introduction</h2>
+<p>In this chapter, we will learn about R packages. Packages are fundamental to R. There are approximately 15000 packages available on <a href="https://cran.r-project.org/">CRAN</a> or the Comprehensive R Archive Network.</p>
+<p>Packages are available for different <a href="https://cran.r-project.org/web/views/">topics</a>. You should always look for a package before writing code from scratch. In case you have written your own codes for a new analysis or topic, do share it with the R community by converting the code into a package. You can learn more about building R packages from <a href="https://r-pkgs.had.co.nz/">R Packages</a>, a book written by <a href="https://hadley.nz/">Hadley Wickham</a>.</p>
+<p>In this chapter, we will learn to:</p>
+<ul>
+<li>install R packages from
+<ul>
+<li>CRAN</li>
+<li>GitHub</li>
+<li>BitBucket</li>
+<li>Bioconductor</li>
+<li>rForge</li>
+</ul></li>
+<li>install different versions of a package</li>
+<li>load, update &amp; remove installed packages</li>
+<li>access package documentation</li>
+</ul>
 </div>
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
-<p><img src="img/intro-r.png" width="60%" style="display: block; margin: auto;" /></p>
-<p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
-<div id="structure-of-the-book" class="section level2 unnumbered">
-<h2>Structure of the book</h2>
-<p>Chapter <a href="#intro"><strong>??</strong></a> gives a quick overview of R and its evolution over the last
-2 decades. Chapter <a href="introduction-to-r.html#installation">1.3</a> acts as a guide for installing R and
-RStudio. Chapters <a href="#variables"><strong>??</strong></a> and <a href="#datatypes"><strong>??</strong></a> introduce the reader to
-variables and data types in R. Chapter <a href="getting-help-in-r.html#help">5.3.2</a> shows the right place and right
-way to ask for help. Chapters <a href="#vectors"><strong>??</strong></a> to <a href="#lists"><strong>??</strong></a> introduce the basic
-data structures in R. Chapter <a href="#packages"><strong>??</strong></a> explores the R package system.</p>
+<div id="install-packages" class="section level2" number="10.2">
+<h2><span class="header-section-number">10.2</span> Install Packages</h2>
+<div id="cran-1" class="section level3" number="10.2.1">
+<h3><span class="header-section-number">10.2.1</span> CRAN</h3>
+<p>Packages from CRAN can be installed using <code>install.packages()</code>. The name of the package must be enclosed in single or double quotes.</p>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="install-update-r-packages.html#cb253-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;ggplot2&#39;</span>)</span></code></pre></div>
 </div>
-<div id="software-information" class="section level2 unnumbered">
-<h2>Software information</h2>
-<p>The R session information when compiling this book is shown below:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
-<pre><code>## R version 4.1.0 (2021-05-18)
-## Platform: x86_64-w64-mingw32/x64 (64-bit)
-## Running under: Windows 10 x64 (build 19042)
-## 
-## Matrix products: default
-## 
-## locale:
-## [1] LC_COLLATE=English_United States.1252 
-## [2] LC_CTYPE=English_United States.1252   
-## [3] LC_MONETARY=English_United States.1252
-## [4] LC_NUMERIC=C                          
-## [5] LC_TIME=English_United States.1252    
-## 
-## attached base packages:
-## [1] stats     graphics  grDevices utils     datasets  methods   base     
-## 
-## loaded via a namespace (and not attached):
-##  [1] bookdown_0.22     digest_0.6.27     R6_2.5.0          jsonlite_1.7.2   
-##  [5] magrittr_2.0.1    evaluate_0.14     highr_0.9         stringi_1.6.2    
-##  [9] rlang_0.4.11      rstudioapi_0.13   jquerylib_0.1.4   bslib_0.2.5.1    
-## [13] rmarkdown_2.8     tools_4.1.0       stringr_1.4.0     xfun_0.23        
-## [17] yaml_2.2.1        compiler_4.1.0    htmltools_0.5.1.1 knitr_1.33       
-## [21] sass_0.4.0</code></pre>
-<p>We do not add prompts (<code>&gt;</code> and <code>+</code>) to R source code in this book, and we comment out the text output with two hashes <code>##</code> by default, as you can see from the R session information above. This is for your convenience when you want to copy and run the code (the text output will be ignored since it is commented out). Package names are in bold text (e.g., <strong>rmarkdown</strong>), and function names are followed by parentheses (e.g., <code>bookdown::render_book()</code>). The double-colon operator <code>::</code> means accessing an object from a package.</p>
+<div id="github" class="section level3" number="10.2.2">
+<h3><span class="header-section-number">10.2.2</span> GitHub</h3>
+<p>Some R packages are made available on <a href="https://github.com/">GitHub</a> before releasing them on CRAN. Such packages can be installed using <code>install_github()</code> from <a href="https://cran.r-project.org/web/packages/devtools/index.html">devtools</a> or <a href="https://cran.r-project.org/web/packages/remotes/index.html">remotes</a> package. You need tp specify the name of the repository and the package. For example, to download <a href="https://ggplot2.tidyverse.org/">ggplot2</a> or <a href="https://dplyr.tidyverse.org/">dplyr</a>, below is the code:</p>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="install-update-r-packages.html#cb254-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;tidyverse/ggplot2&quot;</span>)</span>
+<span id="cb254-2"><a href="install-update-r-packages.html#cb254-2" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;tidyverse/dplyr&quot;</span>)</span></code></pre></div>
+</div>
+<div id="bitbucket" class="section level3" number="10.2.3">
+<h3><span class="header-section-number">10.2.3</span> BitBucket</h3>
+<p><a href="https://bitbucket.org/">Bitbucket</a> is similar to GitHub. You can install packages from Bitbucket using <code>install_bitbucket()</code> from devtools or remotes pacakge.</p>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="install-update-r-packages.html#cb255-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_bitbucket</span>(<span class="st">&quot;dannavarro/lsr-package&quot;</span>)</span>
+<span id="cb255-2"><a href="install-update-r-packages.html#cb255-2" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_bitbucket</span>(<span class="st">&quot;dannavarro/lsr-package&quot;</span>)</span></code></pre></div>
+</div>
+<div id="bioconductor" class="section level3" number="10.2.4">
+<h3><span class="header-section-number">10.2.4</span> Bioconductor</h3>
+<p><a href="https://www.bioconductor.org/">Bioconductor</a> provides tools for analysis and comprehension of high throughput genomic data. Packages hosted on Bioconductor can be installed in multiple ways:</p>
+<div id="devtools" class="section level4" number="10.2.4.1">
+<h4><span class="header-section-number">10.2.4.1</span> devtools</h4>
+<p>Use <code>install_bioc()</code> from devtools.</p>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="install-update-r-packages.html#cb256-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install_bioc</span>(<span class="st">&quot;SummarizedExperiment&quot;</span>)</span></code></pre></div>
+</div>
+<div id="bioclite" class="section level4" number="10.2.4.2">
+<h4><span class="header-section-number">10.2.4.2</span> biocLite</h4>
+<p>Use <code>biocLite()</code> function.</p>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="install-update-r-packages.html#cb257-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;http://bioconductor.org/biocLite.R&#39;</span>)</span>
+<span id="cb257-2"><a href="install-update-r-packages.html#cb257-2" aria-hidden="true" tabindex="-1"></a><span class="fu">biocLite</span>(<span class="st">&#39;GenomicFeatures&#39;</span>)</span></code></pre></div>
+</div>
+</div>
+<div id="rforge" class="section level3" number="10.2.5">
+<h3><span class="header-section-number">10.2.5</span> rForge</h3>
+<p>Many R packages are hosted at <a href="https://r-forge.r-project.org/">R-Forge</a>, a platform for development of R packages.</p>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="install-update-r-packages.html#cb258-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;quantstrat&#39;</span>, <span class="at">repos =</span> <span class="st">&#39;https://r-forge.r-project.org/&#39;</span>)</span></code></pre></div>
+</div>
+</div>
+<div id="install-different-versions" class="section level2" number="10.3">
+<h2><span class="header-section-number">10.3</span> Install Different Versions</h2>
+<p>Now that we have learnt how to install packages, let us look at installing different versions of the same package.</p>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="install-update-r-packages.html#cb259-1" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_version</span>(<span class="st">&#39;dplyr&#39;</span>, <span class="at">version =</span> <span class="dv">0</span>.<span class="fl">5.0</span>)</span></code></pre></div>
+<p>If you want to install the latest release from GitHub, append <code>@*release</code> to the repository name. For example, to install the latest release of dplyr:</p>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="install-update-r-packages.html#cb260-1" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&#39;tidyverse/dplyr@*release&#39;</span>)</span></code></pre></div>
+</div>
+<div id="installed-packages" class="section level2" number="10.4">
+<h2><span class="header-section-number">10.4</span> Installed Packages</h2>
+<ul>
+<li><code>installed.packages()</code>: view currently installed packages</li>
+<li><code>library('package_name')</code>: load packages</li>
+<li><code>autoload('function_name', 'package_name')</code>: load functions and data from packages only when called in the script</li>
+<li><code>available.package()</code>: packages available for installation</li>
+<li><code>old.packages()</code>: packages which have new versions available</li>
+<li><code>new.packages()</code>: packages already not installed</li>
+<li><code>update.packages()</code>: update packages which have new versions</li>
+<li><code>remove.packages('package_name')</code>: remove installed packages</li>
+</ul>
+</div>
+<div id="library-paths" class="section level2" number="10.5">
+<h2><span class="header-section-number">10.5</span> Library Paths</h2>
+<p>Library is a directory that contains all installed packages. Usually there will be more than one R library in your systme. You can find the location of the libraries using <code>.libPaths()</code>.</p>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="install-update-r-packages.html#cb261-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.libPaths</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;C:/Users/HP/Documents/R/win-library&quot; &quot;C:/Program Files/R/R-4.1.0/library&quot;</code></pre>
+<p>You can use <code>lib.loc</code> when you want to install, load, update and remove packages from a particular library.</p>
+<div id="install" class="section level3" number="10.5.1">
+<h3><span class="header-section-number">10.5.1</span> Install</h3>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="install-update-r-packages.html#cb263-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;stringr&#39;</span>, <span class="at">lib.loc =</span> <span class="st">&quot;C:/Program Files/R/R-3.4.1/library&quot;</span>)</span></code></pre></div>
+</div>
+<div id="load" class="section level3" number="10.5.2">
+<h3><span class="header-section-number">10.5.2</span> Load</h3>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="install-update-r-packages.html#cb264-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate, <span class="at">lib.loc =</span> <span class="st">&quot;C:/Program Files/R/R-3.4.1/library&quot;</span>)</span></code></pre></div>
+</div>
+<div id="update-packages" class="section level3" number="10.5.3">
+<h3><span class="header-section-number">10.5.3</span> Update Packages</h3>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="install-update-r-packages.html#cb265-1" aria-hidden="true" tabindex="-1"></a><span class="fu">update.packages</span>(<span class="at">lib.loc =</span> <span class="st">&quot;C:/Program Files/R/R-3.4.1/library&quot;</span>)</span></code></pre></div>
+</div>
+<div id="remove-packages" class="section level3" number="10.5.4">
+<h3><span class="header-section-number">10.5.4</span> Remove Packages</h3>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="install-update-r-packages.html#cb266-1" aria-hidden="true" tabindex="-1"></a><span class="fu">remove.packages</span>(<span class="at">lib.loc =</span> <span class="st">&quot;C:/Program Files/R/R-3.4.1/library&quot;</span>)</span></code></pre></div>
 
+</div>
 </div>
 </div>
             </section>
@@ -383,8 +440,8 @@ data structures in R. Chapter <a href="#packages"><strong>??</strong></a> explor
           </div>
         </div>
       </div>
+<a href="lists-in-r.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="about-the-author.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

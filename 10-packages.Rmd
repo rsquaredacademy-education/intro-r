@@ -1,4 +1,4 @@
-# R Packages {#packages}
+# Install & Update R Packages {#install-update-r-packages}
 
 ## Introduction
 

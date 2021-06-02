@@ -1,4 +1,4 @@
-# Variables {#variables}
+# Variables in R {#variables-in-r}
 
 ## Introduction
 

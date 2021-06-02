@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Introduction to R</title>
+  <title>Chapter 9 Lists in R | Introduction to R</title>
   <meta name="description" content="A simple introduction to the R programming language." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Introduction to R" />
+  <meta property="og:title" content="Chapter 9 Lists in R | Introduction to R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Introduction to R" />
+  <meta name="twitter:title" content="Chapter 9 Lists in R | Introduction to R" />
   
   <meta name="twitter:description" content="A simple introduction to the R programming language." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="about-the-author.html"/>
+<link rel="prev" href="factors-in-r.html"/>
+<link rel="next" href="install-update-r-packages.html"/>
 <script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -329,52 +329,179 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Introduction to R</h1>
-<p class="author"><em>Aravind Hebbali</em></p>
-<p class="date" style="margin-top: 1.5em;"><em>2021-06-02</em></p>
+<div id="lists-in-r" class="section level1" number="9">
+<h1><span class="header-section-number">Chapter 9</span> Lists in R</h1>
+<div id="introduction-6" class="section level2" number="9.1">
+<h2><span class="header-section-number">9.1</span> Introduction</h2>
+<p>Lists are very useful as they are heterogeneous i.e. they can contain different data types. If you remember, vectors and matrices are homogeneous i.e. they can contain only one type of data. If you include different data types, they will all be coerced to the same type. With lists, it is different. In this chapter, we will delve deeper into lists.</p>
+<ul>
+<li>how to create lists</li>
+<li>access list elements</li>
+<li>name list elements</li>
+<li>coerce other R objects to list</li>
+<li>coerce list to other R objects</li>
+</ul>
 </div>
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
-<p><img src="img/intro-r.png" width="60%" style="display: block; margin: auto;" /></p>
-<p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
-<div id="structure-of-the-book" class="section level2 unnumbered">
-<h2>Structure of the book</h2>
-<p>Chapter <a href="#intro"><strong>??</strong></a> gives a quick overview of R and its evolution over the last
-2 decades. Chapter <a href="introduction-to-r.html#installation">1.3</a> acts as a guide for installing R and
-RStudio. Chapters <a href="#variables"><strong>??</strong></a> and <a href="#datatypes"><strong>??</strong></a> introduce the reader to
-variables and data types in R. Chapter <a href="getting-help-in-r.html#help">5.3.2</a> shows the right place and right
-way to ask for help. Chapters <a href="#vectors"><strong>??</strong></a> to <a href="#lists"><strong>??</strong></a> introduce the basic
-data structures in R. Chapter <a href="#packages"><strong>??</strong></a> explores the R package system.</p>
+<div id="creating-lists" class="section level2" number="9.2">
+<h2><span class="header-section-number">9.2</span> Creating Lists</h2>
+<p>To create a list, we use the <code>list()</code> function. Let us create a simple list to demonstrate how they can contain different data types.</p>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="lists-in-r.html#cb231-1" aria-hidden="true" tabindex="-1"></a><span class="co"># numeric vector</span></span>
+<span id="cb231-2"><a href="lists-in-r.html#cb231-2" aria-hidden="true" tabindex="-1"></a>vect1 <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb231-3"><a href="lists-in-r.html#cb231-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb231-4"><a href="lists-in-r.html#cb231-4" aria-hidden="true" tabindex="-1"></a><span class="co"># character vector </span></span>
+<span id="cb231-5"><a href="lists-in-r.html#cb231-5" aria-hidden="true" tabindex="-1"></a>vect2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;Jack&#39;</span>, <span class="st">&#39;John&#39;</span>, <span class="st">&#39;Jill&#39;</span>)</span>
+<span id="cb231-6"><a href="lists-in-r.html#cb231-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb231-7"><a href="lists-in-r.html#cb231-7" aria-hidden="true" tabindex="-1"></a><span class="co"># logical vector</span></span>
+<span id="cb231-8"><a href="lists-in-r.html#cb231-8" aria-hidden="true" tabindex="-1"></a>vect3 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb231-9"><a href="lists-in-r.html#cb231-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb231-10"><a href="lists-in-r.html#cb231-10" aria-hidden="true" tabindex="-1"></a><span class="co"># matrix</span></span>
+<span id="cb231-11"><a href="lists-in-r.html#cb231-11" aria-hidden="true" tabindex="-1"></a>mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">nrow =</span> <span class="dv">3</span>)</span>
+<span id="cb231-12"><a href="lists-in-r.html#cb231-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb231-13"><a href="lists-in-r.html#cb231-13" aria-hidden="true" tabindex="-1"></a><span class="co"># list</span></span>
+<span id="cb231-14"><a href="lists-in-r.html#cb231-14" aria-hidden="true" tabindex="-1"></a>l <span class="ot">&lt;-</span> <span class="fu">list</span>(vect1, vect2, vect3, mat)</span>
+<span id="cb231-15"><a href="lists-in-r.html#cb231-15" aria-hidden="true" tabindex="-1"></a>l</span></code></pre></div>
+<pre><code>## [[1]]
+##  [1]  1  2  3  4  5  6  7  8  9 10
+## 
+## [[2]]
+## [1] &quot;Jack&quot; &quot;John&quot; &quot;Jill&quot;
+## 
+## [[3]]
+## [1]  TRUE FALSE
+## 
+## [[4]]
+##      [,1] [,2] [,3]
+## [1,]    1    4    7
+## [2,]    2    5    8
+## [3,]    3    6    9</code></pre>
+<p>If you observe the output, all the elements of the list retain their data types. Now let us learn how to access the elements of the list.</p>
 </div>
-<div id="software-information" class="section level2 unnumbered">
-<h2>Software information</h2>
-<p>The R session information when compiling this book is shown below:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
-<pre><code>## R version 4.1.0 (2021-05-18)
-## Platform: x86_64-w64-mingw32/x64 (64-bit)
-## Running under: Windows 10 x64 (build 19042)
+<div id="access-list-elements" class="section level2" number="9.3">
+<h2><span class="header-section-number">9.3</span> Access List Elements</h2>
+<p>You can access the elements of a list using the following operators:</p>
+<ul>
+<li><code>[[</code></li>
+<li><code>[</code></li>
+<li><code>$</code></li>
+</ul>
+<p>Let us try them one by one.</p>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="lists-in-r.html#cb233-1" aria-hidden="true" tabindex="-1"></a><span class="co"># using [[</span></span>
+<span id="cb233-2"><a href="lists-in-r.html#cb233-2" aria-hidden="true" tabindex="-1"></a>l[[<span class="dv">1</span>]]</span></code></pre></div>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="lists-in-r.html#cb235-1" aria-hidden="true" tabindex="-1"></a><span class="co"># using [</span></span>
+<span id="cb235-2"><a href="lists-in-r.html#cb235-2" aria-hidden="true" tabindex="-1"></a>l[<span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## [[1]]
+##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<p><code>[[</code> returns a vector while <code>[</code> returns a list. The <code>$</code> operator can be used only when we have named elements in the list. Let us add names to the elements. Use the <code>names()</code> function to add names to the list.</p>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="lists-in-r.html#cb237-1" aria-hidden="true" tabindex="-1"></a><span class="co"># named elements</span></span>
+<span id="cb237-2"><a href="lists-in-r.html#cb237-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(l) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;vect1&#39;</span>, <span class="st">&#39;vect2&#39;</span>, <span class="st">&#39;vect3&#39;</span>, <span class="st">&#39;mat&#39;</span>)</span>
+<span id="cb237-3"><a href="lists-in-r.html#cb237-3" aria-hidden="true" tabindex="-1"></a>l</span></code></pre></div>
+<pre><code>## $vect1
+##  [1]  1  2  3  4  5  6  7  8  9 10
 ## 
-## Matrix products: default
+## $vect2
+## [1] &quot;Jack&quot; &quot;John&quot; &quot;Jill&quot;
 ## 
-## locale:
-## [1] LC_COLLATE=English_United States.1252 
-## [2] LC_CTYPE=English_United States.1252   
-## [3] LC_MONETARY=English_United States.1252
-## [4] LC_NUMERIC=C                          
-## [5] LC_TIME=English_United States.1252    
+## $vect3
+## [1]  TRUE FALSE
 ## 
-## attached base packages:
-## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## $mat
+##      [,1] [,2] [,3]
+## [1,]    1    4    7
+## [2,]    2    5    8
+## [3,]    3    6    9</code></pre>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="lists-in-r.html#cb239-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use $</span></span>
+<span id="cb239-2"><a href="lists-in-r.html#cb239-2" aria-hidden="true" tabindex="-1"></a>l<span class="sc">$</span>vect1</span></code></pre></div>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="lists-in-r.html#cb241-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use [[</span></span>
+<span id="cb241-2"><a href="lists-in-r.html#cb241-2" aria-hidden="true" tabindex="-1"></a>l[[<span class="st">&#39;vect1&#39;</span>]]</span></code></pre></div>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="lists-in-r.html#cb243-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use [</span></span>
+<span id="cb243-2"><a href="lists-in-r.html#cb243-2" aria-hidden="true" tabindex="-1"></a>l[<span class="st">&#39;vect1&#39;</span>]</span></code></pre></div>
+<pre><code>## $vect1
+##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+</div>
+<div id="coerce-other-objects" class="section level2" number="9.4">
+<h2><span class="header-section-number">9.4</span> Coerce other objects</h2>
+<p>You can coerce other objects to list using <code>as.list()</code>.</p>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="lists-in-r.html#cb245-1" aria-hidden="true" tabindex="-1"></a><span class="co"># vector</span></span>
+<span id="cb245-2"><a href="lists-in-r.html#cb245-2" aria-hidden="true" tabindex="-1"></a>vect1 <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb245-3"><a href="lists-in-r.html#cb245-3" aria-hidden="true" tabindex="-1"></a><span class="fu">as.list</span>(vect1)</span></code></pre></div>
+<pre><code>## [[1]]
+## [1] 1
 ## 
-## loaded via a namespace (and not attached):
-##  [1] bookdown_0.22     digest_0.6.27     R6_2.5.0          jsonlite_1.7.2   
-##  [5] magrittr_2.0.1    evaluate_0.14     highr_0.9         stringi_1.6.2    
-##  [9] rlang_0.4.11      rstudioapi_0.13   jquerylib_0.1.4   bslib_0.2.5.1    
-## [13] rmarkdown_2.8     tools_4.1.0       stringr_1.4.0     xfun_0.23        
-## [17] yaml_2.2.1        compiler_4.1.0    htmltools_0.5.1.1 knitr_1.33       
-## [21] sass_0.4.0</code></pre>
-<p>We do not add prompts (<code>&gt;</code> and <code>+</code>) to R source code in this book, and we comment out the text output with two hashes <code>##</code> by default, as you can see from the R session information above. This is for your convenience when you want to copy and run the code (the text output will be ignored since it is commented out). Package names are in bold text (e.g., <strong>rmarkdown</strong>), and function names are followed by parentheses (e.g., <code>bookdown::render_book()</code>). The double-colon operator <code>::</code> means accessing an object from a package.</p>
+## [[2]]
+## [1] 2
+## 
+## [[3]]
+## [1] 3
+## 
+## [[4]]
+## [1] 4
+## 
+## [[5]]
+## [1] 5
+## 
+## [[6]]
+## [1] 6
+## 
+## [[7]]
+## [1] 7
+## 
+## [[8]]
+## [1] 8
+## 
+## [[9]]
+## [1] 9
+## 
+## [[10]]
+## [1] 10</code></pre>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="lists-in-r.html#cb247-1" aria-hidden="true" tabindex="-1"></a><span class="co"># matrix</span></span>
+<span id="cb247-2"><a href="lists-in-r.html#cb247-2" aria-hidden="true" tabindex="-1"></a>mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">nrow =</span> <span class="dv">3</span>)</span>
+<span id="cb247-3"><a href="lists-in-r.html#cb247-3" aria-hidden="true" tabindex="-1"></a><span class="fu">as.list</span>(mat)</span></code></pre></div>
+<pre><code>## [[1]]
+## [1] 1
+## 
+## [[2]]
+## [1] 2
+## 
+## [[3]]
+## [1] 3
+## 
+## [[4]]
+## [1] 4
+## 
+## [[5]]
+## [1] 5
+## 
+## [[6]]
+## [1] 6
+## 
+## [[7]]
+## [1] 7
+## 
+## [[8]]
+## [1] 8
+## 
+## [[9]]
+## [1] 9</code></pre>
+</div>
+<div id="coerce-list-to-other-objects" class="section level2" number="9.5">
+<h2><span class="header-section-number">9.5</span> Coerce list to other objects</h2>
+<p>Use <code>unlist()</code> to coerce a list to vector.</p>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="lists-in-r.html#cb249-1" aria-hidden="true" tabindex="-1"></a><span class="co"># unlist</span></span>
+<span id="cb249-2"><a href="lists-in-r.html#cb249-2" aria-hidden="true" tabindex="-1"></a><span class="fu">unlist</span>(l)</span></code></pre></div>
+<pre><code>##  vect11  vect12  vect13  vect14  vect15  vect16  vect17  vect18  vect19 vect110 
+##     &quot;1&quot;     &quot;2&quot;     &quot;3&quot;     &quot;4&quot;     &quot;5&quot;     &quot;6&quot;     &quot;7&quot;     &quot;8&quot;     &quot;9&quot;    &quot;10&quot; 
+##  vect21  vect22  vect23  vect31  vect32    mat1    mat2    mat3    mat4    mat5 
+##  &quot;Jack&quot;  &quot;John&quot;  &quot;Jill&quot;  &quot;TRUE&quot; &quot;FALSE&quot;     &quot;1&quot;     &quot;2&quot;     &quot;3&quot;     &quot;4&quot;     &quot;5&quot; 
+##    mat6    mat7    mat8    mat9 
+##     &quot;6&quot;     &quot;7&quot;     &quot;8&quot;     &quot;9&quot;</code></pre>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="lists-in-r.html#cb251-1" aria-hidden="true" tabindex="-1"></a><span class="co"># remove names</span></span>
+<span id="cb251-2"><a href="lists-in-r.html#cb251-2" aria-hidden="true" tabindex="-1"></a><span class="fu">unlist</span>(l, <span class="at">use.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>##  [1] &quot;1&quot;     &quot;2&quot;     &quot;3&quot;     &quot;4&quot;     &quot;5&quot;     &quot;6&quot;     &quot;7&quot;     &quot;8&quot;     &quot;9&quot;    
+## [10] &quot;10&quot;    &quot;Jack&quot;  &quot;John&quot;  &quot;Jill&quot;  &quot;TRUE&quot;  &quot;FALSE&quot; &quot;1&quot;     &quot;2&quot;     &quot;3&quot;    
+## [19] &quot;4&quot;     &quot;5&quot;     &quot;6&quot;     &quot;7&quot;     &quot;8&quot;     &quot;9&quot;</code></pre>
 
 </div>
 </div>
@@ -383,8 +510,8 @@ data structures in R. Chapter <a href="#packages"><strong>??</strong></a> explor
           </div>
         </div>
       </div>
-
-<a href="about-the-author.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="factors-in-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="install-update-r-packages.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

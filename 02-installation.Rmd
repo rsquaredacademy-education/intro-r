@@ -1,4 +1,4 @@
-# Installation {#install}
+# Install R & RStudio {#install-r-and-rstudio}
 
 ## R
 

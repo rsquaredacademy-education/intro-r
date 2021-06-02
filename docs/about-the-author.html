@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>About the Author | Introduction to R</title>
   <meta name="description" content="A simple introduction to the R programming language." />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="About the Author | Introduction to R" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Aravind Hebbali" />
 
 
-<meta name="date" content="2020-06-20" />
+<meta name="date" content="2021-06-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,8 @@
   
   
 <link rel="prev" href="index.html"/>
-<link rel="next" href="intro.html"/>
+<link rel="next" href="introduction-to-r.html"/>
+<script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,6 +51,8 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-57270671-37"></script>
 <script>
@@ -62,18 +65,18 @@
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -93,7 +96,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -126,6 +129,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -142,143 +146,168 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="https://github.com/rsquaredacademy-education/intro-r/">Introduction to R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#structure-of-the-book"><i class="fa fa-check"></i>Structure of the book</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#software-information"><i class="fa fa-check"></i>Software information</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the Author</a></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
-<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#overview"><i class="fa fa-check"></i><b>1.1</b> Overview</a></li>
-<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#organizations"><i class="fa fa-check"></i><b>1.2</b> Organizations</a><ul>
-<li class="chapter" data-level="1.2.1" data-path="intro.html"><a href="intro.html#r-foundation"><i class="fa fa-check"></i><b>1.2.1</b> R Foundation</a></li>
-<li class="chapter" data-level="1.2.2" data-path="intro.html"><a href="intro.html#r-consortium"><i class="fa fa-check"></i><b>1.2.2</b> R Consortium</a></li>
+<li class="chapter" data-level="1" data-path="introduction-to-r.html"><a href="introduction-to-r.html"><i class="fa fa-check"></i><b>1</b> Introduction to R</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#overview"><i class="fa fa-check"></i><b>1.1</b> Overview</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#organizations"><i class="fa fa-check"></i><b>1.2</b> Organizations</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r-foundation"><i class="fa fa-check"></i><b>1.2.1</b> R Foundation</a></li>
+<li class="chapter" data-level="1.2.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r-consortium"><i class="fa fa-check"></i><b>1.2.2</b> R Consortium</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#installation"><i class="fa fa-check"></i><b>1.3</b> Installation</a><ul>
-<li class="chapter" data-level="1.3.1" data-path="intro.html"><a href="intro.html#cran"><i class="fa fa-check"></i><b>1.3.1</b> CRAN</a></li>
-<li class="chapter" data-level="1.3.2" data-path="intro.html"><a href="intro.html#extensions"><i class="fa fa-check"></i><b>1.3.2</b> Extensions</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#installation"><i class="fa fa-check"></i><b>1.3</b> Installation</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#cran"><i class="fa fa-check"></i><b>1.3.1</b> CRAN</a></li>
+<li class="chapter" data-level="1.3.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#extensions"><i class="fa fa-check"></i><b>1.3.2</b> Extensions</a></li>
 </ul></li>
-<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#gui"><i class="fa fa-check"></i><b>1.4</b> GUI</a><ul>
-<li class="chapter" data-level="1.4.1" data-path="intro.html"><a href="intro.html#r-gui"><i class="fa fa-check"></i><b>1.4.1</b> R GUI</a></li>
-<li class="chapter" data-level="1.4.2" data-path="intro.html"><a href="intro.html#rstudio"><i class="fa fa-check"></i><b>1.4.2</b> RStudio</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="2" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>2</b> Installation</a><ul>
-<li class="chapter" data-level="2.1" data-path="install.html"><a href="install.html#r"><i class="fa fa-check"></i><b>2.1</b> R</a></li>
-<li class="chapter" data-level="2.2" data-path="install.html"><a href="install.html#rstudio-1"><i class="fa fa-check"></i><b>2.2</b> RStudio</a></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="variables.html"><a href="variables.html"><i class="fa fa-check"></i><b>3</b> Variables</a><ul>
-<li class="chapter" data-level="3.1" data-path="variables.html"><a href="variables.html#introduction"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
-<li class="chapter" data-level="3.2" data-path="variables.html"><a href="variables.html#what-is-a-variable"><i class="fa fa-check"></i><b>3.2</b> What is a variable?</a></li>
-<li class="chapter" data-level="3.3" data-path="variables.html"><a href="variables.html#creating-variables"><i class="fa fa-check"></i><b>3.3</b> Creating Variables</a></li>
-<li class="chapter" data-level="3.4" data-path="variables.html"><a href="variables.html#using-variables"><i class="fa fa-check"></i><b>3.4</b> Using Variables</a></li>
-<li class="chapter" data-level="3.5" data-path="variables.html"><a href="variables.html#components-of-a-variable"><i class="fa fa-check"></i><b>3.5</b> Components of a Variable</a></li>
-<li class="chapter" data-level="3.6" data-path="variables.html"><a href="variables.html#naming-conventions"><i class="fa fa-check"></i><b>3.6</b> Naming Conventions</a></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="datatypes.html"><a href="datatypes.html"><i class="fa fa-check"></i><b>4</b> Data Types</a><ul>
-<li class="chapter" data-level="4.1" data-path="datatypes.html"><a href="datatypes.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
-<li class="chapter" data-level="4.2" data-path="datatypes.html"><a href="datatypes.html#numeric"><i class="fa fa-check"></i><b>4.2</b> Numeric</a></li>
-<li class="chapter" data-level="4.3" data-path="datatypes.html"><a href="datatypes.html#integer"><i class="fa fa-check"></i><b>4.3</b> Integer</a></li>
-<li class="chapter" data-level="4.4" data-path="datatypes.html"><a href="datatypes.html#character"><i class="fa fa-check"></i><b>4.4</b> Character</a></li>
-<li class="chapter" data-level="4.5" data-path="datatypes.html"><a href="datatypes.html#logical"><i class="fa fa-check"></i><b>4.5</b> Logical</a></li>
-</ul></li>
-<li class="chapter" data-level="5" data-path="help.html"><a href="help.html"><i class="fa fa-check"></i><b>5</b> Getting Help in R</a><ul>
-<li class="chapter" data-level="5.1" data-path="help.html"><a href="help.html#introduction-2"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
-<li class="chapter" data-level="5.2" data-path="help.html"><a href="help.html#online-resources"><i class="fa fa-check"></i><b>5.2</b> Online Resources</a><ul>
-<li class="chapter" data-level="5.2.1" data-path="help.html"><a href="help.html#r-bloggers"><i class="fa fa-check"></i><b>5.2.1</b> R Bloggers</a></li>
-<li class="chapter" data-level="5.2.2" data-path="help.html"><a href="help.html#stack-overflow"><i class="fa fa-check"></i><b>5.2.2</b> Stack Overflow</a></li>
-<li class="chapter" data-level="5.2.3" data-path="help.html"><a href="help.html#twitter"><i class="fa fa-check"></i><b>5.2.3</b> Twitter</a></li>
-<li class="chapter" data-level="5.2.4" data-path="help.html"><a href="help.html#rstudio-community"><i class="fa fa-check"></i><b>5.2.4</b> RStudio Community</a></li>
-<li class="chapter" data-level="5.2.5" data-path="help.html"><a href="help.html#rstudio-2"><i class="fa fa-check"></i><b>5.2.5</b> RStudio</a></li>
-<li class="chapter" data-level="5.2.6" data-path="help.html"><a href="help.html#reddit"><i class="fa fa-check"></i><b>5.2.6</b> Reddit</a></li>
-<li class="chapter" data-level="5.2.7" data-path="help.html"><a href="help.html#r-weekly"><i class="fa fa-check"></i><b>5.2.7</b> R Weekly</a></li>
-<li class="chapter" data-level="5.2.8" data-path="help.html"><a href="help.html#r-user-groups"><i class="fa fa-check"></i><b>5.2.8</b> R User Groups</a></li>
-<li class="chapter" data-level="5.2.9" data-path="help.html"><a href="help.html#data-helpers"><i class="fa fa-check"></i><b>5.2.9</b> Data Helpers</a></li>
-</ul></li>
-<li class="chapter" data-level="5.3" data-path="help.html"><a href="help.html#internal"><i class="fa fa-check"></i><b>5.3</b> Internal</a><ul>
-<li class="chapter" data-level="5.3.1" data-path="help.html"><a href="help.html#help.start"><i class="fa fa-check"></i><b>5.3.1</b> help.start</a></li>
-<li class="chapter" data-level="5.3.2" data-path="help.html"><a href="help.html#help-1"><i class="fa fa-check"></i><b>5.3.2</b> help</a></li>
-<li class="chapter" data-level="5.3.3" data-path="help.html"><a href="help.html#help.search"><i class="fa fa-check"></i><b>5.3.3</b> help.search</a></li>
-<li class="chapter" data-level="5.3.4" data-path="help.html"><a href="help.html#demo"><i class="fa fa-check"></i><b>5.3.4</b> demo</a></li>
-<li class="chapter" data-level="5.3.5" data-path="help.html"><a href="help.html#example"><i class="fa fa-check"></i><b>5.3.5</b> example</a></li>
-</ul></li>
-<li class="chapter" data-level="5.4" data-path="help.html"><a href="help.html#package-documentation"><i class="fa fa-check"></i><b>5.4</b> Package Documentation</a><ul>
-<li class="chapter" data-level="5.4.1" data-path="help.html"><a href="help.html#library"><i class="fa fa-check"></i><b>5.4.1</b> library</a></li>
-<li class="chapter" data-level="5.4.2" data-path="help.html"><a href="help.html#vignette"><i class="fa fa-check"></i><b>5.4.2</b> vignette</a></li>
-<li class="chapter" data-level="5.4.3" data-path="help.html"><a href="help.html#browsevignettes"><i class="fa fa-check"></i><b>5.4.3</b> browseVignettes</a></li>
-<li class="chapter" data-level="5.4.4" data-path="help.html"><a href="help.html#rsitesearch"><i class="fa fa-check"></i><b>5.4.4</b> RsiteSearch</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction-to-r.html"><a href="introduction-to-r.html#gui"><i class="fa fa-check"></i><b>1.4</b> GUI</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r-gui"><i class="fa fa-check"></i><b>1.4.1</b> R GUI</a></li>
+<li class="chapter" data-level="1.4.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#rstudio"><i class="fa fa-check"></i><b>1.4.2</b> RStudio</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="vectors.html"><a href="vectors.html"><i class="fa fa-check"></i><b>6</b> Vectors</a><ul>
-<li class="chapter" data-level="6.1" data-path="vectors.html"><a href="vectors.html#introduction-3"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
-<li class="chapter" data-level="6.2" data-path="vectors.html"><a href="vectors.html#numeric-vector"><i class="fa fa-check"></i><b>6.2</b> Numeric Vector</a></li>
-<li class="chapter" data-level="6.3" data-path="vectors.html"><a href="vectors.html#integer-vector"><i class="fa fa-check"></i><b>6.3</b> Integer Vector</a></li>
-<li class="chapter" data-level="6.4" data-path="vectors.html"><a href="vectors.html#character-vector"><i class="fa fa-check"></i><b>6.4</b> Character Vector</a></li>
-<li class="chapter" data-level="6.5" data-path="vectors.html"><a href="vectors.html#logical-vector"><i class="fa fa-check"></i><b>6.5</b> Logical Vector</a></li>
-<li class="chapter" data-level="6.6" data-path="vectors.html"><a href="vectors.html#naming-vector-elements"><i class="fa fa-check"></i><b>6.6</b> Naming Vector Elements</a><ul>
-<li class="chapter" data-level="6.6.1" data-path="vectors.html"><a href="vectors.html#method-1-create-vector-and-add-names-later"><i class="fa fa-check"></i><b>6.6.1</b> Method 1: Create vector and add names later</a></li>
-<li class="chapter" data-level="6.6.2" data-path="vectors.html"><a href="vectors.html#method-2-specify-names-while-creating-vector"><i class="fa fa-check"></i><b>6.6.2</b> Method 2: Specify names while creating vector</a></li>
+<li class="chapter" data-level="2" data-path="install-r-and-rstudio.html"><a href="install-r-and-rstudio.html"><i class="fa fa-check"></i><b>2</b> Install R &amp; RStudio</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="install-r-and-rstudio.html"><a href="install-r-and-rstudio.html#r"><i class="fa fa-check"></i><b>2.1</b> R</a></li>
+<li class="chapter" data-level="2.2" data-path="install-r-and-rstudio.html"><a href="install-r-and-rstudio.html#rstudio-1"><i class="fa fa-check"></i><b>2.2</b> RStudio</a></li>
 </ul></li>
-<li class="chapter" data-level="6.7" data-path="vectors.html"><a href="vectors.html#vector-coercion"><i class="fa fa-check"></i><b>6.7</b> Vector Coercion</a><ul>
-<li class="chapter" data-level="6.7.1" data-path="vectors.html"><a href="vectors.html#case-1-different-data-types"><i class="fa fa-check"></i><b>6.7.1</b> Case 1: Different Data Types</a></li>
-<li class="chapter" data-level="6.7.2" data-path="vectors.html"><a href="vectors.html#case-2-numeric-integer-and-logical"><i class="fa fa-check"></i><b>6.7.2</b> Case 2: Numeric, Integer and Logical</a></li>
-<li class="chapter" data-level="6.7.3" data-path="vectors.html"><a href="vectors.html#case-integer-and-logical"><i class="fa fa-check"></i><b>6.7.3</b> Case : Integer and Logical</a></li>
+<li class="chapter" data-level="3" data-path="variables-in-r.html"><a href="variables-in-r.html"><i class="fa fa-check"></i><b>3</b> Variables in R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="variables-in-r.html"><a href="variables-in-r.html#introduction"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="variables-in-r.html"><a href="variables-in-r.html#what-is-a-variable"><i class="fa fa-check"></i><b>3.2</b> What is a variable?</a></li>
+<li class="chapter" data-level="3.3" data-path="variables-in-r.html"><a href="variables-in-r.html#creating-variables"><i class="fa fa-check"></i><b>3.3</b> Creating Variables</a></li>
+<li class="chapter" data-level="3.4" data-path="variables-in-r.html"><a href="variables-in-r.html#using-variables"><i class="fa fa-check"></i><b>3.4</b> Using Variables</a></li>
+<li class="chapter" data-level="3.5" data-path="variables-in-r.html"><a href="variables-in-r.html#components-of-a-variable"><i class="fa fa-check"></i><b>3.5</b> Components of a Variable</a></li>
+<li class="chapter" data-level="3.6" data-path="variables-in-r.html"><a href="variables-in-r.html#naming-conventions"><i class="fa fa-check"></i><b>3.6</b> Naming Conventions</a></li>
 </ul></li>
-<li class="chapter" data-level="6.8" data-path="vectors.html"><a href="vectors.html#vector-operations"><i class="fa fa-check"></i><b>6.8</b> Vector Operations</a><ul>
-<li class="chapter" data-level="6.8.1" data-path="vectors.html"><a href="vectors.html#case-1-vectors-of-same-length"><i class="fa fa-check"></i><b>6.8.1</b> Case 1: Vectors of same length</a></li>
-<li class="chapter" data-level="6.8.2" data-path="vectors.html"><a href="vectors.html#case-2-vectors-of-different-length"><i class="fa fa-check"></i><b>6.8.2</b> Case 2: Vectors of different length</a></li>
+<li class="chapter" data-level="4" data-path="data-types-in-r.html"><a href="data-types-in-r.html"><i class="fa fa-check"></i><b>4</b> Data Types in R</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="data-types-in-r.html"><a href="data-types-in-r.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="data-types-in-r.html"><a href="data-types-in-r.html#numeric"><i class="fa fa-check"></i><b>4.2</b> Numeric</a></li>
+<li class="chapter" data-level="4.3" data-path="data-types-in-r.html"><a href="data-types-in-r.html#integer"><i class="fa fa-check"></i><b>4.3</b> Integer</a></li>
+<li class="chapter" data-level="4.4" data-path="data-types-in-r.html"><a href="data-types-in-r.html#character"><i class="fa fa-check"></i><b>4.4</b> Character</a></li>
+<li class="chapter" data-level="4.5" data-path="data-types-in-r.html"><a href="data-types-in-r.html#logical"><i class="fa fa-check"></i><b>4.5</b> Logical</a></li>
 </ul></li>
-<li class="chapter" data-level="6.9" data-path="vectors.html"><a href="vectors.html#missing-data"><i class="fa fa-check"></i><b>6.9</b> Missing Data</a><ul>
-<li class="chapter" data-level="6.9.1" data-path="vectors.html"><a href="vectors.html#detect-missing-data"><i class="fa fa-check"></i><b>6.9.1</b> Detect missing data</a></li>
-<li class="chapter" data-level="6.9.2" data-path="vectors.html"><a href="vectors.html#omit-missing-data"><i class="fa fa-check"></i><b>6.9.2</b> Omit missing data</a></li>
-<li class="chapter" data-level="6.9.3" data-path="vectors.html"><a href="vectors.html#exclude-missing-data"><i class="fa fa-check"></i><b>6.9.3</b> Exclude missing data</a></li>
+<li class="chapter" data-level="5" data-path="getting-help-in-r.html"><a href="getting-help-in-r.html"><i class="fa fa-check"></i><b>5</b> Getting Help in R</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="getting-help-in-r.html"><a href="getting-help-in-r.html#introduction-2"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="getting-help-in-r.html"><a href="getting-help-in-r.html#online-resources"><i class="fa fa-check"></i><b>5.2</b> Online Resources</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="getting-help-in-r.html"><a href="getting-help-in-r.html#r-bloggers"><i class="fa fa-check"></i><b>5.2.1</b> R Bloggers</a></li>
+<li class="chapter" data-level="5.2.2" data-path="getting-help-in-r.html"><a href="getting-help-in-r.html#stack-overflow"><i class="fa fa-check"></i><b>5.2.2</b> Stack Overflow</a></li>
+<li class="chapter" data-level="5.2.3" data-path="getting-help-in-r.html"><a href="getting-help-in-r.html#twitter"><i class="fa fa-check"></i><b>5.2.3</b> Twitter</a></li>
+<li class="chapter" data-level="5.2.4" data-path="getting-help-in-r.html"><a href="getting-help-in-r.html#rstudio-community"><i class="fa fa-check"></i><b>5.2.4</b> RStudio Community</a></li>
+<li class="chapter" data-level="5.2.5" data-path="getting-help-in-r.html"><a href="getting-help-in-r.html#rstudio-2"><i class="fa fa-check"></i><b>5.2.5</b> RStudio</a></li>
+<li class="chapter" data-level="5.2.6" data-path="getting-help-in-r.html"><a href="getting-help-in-r.html#reddit"><i class="fa fa-check"></i><b>5.2.6</b> Reddit</a></li>
+<li class="chapter" data-level="5.2.7" data-path="getting-help-in-r.html"><a href="getting-help-in-r.html#r-weekly"><i class="fa fa-check"></i><b>5.2.7</b> R Weekly</a></li>
+<li class="chapter" data-level="5.2.8" data-path="getting-help-in-r.html"><a href="getting-help-in-r.html#r-user-groups"><i class="fa fa-check"></i><b>5.2.8</b> R User Groups</a></li>
+<li class="chapter" data-level="5.2.9" data-path="getting-help-in-r.html"><a href="getting-help-in-r.html#data-helpers"><i class="fa fa-check"></i><b>5.2.9</b> Data Helpers</a></li>
 </ul></li>
-<li class="chapter" data-level="6.10" data-path="vectors.html"><a href="vectors.html#index-vectors"><i class="fa fa-check"></i><b>6.10</b> Index Vectors</a><ul>
-<li class="chapter" data-level="6.10.1" data-path="vectors.html"><a href="vectors.html#out-of-range-index"><i class="fa fa-check"></i><b>6.10.1</b> Out of range index</a></li>
-<li class="chapter" data-level="6.10.2" data-path="vectors.html"><a href="vectors.html#negative-index"><i class="fa fa-check"></i><b>6.10.2</b> Negative Index</a></li>
-<li class="chapter" data-level="6.10.3" data-path="vectors.html"><a href="vectors.html#subset-multiple-elements"><i class="fa fa-check"></i><b>6.10.3</b> Subset Multiple Elements</a></li>
-<li class="chapter" data-level="6.10.4" data-path="vectors.html"><a href="vectors.html#subset-named-vectors"><i class="fa fa-check"></i><b>6.10.4</b> Subset Named Vectors</a></li>
-<li class="chapter" data-level="6.10.5" data-path="vectors.html"><a href="vectors.html#subset-using-logical-values"><i class="fa fa-check"></i><b>6.10.5</b> Subset using logical values</a></li>
-<li class="chapter" data-level="6.10.6" data-path="vectors.html"><a href="vectors.html#subset-using-logical-expressions"><i class="fa fa-check"></i><b>6.10.6</b> Subset using logical expressions</a></li>
-<li class="chapter" data-level="6.10.7" data-path="vectors.html"><a href="vectors.html#logical-operators"><i class="fa fa-check"></i><b>6.10.7</b> Logical Operators</a></li>
+<li class="chapter" data-level="5.3" data-path="getting-help-in-r.html"><a href="getting-help-in-r.html#internal"><i class="fa fa-check"></i><b>5.3</b> Internal</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="getting-help-in-r.html"><a href="getting-help-in-r.html#help.start"><i class="fa fa-check"></i><b>5.3.1</b> help.start</a></li>
+<li class="chapter" data-level="5.3.2" data-path="getting-help-in-r.html"><a href="getting-help-in-r.html#help"><i class="fa fa-check"></i><b>5.3.2</b> help</a></li>
+<li class="chapter" data-level="5.3.3" data-path="getting-help-in-r.html"><a href="getting-help-in-r.html#help.search"><i class="fa fa-check"></i><b>5.3.3</b> help.search</a></li>
+<li class="chapter" data-level="5.3.4" data-path="getting-help-in-r.html"><a href="getting-help-in-r.html#demo"><i class="fa fa-check"></i><b>5.3.4</b> demo</a></li>
+<li class="chapter" data-level="5.3.5" data-path="getting-help-in-r.html"><a href="getting-help-in-r.html#example"><i class="fa fa-check"></i><b>5.3.5</b> example</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="getting-help-in-r.html"><a href="getting-help-in-r.html#package-documentation"><i class="fa fa-check"></i><b>5.4</b> Package Documentation</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="getting-help-in-r.html"><a href="getting-help-in-r.html#library"><i class="fa fa-check"></i><b>5.4.1</b> library</a></li>
+<li class="chapter" data-level="5.4.2" data-path="getting-help-in-r.html"><a href="getting-help-in-r.html#vignette"><i class="fa fa-check"></i><b>5.4.2</b> vignette</a></li>
+<li class="chapter" data-level="5.4.3" data-path="getting-help-in-r.html"><a href="getting-help-in-r.html#browsevignettes"><i class="fa fa-check"></i><b>5.4.3</b> browseVignettes</a></li>
+<li class="chapter" data-level="5.4.4" data-path="getting-help-in-r.html"><a href="getting-help-in-r.html#rsitesearch"><i class="fa fa-check"></i><b>5.4.4</b> RsiteSearch</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="dataframes.html"><a href="dataframes.html"><i class="fa fa-check"></i><b>7</b> Dataframes</a><ul>
-<li class="chapter" data-level="7.1" data-path="dataframes.html"><a href="dataframes.html#introduction-4"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
-<li class="chapter" data-level="7.2" data-path="dataframes.html"><a href="dataframes.html#create-dataframes"><i class="fa fa-check"></i><b>7.2</b> Create dataframes</a></li>
-<li class="chapter" data-level="7.3" data-path="dataframes.html"><a href="dataframes.html#basic-information"><i class="fa fa-check"></i><b>7.3</b> Basic Information</a></li>
-<li class="chapter" data-level="7.4" data-path="dataframes.html"><a href="dataframes.html#select-columns"><i class="fa fa-check"></i><b>7.4</b> Select Columns</a><ul>
-<li class="chapter" data-level="7.4.1" data-path="dataframes.html"><a href="dataframes.html#single-column"><i class="fa fa-check"></i><b>7.4.1</b> Single Column</a></li>
-<li class="chapter" data-level="7.4.2" data-path="dataframes.html"><a href="dataframes.html#multiple-columns"><i class="fa fa-check"></i><b>7.4.2</b> Multiple Columns</a></li>
+<li class="chapter" data-level="6" data-path="vectors-in-r.html"><a href="vectors-in-r.html"><i class="fa fa-check"></i><b>6</b> Vectors in R</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="vectors-in-r.html"><a href="vectors-in-r.html#introduction-3"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="vectors-in-r.html"><a href="vectors-in-r.html#numeric-vector"><i class="fa fa-check"></i><b>6.2</b> Numeric Vector</a></li>
+<li class="chapter" data-level="6.3" data-path="vectors-in-r.html"><a href="vectors-in-r.html#integer-vector"><i class="fa fa-check"></i><b>6.3</b> Integer Vector</a></li>
+<li class="chapter" data-level="6.4" data-path="vectors-in-r.html"><a href="vectors-in-r.html#character-vector"><i class="fa fa-check"></i><b>6.4</b> Character Vector</a></li>
+<li class="chapter" data-level="6.5" data-path="vectors-in-r.html"><a href="vectors-in-r.html#logical-vector"><i class="fa fa-check"></i><b>6.5</b> Logical Vector</a></li>
+<li class="chapter" data-level="6.6" data-path="vectors-in-r.html"><a href="vectors-in-r.html#naming-vector-elements"><i class="fa fa-check"></i><b>6.6</b> Naming Vector Elements</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="vectors-in-r.html"><a href="vectors-in-r.html#method-1-create-vector-and-add-names-later"><i class="fa fa-check"></i><b>6.6.1</b> Method 1: Create vector and add names later</a></li>
+<li class="chapter" data-level="6.6.2" data-path="vectors-in-r.html"><a href="vectors-in-r.html#method-2-specify-names-while-creating-vector"><i class="fa fa-check"></i><b>6.6.2</b> Method 2: Specify names while creating vector</a></li>
 </ul></li>
-<li class="chapter" data-level="7.5" data-path="dataframes.html"><a href="dataframes.html#select-rows"><i class="fa fa-check"></i><b>7.5</b> Select Rows</a></li>
+<li class="chapter" data-level="6.7" data-path="vectors-in-r.html"><a href="vectors-in-r.html#vector-coercion"><i class="fa fa-check"></i><b>6.7</b> Vector Coercion</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="vectors-in-r.html"><a href="vectors-in-r.html#case-1-different-data-types"><i class="fa fa-check"></i><b>6.7.1</b> Case 1: Different Data Types</a></li>
+<li class="chapter" data-level="6.7.2" data-path="vectors-in-r.html"><a href="vectors-in-r.html#case-2-numeric-integer-and-logical"><i class="fa fa-check"></i><b>6.7.2</b> Case 2: Numeric, Integer and Logical</a></li>
+<li class="chapter" data-level="6.7.3" data-path="vectors-in-r.html"><a href="vectors-in-r.html#case-integer-and-logical"><i class="fa fa-check"></i><b>6.7.3</b> Case : Integer and Logical</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="factors.html"><a href="factors.html"><i class="fa fa-check"></i><b>8</b> Factors</a><ul>
-<li class="chapter" data-level="8.1" data-path="factors.html"><a href="factors.html#introduction-5"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
-<li class="chapter" data-level="8.2" data-path="factors.html"><a href="factors.html#create-factors"><i class="fa fa-check"></i><b>8.2</b> Create Factors</a></li>
+<li class="chapter" data-level="6.8" data-path="vectors-in-r.html"><a href="vectors-in-r.html#vector-operations"><i class="fa fa-check"></i><b>6.8</b> Vector Operations</a>
+<ul>
+<li class="chapter" data-level="6.8.1" data-path="vectors-in-r.html"><a href="vectors-in-r.html#case-1-vectors-of-same-length"><i class="fa fa-check"></i><b>6.8.1</b> Case 1: Vectors of same length</a></li>
+<li class="chapter" data-level="6.8.2" data-path="vectors-in-r.html"><a href="vectors-in-r.html#case-2-vectors-of-different-length"><i class="fa fa-check"></i><b>6.8.2</b> Case 2: Vectors of different length</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="lists.html"><a href="lists.html"><i class="fa fa-check"></i><b>9</b> Lists</a><ul>
-<li class="chapter" data-level="9.1" data-path="lists.html"><a href="lists.html#introduction-6"><i class="fa fa-check"></i><b>9.1</b> Introduction</a></li>
-<li class="chapter" data-level="9.2" data-path="lists.html"><a href="lists.html#creating-lists"><i class="fa fa-check"></i><b>9.2</b> Creating Lists</a></li>
-<li class="chapter" data-level="9.3" data-path="lists.html"><a href="lists.html#access-list-elements"><i class="fa fa-check"></i><b>9.3</b> Access List Elements</a></li>
-<li class="chapter" data-level="9.4" data-path="lists.html"><a href="lists.html#coerce-other-objects"><i class="fa fa-check"></i><b>9.4</b> Coerce other objects</a></li>
-<li class="chapter" data-level="9.5" data-path="lists.html"><a href="lists.html#coerce-list-to-other-objects"><i class="fa fa-check"></i><b>9.5</b> Coerce list to other objects</a></li>
+<li class="chapter" data-level="6.9" data-path="vectors-in-r.html"><a href="vectors-in-r.html#missing-data"><i class="fa fa-check"></i><b>6.9</b> Missing Data</a>
+<ul>
+<li class="chapter" data-level="6.9.1" data-path="vectors-in-r.html"><a href="vectors-in-r.html#detect-missing-data"><i class="fa fa-check"></i><b>6.9.1</b> Detect missing data</a></li>
+<li class="chapter" data-level="6.9.2" data-path="vectors-in-r.html"><a href="vectors-in-r.html#omit-missing-data"><i class="fa fa-check"></i><b>6.9.2</b> Omit missing data</a></li>
+<li class="chapter" data-level="6.9.3" data-path="vectors-in-r.html"><a href="vectors-in-r.html#exclude-missing-data"><i class="fa fa-check"></i><b>6.9.3</b> Exclude missing data</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="packages.html"><a href="packages.html"><i class="fa fa-check"></i><b>10</b> R Packages</a><ul>
-<li class="chapter" data-level="10.1" data-path="packages.html"><a href="packages.html#introduction-7"><i class="fa fa-check"></i><b>10.1</b> Introduction</a></li>
-<li class="chapter" data-level="10.2" data-path="packages.html"><a href="packages.html#install-packages"><i class="fa fa-check"></i><b>10.2</b> Install Packages</a><ul>
-<li class="chapter" data-level="10.2.1" data-path="packages.html"><a href="packages.html#cran-1"><i class="fa fa-check"></i><b>10.2.1</b> CRAN</a></li>
-<li class="chapter" data-level="10.2.2" data-path="packages.html"><a href="packages.html#github"><i class="fa fa-check"></i><b>10.2.2</b> GitHub</a></li>
-<li class="chapter" data-level="10.2.3" data-path="packages.html"><a href="packages.html#bitbucket"><i class="fa fa-check"></i><b>10.2.3</b> BitBucket</a></li>
-<li class="chapter" data-level="10.2.4" data-path="packages.html"><a href="packages.html#bioconductor"><i class="fa fa-check"></i><b>10.2.4</b> Bioconductor</a></li>
-<li class="chapter" data-level="10.2.5" data-path="packages.html"><a href="packages.html#rforge"><i class="fa fa-check"></i><b>10.2.5</b> rForge</a></li>
+<li class="chapter" data-level="6.10" data-path="vectors-in-r.html"><a href="vectors-in-r.html#index-vectors"><i class="fa fa-check"></i><b>6.10</b> Index Vectors</a>
+<ul>
+<li class="chapter" data-level="6.10.1" data-path="vectors-in-r.html"><a href="vectors-in-r.html#out-of-range-index"><i class="fa fa-check"></i><b>6.10.1</b> Out of range index</a></li>
+<li class="chapter" data-level="6.10.2" data-path="vectors-in-r.html"><a href="vectors-in-r.html#negative-index"><i class="fa fa-check"></i><b>6.10.2</b> Negative Index</a></li>
+<li class="chapter" data-level="6.10.3" data-path="vectors-in-r.html"><a href="vectors-in-r.html#subset-multiple-elements"><i class="fa fa-check"></i><b>6.10.3</b> Subset Multiple Elements</a></li>
+<li class="chapter" data-level="6.10.4" data-path="vectors-in-r.html"><a href="vectors-in-r.html#subset-named-vectors"><i class="fa fa-check"></i><b>6.10.4</b> Subset Named Vectors</a></li>
+<li class="chapter" data-level="6.10.5" data-path="vectors-in-r.html"><a href="vectors-in-r.html#subset-using-logical-values"><i class="fa fa-check"></i><b>6.10.5</b> Subset using logical values</a></li>
+<li class="chapter" data-level="6.10.6" data-path="vectors-in-r.html"><a href="vectors-in-r.html#subset-using-logical-expressions"><i class="fa fa-check"></i><b>6.10.6</b> Subset using logical expressions</a></li>
+<li class="chapter" data-level="6.10.7" data-path="vectors-in-r.html"><a href="vectors-in-r.html#logical-operators"><i class="fa fa-check"></i><b>6.10.7</b> Logical Operators</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="packages.html"><a href="packages.html#install-different-versions"><i class="fa fa-check"></i><b>10.3</b> Install Different Versions</a></li>
-<li class="chapter" data-level="10.4" data-path="packages.html"><a href="packages.html#installed-packages"><i class="fa fa-check"></i><b>10.4</b> Installed Packages</a></li>
-<li class="chapter" data-level="10.5" data-path="packages.html"><a href="packages.html#library-paths"><i class="fa fa-check"></i><b>10.5</b> Library Paths</a><ul>
-<li class="chapter" data-level="10.5.1" data-path="packages.html"><a href="packages.html#install-1"><i class="fa fa-check"></i><b>10.5.1</b> Install</a></li>
-<li class="chapter" data-level="10.5.2" data-path="packages.html"><a href="packages.html#load"><i class="fa fa-check"></i><b>10.5.2</b> Load</a></li>
-<li class="chapter" data-level="10.5.3" data-path="packages.html"><a href="packages.html#update-packages"><i class="fa fa-check"></i><b>10.5.3</b> Update Packages</a></li>
-<li class="chapter" data-level="10.5.4" data-path="packages.html"><a href="packages.html#remove-packages"><i class="fa fa-check"></i><b>10.5.4</b> Remove Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="data-frames-in-r.html"><a href="data-frames-in-r.html"><i class="fa fa-check"></i><b>7</b> Dataframes in R</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="data-frames-in-r.html"><a href="data-frames-in-r.html#introduction-4"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="data-frames-in-r.html"><a href="data-frames-in-r.html#create-dataframes"><i class="fa fa-check"></i><b>7.2</b> Create dataframes</a></li>
+<li class="chapter" data-level="7.3" data-path="data-frames-in-r.html"><a href="data-frames-in-r.html#basic-information"><i class="fa fa-check"></i><b>7.3</b> Basic Information</a></li>
+<li class="chapter" data-level="7.4" data-path="data-frames-in-r.html"><a href="data-frames-in-r.html#select-columns"><i class="fa fa-check"></i><b>7.4</b> Select Columns</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="data-frames-in-r.html"><a href="data-frames-in-r.html#single-column"><i class="fa fa-check"></i><b>7.4.1</b> Single Column</a></li>
+<li class="chapter" data-level="7.4.2" data-path="data-frames-in-r.html"><a href="data-frames-in-r.html#multiple-columns"><i class="fa fa-check"></i><b>7.4.2</b> Multiple Columns</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="data-frames-in-r.html"><a href="data-frames-in-r.html#select-rows"><i class="fa fa-check"></i><b>7.5</b> Select Rows</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="factors-in-r.html"><a href="factors-in-r.html"><i class="fa fa-check"></i><b>8</b> Factors in R</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="factors-in-r.html"><a href="factors-in-r.html#introduction-5"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.2" data-path="factors-in-r.html"><a href="factors-in-r.html#create-factors"><i class="fa fa-check"></i><b>8.2</b> Create Factors</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="lists-in-r.html"><a href="lists-in-r.html"><i class="fa fa-check"></i><b>9</b> Lists in R</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="lists-in-r.html"><a href="lists-in-r.html#introduction-6"><i class="fa fa-check"></i><b>9.1</b> Introduction</a></li>
+<li class="chapter" data-level="9.2" data-path="lists-in-r.html"><a href="lists-in-r.html#creating-lists"><i class="fa fa-check"></i><b>9.2</b> Creating Lists</a></li>
+<li class="chapter" data-level="9.3" data-path="lists-in-r.html"><a href="lists-in-r.html#access-list-elements"><i class="fa fa-check"></i><b>9.3</b> Access List Elements</a></li>
+<li class="chapter" data-level="9.4" data-path="lists-in-r.html"><a href="lists-in-r.html#coerce-other-objects"><i class="fa fa-check"></i><b>9.4</b> Coerce other objects</a></li>
+<li class="chapter" data-level="9.5" data-path="lists-in-r.html"><a href="lists-in-r.html#coerce-list-to-other-objects"><i class="fa fa-check"></i><b>9.5</b> Coerce list to other objects</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="install-update-r-packages.html"><a href="install-update-r-packages.html"><i class="fa fa-check"></i><b>10</b> Install &amp; Update R Packages</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="install-update-r-packages.html"><a href="install-update-r-packages.html#introduction-7"><i class="fa fa-check"></i><b>10.1</b> Introduction</a></li>
+<li class="chapter" data-level="10.2" data-path="install-update-r-packages.html"><a href="install-update-r-packages.html#install-packages"><i class="fa fa-check"></i><b>10.2</b> Install Packages</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="install-update-r-packages.html"><a href="install-update-r-packages.html#cran-1"><i class="fa fa-check"></i><b>10.2.1</b> CRAN</a></li>
+<li class="chapter" data-level="10.2.2" data-path="install-update-r-packages.html"><a href="install-update-r-packages.html#github"><i class="fa fa-check"></i><b>10.2.2</b> GitHub</a></li>
+<li class="chapter" data-level="10.2.3" data-path="install-update-r-packages.html"><a href="install-update-r-packages.html#bitbucket"><i class="fa fa-check"></i><b>10.2.3</b> BitBucket</a></li>
+<li class="chapter" data-level="10.2.4" data-path="install-update-r-packages.html"><a href="install-update-r-packages.html#bioconductor"><i class="fa fa-check"></i><b>10.2.4</b> Bioconductor</a></li>
+<li class="chapter" data-level="10.2.5" data-path="install-update-r-packages.html"><a href="install-update-r-packages.html#rforge"><i class="fa fa-check"></i><b>10.2.5</b> rForge</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="install-update-r-packages.html"><a href="install-update-r-packages.html#install-different-versions"><i class="fa fa-check"></i><b>10.3</b> Install Different Versions</a></li>
+<li class="chapter" data-level="10.4" data-path="install-update-r-packages.html"><a href="install-update-r-packages.html#installed-packages"><i class="fa fa-check"></i><b>10.4</b> Installed Packages</a></li>
+<li class="chapter" data-level="10.5" data-path="install-update-r-packages.html"><a href="install-update-r-packages.html#library-paths"><i class="fa fa-check"></i><b>10.5</b> Library Paths</a>
+<ul>
+<li class="chapter" data-level="10.5.1" data-path="install-update-r-packages.html"><a href="install-update-r-packages.html#install"><i class="fa fa-check"></i><b>10.5.1</b> Install</a></li>
+<li class="chapter" data-level="10.5.2" data-path="install-update-r-packages.html"><a href="install-update-r-packages.html#load"><i class="fa fa-check"></i><b>10.5.2</b> Load</a></li>
+<li class="chapter" data-level="10.5.3" data-path="install-update-r-packages.html"><a href="install-update-r-packages.html#update-packages"><i class="fa fa-check"></i><b>10.5.3</b> Update Packages</a></li>
+<li class="chapter" data-level="10.5.4" data-path="install-update-r-packages.html"><a href="install-update-r-packages.html#remove-packages"><i class="fa fa-check"></i><b>10.5.4</b> Remove Packages</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -326,7 +355,7 @@ customized learning modules for corporates and universities.</p>
         </div>
       </div>
 <a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="intro.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="introduction-to-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -349,6 +378,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
