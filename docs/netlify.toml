@@ -12,7 +12,7 @@
 
 [[redirects]]
   from = "https://intro-r.rsquaredacademy.com/variables.html"
-  to = "https://intro-r.rsquaredacademy.com/variabels-in-r.html"
+  to = "https://intro-r.rsquaredacademy.com/variables-in-r.html"
   status = 301
   force = true
 
