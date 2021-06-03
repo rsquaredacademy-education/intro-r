@@ -1,0 +1,59 @@
+[[redirects]]
+  from = "https://intro-r.rsquaredacademy.com/intro.html"
+  to = "https://intro-r.rsquaredacademy.com/introduction-to-r.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://intro-r.rsquaredacademy.com/install.html"
+  to = "https://intro-r.rsquaredacademy.com/install-r-and-rstudio.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://intro-r.rsquaredacademy.com/variables.html"
+  to = "https://intro-r.rsquaredacademy.com/variabels-in-r.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://intro-r.rsquaredacademy.com/datatypes.html"
+  to = "https://intro-r.rsquaredacademy.com/data-types-in-r.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://intro-r.rsquaredacademy.com/help.html"
+  to = "https://intro-r.rsquaredacademy.com/getting-help-in-r.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://intro-r.rsquaredacademy.com/vectors.html"
+  to = "https://intro-r.rsquaredacademy.com/vectors-in-r.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://intro-r.rsquaredacademy.com/dataframes.html"
+  to = "https://intro-r.rsquaredacademy.com/data-frames-in-r.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://intro-r.rsquaredacademy.com/factors.html"
+  to = "https://intro-r.rsquaredacademy.com/factors-in-r.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://intro-r.rsquaredacademy.com/lists.html"
+  to = "https://intro-r.rsquaredacademy.com/lists-in-r.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://intro-r.rsquaredacademy.com/packages.html"
+  to = "https://intro-r.rsquaredacademy.com/install-update-r-packages.html"
+  status = 301
+  force = true
