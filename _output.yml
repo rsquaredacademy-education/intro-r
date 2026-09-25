@@ -10,3 +10,14 @@ bookdown::gitbook:
         <li><a href="https://github.com/rsquaredacademy-education/intro-r/">Introduction to R</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+    sharing:
+      facebook: false
+      twitter: false
+      google: false
+      linkedin: false
+      weibo: false
+      instapaper: false
+      vk: false
+    edit:
+      link: https://github.com/rsquaredacademy-education/intro-r/edit/master/%s
+      text: "Edit this page"
