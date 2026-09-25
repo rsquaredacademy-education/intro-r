@@ -28,3 +28,42 @@ nlevels(devices)
 # levels
 levels(devices)
 ```
+
+## Order Levels
+
+Use the `levels` argument together with `ordered = TRUE` when the categories
+have a natural order:
+
+```{r f3}
+size <- factor(c('Medium', 'Low', 'High', 'Low', 'Medium'),
+  levels = c('Low', 'Medium', 'High'), ordered = TRUE)
+size
+levels(size)
+```
+
+## Specify Labels
+
+Use the `labels` argument to attach shorter or prettier display labels while
+keeping the underlying level order:
+
+```{r f4}
+size_labeled <- factor(c('Low', 'Medium', 'High'),
+  levels = c('Low', 'Medium', 'High'), labels = c('L', 'M', 'H'))
+size_labeled
+```
+
+## Check Levels
+
+```{r f5}
+# existing levels
+levels(size)
+
+# number of levels
+nlevels(size)
+
+# is this an ordered factor?
+is.ordered(size)
+```
+
+For modern factor manipulation (reordering, recoding, lumping rare levels),
+see the [forcats](https://forcats.tidyverse.org/) package.
