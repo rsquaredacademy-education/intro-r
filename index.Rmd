@@ -18,12 +18,12 @@ knitr::include_graphics('img/intro-r.png')
 
 ## Structure of the book {-}
 
-Chapter \@ref(intro) gives a quick overview of R and its evolution over the last 
-2 decades. Chapter \@ref(installation) acts as a guide for installing R and 
-RStudio. Chapters \@ref(variables) and \@ref(datatypes) introduce the reader to 
-variables and data types in R. Chapter \@ref(help) shows the right place and right
-way to ask for help. Chapters \@ref(vectors) to \@ref(lists) introduce the basic 
-data structures in R. Chapter \@ref(packages) explores the R package system.
+Chapter \@ref(introduction-to-r) gives a quick overview of R and its evolution over the last 
+2 decades. Chapter \@ref(install-r-and-rstudio) acts as a guide for installing R and 
+RStudio. Chapters \@ref(variables-in-r) and \@ref(data-types-in-r) introduce the reader to 
+variables and data types in R. Chapter \@ref(getting-help-in-r) shows the right place and right
+way to ask for help. Chapters \@ref(vectors-in-r) to \@ref(lists-in-r) introduce the basic 
+data structures in R. Chapter \@ref(install-update-r-packages) explores the R package system.
 
 ## Software information {-}
 
