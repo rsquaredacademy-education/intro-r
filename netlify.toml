@@ -1,0 +1,83 @@
+[build]
+  publish = "docs"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# 10 Legacy Bookdown chapter redirects (relative paths ensure portability across domains & Netlify deploy previews)
+[[redirects]]
+  from = "/intro.html"
+  to = "/introduction-to-r.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/install.html"
+  to = "/install-r-and-rstudio.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/variables.html"
+  to = "/variables-in-r.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/datatypes.html"
+  to = "/data-types-in-r.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/help.html"
+  to = "/getting-help-in-r.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/vectors.html"
+  to = "/vectors-in-r.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/dataframes.html"
+  to = "/data-frames-in-r.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/factors.html"
+  to = "/factors-in-r.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/lists.html"
+  to = "/lists-in-r.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/packages.html"
+  to = "/install-update-r-packages.html"
+  status = 301
+  force = true
+
+# Orphan page redirects (prevent 404 spikes after deletion)
+[[redirects]]
+  from = "/installation.html"
+  to = "/install-r-and-rstudio.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/references.html"
+  to = "/index.html"
+  status = 301
+  force = true
