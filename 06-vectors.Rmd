@@ -163,7 +163,7 @@ vect1
 class(vect1)
 ``` 
 
-### Case : Integer and Logical
+### Case 3: Integer and Logical
 
 ```{r vect12, collapse=TRUE}
 # vector of different data types
@@ -177,6 +177,12 @@ class(vect1)
 ``` 
 
 To summarize, below is the order in which coercion takes place:
+
+`logical` → `integer` → `double/numeric` → `character`
+
+R coerces toward the **most flexible** type. If a vector contains a `character`
+element, everything becomes `character`. Without `character`, elements coerce
+to `numeric`. Without `numeric`, elements coerce to `integer`.
 
 ## Vector Operations
 
@@ -249,7 +255,7 @@ complete.cases(vect1)
 
 ### Omit missing data
 
-In the presensce of missing data, all computations in R will return `NA`. To avoid this, we might want to remove the missing data before doing any computation. `na.omit()` will remove all missing values from the data. Let us look at an example:
+In the presence of missing data, all computations in R will return `NA`. To avoid this, we might want to remove the missing data before doing any computation. `na.omit()` will remove all missing values from the data. Let us look at an example:
 
 ```{r vect16, collapse=TRUE}
 # vector with missing values
