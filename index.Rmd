@@ -3,9 +3,10 @@ title: "Introduction to R"
 author: "Aravind Hebbali"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
+lang: en
 documentclass: book
 link-citations: yes
-description: "A simple introduction to the R programming language."
+description: "A beginner-friendly introduction to the R programming language."
 ---
 
 # Preface {-}
