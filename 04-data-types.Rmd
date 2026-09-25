@@ -28,7 +28,7 @@ is.numeric(number1)
 is.numeric(number2)
 ```
 
-If you carefully observe, `integers` are also treated as `numeric/double`. We will learn to create integers in a while. In the meanwhile, we have introduced two new funtions in the above example:
+If you carefully observe, `integers` are also treated as `numeric/double`. We will learn to create integers in a while. In the meanwhile, we have introduced two new functions in the above example:
 
 - `class()`: returns the `class` or `type` 
 - `is.numeric()`: tests whether the variable is of type `numeric`
@@ -61,7 +61,7 @@ is.integer(number2)
 
 ## Character
 
-Letters, words and group of words are represented by the data type `character`. All data of type `character` must be enclosed in single or double quotation marks. In fact any value enclosed in quotes will be treated as `character`. Let us create two variables to store the first and last name of a some random guy.
+Letters, words and group of words are represented by the data type `character`. All data of type `character` must be enclosed in single or double quotation marks. In fact any value enclosed in quotes will be treated as `character`. Let us create two variables to store the first and last name of some random guy.
 
 ```{r dtype3}
 # first name
@@ -74,7 +74,7 @@ last_name <- 'mann'
 class(first_name)
 class(last_name)
 
-# use is.charactert to check data type
+# use is.character to check data type
 is.character(first_name)
 is.character(last_name)
 ```
@@ -96,7 +96,7 @@ as.character(today)
 
 ## Logical
 
-Logical data types take only 2 values. Either `TRUE` or `FALSE`. Sich data types are created when we compare two objects in R using 
+Logical data types take only 2 values. Either `TRUE` or `FALSE` (plus `NA` for missing values, giving three-valued logic in R). Such data types are created when we compare two objects in R using 
 comparison or logical operators.
 
 - create two variables `x` and `y`
@@ -142,7 +142,7 @@ as.numeric(TRUE)
 as.numeric(FALSE)
 
 # using different numbers
-as.logical(-2, -1.5, -1, 0, 1, 2)
+as.logical(c(-2, -1.5, -1, 0, 1, 2))
 ```
 
 Use `as.logical()` to coerce other data types to `logical`.
@@ -159,3 +159,24 @@ as.logical(score)
 as.logical(opt_course)
 as.logical(today)
 ```
+
+## Date
+
+R has dedicated types for dates and date-times. Use `Date` for calendar dates
+and `POSIXct` for date-times:
+
+```{r dtype9}
+# today's date
+today_date <- Sys.Date()
+today_date
+class(today_date)
+
+# create a date from a string
+independence_day <- as.Date("2026-01-15")
+independence_day
+
+# pretty-print a date
+format(independence_day, "%B %d, %Y")
+```
+
+For date-times, use `as.POSIXct()` (or the `lubridate` package, see the appendix in Phase 3).
