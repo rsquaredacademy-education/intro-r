@@ -16,8 +16,9 @@ R itself was written by [Ross Ihaka](https://www.stat.auckland.ac.nz/~ihaka/)
 and [Robert Gentleman](https://www.linkedin.com/in/robert-gentleman-06845098) 
 at the University of Auckland. The development of R was started in 1992 and an 
 initial version was released in 1995. Version 1.0 was released in February 
-2000. Version 2.0 was released in October 2004. The latest version, R 3.5.2 was 
-released in December 2018.
+2000. Version 2.0 was released in October 2004. R is under active development 
+by the R Core Team, with regular annual major/minor releases (such as R 4.4 
+and R 4.5).
 
 R is released under GNU GPL license and is currently one of the most popular
 tools for data science and machine learning. You can find more details and
@@ -38,14 +39,14 @@ supports the annual useR conferences. You can learn more about the R foundation
 ### R Consortium
 
 R consortium provides support to the R foundation and other key organizations
-and groups developing, maintaining and using R. It funds projects that improves
+and groups developing, maintaining and using R. It funds projects that improve
 the infrastructure around R and provides support to conferences and user groups
 around the world. You can learn more about R consortium [here](https://www.r-consortium.org/).
 
 
 ## Installation
 
-R is available for Windows, Mac and is part of a many Linux distributions. You 
+R is available for Windows, Mac and is part of many Linux distributions. You 
 can download and install R from any of the CRAN mirrors listed [here](https://cran.r-project.org/mirrors.html).
 
 ### CRAN
@@ -62,7 +63,7 @@ User contributed packages can be downloaded from
 - [CRAN](https://cran.r-project.org/mirrors.html)
 - [Bioconductor](https://bioconductor.org/)
 - [GitHub](https://github.com/topics/r?l=r)
-- [R Forge](https://r-forge.r-project.org/)
+- [R-Forge](https://r-forge.r-project.org/)
 
 ## GUI
 
@@ -77,8 +78,10 @@ knitr::include_graphics('img/rgui.png')
 
 ### RStudio
 
-[RStudio](https://www.rstudio.com/) is a very popular IDE (integrated development environment)
-built to suit the data science work flow.
+[RStudio](https://posit.co/) is a very popular IDE (integrated development environment)
+built to suit the data science work flow. RStudio is developed by Posit (formerly
+RStudio, rebranded in 2022); [Positron](https://positron.posit.co/) is a modern
+alternative IDE for R and Python.
 
 ```{r rstudio, fig.align='center', echo=FALSE}
 knitr::include_graphics('img/rstudio_ide.png')
