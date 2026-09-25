@@ -13,28 +13,28 @@ In the first section, we will look at various ways to access the built in help s
 
 ### R Bloggers
 
-[R Bloggers](https://www.r-bloggers.com/) aggregates blogs written in english from across the globe. This is the first place you want to visit if you want help with R, data analysis, visualization and machine learning. There are blogs on a wide range of topics and the latest content is delivered to your inbox if you subscribe. If you are a blogger yourself, share it with th R community by adding your blog to R Bloggers.
+[R Bloggers](https://www.r-bloggers.com/) aggregates blogs written in english from across the globe. This is the first place you want to visit if you want help with R, data analysis, visualization and machine learning. There are blogs on a wide range of topics and the latest content is delivered to your inbox if you subscribe. If you are a blogger yourself, share it with the R community by adding your blog to R Bloggers.
 
 ### Stack Overflow
 
-[Stack Overflow](https://stackoverflow.com/questions/tagged/r) is a great place to visit if you are having trouble with R code or packages. Chances are high that someone has already encountered the same or similar problem and you can use the answers given by R experts. In case you have encountered a new problem or issue, you can ask for help by providing a reproducible example of your analysis along with the R code. Use the [reprex](http://reprex.tidyverse.org/) package to create reproducible examples. 
+[Stack Overflow](https://stackoverflow.com/questions/tagged/r) is a great place to visit if you are having trouble with R code or packages. Chances are high that someone has already encountered the same or similar problem and you can use the answers given by R experts. In case you have encountered a new problem or issue, you can ask for help by providing a reproducible example of your analysis along with the R code. Use the [reprex](https://reprex.tidyverse.org/) package to create reproducible examples. 
 
 ### Twitter
 
-The R community is very active on Twitter and there are lot of R experts who are willing to help those who are new to R. Use the hashtag [#rstats](https://twitter.com/search?q=%23rstats) if you are asking for help or guidance on Twitter.
+The R community is very active on Twitter/X and there are lot of R experts who are willing to help those who are new to R. Use the hashtag [#rstats](https://twitter.com/search?q=%23rstats) if you are asking for help or guidance on Twitter/X. Many community members are also active on Mastodon, Bluesky, and LinkedIn.
 
 ### RStudio Community
 
-[RStudio Community](https://community.rstudio.com/) is similar to Stack Overflow. You can ask questions
+[RStudio Community](https://community.posit.co/) is similar to Stack Overflow. You can ask questions
 related to RStudio, Shiny and tidyverse.
 
 ### RStudio 
 
-[RStudio](https://resources.rstudio.com/) has very good resources including cheatsheets, webinars and blogs. 
+[RStudio](https://posit.co/resources/) has very good resources including cheatsheets, webinars and blogs. 
 
 ### Reddit
 
-[Reddit](https://www.reddit.com/r/rstats/) is another place where you can look for help. The discussions are moderated by R experts. There are subreddits for [Rstats](https://www.reddit.com/r/rstats/), [Rlanguage](https://www.reddit.com/r/Rlanguage/), [Rstudio](https://www.reddit.com/r/rshiny/) and [Rshiny](https://www.reddit.com/r/RStudio/).
+[Reddit](https://www.reddit.com/r/rstats/) is another place where you can look for help. The discussions are moderated by R experts. There are subreddits for [Rstats](https://www.reddit.com/r/rstats/), [Rlanguage](https://www.reddit.com/r/Rlanguage/), [Rstudio](https://www.reddit.com/r/RStudio/) and [Rshiny](https://www.reddit.com/r/rshiny/).
 
 ### R Weekly
 
@@ -46,7 +46,7 @@ There are several R User Groups active across the globe. You can find the list [
 
 ### Data Helpers
 
-[Data Helpers](http://www.datahelpers.org/) is a list of data analysts, scientists and engineers willing to offer guidance put together by [Angela Bassa](https://twitter.com/AngeBassa/). Visit the website to learn more about how you can approach for help and guidance.
+[Data Helpers](http://www.datahelpers.org/) is a list of data analysts, scientists and engineers willing to offer guidance put together by [Angela Bassa](https://twitter.com/AngeBassa/). Visit the website to learn more about how you can approach for help and guidance. (Note: this site appears unmaintained as of 2026; treat links there with caution.)
 
 ## Internal
 
@@ -65,7 +65,7 @@ In this section, we will look at the following functions:
 
 ### help.start
 
-The `help.start()` function opens the documetation page in your browser. Here you can find manuals, reference and other materials.
+The `help.start()` function opens the documentation page in your browser. Here you can find manuals, reference and other materials.
 
 ```{r help1, eval=FALSE}
 help.start()
@@ -118,7 +118,7 @@ library(help = 'ggplot2')
 
 ### vignette
 
-A vignette is a long form guide to a R package. You can access the vignettes available using `vignette()`. It will display  alist of vignettes available in installed packages.
+A vignette is a long form guide to a R package. You can access the vignettes available using `vignette()`. It will display a list of vignettes available in installed packages.
 
 ```{r help7, eval=FALSE}
 vignette()
@@ -140,7 +140,7 @@ browseVignettes()
 
 ### RsiteSearch
 
-`RsiteSearch()` will search for a specified topics in help pages, vignettes and task views using the search engine at this  [link](http://search.r-project.org/) and return the result in a browser. 
+`RsiteSearch()` will search for specified topics in help pages, vignettes and task views using the search engine at this  [link](https://search.r-project.org/) and return the result in a browser. 
 
 ```{r help10, eval=FALSE}
 RSiteSearch('glm')
