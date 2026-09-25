@@ -67,7 +67,7 @@ In this section, we will look at the following functions:
 
 The `help.start()` function opens the documetation page in your browser. Here you can find manuals, reference and other materials.
 
-```{r help1}
+```{r help1, eval=FALSE}
 help.start()
 ```
 
@@ -75,7 +75,7 @@ help.start()
 
 Use `help()` to access the documentation of functions and data sets. `?` is a shortcut for `help()` and returns the same information.
 
-```{r help2}
+```{r help2, eval=FALSE}
 help(plot)
 ?plot
 ```
@@ -84,7 +84,7 @@ help(plot)
 
 `help.search()` will search all sources of documentation and return those that match the search string. `??` is a shortcut for `help.search()` and returns the same information.
 
-```{r help3}
+```{r help3, eval=FALSE}
 help.search('regression')
 ??regression
 ```
@@ -93,7 +93,7 @@ help.search('regression')
 
 demo displays an interactive demonstration of certain topics provided in a R package. Typing `demo()` in the console will list the demos available in all the R packages installed.
 
-```{r help4}
+```{r help4, eval=FALSE}
 demo()
 demo(scoping)
 ```
@@ -112,7 +112,7 @@ example('mean')
 
 Access the documentation of a package using `help()` inside `library()`. The package need not be installed for accessing the documentation.
 
-```{r help6}
+```{r help6, eval=FALSE}
 library(help = 'ggplot2')
 ```
 
@@ -120,13 +120,13 @@ library(help = 'ggplot2')
 
 A vignette is a long form guide to a R package. You can access the vignettes available using `vignette()`. It will display  alist of vignettes available in installed packages.
 
-```{r help7}
+```{r help7, eval=FALSE}
 vignette()
 ```
 
 To access a specific vignette from a package, specify the name of the vignette and the package.
 
-```{r help8}
+```{r help8, eval=FALSE}
 vignette('dplyr', package = 'dplyr')
 ```
 
@@ -134,7 +134,7 @@ vignette('dplyr', package = 'dplyr')
 
 `browseVignettes()` is another way to access the vignettes in installed packages. It will list the vignettes in each package along with links to the web page and R code.
 
-```{r help9}
+```{r help9, eval=FALSE}
 browseVignettes()
 ```
 
@@ -142,7 +142,7 @@ browseVignettes()
 
 `RsiteSearch()` will search for a specified topics in help pages, vignettes and task views using the search engine at this  [link](http://search.r-project.org/) and return the result in a browser. 
 
-```{r help10}
+```{r help10, eval=FALSE}
 RSiteSearch('glm')
 ```
 
