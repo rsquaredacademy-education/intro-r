@@ -1,0 +1,10 @@
+Package: intro-r
+Title: Introduction to R
+Version: 1.1.0
+Authors@R: person("Aravind", "Hebbali", email = "books@rsquaredacademy.com", role = c("aut", "cre"))
+Description: A beginner's guide to the R programming language covering
+    installation, variables, data types, vectors, data frames, factors,
+    lists, and package management.
+License: CC-BY-NC-SA-4.0
+URL: https://intro-r.rsquaredacademy.com,
+    https://github.com/rsquaredacademy-education/intro-r
