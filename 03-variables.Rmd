@@ -66,8 +66,8 @@ knitr::include_graphics('img/components.png')
 
 ## Naming Conventions
 
-- Name must begin with a letter. Do not use numbers, dollar sign (`$`) or underscore (`_`).
-- The name can contain numbers or underscore. Do not use dash (`-`) or period (`.`).
+- Name must begin with a letter or a dot (`.`); e.g. `.hidden <- 42` is valid in base R. Do not use numbers, dollar sign (`$`) or underscore (`_`) as the first character.
+- The name can contain numbers or underscore. Do not use dash (`-`). Periods (`.`) are syntactically valid in R variable names, but are discouraged in modern style guides (tidyverse style prefers `snake_case`).
 - Do not use the names of keywords and avoid using the names of built in functions.
 - Variables are case sensitive; `average` and `Average` would be different variables.
 - Use names that are descriptive. Generally, variable names should be nouns.
