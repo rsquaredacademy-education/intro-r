@@ -7,7 +7,7 @@ In this chapter, we will learn to:
 - create dataframe
 - select columns 
 - select rows
-- utitlity functions
+- utility functions
 
 ## Create dataframes
 
@@ -17,7 +17,7 @@ Use `data.frame` to create dataframes. Below is the function syntax:
 args(data.frame)
 ```
 
-Data frames are basically lists with elements of equal lenght and as such, they are heterogeneous. Let us create a dataframe:
+Data frames are basically lists with elements of equal length and as such, they are heterogeneous. Let us create a dataframe:
 
 ```{r df2}
 name <- c('John', 'Jack', 'Jill')
@@ -76,10 +76,10 @@ students[1, ]
 students[c(1, 3), ]
 ```
 
-If you have observed carefully, the column `names` has been coerced to type 
-factor. This happens because of a default argument in `data.frame` which is 
-`stringsAsFactors` which is set to `TRUE`. If you do not want to treat it as 
-`factors`, set the argument to `FALSE`.
+Starting with R 4.0.0 (April 2020), the default value of `stringsAsFactors`
+in `data.frame()` is `FALSE`, meaning character columns remain as character
+type. In older versions of R (< 4.0.0), the default was `TRUE`, which
+automatically converted character vectors to factors.
 
 ```{r df7}
 students <- data.frame(name, age, graduate, stringsAsFactors = FALSE)
