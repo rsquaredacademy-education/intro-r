@@ -52,7 +52,7 @@ l[[1]]
 l[1]
 ```
 
-`[[` returns a vector while `[` returns a list. The `$` operator can be used only when we have named elements in the list. Let us add names to the elements. Use the `names()` function to add names to the list.
+`[[` extracts the element itself (which may be a vector, matrix, data frame, or nested list), while `[` returns a new list containing the selected element(s). The `$` operator can be used only when we have named elements in the list. Let us add names to the elements. Use the `names()` function to add names to the list.
 
 ```{r list3}
 # named elements
@@ -85,7 +85,7 @@ as.list(mat)
 
 ## Coerce list to other objects
 
-Use `unlist()` to coerce a list to vector.
+Use `unlist()` to coerce a list to a vector.
 
 ```{r list5}
 # unlist
@@ -94,17 +94,3 @@ unlist(l)
 # remove names
 unlist(l, use.names = FALSE)
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
