@@ -1,30 +1,29 @@
 <!DOCTYPE html>
-<html lang="" xml:lang="">
+<html lang="en" xml:lang="en">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 4 Data Types in R | Introduction to R</title>
-  <meta name="description" content="A simple introduction to the R programming language." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="description" content="A beginner-friendly introduction to the R programming language." />
+  <meta name="generator" content="bookdown 0.48 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 4 Data Types in R | Introduction to R" />
   <meta property="og:type" content="book" />
   
-  
-  <meta property="og:description" content="A simple introduction to the R programming language." />
+  <meta property="og:description" content="A beginner-friendly introduction to the R programming language." />
   
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 4 Data Types in R | Introduction to R" />
   
-  <meta name="twitter:description" content="A simple introduction to the R programming language." />
+  <meta name="twitter:description" content="A beginner-friendly introduction to the R programming language." />
   
 
 <meta name="author" content="Aravind Hebbali" />
 
 
-<meta name="date" content="2021-06-02" />
+<meta name="date" content="2026-09-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +32,8 @@
   
 <link rel="prev" href="variables-in-r.html"/>
 <link rel="next" href="getting-help-in-r.html"/>
-<script src="libs/header-attrs-2.8/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,21 +49,30 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-57270671-37"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<!-- Analytics placeholder (Phase 0 decision pending: Plausible vs GA4).
+     Paste the chosen snippet here. Plausible Cloud is paid (self-hosted is
+     free); GA4 is free but requires a GDPR consent banner. Do not deploy
+     tracking without recording the choice in roadmap/phase0-baseline.md.
+-->
+<!-- Example Plausible:
+<script defer data-domain="intro-r.rsquaredacademy.com" src="https://plausible.io/js/script.js"></script>
+-->
+<!-- Example GA4:
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
-  gtag('config', 'UA-57270671-37');
+  gtag('config', 'G-XXXXXXX');
 </script>
+-->
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -102,7 +110,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -115,7 +123,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -129,6 +137,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -192,6 +204,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.3" data-path="data-types-in-r.html"><a href="data-types-in-r.html#integer"><i class="fa fa-check"></i><b>4.3</b> Integer</a></li>
 <li class="chapter" data-level="4.4" data-path="data-types-in-r.html"><a href="data-types-in-r.html#character"><i class="fa fa-check"></i><b>4.4</b> Character</a></li>
 <li class="chapter" data-level="4.5" data-path="data-types-in-r.html"><a href="data-types-in-r.html#logical"><i class="fa fa-check"></i><b>4.5</b> Logical</a></li>
+<li class="chapter" data-level="4.6" data-path="data-types-in-r.html"><a href="data-types-in-r.html#date"><i class="fa fa-check"></i><b>4.6</b> Date</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="getting-help-in-r.html"><a href="getting-help-in-r.html"><i class="fa fa-check"></i><b>5</b> Getting Help in R</a>
 <ul>
@@ -240,7 +253,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="6.7.1" data-path="vectors-in-r.html"><a href="vectors-in-r.html#case-1-different-data-types"><i class="fa fa-check"></i><b>6.7.1</b> Case 1: Different Data Types</a></li>
 <li class="chapter" data-level="6.7.2" data-path="vectors-in-r.html"><a href="vectors-in-r.html#case-2-numeric-integer-and-logical"><i class="fa fa-check"></i><b>6.7.2</b> Case 2: Numeric, Integer and Logical</a></li>
-<li class="chapter" data-level="6.7.3" data-path="vectors-in-r.html"><a href="vectors-in-r.html#case-integer-and-logical"><i class="fa fa-check"></i><b>6.7.3</b> Case : Integer and Logical</a></li>
+<li class="chapter" data-level="6.7.3" data-path="vectors-in-r.html"><a href="vectors-in-r.html#case-3-integer-and-logical"><i class="fa fa-check"></i><b>6.7.3</b> Case 3: Integer and Logical</a></li>
 </ul></li>
 <li class="chapter" data-level="6.8" data-path="vectors-in-r.html"><a href="vectors-in-r.html#vector-operations"><i class="fa fa-check"></i><b>6.8</b> Vector Operations</a>
 <ul>
@@ -280,6 +293,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="8.1" data-path="factors-in-r.html"><a href="factors-in-r.html#introduction-5"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
 <li class="chapter" data-level="8.2" data-path="factors-in-r.html"><a href="factors-in-r.html#create-factors"><i class="fa fa-check"></i><b>8.2</b> Create Factors</a></li>
+<li class="chapter" data-level="8.3" data-path="factors-in-r.html"><a href="factors-in-r.html#order-levels"><i class="fa fa-check"></i><b>8.3</b> Order Levels</a></li>
+<li class="chapter" data-level="8.4" data-path="factors-in-r.html"><a href="factors-in-r.html#specify-labels"><i class="fa fa-check"></i><b>8.4</b> Specify Labels</a></li>
+<li class="chapter" data-level="8.5" data-path="factors-in-r.html"><a href="factors-in-r.html#check-levels"><i class="fa fa-check"></i><b>8.5</b> Check Levels</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="lists-in-r.html"><a href="lists-in-r.html"><i class="fa fa-check"></i><b>9</b> Lists in R</a>
 <ul>
@@ -312,6 +328,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
 </ul>
 
       </nav>
@@ -329,10 +346,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data-types-in-r" class="section level1" number="4">
-<h1><span class="header-section-number">Chapter 4</span> Data Types in R</h1>
-<div id="introduction-1" class="section level2" number="4.1">
-<h2><span class="header-section-number">4.1</span> Introduction</h2>
+<div id="data-types-in-r" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Data Types in R<a href="data-types-in-r.html#data-types-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="introduction-1" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Introduction<a href="data-types-in-r.html#introduction-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In this chapter, we will learn about the following data types:</p>
 <ul>
 <li>numeric/double</li>
@@ -342,31 +359,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>date/time</li>
 </ul>
 </div>
-<div id="numeric" class="section level2" number="4.2">
-<h2><span class="header-section-number">4.2</span> Numeric</h2>
+<div id="numeric" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Numeric<a href="data-types-in-r.html#numeric" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In R, numbers are represented by the data type <code>numeric</code>. We will first create a variable and assign it a value. Next we will learn a few methods of checking the type of the variable.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="data-types-in-r.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create two variables</span></span>
-<span id="cb11-2"><a href="data-types-in-r.html#cb11-2" aria-hidden="true" tabindex="-1"></a>number1 <span class="ot">&lt;-</span> <span class="fl">3.5</span></span>
-<span id="cb11-3"><a href="data-types-in-r.html#cb11-3" aria-hidden="true" tabindex="-1"></a>number2 <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb11-4"><a href="data-types-in-r.html#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-5"><a href="data-types-in-r.html#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># check data type</span></span>
-<span id="cb11-6"><a href="data-types-in-r.html#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(number1)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="data-types-in-r.html#cb11-1" tabindex="-1"></a><span class="co"># create two variables</span></span>
+<span id="cb11-2"><a href="data-types-in-r.html#cb11-2" tabindex="-1"></a>number1 <span class="ot">&lt;-</span> <span class="fl">3.5</span></span>
+<span id="cb11-3"><a href="data-types-in-r.html#cb11-3" tabindex="-1"></a>number2 <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb11-4"><a href="data-types-in-r.html#cb11-4" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="data-types-in-r.html#cb11-5" tabindex="-1"></a><span class="co"># check data type</span></span>
+<span id="cb11-6"><a href="data-types-in-r.html#cb11-6" tabindex="-1"></a><span class="fu">class</span>(number1)</span></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="data-types-in-r.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(number2)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="data-types-in-r.html#cb13-1" tabindex="-1"></a><span class="fu">class</span>(number2)</span></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="data-types-in-r.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check if data type is numeric</span></span>
-<span id="cb15-2"><a href="data-types-in-r.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.numeric</span>(number1)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="data-types-in-r.html#cb15-1" tabindex="-1"></a><span class="co"># check if data type is numeric</span></span>
+<span id="cb15-2"><a href="data-types-in-r.html#cb15-2" tabindex="-1"></a><span class="fu">is.numeric</span>(number1)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="data-types-in-r.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.numeric</span>(number2)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="data-types-in-r.html#cb17-1" tabindex="-1"></a><span class="fu">is.numeric</span>(number2)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<p>If you carefully observe, <code>integers</code> are also treated as <code>numeric/double</code>. We will learn to create integers in a while. In the meanwhile, we have introduced two new funtions in the above example:</p>
+<p>If you carefully observe, <code>integers</code> are also treated as <code>numeric/double</code>. We will learn to create integers in a while. In the meanwhile, we have introduced two new functions in the above example:</p>
 <ul>
 <li><code>class()</code>: returns the <code>class</code> or <code>type</code></li>
 <li><code>is.numeric()</code>: tests whether the variable is of type <code>numeric</code></li>
 </ul>
 </div>
-<div id="integer" class="section level2" number="4.3">
-<h2><span class="header-section-number">4.3</span> Integer</h2>
+<div id="integer" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Integer<a href="data-types-in-r.html#integer" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Unless specified otherwise, integers are treated as <code>numeric</code> or <code>double</code>. In this section, we will learn to create variables of the type <code>integer</code> and to convert other data types to <code>integer</code>.</p>
 <ul>
 <li>create a variable <code>number1</code> and assign it the value <code>3</code></li>
@@ -375,61 +392,61 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>check the data type of <code>number2</code> using <code>class</code></li>
 <li>finally use <code>is.integer</code> to check the data type of both <code>number1</code> and <code>number2</code></li>
 </ul>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="data-types-in-r.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a variable and assign it an integer value</span></span>
-<span id="cb19-2"><a href="data-types-in-r.html#cb19-2" aria-hidden="true" tabindex="-1"></a>number1 <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb19-3"><a href="data-types-in-r.html#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-4"><a href="data-types-in-r.html#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># create another variable using as.integer</span></span>
-<span id="cb19-5"><a href="data-types-in-r.html#cb19-5" aria-hidden="true" tabindex="-1"></a>number2 <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(<span class="dv">3</span>)</span>
-<span id="cb19-6"><a href="data-types-in-r.html#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-7"><a href="data-types-in-r.html#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co"># check the data type</span></span>
-<span id="cb19-8"><a href="data-types-in-r.html#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(number1)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="data-types-in-r.html#cb19-1" tabindex="-1"></a><span class="co"># create a variable and assign it an integer value</span></span>
+<span id="cb19-2"><a href="data-types-in-r.html#cb19-2" tabindex="-1"></a>number1 <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb19-3"><a href="data-types-in-r.html#cb19-3" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="data-types-in-r.html#cb19-4" tabindex="-1"></a><span class="co"># create another variable using as.integer</span></span>
+<span id="cb19-5"><a href="data-types-in-r.html#cb19-5" tabindex="-1"></a>number2 <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(<span class="dv">3</span>)</span>
+<span id="cb19-6"><a href="data-types-in-r.html#cb19-6" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="data-types-in-r.html#cb19-7" tabindex="-1"></a><span class="co"># check the data type</span></span>
+<span id="cb19-8"><a href="data-types-in-r.html#cb19-8" tabindex="-1"></a><span class="fu">class</span>(number1)</span></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="data-types-in-r.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(number2)</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="data-types-in-r.html#cb21-1" tabindex="-1"></a><span class="fu">class</span>(number2)</span></code></pre></div>
 <pre><code>## [1] &quot;integer&quot;</code></pre>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="data-types-in-r.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use is.integer to check data type</span></span>
-<span id="cb23-2"><a href="data-types-in-r.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.integer</span>(number1)</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="data-types-in-r.html#cb23-1" tabindex="-1"></a><span class="co"># use is.integer to check data type</span></span>
+<span id="cb23-2"><a href="data-types-in-r.html#cb23-2" tabindex="-1"></a><span class="fu">is.integer</span>(number1)</span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="data-types-in-r.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.integer</span>(number2)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="data-types-in-r.html#cb25-1" tabindex="-1"></a><span class="fu">is.integer</span>(number2)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 </div>
-<div id="character" class="section level2" number="4.4">
-<h2><span class="header-section-number">4.4</span> Character</h2>
-<p>Letters, words and group of words are represented by the data type <code>character</code>. All data of type <code>character</code> must be enclosed in single or double quotation marks. In fact any value enclosed in quotes will be treated as <code>character</code>. Let us create two variables to store the first and last name of a some random guy.</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="data-types-in-r.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># first name</span></span>
-<span id="cb27-2"><a href="data-types-in-r.html#cb27-2" aria-hidden="true" tabindex="-1"></a>first_name <span class="ot">&lt;-</span> <span class="st">&quot;jovial&quot;</span></span>
-<span id="cb27-3"><a href="data-types-in-r.html#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-4"><a href="data-types-in-r.html#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co"># last name</span></span>
-<span id="cb27-5"><a href="data-types-in-r.html#cb27-5" aria-hidden="true" tabindex="-1"></a>last_name <span class="ot">&lt;-</span> <span class="st">&#39;mann&#39;</span></span>
-<span id="cb27-6"><a href="data-types-in-r.html#cb27-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-7"><a href="data-types-in-r.html#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="co"># check data type</span></span>
-<span id="cb27-8"><a href="data-types-in-r.html#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(first_name)</span></code></pre></div>
+<div id="character" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Character<a href="data-types-in-r.html#character" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Letters, words and group of words are represented by the data type <code>character</code>. All data of type <code>character</code> must be enclosed in single or double quotation marks. In fact any value enclosed in quotes will be treated as <code>character</code>. Let us create two variables to store the first and last name of some random guy.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="data-types-in-r.html#cb27-1" tabindex="-1"></a><span class="co"># first name</span></span>
+<span id="cb27-2"><a href="data-types-in-r.html#cb27-2" tabindex="-1"></a>first_name <span class="ot">&lt;-</span> <span class="st">&quot;jovial&quot;</span></span>
+<span id="cb27-3"><a href="data-types-in-r.html#cb27-3" tabindex="-1"></a></span>
+<span id="cb27-4"><a href="data-types-in-r.html#cb27-4" tabindex="-1"></a><span class="co"># last name</span></span>
+<span id="cb27-5"><a href="data-types-in-r.html#cb27-5" tabindex="-1"></a>last_name <span class="ot">&lt;-</span> <span class="st">&#39;mann&#39;</span></span>
+<span id="cb27-6"><a href="data-types-in-r.html#cb27-6" tabindex="-1"></a></span>
+<span id="cb27-7"><a href="data-types-in-r.html#cb27-7" tabindex="-1"></a><span class="co"># check data type</span></span>
+<span id="cb27-8"><a href="data-types-in-r.html#cb27-8" tabindex="-1"></a><span class="fu">class</span>(first_name)</span></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="data-types-in-r.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(last_name)</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="data-types-in-r.html#cb29-1" tabindex="-1"></a><span class="fu">class</span>(last_name)</span></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="data-types-in-r.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use is.charactert to check data type</span></span>
-<span id="cb31-2"><a href="data-types-in-r.html#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.character</span>(first_name)</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="data-types-in-r.html#cb31-1" tabindex="-1"></a><span class="co"># use is.character to check data type</span></span>
+<span id="cb31-2"><a href="data-types-in-r.html#cb31-2" tabindex="-1"></a><span class="fu">is.character</span>(first_name)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="data-types-in-r.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.character</span>(last_name)</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="data-types-in-r.html#cb33-1" tabindex="-1"></a><span class="fu">is.character</span>(last_name)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p>You can coerce any data type to <code>character</code> using <code>as.character()</code>.</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="data-types-in-r.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create variable of different data types</span></span>
-<span id="cb35-2"><a href="data-types-in-r.html#cb35-2" aria-hidden="true" tabindex="-1"></a>age <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(<span class="dv">30</span>) <span class="co"># integer</span></span>
-<span id="cb35-3"><a href="data-types-in-r.html#cb35-3" aria-hidden="true" tabindex="-1"></a>score <span class="ot">&lt;-</span> <span class="fl">9.8</span>          <span class="co"># numeric/double</span></span>
-<span id="cb35-4"><a href="data-types-in-r.html#cb35-4" aria-hidden="true" tabindex="-1"></a>opt_course <span class="ot">&lt;-</span> <span class="cn">TRUE</span>    <span class="co"># logical</span></span>
-<span id="cb35-5"><a href="data-types-in-r.html#cb35-5" aria-hidden="true" tabindex="-1"></a>today <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()   <span class="co"># date time</span></span>
-<span id="cb35-6"><a href="data-types-in-r.html#cb35-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-7"><a href="data-types-in-r.html#cb35-7" aria-hidden="true" tabindex="-1"></a><span class="fu">as.character</span>(age) </span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="data-types-in-r.html#cb35-1" tabindex="-1"></a><span class="co"># create variable of different data types</span></span>
+<span id="cb35-2"><a href="data-types-in-r.html#cb35-2" tabindex="-1"></a>age <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(<span class="dv">30</span>) <span class="co"># integer</span></span>
+<span id="cb35-3"><a href="data-types-in-r.html#cb35-3" tabindex="-1"></a>score <span class="ot">&lt;-</span> <span class="fl">9.8</span>          <span class="co"># numeric/double</span></span>
+<span id="cb35-4"><a href="data-types-in-r.html#cb35-4" tabindex="-1"></a>opt_course <span class="ot">&lt;-</span> <span class="cn">TRUE</span>    <span class="co"># logical</span></span>
+<span id="cb35-5"><a href="data-types-in-r.html#cb35-5" tabindex="-1"></a>today <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()   <span class="co"># date time</span></span>
+<span id="cb35-6"><a href="data-types-in-r.html#cb35-6" tabindex="-1"></a></span>
+<span id="cb35-7"><a href="data-types-in-r.html#cb35-7" tabindex="-1"></a><span class="fu">as.character</span>(age) </span></code></pre></div>
 <pre><code>## [1] &quot;30&quot;</code></pre>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="data-types-in-r.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.character</span>(score)</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="data-types-in-r.html#cb37-1" tabindex="-1"></a><span class="fu">as.character</span>(score)</span></code></pre></div>
 <pre><code>## [1] &quot;9.8&quot;</code></pre>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="data-types-in-r.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.character</span>(opt_course)</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="data-types-in-r.html#cb39-1" tabindex="-1"></a><span class="fu">as.character</span>(opt_course)</span></code></pre></div>
 <pre><code>## [1] &quot;TRUE&quot;</code></pre>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="data-types-in-r.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.character</span>(today)</span></code></pre></div>
-<pre><code>## [1] &quot;2021-06-02 16:25:27&quot;</code></pre>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="data-types-in-r.html#cb41-1" tabindex="-1"></a><span class="fu">as.character</span>(today)</span></code></pre></div>
+<pre><code>## [1] &quot;2026-09-25 15:02:00.322091&quot;</code></pre>
 </div>
-<div id="logical" class="section level2" number="4.5">
-<h2><span class="header-section-number">4.5</span> Logical</h2>
-<p>Logical data types take only 2 values. Either <code>TRUE</code> or <code>FALSE</code>. Sich data types are created when we compare two objects in R using
+<div id="logical" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> Logical<a href="data-types-in-r.html#logical" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Logical data types take only 2 values. Either <code>TRUE</code> or <code>FALSE</code> (plus <code>NA</code> for missing values, giving three-valued logic in R). Such data types are created when we compare two objects in R using
 comparison or logical operators.</p>
 <ul>
 <li>create two variables <code>x</code> and <code>y</code></li>
@@ -437,58 +454,77 @@ comparison or logical operators.</p>
 <li>use <code>is.logical</code> to check data type</li>
 <li>use <code>as.logical</code> to coerce other data types to <code>logical</code></li>
 </ul>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="data-types-in-r.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create variables x and y</span></span>
-<span id="cb43-2"><a href="data-types-in-r.html#cb43-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
-<span id="cb43-3"><a href="data-types-in-r.html#cb43-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span>
-<span id="cb43-4"><a href="data-types-in-r.html#cb43-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-5"><a href="data-types-in-r.html#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="co"># check data type</span></span>
-<span id="cb43-6"><a href="data-types-in-r.html#cb43-6" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="data-types-in-r.html#cb43-1" tabindex="-1"></a><span class="co"># create variables x and y</span></span>
+<span id="cb43-2"><a href="data-types-in-r.html#cb43-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb43-3"><a href="data-types-in-r.html#cb43-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span>
+<span id="cb43-4"><a href="data-types-in-r.html#cb43-4" tabindex="-1"></a></span>
+<span id="cb43-5"><a href="data-types-in-r.html#cb43-5" tabindex="-1"></a><span class="co"># check data type</span></span>
+<span id="cb43-6"><a href="data-types-in-r.html#cb43-6" tabindex="-1"></a><span class="fu">class</span>(x)</span></code></pre></div>
 <pre><code>## [1] &quot;logical&quot;</code></pre>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="data-types-in-r.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.logical</span>(y)</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="data-types-in-r.html#cb45-1" tabindex="-1"></a><span class="fu">is.logical</span>(y)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p>The outcome of comparison operators is always <code>logical</code>. In the below example, we compare two numbers to see the outcome.</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="data-types-in-r.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create two numeric variables</span></span>
-<span id="cb47-2"><a href="data-types-in-r.html#cb47-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb47-3"><a href="data-types-in-r.html#cb47-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">4</span></span>
-<span id="cb47-4"><a href="data-types-in-r.html#cb47-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-5"><a href="data-types-in-r.html#cb47-5" aria-hidden="true" tabindex="-1"></a><span class="co"># compare x and y</span></span>
-<span id="cb47-6"><a href="data-types-in-r.html#cb47-6" aria-hidden="true" tabindex="-1"></a>x <span class="sc">&gt;</span> y</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="data-types-in-r.html#cb47-1" tabindex="-1"></a><span class="co"># create two numeric variables</span></span>
+<span id="cb47-2"><a href="data-types-in-r.html#cb47-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb47-3"><a href="data-types-in-r.html#cb47-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb47-4"><a href="data-types-in-r.html#cb47-4" tabindex="-1"></a></span>
+<span id="cb47-5"><a href="data-types-in-r.html#cb47-5" tabindex="-1"></a><span class="co"># compare x and y</span></span>
+<span id="cb47-6"><a href="data-types-in-r.html#cb47-6" tabindex="-1"></a>x <span class="sc">&gt;</span> y</span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="data-types-in-r.html#cb49-1" aria-hidden="true" tabindex="-1"></a>x <span class="sc">&lt;</span> y</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="data-types-in-r.html#cb49-1" tabindex="-1"></a>x <span class="sc">&lt;</span> y</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="data-types-in-r.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># store the result</span></span>
-<span id="cb51-2"><a href="data-types-in-r.html#cb51-2" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> x <span class="sc">&gt;</span> y</span>
-<span id="cb51-3"><a href="data-types-in-r.html#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(z)</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="data-types-in-r.html#cb51-1" tabindex="-1"></a><span class="co"># store the result</span></span>
+<span id="cb51-2"><a href="data-types-in-r.html#cb51-2" tabindex="-1"></a>z <span class="ot">&lt;-</span> x <span class="sc">&gt;</span> y</span>
+<span id="cb51-3"><a href="data-types-in-r.html#cb51-3" tabindex="-1"></a><span class="fu">class</span>(z)</span></code></pre></div>
 <pre><code>## [1] &quot;logical&quot;</code></pre>
 <p><code>TRUE</code> is represented by all numbers except <code>0</code>. <code>FALSE</code> is represented only by <code>0</code> and no other numbers.</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="data-types-in-r.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># TRUE and FALSE are represented by 1 and 0</span></span>
-<span id="cb53-2"><a href="data-types-in-r.html#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">as.logical</span>(<span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="data-types-in-r.html#cb53-1" tabindex="-1"></a><span class="co"># TRUE and FALSE are represented by 1 and 0</span></span>
+<span id="cb53-2"><a href="data-types-in-r.html#cb53-2" tabindex="-1"></a><span class="fu">as.logical</span>(<span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="data-types-in-r.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.logical</span>(<span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="data-types-in-r.html#cb55-1" tabindex="-1"></a><span class="fu">as.logical</span>(<span class="dv">0</span>)</span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="data-types-in-r.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># using numbers</span></span>
-<span id="cb57-2"><a href="data-types-in-r.html#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(<span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="data-types-in-r.html#cb57-1" tabindex="-1"></a><span class="co"># using numbers</span></span>
+<span id="cb57-2"><a href="data-types-in-r.html#cb57-2" tabindex="-1"></a><span class="fu">as.numeric</span>(<span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="data-types-in-r.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(<span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="data-types-in-r.html#cb59-1" tabindex="-1"></a><span class="fu">as.numeric</span>(<span class="cn">FALSE</span>)</span></code></pre></div>
 <pre><code>## [1] 0</code></pre>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="data-types-in-r.html#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="co"># using different numbers</span></span>
-<span id="cb61-2"><a href="data-types-in-r.html#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="fu">as.logical</span>(<span class="sc">-</span><span class="dv">2</span>, <span class="sc">-</span><span class="fl">1.5</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>)</span></code></pre></div>
-<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="data-types-in-r.html#cb61-1" tabindex="-1"></a><span class="co"># using different numbers</span></span>
+<span id="cb61-2"><a href="data-types-in-r.html#cb61-2" tabindex="-1"></a><span class="fu">as.logical</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>, <span class="sc">-</span><span class="fl">1.5</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>))</span></code></pre></div>
+<pre><code>## [1]  TRUE  TRUE  TRUE FALSE  TRUE  TRUE</code></pre>
 <p>Use <code>as.logical()</code> to coerce other data types to <code>logical</code>.</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="data-types-in-r.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create variable of different data types</span></span>
-<span id="cb63-2"><a href="data-types-in-r.html#cb63-2" aria-hidden="true" tabindex="-1"></a>age <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(<span class="dv">30</span>) <span class="co"># integer</span></span>
-<span id="cb63-3"><a href="data-types-in-r.html#cb63-3" aria-hidden="true" tabindex="-1"></a>score <span class="ot">&lt;-</span> <span class="fl">9.8</span>          <span class="co"># numeric/double</span></span>
-<span id="cb63-4"><a href="data-types-in-r.html#cb63-4" aria-hidden="true" tabindex="-1"></a>opt_course <span class="ot">&lt;-</span> <span class="cn">TRUE</span>    <span class="co"># logical</span></span>
-<span id="cb63-5"><a href="data-types-in-r.html#cb63-5" aria-hidden="true" tabindex="-1"></a>today <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()   <span class="co"># date time</span></span>
-<span id="cb63-6"><a href="data-types-in-r.html#cb63-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb63-7"><a href="data-types-in-r.html#cb63-7" aria-hidden="true" tabindex="-1"></a><span class="fu">as.logical</span>(age) </span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="data-types-in-r.html#cb63-1" tabindex="-1"></a><span class="co"># create variable of different data types</span></span>
+<span id="cb63-2"><a href="data-types-in-r.html#cb63-2" tabindex="-1"></a>age <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(<span class="dv">30</span>) <span class="co"># integer</span></span>
+<span id="cb63-3"><a href="data-types-in-r.html#cb63-3" tabindex="-1"></a>score <span class="ot">&lt;-</span> <span class="fl">9.8</span>          <span class="co"># numeric/double</span></span>
+<span id="cb63-4"><a href="data-types-in-r.html#cb63-4" tabindex="-1"></a>opt_course <span class="ot">&lt;-</span> <span class="cn">TRUE</span>    <span class="co"># logical</span></span>
+<span id="cb63-5"><a href="data-types-in-r.html#cb63-5" tabindex="-1"></a>today <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()   <span class="co"># date time</span></span>
+<span id="cb63-6"><a href="data-types-in-r.html#cb63-6" tabindex="-1"></a></span>
+<span id="cb63-7"><a href="data-types-in-r.html#cb63-7" tabindex="-1"></a><span class="fu">as.logical</span>(age) </span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="data-types-in-r.html#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.logical</span>(score)</span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="data-types-in-r.html#cb65-1" tabindex="-1"></a><span class="fu">as.logical</span>(score)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="data-types-in-r.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.logical</span>(opt_course)</span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="data-types-in-r.html#cb67-1" tabindex="-1"></a><span class="fu">as.logical</span>(opt_course)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="data-types-in-r.html#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.logical</span>(today)</span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="data-types-in-r.html#cb69-1" tabindex="-1"></a><span class="fu">as.logical</span>(today)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
+</div>
+<div id="date" class="section level2 hasAnchor" number="4.6">
+<h2><span class="header-section-number">4.6</span> Date<a href="data-types-in-r.html#date" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>R has dedicated types for dates and date-times. Use <code>Date</code> for calendar dates
+and <code>POSIXct</code> for date-times:</p>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="data-types-in-r.html#cb71-1" tabindex="-1"></a><span class="co"># today&#39;s date</span></span>
+<span id="cb71-2"><a href="data-types-in-r.html#cb71-2" tabindex="-1"></a>today_date <span class="ot">&lt;-</span> <span class="fu">Sys.Date</span>()</span>
+<span id="cb71-3"><a href="data-types-in-r.html#cb71-3" tabindex="-1"></a>today_date</span></code></pre></div>
+<pre><code>## [1] &quot;2026-09-25&quot;</code></pre>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="data-types-in-r.html#cb73-1" tabindex="-1"></a><span class="fu">class</span>(today_date)</span></code></pre></div>
+<pre><code>## [1] &quot;Date&quot;</code></pre>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="data-types-in-r.html#cb75-1" tabindex="-1"></a><span class="co"># create a date from a string</span></span>
+<span id="cb75-2"><a href="data-types-in-r.html#cb75-2" tabindex="-1"></a>independence_day <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="st">&quot;2026-01-15&quot;</span>)</span>
+<span id="cb75-3"><a href="data-types-in-r.html#cb75-3" tabindex="-1"></a>independence_day</span></code></pre></div>
+<pre><code>## [1] &quot;2026-01-15&quot;</code></pre>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="data-types-in-r.html#cb77-1" tabindex="-1"></a><span class="co"># pretty-print a date</span></span>
+<span id="cb77-2"><a href="data-types-in-r.html#cb77-2" tabindex="-1"></a><span class="fu">format</span>(independence_day, <span class="st">&quot;%B %d, %Y&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;January 15, 2026&quot;</code></pre>
+<p>For date-times, use <code>as.POSIXct()</code> (or the <code>lubridate</code> package, see the appendix in Phase 3).</p>
 
 </div>
 </div>
@@ -502,7 +538,6 @@ comparison or logical operators.</p>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -513,39 +548,44 @@ comparison or logical operators.</p>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": null,
-"toc": {
-"collapse": "section",
-"scroll_highlight": true
-}
+  "sharing": {
+    "github": false,
+    "facebook": false,
+    "twitter": false,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"],
+    "google": false
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/rsquaredacademy-education/intro-r/edit/master/04-data-types.Rmd",
+    "text": "Edit this page"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section",
+    "scroll_highlight": true
+  }
 });
 });
 </script>

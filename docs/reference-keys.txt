@@ -25,6 +25,7 @@ numeric
 integer
 character
 logical
+date
 getting-help-in-r
 introduction-2
 online-resources
@@ -60,7 +61,7 @@ method-2-specify-names-while-creating-vector
 vector-coercion
 case-1-different-data-types
 case-2-numeric-integer-and-logical
-case-integer-and-logical
+case-3-integer-and-logical
 vector-operations
 case-1-vectors-of-same-length
 case-2-vectors-of-different-length
@@ -88,6 +89,9 @@ select-rows
 factors-in-r
 introduction-5
 create-factors
+order-levels
+specify-labels
+check-levels
 lists-in-r
 introduction-6
 creating-lists
@@ -101,8 +105,6 @@ cran-1
 github
 bitbucket
 bioconductor
-devtools
-bioclite
 rforge
 install-different-versions
 installed-packages

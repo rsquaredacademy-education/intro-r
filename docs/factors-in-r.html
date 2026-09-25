@@ -1,30 +1,29 @@
 <!DOCTYPE html>
-<html lang="" xml:lang="">
+<html lang="en" xml:lang="en">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 8 Factors in R | Introduction to R</title>
-  <meta name="description" content="A simple introduction to the R programming language." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="description" content="A beginner-friendly introduction to the R programming language." />
+  <meta name="generator" content="bookdown 0.48 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 8 Factors in R | Introduction to R" />
   <meta property="og:type" content="book" />
   
-  
-  <meta property="og:description" content="A simple introduction to the R programming language." />
+  <meta property="og:description" content="A beginner-friendly introduction to the R programming language." />
   
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 8 Factors in R | Introduction to R" />
   
-  <meta name="twitter:description" content="A simple introduction to the R programming language." />
+  <meta name="twitter:description" content="A beginner-friendly introduction to the R programming language." />
   
 
 <meta name="author" content="Aravind Hebbali" />
 
 
-<meta name="date" content="2021-06-02" />
+<meta name="date" content="2026-09-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +32,8 @@
   
 <link rel="prev" href="data-frames-in-r.html"/>
 <link rel="next" href="lists-in-r.html"/>
-<script src="libs/header-attrs-2.8/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,21 +49,30 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-57270671-37"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<!-- Analytics placeholder (Phase 0 decision pending: Plausible vs GA4).
+     Paste the chosen snippet here. Plausible Cloud is paid (self-hosted is
+     free); GA4 is free but requires a GDPR consent banner. Do not deploy
+     tracking without recording the choice in roadmap/phase0-baseline.md.
+-->
+<!-- Example Plausible:
+<script defer data-domain="intro-r.rsquaredacademy.com" src="https://plausible.io/js/script.js"></script>
+-->
+<!-- Example GA4:
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
-  gtag('config', 'UA-57270671-37');
+  gtag('config', 'G-XXXXXXX');
 </script>
+-->
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -102,7 +110,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -115,7 +123,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -129,6 +137,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -192,6 +204,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.3" data-path="data-types-in-r.html"><a href="data-types-in-r.html#integer"><i class="fa fa-check"></i><b>4.3</b> Integer</a></li>
 <li class="chapter" data-level="4.4" data-path="data-types-in-r.html"><a href="data-types-in-r.html#character"><i class="fa fa-check"></i><b>4.4</b> Character</a></li>
 <li class="chapter" data-level="4.5" data-path="data-types-in-r.html"><a href="data-types-in-r.html#logical"><i class="fa fa-check"></i><b>4.5</b> Logical</a></li>
+<li class="chapter" data-level="4.6" data-path="data-types-in-r.html"><a href="data-types-in-r.html#date"><i class="fa fa-check"></i><b>4.6</b> Date</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="getting-help-in-r.html"><a href="getting-help-in-r.html"><i class="fa fa-check"></i><b>5</b> Getting Help in R</a>
 <ul>
@@ -240,7 +253,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="6.7.1" data-path="vectors-in-r.html"><a href="vectors-in-r.html#case-1-different-data-types"><i class="fa fa-check"></i><b>6.7.1</b> Case 1: Different Data Types</a></li>
 <li class="chapter" data-level="6.7.2" data-path="vectors-in-r.html"><a href="vectors-in-r.html#case-2-numeric-integer-and-logical"><i class="fa fa-check"></i><b>6.7.2</b> Case 2: Numeric, Integer and Logical</a></li>
-<li class="chapter" data-level="6.7.3" data-path="vectors-in-r.html"><a href="vectors-in-r.html#case-integer-and-logical"><i class="fa fa-check"></i><b>6.7.3</b> Case : Integer and Logical</a></li>
+<li class="chapter" data-level="6.7.3" data-path="vectors-in-r.html"><a href="vectors-in-r.html#case-3-integer-and-logical"><i class="fa fa-check"></i><b>6.7.3</b> Case 3: Integer and Logical</a></li>
 </ul></li>
 <li class="chapter" data-level="6.8" data-path="vectors-in-r.html"><a href="vectors-in-r.html#vector-operations"><i class="fa fa-check"></i><b>6.8</b> Vector Operations</a>
 <ul>
@@ -280,6 +293,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="8.1" data-path="factors-in-r.html"><a href="factors-in-r.html#introduction-5"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
 <li class="chapter" data-level="8.2" data-path="factors-in-r.html"><a href="factors-in-r.html#create-factors"><i class="fa fa-check"></i><b>8.2</b> Create Factors</a></li>
+<li class="chapter" data-level="8.3" data-path="factors-in-r.html"><a href="factors-in-r.html#order-levels"><i class="fa fa-check"></i><b>8.3</b> Order Levels</a></li>
+<li class="chapter" data-level="8.4" data-path="factors-in-r.html"><a href="factors-in-r.html#specify-labels"><i class="fa fa-check"></i><b>8.4</b> Specify Labels</a></li>
+<li class="chapter" data-level="8.5" data-path="factors-in-r.html"><a href="factors-in-r.html#check-levels"><i class="fa fa-check"></i><b>8.5</b> Check Levels</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="lists-in-r.html"><a href="lists-in-r.html"><i class="fa fa-check"></i><b>9</b> Lists in R</a>
 <ul>
@@ -312,6 +328,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
 </ul>
 
       </nav>
@@ -329,10 +346,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="factors-in-r" class="section level1" number="8">
-<h1><span class="header-section-number">Chapter 8</span> Factors in R</h1>
-<div id="introduction-5" class="section level2" number="8.1">
-<h2><span class="header-section-number">8.1</span> Introduction</h2>
+<div id="factors-in-r" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">Chapter 8</span> Factors in R<a href="factors-in-r.html#factors-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="introduction-5" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Introduction<a href="factors-in-r.html#introduction-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In this chapter, we will learn to:</p>
 <ul>
 <li>create factors</li>
@@ -343,22 +360,58 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>Categorical or qualitative data in R is treated as data type <code>factor</code>.</p>
 </div>
-<div id="create-factors" class="section level2" number="8.2">
-<h2><span class="header-section-number">8.2</span> Create Factors</h2>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="factors-in-r.html#cb223-1" aria-hidden="true" tabindex="-1"></a><span class="fu">args</span>(factor)</span></code></pre></div>
+<div id="create-factors" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> Create Factors<a href="factors-in-r.html#create-factors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="factors-in-r.html#cb227-1" tabindex="-1"></a><span class="fu">args</span>(factor)</span></code></pre></div>
 <pre><code>## function (x = character(), levels, labels = levels, exclude = NA, 
 ##     ordered = is.ordered(x), nmax = NA) 
 ## NULL</code></pre>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="factors-in-r.html#cb225-1" aria-hidden="true" tabindex="-1"></a>devices <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&#39;Mobile&#39;</span>, <span class="st">&#39;Tablet&#39;</span>, <span class="st">&#39;Desktop&#39;</span>))</span>
-<span id="cb225-2"><a href="factors-in-r.html#cb225-2" aria-hidden="true" tabindex="-1"></a>devices</span></code></pre></div>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="factors-in-r.html#cb229-1" tabindex="-1"></a>devices <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&#39;Mobile&#39;</span>, <span class="st">&#39;Tablet&#39;</span>, <span class="st">&#39;Desktop&#39;</span>))</span>
+<span id="cb229-2"><a href="factors-in-r.html#cb229-2" tabindex="-1"></a>devices</span></code></pre></div>
 <pre><code>## [1] Mobile  Tablet  Desktop
 ## Levels: Desktop Mobile Tablet</code></pre>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="factors-in-r.html#cb227-1" aria-hidden="true" tabindex="-1"></a><span class="co"># number of levels</span></span>
-<span id="cb227-2"><a href="factors-in-r.html#cb227-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nlevels</span>(devices)</span></code></pre></div>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="factors-in-r.html#cb231-1" tabindex="-1"></a><span class="co"># number of levels</span></span>
+<span id="cb231-2"><a href="factors-in-r.html#cb231-2" tabindex="-1"></a><span class="fu">nlevels</span>(devices)</span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="factors-in-r.html#cb229-1" aria-hidden="true" tabindex="-1"></a><span class="co"># levels</span></span>
-<span id="cb229-2"><a href="factors-in-r.html#cb229-2" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(devices)</span></code></pre></div>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="factors-in-r.html#cb233-1" tabindex="-1"></a><span class="co"># levels</span></span>
+<span id="cb233-2"><a href="factors-in-r.html#cb233-2" tabindex="-1"></a><span class="fu">levels</span>(devices)</span></code></pre></div>
 <pre><code>## [1] &quot;Desktop&quot; &quot;Mobile&quot;  &quot;Tablet&quot;</code></pre>
+</div>
+<div id="order-levels" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> Order Levels<a href="factors-in-r.html#order-levels" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Use the <code>levels</code> argument together with <code>ordered = TRUE</code> when the categories
+have a natural order:</p>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="factors-in-r.html#cb235-1" tabindex="-1"></a>size <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&#39;Medium&#39;</span>, <span class="st">&#39;Low&#39;</span>, <span class="st">&#39;High&#39;</span>, <span class="st">&#39;Low&#39;</span>, <span class="st">&#39;Medium&#39;</span>),</span>
+<span id="cb235-2"><a href="factors-in-r.html#cb235-2" tabindex="-1"></a>  <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&#39;Low&#39;</span>, <span class="st">&#39;Medium&#39;</span>, <span class="st">&#39;High&#39;</span>), <span class="at">ordered =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb235-3"><a href="factors-in-r.html#cb235-3" tabindex="-1"></a>size</span></code></pre></div>
+<pre><code>## [1] Medium Low    High   Low    Medium
+## Levels: Low &lt; Medium &lt; High</code></pre>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="factors-in-r.html#cb237-1" tabindex="-1"></a><span class="fu">levels</span>(size)</span></code></pre></div>
+<pre><code>## [1] &quot;Low&quot;    &quot;Medium&quot; &quot;High&quot;</code></pre>
+</div>
+<div id="specify-labels" class="section level2 hasAnchor" number="8.4">
+<h2><span class="header-section-number">8.4</span> Specify Labels<a href="factors-in-r.html#specify-labels" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Use the <code>labels</code> argument to attach shorter or prettier display labels while
+keeping the underlying level order:</p>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="factors-in-r.html#cb239-1" tabindex="-1"></a>size_labeled <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&#39;Low&#39;</span>, <span class="st">&#39;Medium&#39;</span>, <span class="st">&#39;High&#39;</span>),</span>
+<span id="cb239-2"><a href="factors-in-r.html#cb239-2" tabindex="-1"></a>  <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&#39;Low&#39;</span>, <span class="st">&#39;Medium&#39;</span>, <span class="st">&#39;High&#39;</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&#39;L&#39;</span>, <span class="st">&#39;M&#39;</span>, <span class="st">&#39;H&#39;</span>))</span>
+<span id="cb239-3"><a href="factors-in-r.html#cb239-3" tabindex="-1"></a>size_labeled</span></code></pre></div>
+<pre><code>## [1] L M H
+## Levels: L M H</code></pre>
+</div>
+<div id="check-levels" class="section level2 hasAnchor" number="8.5">
+<h2><span class="header-section-number">8.5</span> Check Levels<a href="factors-in-r.html#check-levels" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="factors-in-r.html#cb241-1" tabindex="-1"></a><span class="co"># existing levels</span></span>
+<span id="cb241-2"><a href="factors-in-r.html#cb241-2" tabindex="-1"></a><span class="fu">levels</span>(size)</span></code></pre></div>
+<pre><code>## [1] &quot;Low&quot;    &quot;Medium&quot; &quot;High&quot;</code></pre>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="factors-in-r.html#cb243-1" tabindex="-1"></a><span class="co"># number of levels</span></span>
+<span id="cb243-2"><a href="factors-in-r.html#cb243-2" tabindex="-1"></a><span class="fu">nlevels</span>(size)</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="factors-in-r.html#cb245-1" tabindex="-1"></a><span class="co"># is this an ordered factor?</span></span>
+<span id="cb245-2"><a href="factors-in-r.html#cb245-2" tabindex="-1"></a><span class="fu">is.ordered</span>(size)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>For modern factor manipulation (reordering, recoding, lumping rare levels),
+see the <a href="https://forcats.tidyverse.org/">forcats</a> package.</p>
 
 </div>
 </div>
@@ -372,7 +425,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -383,39 +435,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": null,
-"toc": {
-"collapse": "section",
-"scroll_highlight": true
-}
+  "sharing": {
+    "github": false,
+    "facebook": false,
+    "twitter": false,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"],
+    "google": false
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/rsquaredacademy-education/intro-r/edit/master/08-factors.Rmd",
+    "text": "Edit this page"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section",
+    "scroll_highlight": true
+  }
 });
 });
 </script>

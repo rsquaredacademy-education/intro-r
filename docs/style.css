@@ -1,5 +1,5 @@
 p.caption {
-  color: #777;
+  color: #595959; /* meets WCAG AA 4.5:1 on white */
   margin-top: 10px;
 }
 p code {
