@@ -87,7 +87,7 @@ remotes::install_github('tidyverse/dplyr@*release')
 - `installed.packages()`: view currently installed packages
 - `library('package_name')`: load packages
 - `autoload('function_name', 'package_name')`: load functions and data from packages only when called in the script
-- `available.package()`: packages available for installation
+- `available.packages()`: packages available for installation
 - `old.packages()`: packages which have new versions available
 - `new.packages()`: packages already not installed
 - `update.packages()`: update packages which have new versions
@@ -95,35 +95,35 @@ remotes::install_github('tidyverse/dplyr@*release')
 
 ## Library Paths
 
-Library is a directory that contains all installed packages. Usually there will be more than one R library in your systme. You can find the location of the libraries using `.libPaths()`.
+Library is a directory that contains all installed packages. Usually there will be more than one R library in your system. You can find the location of the libraries using `.libPaths()`.
 
 ```{r install9}
 .libPaths()
 ```
 
-You can use `lib.loc` when you want to install, load, update and remove packages from a particular library.
+You can use `lib` when you want to install, load, update and remove packages from a particular library.
 
 ### Install
 
 ```{r install10, eval=FALSE}
-install.packages('stringr', lib.loc = "C:/Program Files/R/R-3.4.1/library")
+install.packages('stringr', lib = .libPaths()[1])
 ```
 
 ### Load
 
 ```{r install11, eval=FALSE}
-library(lubridate, lib.loc = "C:/Program Files/R/R-3.4.1/library")
+library(lubridate, lib.loc = .libPaths()[1])
 ```
 
 ### Update Packages
 
 ```{r install12, eval=FALSE}
-update.packages(lib.loc = "C:/Program Files/R/R-3.4.1/library")
+update.packages(lib.loc = .libPaths()[1])
 ```
 
 ### Remove Packages
 
 ```{r install13, eval=FALSE}
-remove.packages(lib.loc = "C:/Program Files/R/R-3.4.1/library")
+remove.packages('stringr', lib = .libPaths()[1])
 ```
 
