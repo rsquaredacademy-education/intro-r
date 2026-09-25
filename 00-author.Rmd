@@ -1,8 +1,8 @@
-# About the Author {-}
+# About the Author {-#about-the-author}
 
 [Aravind Hebbali](https://www.aravindhebbali.com) is the founder of 
 [Rsquared Academy](https://www.rsquaredacademy.com). He earned his Masters in 
-Economics from [Madras School of Economics](https://www.mse.ac.in). As an 
+Economics from [Madras School of Economics](https://mse.ac.in/). As an 
 active R user, he has authored several R packages such as 
 
 - [olsrr](https://olsrr.rsquaredacademy.com)
