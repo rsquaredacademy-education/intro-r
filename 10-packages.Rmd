@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this chapter, we will learn about R packages. Packages are fundamental to R. There are approximately 15000 packages available on [CRAN](https://cran.r-project.org/) or the Comprehensive R Archive Network.
+In this chapter, we will learn about R packages. Packages are fundamental to R. There are more than 22,000 packages available on [CRAN](https://cran.r-project.org/) or the Comprehensive R Archive Network (as of September 2026; verify the current count at [cran.r-project.org/web/packages](https://cran.r-project.org/web/packages/)).
 
 Packages are available for different [topics](https://cran.r-project.org/web/views/). You should always look for a package before writing code from scratch. In case you have written your own codes for a new analysis or topic, do share it with the R community by converting the code into a package. You can learn more about building R packages from [R Packages](https://r-pkgs.had.co.nz/), a book written by [Hadley Wickham](https://hadley.nz/).
 
@@ -30,7 +30,7 @@ install.packages('ggplot2')
 
 ### GitHub
 
-Some R packages are made available on [GitHub](https://github.com/) before releasing them on CRAN. Such packages can be installed using `install_github()` from [devtools](https://cran.r-project.org/web/packages/devtools/index.html) or [remotes](https://cran.r-project.org/web/packages/remotes/index.html) package. You need tp specify the name of the repository and the package. For example, to download [ggplot2](https://ggplot2.tidyverse.org/) or [dplyr](https://dplyr.tidyverse.org/), below is the code:
+Some R packages are made available on [GitHub](https://github.com/) before releasing them on CRAN. Such packages can be installed using `install_github()` from [devtools](https://cran.r-project.org/web/packages/devtools/index.html) or [remotes](https://cran.r-project.org/web/packages/remotes/index.html) package. You need to specify the name of the repository and the package. For example, to download [ggplot2](https://ggplot2.tidyverse.org/) or [dplyr](https://dplyr.tidyverse.org/), below is the code:
 
 ```{r install2, eval=FALSE}
 devtools::install_github("tidyverse/ggplot2")
@@ -39,7 +39,7 @@ remotes::install_github("tidyverse/dplyr")
 
 ### BitBucket
 
-[Bitbucket](https://bitbucket.org/) is similar to GitHub. You can install packages from Bitbucket using `install_bitbucket()` from devtools or remotes pacakge.
+[Bitbucket](https://bitbucket.org/) is similar to GitHub. You can install packages from Bitbucket using `install_bitbucket()` from devtools or remotes package.
 
 ```{r install3, eval=FALSE}
 devtools::install_bitbucket("dannavarro/lsr-package")
@@ -48,32 +48,25 @@ remotes::install_bitbucket("dannavarro/lsr-package")
 
 ### Bioconductor
 
-[Bioconductor](https://www.bioconductor.org/) provides tools for analysis and comprehension of high throughput genomic data. Packages hosted on Bioconductor can be installed in multiple ways:
-
-#### devtools
-
-Use `install_bioc()` from devtools.
+[Bioconductor](https://www.bioconductor.org/) provides tools for analysis and comprehension of high throughput genomic data. Install the `BiocManager` package and use `BiocManager::install()`:
 
 ```{r install4, eval=FALSE}
-install_bioc("SummarizedExperiment")
-```
+# install BiocManager if needed
+install.packages("BiocManager")
 
-#### biocLite
-
-Use `biocLite()` function.
-
-```{r install5, eval=FALSE}
-source('http://bioconductor.org/biocLite.R')
-biocLite('GenomicFeatures')
+# install a Bioconductor package
+BiocManager::install("GenomicFeatures")
 ```
 
 ### rForge
 
-Many R packages are hosted at [R-Forge](https://r-forge.r-project.org/), a platform for development of R packages. 
+Many R packages are hosted at [R-Forge](https://r-forge.r-project.org/), a platform for development of R packages. (Note: R-Forge is largely inactive today; prefer CRAN or GitHub for new work.)
 
 ```{r install6, eval=FALSE}
 install.packages('quantstrat', repos = 'https://r-forge.r-project.org/')
 ```
+
+> For faster installs with dependency resolution, you can also try `pak::pkg_install()` from the [pak](https://pak.r-lib.org/) package as a modern alternative.
 
 ## Install Different Versions
 
