@@ -46,7 +46,7 @@ There are several R User Groups active across the globe. You can find the list [
 
 ### Data Helpers
 
-[Data Helpers](http://www.datahelpers.org/) is a list of data analysts, scientists and engineers willing to offer guidance put together by [Angela Bassa](https://twitter.com/AngeBassa/). Visit the website to learn more about how you can approach for help and guidance. (Note: this site appears unmaintained as of 2026; treat links there with caution.)
+[Data Helpers](http://www.datahelpers.org/) is a list of data analysts, scientists and engineers willing to offer guidance put together by Angela Bassa. Visit the website to learn more about how you can approach for help and guidance. (Note: this site appears unmaintained as of 2026; treat links there with caution.)
 
 ## Internal
 
