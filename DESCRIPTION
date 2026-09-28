@@ -6,5 +6,9 @@ Description: A beginner's guide to the R programming language covering
     installation, variables, data types, vectors, data frames, factors,
     lists, and package management.
 License: CC-BY-NC-SA-4.0
+Suggests:
+    bookdown,
+    rmarkdown,
+    knitr
 URL: https://intro-r.rsquaredacademy.com,
     https://github.com/rsquaredacademy-education/intro-r
