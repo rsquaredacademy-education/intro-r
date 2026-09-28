@@ -81,7 +81,7 @@ area
 
 ## Components of a Variable
 
-<img src="img/components.png" width="370" style="display: block; margin: auto;" />
+<img src="img/components.png" alt="" style="display: block; margin: auto;" />
 
 ## Naming Conventions
 

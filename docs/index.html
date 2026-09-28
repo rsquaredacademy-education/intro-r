@@ -23,7 +23,7 @@
 <meta name="author" content="Aravind Hebbali" />
 
 
-<meta name="date" content="2026-09-25" />
+<meta name="date" content="2026-09-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,23 +52,17 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<!-- Analytics placeholder (Phase 0 decision pending: Plausible vs GA4).
-     Paste the chosen snippet here. Plausible Cloud is paid (self-hosted is
-     free); GA4 is free but requires a GDPR consent banner. Do not deploy
-     tracking without recording the choice in roadmap/phase0-baseline.md.
--->
-<!-- Example Plausible:
-<script defer data-domain="intro-r.rsquaredacademy.com" src="https://plausible.io/js/script.js"></script>
--->
-<!-- Example GA4:
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+<!-- Google tag (gtag.js) — GA4, Measurement ID G-W92F847S2X.
+     Phase 0 decision: GA4. Note: GA4 requires a GDPR consent banner
+     before collecting EU traffic (see roadmap §3.3). -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W92F847S2X"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-XXXXXXX');
+
+  gtag('config', 'G-W92F847S2X');
 </script>
--->
 
 
 <style type="text/css">
@@ -349,11 +343,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">Introduction to R</h1>
 <p class="author"><em>Aravind Hebbali</em></p>
-<p class="date"><em>2026-09-25</em></p>
+<p class="date"><em>2026-09-28</em></p>
 </div>
 <div id="preface" class="section level1 unnumbered hasAnchor">
 <h1>Preface<a href="index.html#preface" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p><img src="img/intro-r.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="img/intro-r.png" alt="" width="60%" style="display: block; margin: auto;" /></p>
 <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
 <div id="structure-of-the-book" class="section level2 unnumbered hasAnchor">
 <h2>Structure of the book<a href="index.html#structure-of-the-book" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -384,14 +378,15 @@ data structures in R. Chapter <a href="install-update-r-packages.html#install-up
 ## tzcode source: internal
 ## 
 ## attached base packages:
-## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## [1] stats     graphics  grDevices datasets  utils     methods   base     
 ## 
 ## loaded via a namespace (and not attached):
 ##  [1] digest_0.6.39   R6_2.6.1        bookdown_0.48   fastmap_1.2.0  
-##  [5] xfun_0.61       cachem_1.1.0    knitr_1.50      htmltools_0.5.9
-##  [9] rmarkdown_2.30  lifecycle_1.0.5 cli_3.6.5       sass_0.4.10    
-## [13] jquerylib_0.1.4 compiler_4.5.2  tools_4.5.2     evaluate_1.0.5 
-## [17] bslib_0.9.0     yaml_2.3.12     rlang_1.2.0     jsonlite_2.0.0</code></pre>
+##  [5] xfun_0.61       cachem_1.1.0    knitr_1.52      htmltools_0.5.9
+##  [9] rmarkdown_2.32  lifecycle_1.0.5 cli_3.6.6       sass_0.4.10    
+## [13] renv_1.2.4      jquerylib_0.1.4 compiler_4.5.2  tools_4.5.2    
+## [17] evaluate_1.0.5  bslib_0.12.0    yaml_2.3.12     jsonlite_2.0.0 
+## [21] rlang_1.3.0</code></pre>
 <p>We do not add prompts (<code>&gt;</code> and <code>+</code>) to R source code in this book, and we comment out the text output with two hashes <code>##</code> by default, as you can see from the R session information above. This is for your convenience when you want to copy and run the code (the text output will be ignored since it is commented out). Package names are in bold text (e.g., <strong>rmarkdown</strong>), and function names are followed by parentheses (e.g., <code>bookdown::render_book()</code>). The double-colon operator <code>::</code> means accessing an object from a package.</p>
 
 </div>

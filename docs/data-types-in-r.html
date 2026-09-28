@@ -23,7 +23,7 @@
 <meta name="author" content="Aravind Hebbali" />
 
 
-<meta name="date" content="2026-09-25" />
+<meta name="date" content="2026-09-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,23 +52,17 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<!-- Analytics placeholder (Phase 0 decision pending: Plausible vs GA4).
-     Paste the chosen snippet here. Plausible Cloud is paid (self-hosted is
-     free); GA4 is free but requires a GDPR consent banner. Do not deploy
-     tracking without recording the choice in roadmap/phase0-baseline.md.
--->
-<!-- Example Plausible:
-<script defer data-domain="intro-r.rsquaredacademy.com" src="https://plausible.io/js/script.js"></script>
--->
-<!-- Example GA4:
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+<!-- Google tag (gtag.js) — GA4, Measurement ID G-W92F847S2X.
+     Phase 0 decision: GA4. Note: GA4 requires a GDPR consent banner
+     before collecting EU traffic (see roadmap §3.3). -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W92F847S2X"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-XXXXXXX');
+
+  gtag('config', 'G-W92F847S2X');
 </script>
--->
 
 
 <style type="text/css">
@@ -442,7 +436,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="data-types-in-r.html#cb39-1" tabindex="-1"></a><span class="fu">as.character</span>(opt_course)</span></code></pre></div>
 <pre><code>## [1] &quot;TRUE&quot;</code></pre>
 <div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="data-types-in-r.html#cb41-1" tabindex="-1"></a><span class="fu">as.character</span>(today)</span></code></pre></div>
-<pre><code>## [1] &quot;2026-09-25 15:02:00.322091&quot;</code></pre>
+<pre><code>## [1] &quot;2026-09-28 22:28:35.578031&quot;</code></pre>
 </div>
 <div id="logical" class="section level2 hasAnchor" number="4.5">
 <h2><span class="header-section-number">4.5</span> Logical<a href="data-types-in-r.html#logical" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -514,7 +508,7 @@ and <code>POSIXct</code> for date-times:</p>
 <div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="data-types-in-r.html#cb71-1" tabindex="-1"></a><span class="co"># today&#39;s date</span></span>
 <span id="cb71-2"><a href="data-types-in-r.html#cb71-2" tabindex="-1"></a>today_date <span class="ot">&lt;-</span> <span class="fu">Sys.Date</span>()</span>
 <span id="cb71-3"><a href="data-types-in-r.html#cb71-3" tabindex="-1"></a>today_date</span></code></pre></div>
-<pre><code>## [1] &quot;2026-09-25&quot;</code></pre>
+<pre><code>## [1] &quot;2026-09-28&quot;</code></pre>
 <div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="data-types-in-r.html#cb73-1" tabindex="-1"></a><span class="fu">class</span>(today_date)</span></code></pre></div>
 <pre><code>## [1] &quot;Date&quot;</code></pre>
 <div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="data-types-in-r.html#cb75-1" tabindex="-1"></a><span class="co"># create a date from a string</span></span>

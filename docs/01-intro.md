@@ -72,7 +72,7 @@ User contributed packages can be downloaded from
 R comes with a simple GUI with sufficient features for data analysis and 
 visualization.
 
-<img src="img/rgui.png" width="282" style="display: block; margin: auto;" />
+<img src="img/rgui.png" alt="" style="display: block; margin: auto;" />
 
 ### RStudio
 
@@ -81,6 +81,6 @@ built to suit the data science work flow. RStudio is developed by Posit (formerl
 RStudio, rebranded in 2022); [Positron](https://positron.posit.co/) is a modern
 alternative IDE for R and Python.
 
-<img src="img/rstudio_ide.png" width="354" style="display: block; margin: auto;" />
+<img src="img/rstudio_ide.png" alt="" style="display: block; margin: auto;" />
 
 

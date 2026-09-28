@@ -110,8 +110,8 @@ Library is a directory that contains all installed packages. Usually there will 
 ```
 
 ```
-## [1] "C:/Users/HP/AppData/Local/R/win-library/4.5"
-## [2] "C:/Program Files/R/R-4.5.2/library"
+## [1] "C:/Users/HP/AppData/Local/R/cache/R/renv/library/intro-r-15ca35ae/windows/R-4.5/x86_64-w64-mingw32"
+## [2] "C:/Users/HP/AppData/Local/R/cache/R/renv/sandbox/windows/R-4.5/x86_64-w64-mingw32/ebc25411"
 ```
 
 You can use `lib` when you want to install, load, update and remove packages from a particular library.

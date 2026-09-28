@@ -1,7 +1,7 @@
 --- 
 title: "Introduction to R"
 author: "Aravind Hebbali"
-date: "2026-09-25"
+date: "2026-09-28"
 site: bookdown::bookdown_site
 lang: en
 documentclass: book
@@ -11,7 +11,7 @@ description: "A beginner-friendly introduction to the R programming language."
 
 # Preface {-}
 
-<img src="img/intro-r.png" width="60%" style="display: block; margin: auto;" />
+<img src="img/intro-r.png" alt="" width="60%" style="display: block; margin: auto;" />
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
 
@@ -50,14 +50,15 @@ sessionInfo()
 ## tzcode source: internal
 ## 
 ## attached base packages:
-## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## [1] stats     graphics  grDevices datasets  utils     methods   base     
 ## 
 ## loaded via a namespace (and not attached):
 ##  [1] digest_0.6.39   R6_2.6.1        bookdown_0.48   fastmap_1.2.0  
-##  [5] xfun_0.61       cachem_1.1.0    knitr_1.50      htmltools_0.5.9
-##  [9] rmarkdown_2.30  lifecycle_1.0.5 cli_3.6.5       sass_0.4.10    
-## [13] jquerylib_0.1.4 compiler_4.5.2  tools_4.5.2     evaluate_1.0.5 
-## [17] bslib_0.9.0     yaml_2.3.12     rlang_1.2.0     jsonlite_2.0.0
+##  [5] xfun_0.61       cachem_1.1.0    knitr_1.52      htmltools_0.5.9
+##  [9] rmarkdown_2.32  lifecycle_1.0.5 cli_3.6.6       sass_0.4.10    
+## [13] renv_1.2.4      jquerylib_0.1.4 compiler_4.5.2  tools_4.5.2    
+## [17] evaluate_1.0.5  bslib_0.12.0    yaml_2.3.12     jsonlite_2.0.0 
+## [21] rlang_1.3.0
 ```
 
 We do not add prompts (`>` and `+`) to R source code in this book, and we comment out the text output with two hashes `##` by default, as you can see from the R session information above. This is for your convenience when you want to copy and run the code (the text output will be ignored since it is commented out). Package names are in bold text (e.g., **rmarkdown**), and function names are followed by parentheses (e.g., `bookdown::render_book()`). The double-colon operator `::` means accessing an object from a package. 
