@@ -127,14 +127,14 @@ install.packages('stringr', lib = .libPaths()[1])
 
 
 ``` r
-library(lubridate, lib.loc = .libPaths()[1])
+library(lubridate, lib = .libPaths()[1])
 ```
 
 ### Update Packages
 
 
 ``` r
-update.packages(lib.loc = .libPaths()[1])
+update.packages(lib = .libPaths()[1])
 ```
 
 ### Remove Packages
