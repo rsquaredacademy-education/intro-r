@@ -431,13 +431,16 @@ One of the most important steps in data analysis is selecting a subset of data f
 
 
 ``` r
+# fixed seed so this chapter re-renders deterministically
+set.seed(42)
+
 # random sample of 10 values
 vect1 <- sample(10)
 vect1
 ```
 
 ```
-##  [1]  8  1  4  9  3  7  2  6 10  5
+##  [1]  1  5 10  8  2  4  6  9  7  3
 ```
 
 ``` r
@@ -446,7 +449,7 @@ vect1[3]
 ```
 
 ```
-## [1] 4
+## [1] 10
 ```
 
 ``` r
@@ -455,7 +458,7 @@ vect1[7]
 ```
 
 ```
-## [1] 2
+## [1] 6
 ```
 
 ### Out of range index
@@ -468,7 +471,7 @@ vect1
 ```
 
 ```
-##  [1]  1 10  5  6  4  8  9  3  7  2
+##  [1]  8  7  4  1  5 10  2  6  9  3
 ```
 
 ``` r
@@ -513,7 +516,7 @@ vect1
 ```
 
 ```
-##  [1]  5  4  3  8  6  1  9  7 10  2
+##  [1]  9 10  3  4  5  6  1  2  8  7
 ```
 
 ``` r
@@ -522,7 +525,7 @@ vect1[-3]
 ```
 
 ```
-## [1]  5  4  8  6  1  9  7 10  2
+## [1]  9 10  4  5  6  1  2  8  7
 ```
 
 ``` r
@@ -531,7 +534,7 @@ vect1[-7]
 ```
 
 ```
-## [1]  5  4  3  8  6  1  7 10  2
+## [1]  9 10  3  4  5  6  2  8  7
 ```
 
 ### Subset Multiple Elements
@@ -546,7 +549,7 @@ vect1
 ```
 
 ```
-##  [1]  3  7  1 10  6  4  2  9  5  8
+##  [1]  3  1  2  6 10  8  4  5  7  9
 ```
 
 ``` r
@@ -555,7 +558,7 @@ vect1[]
 ```
 
 ```
-##  [1]  3  7  1 10  6  4  2  9  5  8
+##  [1]  3  1  2  6 10  8  4  5  7  9
 ```
 
 ``` r
@@ -564,7 +567,7 @@ vect1[1:5]
 ```
 
 ```
-## [1]  3  7  1 10  6
+## [1]  3  1  2  6 10
 ```
 
 ``` r
@@ -574,7 +577,7 @@ vect1[5:end]
 ```
 
 ```
-## [1] 6 4 2 9 5 8
+## [1] 10  8  4  5  7  9
 ```
 
 If you are using the colon to generate the index positions, you will have to specify both the starting and ending position, else, R will return an error.
@@ -589,7 +592,7 @@ vect1
 ```
 
 ```
-##  [1]  8  2  7 10  4  9  6  3  5  1
+##  [1]  5  4  2  8  3  1 10  7  6  9
 ```
 
 ``` r
@@ -599,7 +602,7 @@ vect1[select]
 ```
 
 ```
-## [1] 2 4 6
+## [1]  4  3 10
 ```
 
 ``` r
@@ -609,7 +612,7 @@ vect1[select]
 ```
 
 ```
-## [1]  8  2  7 10  9  5
+## [1] 5 4 2 8 1 6
 ```
 
 ### Subset Named Vectors
@@ -659,7 +662,7 @@ vect1
 ```
 
 ```
-##  [1]  6  2  9  7  1  3  8  4  5 10
+##  [1]  6  2  4  3 10  5  9  7  8  1
 ```
 
 ``` r
@@ -668,7 +671,7 @@ vect1[TRUE]
 ```
 
 ```
-##  [1]  6  2  9  7  1  3  8  4  5 10
+##  [1]  6  2  4  3 10  5  9  7  8  1
 ```
 
 ``` r
@@ -686,7 +689,7 @@ vect1[c(TRUE, FALSE)]
 ```
 
 ```
-## [1] 6 9 1 8 5
+## [1]  6  4 10  9  8
 ```
 
 ``` r
@@ -695,7 +698,7 @@ vect1[c(FALSE, TRUE)]
 ```
 
 ```
-## [1]  2  7  3  4 10
+## [1] 2 3 5 7 1
 ```
 
 ### Subset using logical expressions
@@ -714,7 +717,7 @@ vect1
 ```
 
 ```
-##  [1]  7  9  1  5  4  2 10  3  8  6
+##  [1] 10  8  5  1  7  4  6  2  9  3
 ```
 
 ``` r
@@ -723,7 +726,7 @@ vect1 > 5
 ```
 
 ```
-##  [1]  TRUE  TRUE FALSE FALSE FALSE FALSE  TRUE FALSE  TRUE  TRUE
+##  [1]  TRUE  TRUE FALSE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE
 ```
 
 ``` r
@@ -731,7 +734,7 @@ vect1[vect1 > 5]
 ```
 
 ```
-## [1]  7  9 10  8  6
+## [1] 10  8  7  6  9
 ```
 
 ``` r
@@ -740,7 +743,7 @@ vect1 >= 5
 ```
 
 ```
-##  [1]  TRUE  TRUE FALSE  TRUE FALSE FALSE  TRUE FALSE  TRUE  TRUE
+##  [1]  TRUE  TRUE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE
 ```
 
 ``` r
@@ -748,7 +751,7 @@ vect1[vect1 >= 5]
 ```
 
 ```
-## [1]  7  9  5 10  8  6
+## [1] 10  8  5  7  6  9
 ```
 
 ``` r
@@ -757,7 +760,7 @@ vect1 < 5
 ```
 
 ```
-##  [1] FALSE FALSE  TRUE FALSE  TRUE  TRUE FALSE  TRUE FALSE FALSE
+##  [1] FALSE FALSE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE
 ```
 
 ``` r
@@ -774,7 +777,7 @@ vect1 <= 5
 ```
 
 ```
-##  [1] FALSE FALSE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE FALSE FALSE
+##  [1] FALSE FALSE  TRUE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE
 ```
 
 ``` r
@@ -782,7 +785,7 @@ vect1[vect1 <= 5]
 ```
 
 ```
-## [1] 1 5 4 2 3
+## [1] 5 1 4 2 3
 ```
 
 ``` r
@@ -791,7 +794,7 @@ vect1 == 5
 ```
 
 ```
-##  [1] FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [1] FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
 ```
 
 ``` r
@@ -808,7 +811,7 @@ vect1 != 5
 ```
 
 ```
-##  [1]  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+##  [1]  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
 ```
 
 ``` r
@@ -816,7 +819,7 @@ vect1[vect1 != 5]
 ```
 
 ```
-## [1]  7  9  1  4  2 10  3  8  6
+## [1] 10  8  1  7  4  6  2  9  3
 ```
 
 ### Logical Operators
@@ -831,7 +834,7 @@ vect1
 ```
 
 ```
-##  [1]  9 10  5  2  8  1  7  6  4  3
+##  [1]  4  9  3  8  5  6 10  2  1  7
 ```
 
 ``` r
@@ -840,7 +843,7 @@ vect1[(vect1 < 8 | (vect1 %% 3 == 0))]
 ```
 
 ```
-## [1] 9 5 2 1 7 6 4 3
+## [1] 4 9 3 5 6 2 1 7
 ```
 
 ``` r
@@ -849,5 +852,5 @@ vect1[(vect1 < 7 | (vect1 %% 2 == 0))]
 ```
 
 ```
-## [1] 10  5  2  8  1  6  4  3
+## [1]  4  3  8  5  6 10  2  1
 ```

@@ -290,6 +290,9 @@ One of the most important steps in data analysis is selecting a subset of data f
 `[]` is the index operator in R. We can use various expressions within `[]` to subset data. In R, **index positions begin at 1 and not 0**. To begin with, let us look at values in different index positions:
 
 ```{r vect30}
+# fixed seed so this chapter re-renders deterministically
+set.seed(42)
+
 # random sample of 10 values
 vect1 <- sample(10)
 vect1

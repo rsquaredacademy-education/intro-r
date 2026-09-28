@@ -23,7 +23,7 @@
 <meta name="author" content="Aravind Hebbali" />
 
 
-<meta name="date" content="2026-09-25" />
+<meta name="date" content="2026-09-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -622,22 +622,25 @@ to <code>numeric</code>. Without <code>numeric</code>, elements coerce to <code>
 <h2><span class="header-section-number">6.10</span> Index Vectors<a href="vectors-in-r.html#index-vectors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>One of the most important steps in data analysis is selecting a subset of data from a bigger data set. Indexing helps in retrieving values individually or a set of values that meet a specific criteria. In this chapter, we look at various ways of indexing/subsetting vectors.</p>
 <p><code>[]</code> is the index operator in R. We can use various expressions within <code>[]</code> to subset data. In R, <strong>index positions begin at 1 and not 0</strong>. To begin with, let us look at values in different index positions:</p>
-<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="vectors-in-r.html#cb136-1" tabindex="-1"></a><span class="co"># random sample of 10 values</span></span>
-<span id="cb136-2"><a href="vectors-in-r.html#cb136-2" tabindex="-1"></a>vect1 <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">10</span>)</span>
-<span id="cb136-3"><a href="vectors-in-r.html#cb136-3" tabindex="-1"></a>vect1</span></code></pre></div>
-<pre><code>##  [1]  8  1  4  9  3  7  2  6 10  5</code></pre>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="vectors-in-r.html#cb136-1" tabindex="-1"></a><span class="co"># fixed seed so this chapter re-renders deterministically</span></span>
+<span id="cb136-2"><a href="vectors-in-r.html#cb136-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb136-3"><a href="vectors-in-r.html#cb136-3" tabindex="-1"></a></span>
+<span id="cb136-4"><a href="vectors-in-r.html#cb136-4" tabindex="-1"></a><span class="co"># random sample of 10 values</span></span>
+<span id="cb136-5"><a href="vectors-in-r.html#cb136-5" tabindex="-1"></a>vect1 <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">10</span>)</span>
+<span id="cb136-6"><a href="vectors-in-r.html#cb136-6" tabindex="-1"></a>vect1</span></code></pre></div>
+<pre><code>##  [1]  1  5 10  8  2  4  6  9  7  3</code></pre>
 <div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="vectors-in-r.html#cb138-1" tabindex="-1"></a><span class="co"># return third element</span></span>
 <span id="cb138-2"><a href="vectors-in-r.html#cb138-2" tabindex="-1"></a>vect1[<span class="dv">3</span>]</span></code></pre></div>
-<pre><code>## [1] 4</code></pre>
+<pre><code>## [1] 10</code></pre>
 <div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="vectors-in-r.html#cb140-1" tabindex="-1"></a><span class="co"># return seventh element</span></span>
 <span id="cb140-2"><a href="vectors-in-r.html#cb140-2" tabindex="-1"></a>vect1[<span class="dv">7</span>]    </span></code></pre></div>
-<pre><code>## [1] 2</code></pre>
+<pre><code>## [1] 6</code></pre>
 <div id="out-of-range-index" class="section level3 hasAnchor" number="6.10.1">
 <h3><span class="header-section-number">6.10.1</span> Out of range index<a href="vectors-in-r.html#out-of-range-index" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="vectors-in-r.html#cb142-1" tabindex="-1"></a><span class="co"># random sample of 10 values</span></span>
 <span id="cb142-2"><a href="vectors-in-r.html#cb142-2" tabindex="-1"></a>vect1 <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">10</span>)</span>
 <span id="cb142-3"><a href="vectors-in-r.html#cb142-3" tabindex="-1"></a>vect1</span></code></pre></div>
-<pre><code>##  [1]  1 10  5  6  4  8  9  3  7  2</code></pre>
+<pre><code>##  [1]  8  7  4  1  5 10  2  6  9  3</code></pre>
 <div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="vectors-in-r.html#cb144-1" tabindex="-1"></a><span class="co"># return value at index 0</span></span>
 <span id="cb144-2"><a href="vectors-in-r.html#cb144-2" tabindex="-1"></a>vect1[<span class="dv">0</span>]</span></code></pre></div>
 <pre><code>## integer(0)</code></pre>
@@ -656,13 +659,13 @@ end of the vector counting backwards. Let us look at an example to understand ho
 <div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="vectors-in-r.html#cb150-1" tabindex="-1"></a><span class="co"># random sample of 10 values</span></span>
 <span id="cb150-2"><a href="vectors-in-r.html#cb150-2" tabindex="-1"></a>vect1 <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">10</span>)</span>
 <span id="cb150-3"><a href="vectors-in-r.html#cb150-3" tabindex="-1"></a>vect1</span></code></pre></div>
-<pre><code>##  [1]  5  4  3  8  6  1  9  7 10  2</code></pre>
+<pre><code>##  [1]  9 10  3  4  5  6  1  2  8  7</code></pre>
 <div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="vectors-in-r.html#cb152-1" tabindex="-1"></a><span class="co"># drop third element</span></span>
 <span id="cb152-2"><a href="vectors-in-r.html#cb152-2" tabindex="-1"></a>vect1[<span class="sc">-</span><span class="dv">3</span>]</span></code></pre></div>
-<pre><code>## [1]  5  4  8  6  1  9  7 10  2</code></pre>
+<pre><code>## [1]  9 10  4  5  6  1  2  8  7</code></pre>
 <div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="vectors-in-r.html#cb154-1" tabindex="-1"></a><span class="co"># drop seventh element</span></span>
 <span id="cb154-2"><a href="vectors-in-r.html#cb154-2" tabindex="-1"></a>vect1[<span class="sc">-</span><span class="dv">7</span>]   </span></code></pre></div>
-<pre><code>## [1]  5  4  3  8  6  1  7 10  2</code></pre>
+<pre><code>## [1]  9 10  3  4  5  6  2  8  7</code></pre>
 </div>
 <div id="subset-multiple-elements" class="section level3 hasAnchor" number="6.10.3">
 <h3><span class="header-section-number">6.10.3</span> Subset Multiple Elements<a href="vectors-in-r.html#subset-multiple-elements" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -670,31 +673,31 @@ end of the vector counting backwards. Let us look at an example to understand ho
 <div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="vectors-in-r.html#cb156-1" tabindex="-1"></a><span class="co"># random sample of 10 values</span></span>
 <span id="cb156-2"><a href="vectors-in-r.html#cb156-2" tabindex="-1"></a>vect1 <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">10</span>)</span>
 <span id="cb156-3"><a href="vectors-in-r.html#cb156-3" tabindex="-1"></a>vect1</span></code></pre></div>
-<pre><code>##  [1]  3  7  1 10  6  4  2  9  5  8</code></pre>
+<pre><code>##  [1]  3  1  2  6 10  8  4  5  7  9</code></pre>
 <div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="vectors-in-r.html#cb158-1" tabindex="-1"></a><span class="co"># return all elements</span></span>
 <span id="cb158-2"><a href="vectors-in-r.html#cb158-2" tabindex="-1"></a>vect1[]</span></code></pre></div>
-<pre><code>##  [1]  3  7  1 10  6  4  2  9  5  8</code></pre>
+<pre><code>##  [1]  3  1  2  6 10  8  4  5  7  9</code></pre>
 <div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="vectors-in-r.html#cb160-1" tabindex="-1"></a><span class="co"># return first 5 values</span></span>
 <span id="cb160-2"><a href="vectors-in-r.html#cb160-2" tabindex="-1"></a>vect1[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
-<pre><code>## [1]  3  7  1 10  6</code></pre>
+<pre><code>## [1]  3  1  2  6 10</code></pre>
 <div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="vectors-in-r.html#cb162-1" tabindex="-1"></a><span class="co"># return all values from the 5th position</span></span>
 <span id="cb162-2"><a href="vectors-in-r.html#cb162-2" tabindex="-1"></a>end <span class="ot">&lt;-</span> <span class="fu">length</span>(vect1)</span>
 <span id="cb162-3"><a href="vectors-in-r.html#cb162-3" tabindex="-1"></a>vect1[<span class="dv">5</span><span class="sc">:</span>end]</span></code></pre></div>
-<pre><code>## [1] 6 4 2 9 5 8</code></pre>
+<pre><code>## [1] 10  8  4  5  7  9</code></pre>
 <p>If you are using the colon to generate the index positions, you will have to specify both the starting and ending position, else, R will return an error.</p>
 <p>What if we want elements that are not in a sequence as we saw in the last example? In such cases, we have to create a vector using <code>c()</code> and use it to extract elements from the original vector. Below is an example:</p>
 <div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="vectors-in-r.html#cb164-1" tabindex="-1"></a><span class="co"># random sample of 10 values</span></span>
 <span id="cb164-2"><a href="vectors-in-r.html#cb164-2" tabindex="-1"></a>vect1 <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">10</span>)</span>
 <span id="cb164-3"><a href="vectors-in-r.html#cb164-3" tabindex="-1"></a>vect1</span></code></pre></div>
-<pre><code>##  [1]  8  2  7 10  4  9  6  3  5  1</code></pre>
+<pre><code>##  [1]  5  4  2  8  3  1 10  7  6  9</code></pre>
 <div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="vectors-in-r.html#cb166-1" tabindex="-1"></a><span class="co"># extract 2nd, 5th and 7th element</span></span>
 <span id="cb166-2"><a href="vectors-in-r.html#cb166-2" tabindex="-1"></a>select <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">7</span>)</span>
 <span id="cb166-3"><a href="vectors-in-r.html#cb166-3" tabindex="-1"></a>vect1[select]</span></code></pre></div>
-<pre><code>## [1] 2 4 6</code></pre>
+<pre><code>## [1]  4  3 10</code></pre>
 <div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="vectors-in-r.html#cb168-1" tabindex="-1"></a><span class="co"># extract elements in position 1 to 4, 6 and 9</span></span>
 <span id="cb168-2"><a href="vectors-in-r.html#cb168-2" tabindex="-1"></a>select <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">9</span>)</span>
 <span id="cb168-3"><a href="vectors-in-r.html#cb168-3" tabindex="-1"></a>vect1[select]</span></code></pre></div>
-<pre><code>## [1]  8  2  7 10  9  5</code></pre>
+<pre><code>## [1] 5 4 2 8 1 6</code></pre>
 </div>
 <div id="subset-named-vectors" class="section level3 hasAnchor" number="6.10.4">
 <h3><span class="header-section-number">6.10.4</span> Subset Named Vectors<a href="vectors-in-r.html#subset-named-vectors" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -718,19 +721,19 @@ end of the vector counting backwards. Let us look at an example to understand ho
 <div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="vectors-in-r.html#cb176-1" tabindex="-1"></a><span class="co"># random sample of 10 values</span></span>
 <span id="cb176-2"><a href="vectors-in-r.html#cb176-2" tabindex="-1"></a>vect1 <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">10</span>)</span>
 <span id="cb176-3"><a href="vectors-in-r.html#cb176-3" tabindex="-1"></a>vect1</span></code></pre></div>
-<pre><code>##  [1]  6  2  9  7  1  3  8  4  5 10</code></pre>
+<pre><code>##  [1]  6  2  4  3 10  5  9  7  8  1</code></pre>
 <div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="vectors-in-r.html#cb178-1" tabindex="-1"></a><span class="co"># returns all values</span></span>
 <span id="cb178-2"><a href="vectors-in-r.html#cb178-2" tabindex="-1"></a>vect1[<span class="cn">TRUE</span>]</span></code></pre></div>
-<pre><code>##  [1]  6  2  9  7  1  3  8  4  5 10</code></pre>
+<pre><code>##  [1]  6  2  4  3 10  5  9  7  8  1</code></pre>
 <div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="vectors-in-r.html#cb180-1" tabindex="-1"></a><span class="co"># empty vector</span></span>
 <span id="cb180-2"><a href="vectors-in-r.html#cb180-2" tabindex="-1"></a>vect1[<span class="cn">FALSE</span>]</span></code></pre></div>
 <pre><code>## integer(0)</code></pre>
 <div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="vectors-in-r.html#cb182-1" tabindex="-1"></a><span class="co"># values in odd positions</span></span>
 <span id="cb182-2"><a href="vectors-in-r.html#cb182-2" tabindex="-1"></a>vect1[<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>)]</span></code></pre></div>
-<pre><code>## [1] 6 9 1 8 5</code></pre>
+<pre><code>## [1]  6  4 10  9  8</code></pre>
 <div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="vectors-in-r.html#cb184-1" tabindex="-1"></a><span class="co"># values in even positions</span></span>
 <span id="cb184-2"><a href="vectors-in-r.html#cb184-2" tabindex="-1"></a>vect1[<span class="fu">c</span>(<span class="cn">FALSE</span>, <span class="cn">TRUE</span>)]</span></code></pre></div>
-<pre><code>## [1]  2  7  3  4 10</code></pre>
+<pre><code>## [1] 2 3 5 7 1</code></pre>
 </div>
 <div id="subset-using-logical-expressions" class="section level3 hasAnchor" number="6.10.6">
 <h3><span class="header-section-number">6.10.6</span> Subset using logical expressions<a href="vectors-in-r.html#subset-using-logical-expressions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -741,37 +744,37 @@ end of the vector counting backwards. Let us look at an example to understand ho
 <div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="vectors-in-r.html#cb186-1" tabindex="-1"></a><span class="co"># random sample of 10 values</span></span>
 <span id="cb186-2"><a href="vectors-in-r.html#cb186-2" tabindex="-1"></a>vect1 <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">10</span>)</span>
 <span id="cb186-3"><a href="vectors-in-r.html#cb186-3" tabindex="-1"></a>vect1</span></code></pre></div>
-<pre><code>##  [1]  7  9  1  5  4  2 10  3  8  6</code></pre>
+<pre><code>##  [1] 10  8  5  1  7  4  6  2  9  3</code></pre>
 <div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="vectors-in-r.html#cb188-1" tabindex="-1"></a><span class="co"># return elements greater than 5</span></span>
 <span id="cb188-2"><a href="vectors-in-r.html#cb188-2" tabindex="-1"></a>vect1 <span class="sc">&gt;</span> <span class="dv">5</span></span></code></pre></div>
-<pre><code>##  [1]  TRUE  TRUE FALSE FALSE FALSE FALSE  TRUE FALSE  TRUE  TRUE</code></pre>
+<pre><code>##  [1]  TRUE  TRUE FALSE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE</code></pre>
 <div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="vectors-in-r.html#cb190-1" tabindex="-1"></a>vect1[vect1 <span class="sc">&gt;</span> <span class="dv">5</span>]</span></code></pre></div>
-<pre><code>## [1]  7  9 10  8  6</code></pre>
+<pre><code>## [1] 10  8  7  6  9</code></pre>
 <div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="vectors-in-r.html#cb192-1" tabindex="-1"></a><span class="co"># return elements greater than or equal to 5</span></span>
 <span id="cb192-2"><a href="vectors-in-r.html#cb192-2" tabindex="-1"></a>vect1 <span class="sc">&gt;=</span> <span class="dv">5</span></span></code></pre></div>
-<pre><code>##  [1]  TRUE  TRUE FALSE  TRUE FALSE FALSE  TRUE FALSE  TRUE  TRUE</code></pre>
+<pre><code>##  [1]  TRUE  TRUE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE</code></pre>
 <div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="vectors-in-r.html#cb194-1" tabindex="-1"></a>vect1[vect1 <span class="sc">&gt;=</span> <span class="dv">5</span>]</span></code></pre></div>
-<pre><code>## [1]  7  9  5 10  8  6</code></pre>
+<pre><code>## [1] 10  8  5  7  6  9</code></pre>
 <div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="vectors-in-r.html#cb196-1" tabindex="-1"></a><span class="co"># return elements lesser than 5</span></span>
 <span id="cb196-2"><a href="vectors-in-r.html#cb196-2" tabindex="-1"></a>vect1 <span class="sc">&lt;</span> <span class="dv">5</span></span></code></pre></div>
-<pre><code>##  [1] FALSE FALSE  TRUE FALSE  TRUE  TRUE FALSE  TRUE FALSE FALSE</code></pre>
+<pre><code>##  [1] FALSE FALSE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE</code></pre>
 <div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="vectors-in-r.html#cb198-1" tabindex="-1"></a>vect1[vect1 <span class="sc">&lt;</span> <span class="dv">5</span>]</span></code></pre></div>
 <pre><code>## [1] 1 4 2 3</code></pre>
 <div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="vectors-in-r.html#cb200-1" tabindex="-1"></a><span class="co"># return elements lesser than or equal to 5</span></span>
 <span id="cb200-2"><a href="vectors-in-r.html#cb200-2" tabindex="-1"></a>vect1 <span class="sc">&lt;=</span> <span class="dv">5</span></span></code></pre></div>
-<pre><code>##  [1] FALSE FALSE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE FALSE FALSE</code></pre>
+<pre><code>##  [1] FALSE FALSE  TRUE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE</code></pre>
 <div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="vectors-in-r.html#cb202-1" tabindex="-1"></a>vect1[vect1 <span class="sc">&lt;=</span> <span class="dv">5</span>]</span></code></pre></div>
-<pre><code>## [1] 1 5 4 2 3</code></pre>
+<pre><code>## [1] 5 1 4 2 3</code></pre>
 <div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="vectors-in-r.html#cb204-1" tabindex="-1"></a><span class="co"># return elements equal to 5</span></span>
 <span id="cb204-2"><a href="vectors-in-r.html#cb204-2" tabindex="-1"></a>vect1 <span class="sc">==</span> <span class="dv">5</span></span></code></pre></div>
-<pre><code>##  [1] FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
+<pre><code>##  [1] FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
 <div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="vectors-in-r.html#cb206-1" tabindex="-1"></a>vect1[vect1 <span class="sc">==</span> <span class="dv">5</span>]</span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
 <div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="vectors-in-r.html#cb208-1" tabindex="-1"></a><span class="co"># return elements not equal to 5</span></span>
 <span id="cb208-2"><a href="vectors-in-r.html#cb208-2" tabindex="-1"></a>vect1 <span class="sc">!=</span> <span class="dv">5</span></span></code></pre></div>
-<pre><code>##  [1]  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE</code></pre>
+<pre><code>##  [1]  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE</code></pre>
 <div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="vectors-in-r.html#cb210-1" tabindex="-1"></a>vect1[vect1 <span class="sc">!=</span> <span class="dv">5</span>]</span></code></pre></div>
-<pre><code>## [1]  7  9  1  4  2 10  3  8  6</code></pre>
+<pre><code>## [1] 10  8  1  7  4  6  2  9  3</code></pre>
 </div>
 </div>
 <div id="logical-operators" class="section level3 hasAnchor" number="6.10.7">
@@ -780,13 +783,13 @@ end of the vector counting backwards. Let us look at an example to understand ho
 <div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="vectors-in-r.html#cb212-1" tabindex="-1"></a><span class="co"># random sample of 10 values</span></span>
 <span id="cb212-2"><a href="vectors-in-r.html#cb212-2" tabindex="-1"></a>vect1 <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">10</span>)</span>
 <span id="cb212-3"><a href="vectors-in-r.html#cb212-3" tabindex="-1"></a>vect1</span></code></pre></div>
-<pre><code>##  [1]  9 10  5  2  8  1  7  6  4  3</code></pre>
+<pre><code>##  [1]  4  9  3  8  5  6 10  2  1  7</code></pre>
 <div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="vectors-in-r.html#cb214-1" tabindex="-1"></a><span class="co"># return all elements less than 8 or divisible by 3</span></span>
 <span id="cb214-2"><a href="vectors-in-r.html#cb214-2" tabindex="-1"></a>vect1[(vect1 <span class="sc">&lt;</span> <span class="dv">8</span> <span class="sc">|</span> (vect1 <span class="sc">%%</span> <span class="dv">3</span> <span class="sc">==</span> <span class="dv">0</span>))]</span></code></pre></div>
-<pre><code>## [1] 9 5 2 1 7 6 4 3</code></pre>
+<pre><code>## [1] 4 9 3 5 6 2 1 7</code></pre>
 <div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="vectors-in-r.html#cb216-1" tabindex="-1"></a><span class="co"># return all elements less than 7 or divisible by 2</span></span>
 <span id="cb216-2"><a href="vectors-in-r.html#cb216-2" tabindex="-1"></a>vect1[(vect1 <span class="sc">&lt;</span> <span class="dv">7</span> <span class="sc">|</span> (vect1 <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span>))]</span></code></pre></div>
-<pre><code>## [1] 10  5  2  8  1  6  4  3</code></pre>
+<pre><code>## [1]  4  3  8  5  6 10  2  1</code></pre>
 
 </div>
 </div>
