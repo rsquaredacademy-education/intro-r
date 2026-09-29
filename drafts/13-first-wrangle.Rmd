@@ -1,0 +1,57 @@
+# Your First Data Wrangling {#first-wrangle}
+
+> **Learning Objectives:** After this chapter you will be able to:
+> - Use the five core `dplyr` verbs: `filter()`, `select()`, `mutate()`,
+>   `arrange()`, `summarise()`.
+> - Chain steps with the native base pipe `|>`.
+> - Know where to go next after this book.
+
+```{r wrangle-setup, message=FALSE}
+library(dplyr)
+# ggplot2 bundles the `mpg` dataset (GPL-2 | GPL-3 license)
+data(mpg, package = "ggplot2")
+```
+
+We use the native base pipe `|>` (standard since R 4.1.0; zero external
+dependencies). We do **not** use `%>%`.
+
+## The five verbs
+
+```{r verbs}
+mpg |>
+  filter(manufacturer == "audi") |>
+  select(manufacturer, model, displ, hwy) |>
+  mutate(km_per_litre = hwy * 0.425144) |>
+  arrange(desc(hwy))
+```
+
+```{r summarise}
+mpg |>
+  summarise(mean_hwy = mean(hwy), n = dplyr::n())
+```
+
+> **Common Mistake:** `mean()` on a vector with `NA` returns `NA`.
+> Add `na.rm = TRUE` when missing values are present.
+
+## Practice Check
+
+**Knowledge Check:** *Filter then select*
+What does `mpg |> filter(manufacturer == "audi") |> select(model, hwy)` return?
+
+<details>
+<summary>Click to reveal answer</summary>
+
+**Answer:** A data frame with two columns (`model`, `hwy`) containing only
+the rows where `manufacturer` is `"audi"`.
+
+*Explanation:* `filter()` keeps matching rows; `select()` keeps matching
+columns. The `|>` pipe passes the left-hand result into the first argument
+of the right-hand function.
+</details>
+
+## Where to go next
+
+> **Where to go next:**
+> - Book: [R for Data Science (2e)](https://r4ds.hadley.nz/) — start at Chapter 1
+> - Courses: [Rsquared Academy](https://www.rsquaredacademy.com/) Data Wrangling series
+> - More books: [ebooks.rsquaredacademy.com](https://ebooks.rsquaredacademy.com/)

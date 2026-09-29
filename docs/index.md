@@ -1,7 +1,7 @@
 --- 
 title: "Introduction to R"
 author: "Aravind Hebbali"
-date: "2026-09-28"
+date: "2026-09-29"
 site: bookdown::bookdown_site
 lang: en
 documentclass: book
@@ -11,7 +11,7 @@ description: "A beginner-friendly introduction to the R programming language."
 
 # Preface {-}
 
-<img src="img/intro-r.png" alt="" width="60%" style="display: block; margin: auto;" />
+<img src="img/intro-r.png" alt="Introduction to R book cover" width="60%" style="display: block; margin: auto;" />
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
 

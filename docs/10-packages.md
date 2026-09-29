@@ -144,3 +144,5 @@ update.packages(lib = .libPaths()[1])
 remove.packages('stringr', lib = .libPaths()[1])
 ```
 
+> Explore Rsquared Academy's own R packages and guides at [pkgs.rsquaredacademy.com](https://pkgs.rsquaredacademy.com/).
+

@@ -113,9 +113,3 @@ install
 load
 update-packages
 remove-packages
-projects-import
-why-avoid-setwd
-portable-paths-with-here
-reading-csv-files
-reading-excel-files
-practice-check

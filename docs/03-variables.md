@@ -81,7 +81,7 @@ area
 
 ## Components of a Variable
 
-<img src="img/components.png" alt="" style="display: block; margin: auto;" />
+<img src="img/components.png" alt="Diagram of the components of a variable in R" style="display: block; margin: auto;" />
 
 ## Naming Conventions
 

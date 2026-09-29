@@ -1,0 +1,49 @@
+# Your First Visualization {#first-plot}
+
+> **Learning Objectives:** After this chapter you will be able to:
+> - Load `ggplot2` and its bundled `mpg` dataset.
+> - Draw the same scatterplot in base R and in ggplot2.
+> - Describe a plot as data + aesthetics + geometry.
+
+```{r plot-setup, message=FALSE}
+library(ggplot2)
+# ggplot2 bundles the `mpg` dataset (GPL-2 | GPL-3 license)
+data(mpg, package = "ggplot2")
+```
+
+> **Common Mistake:** Base R has no `mpg` dataset (it has `mtcars`).
+> `plot(mpg$displ, mpg$hwy)` without `library(ggplot2)` fails with
+> `object 'mpg' not found`. Always load `ggplot2` first.
+
+## Base R graphics
+
+```{r base-plot}
+plot(mpg$displ, mpg$hwy, xlab = "Displacement", ylab = "Highway MPG")
+```
+
+## ggplot2 graphics
+
+```{r ggplot}
+ggplot(mpg, aes(x = displ, y = hwy)) +
+  geom_point() +
+  labs(x = "Displacement", y = "Highway MPG")
+```
+
+**Mental model:** every ggplot is *data* (`mpg`) + *aesthetics* (`aes(x, y)`)
++ *geometry* (`geom_point()`). Change the geometry, keep the mapping.
+
+## Practice Check
+
+**Knowledge Check:** *Data + aesthetics + geometry*
+In `ggplot(mpg, aes(x = displ, y = hwy)) + geom_point()`, which part is the
+data, which is the aesthetics mapping, and which is the geometry?
+
+<details>
+<summary>Click to reveal answer</summary>
+
+**Answer:** Data: `mpg`. Aesthetics: `aes(x = displ, y = hwy)`.
+Geometry: `geom_point()`.
+
+*Explanation:* `ggplot()` takes the data and the variable mapping;
+each `geom_*()` layer decides how those mapped variables are drawn.
+</details>
