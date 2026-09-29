@@ -17,5 +17,6 @@ rmd_files: [
   "07-data-frames.Rmd",
   "08-factors.Rmd",
   "09-lists.Rmd",
-  "10-packages.Rmd"
+  "10-packages.Rmd",
+  "11-projects-import.Rmd"
 ]

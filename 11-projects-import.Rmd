@@ -1,0 +1,74 @@
+# RStudio Projects & Data Import {#projects-import}
+
+> **Learning Objectives:** After this chapter you will be able to:
+> - Work inside an RStudio Project (`.Rproj`) instead of `setwd()`.
+> - Build portable paths with `here::here()`.
+> - Read CSV files with `readr::read_csv()` and Excel files with `readxl::read_excel()`.
+
+```{r proj-setup, message=FALSE}
+library(readr)
+library(readxl)
+library(here)
+```
+
+## Why avoid `setwd()`
+
+`setwd("C:/Users/you/project")` hard-codes a path that exists only on your
+machine. Anyone else who opens the script — or you on a different computer —
+gets an error. An RStudio Project (`.Rproj`) fixes this: opening the `.Rproj`
+file sets the working directory to the project folder automatically, so
+relative paths just work.
+
+**Workflow:** File → New Project → New Directory (or Existing Directory) →
+give it a name. From then on, open the `.Rproj` file, not individual scripts.
+
+## Portable paths with `here`
+
+The `here` package builds paths from the project root, wherever the project
+lives on disk:
+
+```{r here-demo}
+here("data", "students.csv")
+```
+
+> **Common Mistake:** Paths with `../` or `C:/...` break when the project
+> moves. If a path starts with a drive letter or `../`, rewrite it with
+> `here()`.
+
+## Reading CSV files
+
+Practice data lives in the `data/` directory (CC0 / public domain, created
+for this book). Read it with `read_csv()`:
+
+```{r read-csv}
+students <- read_csv(here("data", "students.csv"))
+students
+```
+
+## Reading Excel files
+
+`read_excel()` works the same way for `.xlsx` files — sheet 1 by default:
+
+```{r read-excel}
+students_xl <- read_excel(here("data", "students.xlsx"))
+students_xl
+```
+
+## Practice Check
+
+**Knowledge Check:** *Project-relative paths*
+Why does `read_csv(here("data", "students.csv"))` keep working when you move
+the whole project folder to another computer, but
+`read_csv("C:/Users/you/project/data/students.csv")` does not?
+
+<details>
+<summary>Click to reveal answer</summary>
+
+**Answer:** `here()` resolves the path relative to the project root at run
+time, so it adapts to the new location. The `C:/...` path is absolute and
+points to a folder that does not exist on the other computer.
+
+*Explanation:* Projects + `here()` keep every path portable
+(`project root` → `data` → `file`); absolute paths and `setwd()` tie the
+script to one machine.
+</details>
