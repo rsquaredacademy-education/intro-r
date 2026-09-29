@@ -60,7 +60,7 @@ area
 
 ## Components of a Variable
 
-```{r img1, fig.align='center', echo=FALSE}
+```{r img1, fig.align='center', echo=FALSE, fig.alt='Diagram of the components of a variable in R'}
 knitr::include_graphics('img/components.png')
 ```
 

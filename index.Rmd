@@ -11,7 +11,7 @@ description: "A beginner-friendly introduction to the R programming language."
 
 # Preface {-}
 
-```{r fig.align='center', echo=FALSE, out.width="60%"}
+```{r fig.align='center', echo=FALSE, out.width="60%", fig.alt='Introduction to R book cover'}
 knitr::include_graphics('img/intro-r.png')
 ```
 

@@ -1,7 +1,8 @@
 bookdown::gitbook:
   css: style.css
   includes:
-    in_header: [google-analytics.html]
+    in_header: [google-analytics.html, meta-og.html]
+    after_body: [footer.html]
   config:
     toc:
       collapse: section

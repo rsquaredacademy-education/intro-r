@@ -72,7 +72,7 @@ User contributed packages can be downloaded from
 R comes with a simple GUI with sufficient features for data analysis and 
 visualization.
 
-```{r gui, fig.align='center', echo=FALSE}
+```{r gui, fig.align='center', echo=FALSE, fig.alt='Screenshot of the base R GUI window'}
 knitr::include_graphics('img/rgui.png')
 ```
 
@@ -83,7 +83,7 @@ built to suit the data science work flow. RStudio is developed by Posit (formerl
 RStudio, rebranded in 2022); [Positron](https://positron.posit.co/) is a modern
 alternative IDE for R and Python.
 
-```{r rstudio, fig.align='center', echo=FALSE}
+```{r rstudio, fig.align='center', echo=FALSE, fig.alt='Screenshot of the RStudio IDE panes'}
 knitr::include_graphics('img/rstudio_ide.png')
 ```
 
