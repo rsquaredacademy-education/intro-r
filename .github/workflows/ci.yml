@@ -39,6 +39,9 @@ jobs:
             ggplot2
             dplyr
 
+      - name: webR smoke test
+        run: Rscript scripts/webr-smoke.R
+
       - name: Render book
         run: |
           if ls *.qmd >/dev/null 2>&1; then

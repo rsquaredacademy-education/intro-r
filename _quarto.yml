@@ -6,6 +6,7 @@ project:
     - "google02e424888b5e2def.html"
     - "404.html"
     - "img/og-card.png"
+    - "data-webr/*.csv"
 
 quarto-required: ">=1.6.0"
 sitemap: true
@@ -48,6 +49,11 @@ execute:
 
 format:
   html:
+    # Interactive R cells via WebAssembly (WebR). Scoped to HTML only:
+    # the webr Lua filter rewrites the AST and breaks the Typst
+    # template's callout definitions for PDF/ePub output.
+    filters:
+      - webr
     theme:
       light: flatly
       dark: darkly

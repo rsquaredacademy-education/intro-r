@@ -76,6 +76,30 @@ students[1, ]
 students[c(1, 3), ]
 ```
 
+## Try it in your browser {.unnumbered}
+
+Edit the code below and press **Run**. It executes entirely in your browser via
+[WebR](https://docs.r-wasm.org/webr/latest/) — no R installation needed. The
+runtime downloads once, on this page only.
+
+```{webr-r}
+students <- data.frame(
+  name = c("Asha", "Ravi", "Meera", "Arjun"),
+  age = c(21, 22, 20, 23),
+  graduate = c(TRUE, TRUE, FALSE, TRUE)
+)
+
+# rows and columns independently
+students[2, ]
+students[, "age"]
+
+# filter by condition
+students[students$age > 21, ]
+
+# how many rows and columns
+dim(students)
+```
+
 Starting with R 4.0.0 (April 2020), the default value of `stringsAsFactors`
 in `data.frame()` is `FALSE`, meaning character columns remain as character
 type. In older versions of R (< 4.0.0), the default was `TRUE`, which

@@ -378,6 +378,27 @@ select <- c(1:4, 6, 9)
 vect1[select]
 ```
 
+## Try it in your browser {.unnumbered}
+
+Edit the code below and press **Run**. It executes entirely in your browser via
+[WebR](https://docs.r-wasm.org/webr/latest/) — no R installation needed. The
+runtime downloads once, on this page only.
+
+```{webr-r}
+vect <- c(12, 7, 25, 3, 18, 9)
+
+# single element, a range, and specific positions
+vect[2]
+vect[2:4]
+vect[c(1, 3, 6)]
+
+# negative indices drop elements
+vect[-c(1, 2)]
+
+# logical subsetting
+vect[vect > 10]
+```
+
 ### Subset Named Vectors
 
 Vectors can be subset using the name of the elements. **When using name of elements for subsetting, ensure that the names are enclosed in single or double quotations**, else R will return an error. Let us look at a few examples:

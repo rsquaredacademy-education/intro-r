@@ -32,6 +32,24 @@ ggplot(mpg, aes(x = displ, y = hwy)) +
 **Mental model:** every ggplot is *data* (`mpg`) + *aesthetics* (`aes(x, y)`)
 + *geometry* (`geom_point()`). Change the geometry, keep the mapping.
 
+## Try it in your browser {.unnumbered}
+
+Edit the code below and press **Run**. It executes entirely in your browser via
+[WebR](https://docs.r-wasm.org/webr/latest/) — no R installation needed. The
+runtime downloads once, on this page only.
+
+```{webr-r}
+library(ggplot2)
+
+p <- ggplot(mpg, aes(x = displ, y = hwy)) +
+  geom_point(color = "steelblue") +
+  labs(x = "Displacement", y = "Highway MPG")
+p
+
+# same data and mapping, different geometry
+p + geom_smooth(method = "lm", se = FALSE)
+```
+
 ## Practice Check
 
 **Knowledge Check:** *Data + aesthetics + geometry*

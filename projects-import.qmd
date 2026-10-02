@@ -54,6 +54,30 @@ students_xl <- read_excel(here("data", "students.xlsx"))
 students_xl
 ```
 
+## Try it in your browser {.unnumbered}
+
+Edit the code below and press **Run**. It executes entirely in your browser via
+[WebR](https://docs.r-wasm.org/webr/latest/) — no R installation needed. The
+runtime downloads once, on this page only.
+
+```{webr-r}
+library(readr)
+
+# the browser filesystem starts empty, so fetch the sample first
+if (!file.exists("students.csv")) {
+  download.file(
+    "https://intro-r.rsquaredacademy.com/data-webr/students.csv",
+    "students.csv"
+  )
+}
+
+students <- read_csv("students.csv", show_col_types = FALSE)
+students
+
+# column types are parsed, not guessed at read time
+sapply(students, class)
+```
+
 ## Practice Check
 
 **Knowledge Check:** *Project-relative paths*

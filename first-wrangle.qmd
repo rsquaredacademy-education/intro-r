@@ -33,6 +33,28 @@ mpg |>
 > **Common Mistake:** `mean()` on a vector with `NA` returns `NA`.
 > Add `na.rm = TRUE` when missing values are present.
 
+## Try it in your browser {.unnumbered}
+
+Edit the code below and press **Run**. It executes entirely in your browser via
+[WebR](https://docs.r-wasm.org/webr/latest/) — no R installation needed. The
+runtime downloads once, on this page only.
+
+```{webr-r}
+library(dplyr)
+
+# filter, select, mutate, arrange
+mpg |>
+  filter(manufacturer == "audi") |>
+  select(model, hwy) |>
+  mutate(km_per_litre = hwy * 0.425144) |>
+  arrange(desc(hwy)) |>
+  head(5)
+
+# summarise collapses to a single row
+mpg |>
+  summarise(mean_hwy = mean(hwy), n = n())
+```
+
 ## Practice Check
 
 **Knowledge Check:** *Filter then select*
