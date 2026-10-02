@@ -73,8 +73,17 @@ jobs:
           done
           exit $missing
 
-      - name: Gate 3 - link check (advisory)
+      - name: Gate 3 - sitemap covers every page
+        run: |
+          pages=$(ls docs/*.html | grep -v 404.html | wc -l)
+          urls=$(grep -c '<url>' docs/sitemap.xml)
+          if [ "$pages" -ne "$urls" ]; then
+            echo "FAIL: $pages pages but $urls sitemap URLs"; exit 1
+          fi
+          echo "OK: $urls pages in sitemap"
+
+      - name: Gate 4 - link check (advisory)
         uses: lycheeverse/lychee-action@v2
         with:
-          args: --exclude-mail --max-concurrency 8 --exclude '/libs/' 'docs/**/*.html'
+          args: --exclude-mail --max-concurrency 8 --exclude 'site_libs/' 'docs/**/*.html'
           fail: false

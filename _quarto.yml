@@ -67,6 +67,8 @@ format:
     keep-typ: false
     code-overflow: wrap
     fig-format: png
+    mainfont: "Libertinus Serif"
+    monofont: "DejaVu Sans Mono"
     toc: true
     number-sections: true
   epub:
