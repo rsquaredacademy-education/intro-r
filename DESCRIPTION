@@ -9,6 +9,9 @@ License: CC-BY-NC-SA-4.0
 Suggests:
     bookdown,
     rmarkdown,
-    knitr
+    knitr,
+    readr,
+    readxl,
+    here
 URL: https://intro-r.rsquaredacademy.com,
     https://github.com/rsquaredacademy-education/intro-r

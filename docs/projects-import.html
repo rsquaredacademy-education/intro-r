@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>About the Author | Introduction to R</title>
+  <title>Chapter 11 RStudio Projects &amp; Data Import | Introduction to R</title>
   <meta name="description" content="A beginner-friendly introduction to the R programming language." />
   <meta name="generator" content="bookdown 0.48 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="About the Author | Introduction to R" />
+  <meta property="og:title" content="Chapter 11 RStudio Projects &amp; Data Import | Introduction to R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="A beginner-friendly introduction to the R programming language." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="About the Author | Introduction to R" />
+  <meta name="twitter:title" content="Chapter 11 RStudio Projects &amp; Data Import | Introduction to R" />
   
   <meta name="twitter:description" content="A beginner-friendly introduction to the R programming language." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="introduction-to-r.html"/>
+<link rel="prev" href="install-update-r-packages.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -122,10 +122,10 @@
 <meta property="og:image" content="https://intro-r.rsquaredacademy.com/img/og-card.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="About the Author | Introduction to R — book preview card" />
+<meta property="og:image:alt" content="Chapter 11 RStudio Projects &amp; Data Import | Introduction to R — book preview card" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://intro-r.rsquaredacademy.com/img/og-card.png" />
-<meta name="twitter:image:alt" content="About the Author | Introduction to R — book preview card" />
+<meta name="twitter:image:alt" content="Chapter 11 RStudio Projects &amp; Data Import | Introduction to R — book preview card" />
 <link rel="canonical" href="https://intro-r.rsquaredacademy.com/index.html" />
 
 
@@ -412,25 +412,149 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="about-the-author" class="section level1 unnumbered hasAnchor">
-<h1>About the Author<a href="about-the-author.html#about-the-author" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p><a href="https://www.aravindhebbali.com">Aravind Hebbali</a> is the founder of
-<a href="https://www.rsquaredacademy.com">Rsquared Academy</a>. He earned his Masters in
-Economics from <a href="https://mse.ac.in/">Madras School of Economics</a>. As an
-active R user, he has authored several R packages such as</p>
-<ul>
-<li><a href="https://olsrr.rsquaredacademy.com">olsrr</a></li>
-<li><a href="https://rfm.rsquaredacademy.com">rfm</a></li>
-<li><a href="https://descriptr.rsquaredacademy.com">descriptr</a></li>
-<li><a href="https://blorr.rsquaredacademy.com">blorr</a></li>
-<li><a href="https://xplorerr.rsquaredacademy.com">xplorerr</a></li>
-</ul>
-<p>In 2015, he founded <a href="https://www.rsquaredacademy.com">Rsquared Academy</a>, a
-free and open source education initiative with focus on data science and
-analytics. Apart from self paced online courses, Rsquared Academy offers
-customized learning modules for corporates and universities.</p>
-<p>You can find him on <a href="https://github.com/aravindhebbali">GitHub</a>.</p>
+<div id="projects-import" class="section level1 hasAnchor" number="11">
+<h1><span class="header-section-number">Chapter 11</span> RStudio Projects &amp; Data Import<a href="projects-import.html#projects-import" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<blockquote>
+<p><strong>Learning Objectives:</strong> After this chapter you will be able to:
+- Work inside an RStudio Project (<code>.Rproj</code>) instead of <code>setwd()</code>.
+- Build portable paths with <code>here::here()</code>.
+- Read CSV files with <code>readr::read_csv()</code> and Excel files with <code>readxl::read_excel()</code>.</p>
+</blockquote>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="projects-import.html#cb282-1" tabindex="-1"></a><span class="fu">library</span>(readr)</span></code></pre></div>
+<pre><code>## Warning: package &#39;readr&#39; was built under R version 4.5.3</code></pre>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="projects-import.html#cb284-1" tabindex="-1"></a><span class="fu">library</span>(readxl)</span></code></pre></div>
+<pre><code>## Warning: package &#39;readxl&#39; was built under R version 4.5.3</code></pre>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="projects-import.html#cb286-1" tabindex="-1"></a><span class="fu">library</span>(here)</span></code></pre></div>
+<pre><code>## Warning: package &#39;here&#39; was built under R version 4.5.3</code></pre>
+<div id="why-avoid-setwd" class="section level2 hasAnchor" number="11.1">
+<h2><span class="header-section-number">11.1</span> Why avoid <code>setwd()</code><a href="projects-import.html#why-avoid-setwd" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><code>setwd("C:/Users/you/project")</code> hard-codes a path that exists only on your
+machine. Anyone else who opens the script — or you on a different computer —
+gets an error. An RStudio Project (<code>.Rproj</code>) fixes this: opening the <code>.Rproj</code>
+file sets the working directory to the project folder automatically, so
+relative paths just work.</p>
+<p><strong>Workflow:</strong> File → New Project → New Directory (or Existing Directory) →
+give it a name. From then on, open the <code>.Rproj</code> file, not individual scripts.</p>
+</div>
+<div id="portable-paths-with-here" class="section level2 hasAnchor" number="11.2">
+<h2><span class="header-section-number">11.2</span> Portable paths with <code>here</code><a href="projects-import.html#portable-paths-with-here" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The <code>here</code> package builds paths from the project root, wherever the project
+lives on disk:</p>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="projects-import.html#cb288-1" tabindex="-1"></a><span class="fu">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;students.csv&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;F:/R/ebooks/intro-r/data/students.csv&quot;</code></pre>
+<blockquote>
+<p><strong>Common Mistake:</strong> Paths with <code>../</code> or <code>C:/...</code> break when the project
+moves. If a path starts with a drive letter or <code>../</code>, rewrite it with
+<code>here()</code>.</p>
+</blockquote>
+</div>
+<div id="reading-csv-files" class="section level2 hasAnchor" number="11.3">
+<h2><span class="header-section-number">11.3</span> Reading CSV files<a href="projects-import.html#reading-csv-files" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Practice data lives in the <code>data/</code> directory (CC0 / public domain, created
+for this book). Read it with <code>read_csv()</code>:</p>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="projects-import.html#cb290-1" tabindex="-1"></a>students <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;students.csv&quot;</span>))</span></code></pre></div>
+<pre><code>## Rows: 5 Columns: 3
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr (1): name
+## dbl (2): age, score
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="projects-import.html#cb292-1" tabindex="-1"></a>students</span></code></pre></div>
+<pre><code>## # A tibble: 5 × 3
+##   name    age score
+##   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1 Asha     21    88
+## 2 Ravi     22    92
+## 3 Meera    20    79
+## 4 Arjun    23    95
+## 5 Divya    21    84</code></pre>
+</div>
+<div id="reading-excel-files" class="section level2 hasAnchor" number="11.4">
+<h2><span class="header-section-number">11.4</span> Reading Excel files<a href="projects-import.html#reading-excel-files" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><code>read_excel()</code> works the same way for <code>.xlsx</code> files — sheet 1 by default:</p>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="projects-import.html#cb294-1" tabindex="-1"></a>students_xl <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="fu">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;students.xlsx&quot;</span>))</span>
+<span id="cb294-2"><a href="projects-import.html#cb294-2" tabindex="-1"></a>students_xl</span></code></pre></div>
+<pre><code>## # A tibble: 5 × 3
+##   name    age score
+##   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1 Asha     21    88
+## 2 Ravi     22    92
+## 3 Meera    20    79
+## 4 Arjun    23    95
+## 5 Divya    21    84</code></pre>
+</div>
+<div id="practice-check" class="section level2 hasAnchor" number="11.5">
+<h2><span class="header-section-number">11.5</span> Practice Check<a href="projects-import.html#practice-check" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Knowledge Check:</strong> <em>Project-relative paths</em>
+Why does <code>read_csv(here("data", "students.csv"))</code> keep working when you move
+the whole project folder to another computer, but
+<code>read_csv("C:/Users/you/project/data/students.csv")</code> does not?</p>
+<details>
+<summary>
+Click to reveal answer
+</summary>
+<p><strong>Answer:</strong> <code>here()</code> resolves the path relative to the project root at run
+time, so it adapts to the new location. The <code>C:/...</code> path is absolute and
+points to a folder that does not exist on the other computer.</p>
+<em>Explanation:</em> Projects + <code>here()</code> keep every path portable
+(<code>project root</code> → <code>data</code> → <code>file</code>); absolute paths and <code>setwd()</code> tie the
+script to one machine.
+</details>
+<p><strong>Knowledge Check:</strong> <em>Why <code>.Rproj</code> beats <code>setwd()</code></em>
+What breaks when you share a script containing
+<code>setwd("C:/Users/you/project")</code> with a colleague?</p>
+<details>
+<summary>
+Click to reveal answer
+</summary>
+<p><strong>Answer:</strong> The script errors because that folder does not exist on your
+colleague’s machine.</p>
+<em>Explanation:</em> <code>setwd()</code> with an absolute path ties the script to one
+computer; opening a shared <code>.Rproj</code> file sets everyone’s working directory
+to the project folder automatically.
+</details>
+<p><strong>Knowledge Check:</strong> <em><code>here()</code> resolution</em>
+Your project lives at <code>D:/work/survey</code> and contains <code>data/resp.csv</code>.
+What does <code>here("data", "resp.csv")</code> return?</p>
+<details>
+<summary>
+Click to reveal answer
+</summary>
+<p><strong>Answer:</strong> <code>D:/work/survey/data/resp.csv</code> (i.e. <code>project root</code> → <code>data</code> →
+<code>resp.csv</code>).</p>
+<em>Explanation:</em> <code>here()</code> anchors paths at the project root (where the
+<code>.Rproj</code> file lives), joining each additional component with the correct
+separator for your OS.
+</details>
+<p><strong>Knowledge Check:</strong> <em><code>read_csv()</code> vs <code>read.csv()</code></em>
+Name one practical advantage of <code>readr::read_csv()</code> over base R’s
+<code>read.csv()</code> for a beginner.</p>
+<details>
+<summary>
+Click to reveal answer
+</summary>
+<p><strong>Answer:</strong> Any one of: it never converts strings to factors, it prints a
+compact tibble preview, or it reports column types as it reads.</p>
+<em>Explanation:</em> <code>read_csv()</code> uses modern defaults (no <code>stringsAsFactors</code>
+surprises) and tells you the parsed type of each column, so mismatches are
+visible immediately.
+</details>
+<p><strong>Knowledge Check:</strong> <em>Excel sheets</em>
+<code>read_excel(here("data", "students.xlsx"))</code> reads which sheet by default,
+and how would you read the second sheet instead?</p>
+<details>
+<summary>
+Click to reveal answer
+</summary>
+<p><strong>Answer:</strong> The first sheet by default; pass <code>sheet = 2</code> (or the sheet name)
+to read the second sheet.</p>
+<em>Explanation:</em> <code>read_excel()</code> defaults to sheet 1; the <code>sheet</code> argument
+selects another sheet by position or name.
+</details>
 
+</div>
 </div>
 <footer class="rsite-footer">
   <p>Free and open — enjoy the full book online. Explore more at
@@ -442,8 +566,8 @@ customized learning modules for corporates and universities.</p>
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="introduction-to-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="install-update-r-packages.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -475,7 +599,7 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/rsquaredacademy-education/intro-r/edit/master/00-author.Rmd",
+    "link": "https://github.com/rsquaredacademy-education/intro-r/edit/master/11-projects-import.Rmd",
     "text": "Edit this page"
   },
   "history": {
