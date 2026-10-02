@@ -1,0 +1,77 @@
+project:
+  type: book
+  output-dir: docs
+  resources:
+    - "robots.txt"
+    - "sitemap.xml"
+    - "google02e424888b5e2def.html"
+    - "404.html"
+
+quarto-required: ">=1.6.0"
+sitemap: true
+
+book:
+  title: "Introduction to R"
+  author: "Aravind Hebbali"
+  date: last-modified
+  description: "A beginner-friendly introduction to the R programming language."
+  chapters:
+    - index.qmd
+    - 00-author.qmd
+    - 01-intro.qmd
+    - 02-installation.qmd
+    - 03-variables.qmd
+    - 04-data-types.qmd
+    - 05-getting-help.qmd
+    - 06-vectors.qmd
+    - 07-data-frames.qmd
+    - 08-factors.qmd
+    - 09-lists.qmd
+    - 10-packages.qmd
+    - 11-projects-import.qmd
+    - 12-first-plot.qmd
+    - 13-first-wrangle.qmd
+
+website:
+  site-url: https://intro-r.rsquaredacademy.com
+  description: "A beginner-friendly introduction to the R programming language."
+  open-graph: true
+  twitter-card: true
+  repo-url: https://github.com/rsquaredacademy-education/intro-r/
+  navbar:
+    right:
+      - text: "GitHub"
+        href: https://github.com/rsquaredacademy-education/intro-r/
+
+execute:
+  warning: false
+
+format:
+  html:
+    theme:
+      light: flatly
+      dark: darkly
+    toc: true
+    toc-depth: 3
+    search: true
+    code-copy: true
+    code-overflow: wrap
+    include-in-header:
+      - _ga_partial.html
+      - meta-og.html
+    include-after-body: footer.html
+  pdf:
+    documentclass: scrreprt
+    papersize: us-letter
+    pdf-engine: typst
+    keep-typ: false
+    code-overflow: wrap
+    toc: true
+    number-sections: true
+  epub:
+    toc-depth: 2
+    code-overflow: wrap
+
+language:
+  search:
+    placeholder: "Search"
