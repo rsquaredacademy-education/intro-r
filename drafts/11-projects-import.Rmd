@@ -72,3 +72,62 @@ points to a folder that does not exist on the other computer.
 (`project root` → `data` → `file`); absolute paths and `setwd()` tie the
 script to one machine.
 </details>
+
+**Knowledge Check:** *Why `.Rproj` beats `setwd()`*
+What breaks when you share a script containing
+`setwd("C:/Users/you/project")` with a colleague?
+
+<details>
+<summary>Click to reveal answer</summary>
+
+**Answer:** The script errors because that folder does not exist on your
+colleague's machine.
+
+*Explanation:* `setwd()` with an absolute path ties the script to one
+computer; opening a shared `.Rproj` file sets everyone's working directory
+to the project folder automatically.
+</details>
+
+**Knowledge Check:** *`here()` resolution*
+Your project lives at `D:/work/survey` and contains `data/resp.csv`.
+What does `here("data", "resp.csv")` return?
+
+<details>
+<summary>Click to reveal answer</summary>
+
+**Answer:** `D:/work/survey/data/resp.csv` (i.e. `project root` → `data` →
+`resp.csv`).
+
+*Explanation:* `here()` anchors paths at the project root (where the
+`.Rproj` file lives), joining each additional component with the correct
+separator for your OS.
+</details>
+
+**Knowledge Check:** *`read_csv()` vs `read.csv()`*
+Name one practical advantage of `readr::read_csv()` over base R's
+`read.csv()` for a beginner.
+
+<details>
+<summary>Click to reveal answer</summary>
+
+**Answer:** Any one of: it never converts strings to factors, it prints a
+compact tibble preview, or it reports column types as it reads.
+
+*Explanation:* `read_csv()` uses modern defaults (no `stringsAsFactors`
+surprises) and tells you the parsed type of each column, so mismatches are
+visible immediately.
+</details>
+
+**Knowledge Check:** *Excel sheets*
+`read_excel(here("data", "students.xlsx"))` reads which sheet by default,
+and how would you read the second sheet instead?
+
+<details>
+<summary>Click to reveal answer</summary>
+
+**Answer:** The first sheet by default; pass `sheet = 2` (or the sheet name)
+to read the second sheet.
+
+*Explanation:* `read_excel()` defaults to sheet 1; the `sheet` argument
+selects another sheet by position or name.
+</details>
