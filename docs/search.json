@@ -1,0 +1,802 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Introduction to R",
+    "section": "",
+    "text": "Preface\nThis work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to R</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#structure-of-the-book",
+    "href": "index.html#structure-of-the-book",
+    "title": "Introduction to R",
+    "section": "Structure of the book",
+    "text": "Structure of the book\nChapter Introduction to R gives a quick overview of R and its evolution over the last 2 decades. Chapter Install R & RStudio acts as a guide for installing R and RStudio. Chapters Variables in R and Data Types in R introduce the reader to variables and data types in R. Chapter Getting Help in R shows the right place and right way to ask for help. Chapters Vectors in R to Lists in R introduce the basic data structures in R. Chapter Install & Update R Packages explores the R package system.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to R</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#software-information",
+    "href": "index.html#software-information",
+    "title": "Introduction to R",
+    "section": "Software information",
+    "text": "Software information\nThe R session information when compiling this book is shown below:\n\nsessionInfo()\n\nR version 4.5.2 (2025-10-31 ucrt)\nPlatform: x86_64-w64-mingw32/x64\nRunning under: Windows 10 x64 (build 19045)\n\nMatrix products: default\n  LAPACK version 3.12.1\n\nlocale:\n[1] LC_COLLATE=English_India.utf8  LC_CTYPE=English_India.utf8   \n[3] LC_MONETARY=English_India.utf8 LC_NUMERIC=C                  \n[5] LC_TIME=English_India.utf8    \n\ntime zone: Asia/Calcutta\ntzcode source: internal\n\nattached base packages:\n[1] stats     graphics  grDevices datasets  utils     methods   base     \n\nloaded via a namespace (and not attached):\n [1] compiler_4.5.2  fastmap_1.2.0   cli_3.6.6       htmltools_0.5.9\n [5] tools_4.5.2     yaml_2.3.12     rmarkdown_2.32  knitr_1.52     \n [9] jsonlite_2.0.0  xfun_0.61       digest_0.6.39   rlang_1.3.0    \n[13] renv_1.2.4      evaluate_1.0.5 \n\n\nWe do not add prompts (&gt; and +) to R source code in this book, and we comment out the text output with two hashes ## by default, as you can see from the R session information above. This is for your convenience when you want to copy and run the code (the text output will be ignored since it is commented out). Package names are in bold text (e.g., rmarkdown), and function names are followed by parentheses (e.g., mean()). The double-colon operator :: means accessing an object from a package.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to R</span>"
+    ]
+  },
+  {
+    "objectID": "about-the-author.html",
+    "href": "about-the-author.html",
+    "title": "About the Author",
+    "section": "",
+    "text": "Aravind Hebbali is the founder of Rsquared Academy. He earned his Masters in Economics from Madras School of Economics. As an active R user, he has authored several R packages such as\n\nolsrr\nrfm\ndescriptr\nblorr\nxplorerr\n\nIn 2015, he founded Rsquared Academy, a free and open source education initiative with focus on data science and analytics. Apart from self paced online courses, Rsquared Academy offers customized learning modules for corporates and universities.\nYou can find him on GitHub.",
+    "crumbs": [
+      "About the Author"
+    ]
+  },
+  {
+    "objectID": "introduction-to-r.html",
+    "href": "introduction-to-r.html",
+    "title": "2  Introduction to R",
+    "section": "",
+    "text": "2.1 Overview\nR is a free and open source programming language widely used in academia, industry and government organisations for data science and machine learning. R is well suited for interactive data analysis, visualization and modeling. To view a list of organizations using R, click here.\nBefore we talk about R, let us learn a bit about the S language, which was the predecessor to R. It was developed by Richard Becker, John Chambers and Allan Wilks at the Bell Laboratories. R is a modern implementation of S.\nR itself was written by Ross Ihaka and Robert Gentleman at the University of Auckland. The development of R was started in 1992 and an initial version was released in 1995. Version 1.0 was released in February 2000. Version 2.0 was released in October 2004. R is under active development by the R Core Team, with regular annual major/minor releases (such as R 4.4 and R 4.5).\nR is released under GNU GPL license and is currently one of the most popular tools for data science and machine learning. You can find more details and information related to R at the official website of the R project. You can download R, learn more about the R foundation, its members, activities, get the latest news about R and also donate to the R foundation.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introduction to R</span>"
+    ]
+  },
+  {
+    "objectID": "introduction-to-r.html#organizations",
+    "href": "introduction-to-r.html#organizations",
+    "title": "2  Introduction to R",
+    "section": "2.2 Organizations",
+    "text": "2.2 Organizations\n\n2.2.1 R Foundation\nR foundation is a not for profit organization founded by the members of the R core team and is responsible for the continued development of R. It also supports the annual useR conferences. You can learn more about the R foundation here.\n\n\n2.2.2 R Consortium\nR consortium provides support to the R foundation and other key organizations and groups developing, maintaining and using R. It funds projects that improve the infrastructure around R and provides support to conferences and user groups around the world. You can learn more about R consortium here.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introduction to R</span>"
+    ]
+  },
+  {
+    "objectID": "introduction-to-r.html#installation",
+    "href": "introduction-to-r.html#installation",
+    "title": "2  Introduction to R",
+    "section": "2.3 Installation",
+    "text": "2.3 Installation\nR is available for Windows, Mac and is part of many Linux distributions. You can download and install R from any of the CRAN mirrors listed here.\n\n2.3.1 CRAN\nCRAN stands for Comprehensive R Archive Network and you can download R and user contributed packages from here for different operating systems. CRAN is pronounced as KRAN or C-RAN.\n\n\n2.3.2 Extensions\nUser contributed packages can be downloaded from\n\nCRAN\nBioconductor\nGitHub\nR-Forge",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introduction to R</span>"
+    ]
+  },
+  {
+    "objectID": "introduction-to-r.html#gui",
+    "href": "introduction-to-r.html#gui",
+    "title": "2  Introduction to R",
+    "section": "2.4 GUI",
+    "text": "2.4 GUI\n\n2.4.1 R GUI\nR comes with a simple GUI with sufficient features for data analysis and visualization.\n\n\n\n\n\n\n\n\n\n\n\n2.4.2 RStudio\nRStudio is a very popular IDE (integrated development environment) built to suit the data science work flow. RStudio is developed by Posit (formerly RStudio, rebranded in 2022); Positron is a modern alternative IDE for R and Python.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introduction to R</span>"
+    ]
+  },
+  {
+    "objectID": "install-r-and-rstudio.html",
+    "href": "install-r-and-rstudio.html",
+    "title": "3  Install R & RStudio",
+    "section": "",
+    "text": "3.1 R\nIf you prefer written instructions over video, follow these steps:",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Install R & RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "install-r-and-rstudio.html#r",
+    "href": "install-r-and-rstudio.html#r",
+    "title": "3  Install R & RStudio",
+    "section": "",
+    "text": "Download R for your operating system from a CRAN mirror (Windows, macOS, or Linux installers are listed there).\nRun the installer with default options.\nVerify the installation by opening a terminal and running R.version.string.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Install R & RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "install-r-and-rstudio.html#rstudio",
+    "href": "install-r-and-rstudio.html#rstudio",
+    "title": "3  Install R & RStudio",
+    "section": "3.2 RStudio",
+    "text": "3.2 RStudio\n\n\nIf you prefer written instructions over video, follow these steps:\n\nDownload RStudio Desktop from posit.co/download/rstudio-desktop.\nInstall it after installing R (RStudio needs R to work).\nOpen RStudio and create a new project via File &gt; New Project (this creates an .Rproj file that keeps your working directory, history, and settings together).\nVerify your setup by running R.version.string in the R console.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Install R & RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "variables-in-r.html",
+    "href": "variables-in-r.html",
+    "title": "4  Variables in R",
+    "section": "",
+    "text": "4.1 Introduction\nIn the previous chapter, we learnt to install RStudio. In this chapter, we will learn about variables and data types. You can skip this chapter, if you have prior experience in any other programming language.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Variables in R</span>"
+    ]
+  },
+  {
+    "objectID": "variables-in-r.html#what-is-a-variable",
+    "href": "variables-in-r.html#what-is-a-variable",
+    "title": "4  Variables in R",
+    "section": "4.2 What is a variable?",
+    "text": "4.2 What is a variable?\n\nvariables are the fundamental elements of any programming language\nthey are used to represent values that are likely to change\nthey reference memory locations that store information/data\n\nLet us use a simple case study to understand variables. Suppose you are computing the area of a circle whose radius is 3. In R, you can do this straight away as shown below:\n\n3.14 * 3 * 3\n\n[1] 28.26\n\n\nBut you cannot reuse the radius or the area computed in any other analysis or computation. Let us see how variables can change the above scenario and help us in reusing values and computations.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Variables in R</span>"
+    ]
+  },
+  {
+    "objectID": "variables-in-r.html#creating-variables",
+    "href": "variables-in-r.html#creating-variables",
+    "title": "4  Variables in R",
+    "section": "4.3 Creating Variables",
+    "text": "4.3 Creating Variables\nA variable consists of 3 components:\n\nvariable name\nassignment operator\nvariable value\n\nWe can store the value of the radius by creating a variable and assigning it the value. In this case, we create a variable called radius and assign it the value 3 using the assignment operator &lt;-.\n\nradius &lt;- 3\nradius\n\n[1] 3\n\n\nNow that we have learnt to create variables, let us see how we can use them for other computations. For our case study, we will use the radius variable to compute the area of a circle.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Variables in R</span>"
+    ]
+  },
+  {
+    "objectID": "variables-in-r.html#using-variables",
+    "href": "variables-in-r.html#using-variables",
+    "title": "4  Variables in R",
+    "section": "4.4 Using Variables",
+    "text": "4.4 Using Variables\nWe will create two variables, radius and pi, and use them to compute the area of a circle and store it in another variable area.\n\n# assign value 3 to variable radius\nradius &lt;- 3\n\n# assign value 3.14 to variable pi\npi &lt;- 3.14\n\n# compute area of circle\narea &lt;- pi * radius * radius\n\n# call radius\nradius\n\n[1] 3\n\n# call area \narea\n\n[1] 28.26",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Variables in R</span>"
+    ]
+  },
+  {
+    "objectID": "variables-in-r.html#components-of-a-variable",
+    "href": "variables-in-r.html#components-of-a-variable",
+    "title": "4  Variables in R",
+    "section": "4.5 Components of a Variable",
+    "text": "4.5 Components of a Variable",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Variables in R</span>"
+    ]
+  },
+  {
+    "objectID": "variables-in-r.html#naming-conventions",
+    "href": "variables-in-r.html#naming-conventions",
+    "title": "4  Variables in R",
+    "section": "4.6 Naming Conventions",
+    "text": "4.6 Naming Conventions\n\nName must begin with a letter or a dot (.); e.g. .hidden &lt;- 42 is valid in base R. Do not use numbers, dollar sign ($) or underscore (_) as the first character.\nThe name can contain numbers or underscore. Do not use dash (-). Periods (.) are syntactically valid in R variable names, but are discouraged in modern style guides (tidyverse style prefers snake_case).\nDo not use the names of keywords and avoid using the names of built in functions.\nVariables are case sensitive; average and Average would be different variables.\nUse names that are descriptive. Generally, variable names should be nouns.\nIf the name is made of more than one word, use underscore to separate the words.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Variables in R</span>"
+    ]
+  },
+  {
+    "objectID": "data-types-in-r.html",
+    "href": "data-types-in-r.html",
+    "title": "5  Data Types in R",
+    "section": "",
+    "text": "5.1 Introduction\nIn this chapter, we will learn about the following data types:",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Types in R</span>"
+    ]
+  },
+  {
+    "objectID": "data-types-in-r.html#introduction",
+    "href": "data-types-in-r.html#introduction",
+    "title": "5  Data Types in R",
+    "section": "",
+    "text": "numeric/double\ninteger\ncharacter\nlogical\ndate/time",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Types in R</span>"
+    ]
+  },
+  {
+    "objectID": "data-types-in-r.html#numeric",
+    "href": "data-types-in-r.html#numeric",
+    "title": "5  Data Types in R",
+    "section": "5.2 Numeric",
+    "text": "5.2 Numeric\nIn R, numbers are represented by the data type numeric. We will first create a variable and assign it a value. Next we will learn a few methods of checking the type of the variable.\n\n# create two variables\nnumber1 &lt;- 3.5\nnumber2 &lt;- 3\n\n# check data type\nclass(number1)\n\n[1] \"numeric\"\n\nclass(number2)\n\n[1] \"numeric\"\n\n# check if data type is numeric\nis.numeric(number1)\n\n[1] TRUE\n\nis.numeric(number2)\n\n[1] TRUE\n\n\nIf you carefully observe, integers are also treated as numeric/double. We will learn to create integers in a while. In the meanwhile, we have introduced two new functions in the above example:\n\nclass(): returns the class or type\nis.numeric(): tests whether the variable is of type numeric",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Types in R</span>"
+    ]
+  },
+  {
+    "objectID": "data-types-in-r.html#integer",
+    "href": "data-types-in-r.html#integer",
+    "title": "5  Data Types in R",
+    "section": "5.3 Integer",
+    "text": "5.3 Integer\nUnless specified otherwise, integers are treated as numeric or double. In this section, we will learn to create variables of the type integer and to convert other data types to integer.\n\ncreate a variable number1 and assign it the value 3\ncheck the data type of number1 using class\ncreate a second variable number2 using as.integer and assign it the value 3\ncheck the data type of number2 using class\nfinally use is.integer to check the data type of both number1 and number2\n\n\n# create a variable and assign it an integer value\nnumber1 &lt;- 3\n\n# create another variable using as.integer\nnumber2 &lt;- as.integer(3)\n\n# check the data type\nclass(number1)\n\n[1] \"numeric\"\n\nclass(number2)\n\n[1] \"integer\"\n\n# use is.integer to check data type\nis.integer(number1)\n\n[1] FALSE\n\nis.integer(number2)\n\n[1] TRUE",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Types in R</span>"
+    ]
+  },
+  {
+    "objectID": "data-types-in-r.html#character",
+    "href": "data-types-in-r.html#character",
+    "title": "5  Data Types in R",
+    "section": "5.4 Character",
+    "text": "5.4 Character\nLetters, words and group of words are represented by the data type character. All data of type character must be enclosed in single or double quotation marks. In fact any value enclosed in quotes will be treated as character. Let us create two variables to store the first and last name of some random guy.\n\n# first name\nfirst_name &lt;- \"jovial\"\n\n# last name\nlast_name &lt;- 'mann'\n\n# check data type\nclass(first_name)\n\n[1] \"character\"\n\nclass(last_name)\n\n[1] \"character\"\n\n# use is.character to check data type\nis.character(first_name)\n\n[1] TRUE\n\nis.character(last_name)\n\n[1] TRUE\n\n\nYou can coerce any data type to character using as.character().\n\n# create variable of different data types\nage &lt;- as.integer(30) # integer\nscore &lt;- 9.8          # numeric/double\nopt_course &lt;- TRUE    # logical\ntoday &lt;- Sys.time()   # date time\n\nas.character(age) \n\n[1] \"30\"\n\nas.character(score)\n\n[1] \"9.8\"\n\nas.character(opt_course)\n\n[1] \"TRUE\"\n\nas.character(today)\n\n[1] \"2026-10-02 23:11:17.29978\"",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Types in R</span>"
+    ]
+  },
+  {
+    "objectID": "data-types-in-r.html#logical",
+    "href": "data-types-in-r.html#logical",
+    "title": "5  Data Types in R",
+    "section": "5.5 Logical",
+    "text": "5.5 Logical\nLogical data types take only 2 values. Either TRUE or FALSE (plus NA for missing values, giving three-valued logic in R). Such data types are created when we compare two objects in R using comparison or logical operators.\n\ncreate two variables x and y\nassign them the values TRUE and FALSE respectively\nuse is.logical to check data type\nuse as.logical to coerce other data types to logical\n\n\n# create variables x and y\nx &lt;- TRUE\ny &lt;- FALSE\n\n# check data type\nclass(x)\n\n[1] \"logical\"\n\nis.logical(y)\n\n[1] TRUE\n\n\nThe outcome of comparison operators is always logical. In the below example, we compare two numbers to see the outcome.\n\n# create two numeric variables\nx &lt;- 3\ny &lt;- 4\n\n# compare x and y\nx &gt; y\n\n[1] FALSE\n\nx &lt; y\n\n[1] TRUE\n\n# store the result\nz &lt;- x &gt; y\nclass(z)\n\n[1] \"logical\"\n\n\nTRUE is represented by all numbers except 0. FALSE is represented only by 0 and no other numbers.\n\n# TRUE and FALSE are represented by 1 and 0\nas.logical(1)\n\n[1] TRUE\n\nas.logical(0)\n\n[1] FALSE\n\n# using numbers\nas.numeric(TRUE)\n\n[1] 1\n\nas.numeric(FALSE)\n\n[1] 0\n\n# using different numbers\nas.logical(c(-2, -1.5, -1, 0, 1, 2))\n\n[1]  TRUE  TRUE  TRUE FALSE  TRUE  TRUE\n\n\nUse as.logical() to coerce other data types to logical.\n\n# create variable of different data types\nage &lt;- as.integer(30) # integer\nscore &lt;- 9.8          # numeric/double\nopt_course &lt;- TRUE    # logical\ntoday &lt;- Sys.time()   # date time\n\nas.logical(age) \n\n[1] TRUE\n\nas.logical(score)\n\n[1] TRUE\n\nas.logical(opt_course)\n\n[1] TRUE\n\nas.logical(today)\n\n[1] TRUE",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Types in R</span>"
+    ]
+  },
+  {
+    "objectID": "data-types-in-r.html#date",
+    "href": "data-types-in-r.html#date",
+    "title": "5  Data Types in R",
+    "section": "5.6 Date",
+    "text": "5.6 Date\nR has dedicated types for dates and date-times. Use Date for calendar dates and POSIXct for date-times:\n\n# today's date\ntoday_date &lt;- Sys.Date()\ntoday_date\n\n[1] \"2026-10-02\"\n\nclass(today_date)\n\n[1] \"Date\"\n\n# create a date from a string\nindependence_day &lt;- as.Date(\"2026-01-15\")\nindependence_day\n\n[1] \"2026-01-15\"\n\n# pretty-print a date\nformat(independence_day, \"%B %d, %Y\")\n\n[1] \"January 15, 2026\"\n\n\nFor date-times, use as.POSIXct() (or the lubridate package, see the appendix in Phase 3).",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Types in R</span>"
+    ]
+  },
+  {
+    "objectID": "getting-help-in-r.html",
+    "href": "getting-help-in-r.html",
+    "title": "6  Getting Help in R",
+    "section": "",
+    "text": "6.1 Introduction\nIn this chapter, we will learn about the different methods of getting help in R. Often we get stuck while doing some analysis as either we do not know the correct function to use or its syntax. It is important for anyone who is new to R to know the right place to look for help. There are two ways to look for help in R:\nIn the first section, we will look at various ways to access the built in help system of R. In the second section, we will look at various online resources that can supplement the built in help system. Let us get started!",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Getting Help in R</span>"
+    ]
+  },
+  {
+    "objectID": "getting-help-in-r.html#introduction",
+    "href": "getting-help-in-r.html#introduction",
+    "title": "6  Getting Help in R",
+    "section": "",
+    "text": "built in help system\nonline",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Getting Help in R</span>"
+    ]
+  },
+  {
+    "objectID": "getting-help-in-r.html#online-resources",
+    "href": "getting-help-in-r.html#online-resources",
+    "title": "6  Getting Help in R",
+    "section": "6.2 Online Resources",
+    "text": "6.2 Online Resources\n\n6.2.1 R Bloggers\nR Bloggers aggregates blogs written in english from across the globe. This is the first place you want to visit if you want help with R, data analysis, visualization and machine learning. There are blogs on a wide range of topics and the latest content is delivered to your inbox if you subscribe. If you are a blogger yourself, share it with the R community by adding your blog to R Bloggers.\n\n\n6.2.2 Stack Overflow\nStack Overflow is a great place to visit if you are having trouble with R code or packages. Chances are high that someone has already encountered the same or similar problem and you can use the answers given by R experts. In case you have encountered a new problem or issue, you can ask for help by providing a reproducible example of your analysis along with the R code. Use the reprex package to create reproducible examples.\n\n\n6.2.3 Twitter\nThe R community is very active on Twitter/X and there are lot of R experts who are willing to help those who are new to R. Use the hashtag #rstats if you are asking for help or guidance on Twitter/X. Many community members are also active on Mastodon, Bluesky, and LinkedIn.\n\n\n6.2.4 RStudio Community\nRStudio Community is similar to Stack Overflow. You can ask questions related to RStudio, Shiny and tidyverse.\n\n\n6.2.5 RStudio\nRStudio has very good resources including cheatsheets, webinars and blogs.\n\n\n6.2.6 Reddit\nReddit is another place where you can look for help. The discussions are moderated by R experts. There are subreddits for Rstats, Rlanguage, Rstudio and Rshiny.\n\n\n6.2.7 R Weekly\nVisit RWeekly to get regular updates about the R community. You can find information about new packages, blogs, conferences, workshops, tutorials and R jobs.\n\n\n6.2.8 R User Groups\nThere are several R User Groups active across the globe. You can find the list here. Join the local user group to meet, discuss and learn from other R enthusiasts and experts.\n\n\n6.2.9 Data Helpers\nData Helpers is a list of data analysts, scientists and engineers willing to offer guidance put together by Angela Bassa. Visit the website to learn more about how you can approach for help and guidance. (Note: this site appears unmaintained as of 2026; treat links there with caution.)",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Getting Help in R</span>"
+    ]
+  },
+  {
+    "objectID": "getting-help-in-r.html#internal",
+    "href": "getting-help-in-r.html#internal",
+    "title": "6  Getting Help in R",
+    "section": "6.3 Internal",
+    "text": "6.3 Internal\nIn this section, we will look at the following functions:\n\nhelp.start()\nhelp()\n?\n??\nhelp.search()\ndemo()\nexample()\nlibrary()\nvignette()\nbrowseVignettes()\n\n\n6.3.1 help.start\nThe help.start() function opens the documentation page in your browser. Here you can find manuals, reference and other materials.\n\nhelp.start()\n\n\n\n6.3.2 help\nUse help() to access the documentation of functions and data sets. ? is a shortcut for help() and returns the same information.\n\nhelp(plot)\n?plot\n\n\n\n6.3.3 help.search\nhelp.search() will search all sources of documentation and return those that match the search string. ?? is a shortcut for help.search() and returns the same information.\n\nhelp.search('regression')\n??regression\n\n\n\n6.3.4 demo\ndemo displays an interactive demonstration of certain topics provided in a R package. Typing demo() in the console will list the demos available in all the R packages installed.\n\ndemo()\ndemo(scoping)\n\n\n\n6.3.5 example\nexample() displays examples of the specified topic if available.\n\nexample('mean')\n\n\nmean&gt; x &lt;- c(0:10, 50)\n\nmean&gt; xm &lt;- mean(x)\n\nmean&gt; c(xm, mean(x, trim = 0.10))\n[1] 8.75 5.50",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Getting Help in R</span>"
+    ]
+  },
+  {
+    "objectID": "getting-help-in-r.html#package-documentation",
+    "href": "getting-help-in-r.html#package-documentation",
+    "title": "6  Getting Help in R",
+    "section": "6.4 Package Documentation",
+    "text": "6.4 Package Documentation\n\n6.4.1 library\nAccess the documentation of a package using help() inside library(). The package need not be installed for accessing the documentation.\n\nlibrary(help = 'ggplot2')\n\n\n\n6.4.2 vignette\nA vignette is a long form guide to a R package. You can access the vignettes available using vignette(). It will display a list of vignettes available in installed packages.\n\nvignette()\n\nTo access a specific vignette from a package, specify the name of the vignette and the package.\n\nvignette('dplyr', package = 'dplyr')\n\n\n\n6.4.3 browseVignettes\nbrowseVignettes() is another way to access the vignettes in installed packages. It will list the vignettes in each package along with links to the web page and R code.\n\nbrowseVignettes()\n\n\n\n6.4.4 RsiteSearch\nRsiteSearch() will search for specified topics in help pages, vignettes and task views using the search engine at this link and return the result in a browser.\n\nRSiteSearch('glm')",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Getting Help in R</span>"
+    ]
+  },
+  {
+    "objectID": "vectors-in-r.html",
+    "href": "vectors-in-r.html",
+    "title": "7  Vectors in R",
+    "section": "",
+    "text": "7.1 Introduction\nVector is the most basic data structure in R. It is a sequence of elements of the same data type. If the elements are of different data types, they will be coerced to a common type that can accommodate all the elements. Vectors are generally created using c() (concatenate function), although depending on the data type of vector being created, other methods can be used.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Vectors in R</span>"
+    ]
+  },
+  {
+    "objectID": "vectors-in-r.html#numeric-vector",
+    "href": "vectors-in-r.html#numeric-vector",
+    "title": "7  Vectors in R",
+    "section": "7.2 Numeric Vector",
+    "text": "7.2 Numeric Vector\nWe will create a numeric vector using c() but you can use any function that creates a sequence of numbers. After that we will use is.vector() to check if it is a vector and class to check the data type.\n\n# create a numeric vector\nnum_vect &lt;- c(1, 2, 3)\n\n# display the vector\nnum_vect\n\n[1] 1 2 3\n\n# check if it is a vector\nis.vector(num_vect)\n\n[1] TRUE\n\n# check data type\nclass(num_vect)\n\n[1] \"numeric\"\n\n\nLet us look at other ways to create a sequence of numbers. We leave it as an exercise to the reader to understand the functions using help.\n\n# using colon\nvect1 &lt;- 1:10\nvect1\n\n [1]  1  2  3  4  5  6  7  8  9 10\n\n# using rep\nvect2 &lt;- rep(1, 5)\nvect2\n\n[1] 1 1 1 1 1\n\n# using seq\nvect3 &lt;- seq(10)\nvect3\n\n [1]  1  2  3  4  5  6  7  8  9 10",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Vectors in R</span>"
+    ]
+  },
+  {
+    "objectID": "vectors-in-r.html#integer-vector",
+    "href": "vectors-in-r.html#integer-vector",
+    "title": "7  Vectors in R",
+    "section": "7.3 Integer Vector",
+    "text": "7.3 Integer Vector\nCreating an integer vector is similar to numeric vector except that we need to instruct R to treat the data as integer and not numeric or double. We will use the same methods we used for creating numeric vectors. To specify that the data is of type integer, we suffix the number with L.\n\n# integer vector\nint_vect &lt;- c(1L, 2L, 3L)\nint_vect\n\n[1] 1 2 3\n\n# check data type\nclass(int_vect)\n\n[1] \"integer\"\n\n# using colon\nvect1 &lt;- 1L:10L\nvect1\n\n [1]  1  2  3  4  5  6  7  8  9 10\n\n# using rep\nvect2 &lt;- rep(1L, 5)\nvect2\n\n[1] 1 1 1 1 1\n\n# using seq\nvect3 &lt;- seq(10L)\nvect3\n\n [1]  1  2  3  4  5  6  7  8  9 10",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Vectors in R</span>"
+    ]
+  },
+  {
+    "objectID": "vectors-in-r.html#character-vector",
+    "href": "vectors-in-r.html#character-vector",
+    "title": "7  Vectors in R",
+    "section": "7.4 Character Vector",
+    "text": "7.4 Character Vector\nA character vector may contain a single character, a word or a group of words. The elements must be enclosed in single or double quotations.\n\n# character vector\ngreetings &lt;- c(\"hello\", \"good morning\")\ngreetings\n\n[1] \"hello\"        \"good morning\"\n\n# check data type\nclass(greetings)\n\n[1] \"character\"",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Vectors in R</span>"
+    ]
+  },
+  {
+    "objectID": "vectors-in-r.html#logical-vector",
+    "href": "vectors-in-r.html#logical-vector",
+    "title": "7  Vectors in R",
+    "section": "7.5 Logical Vector",
+    "text": "7.5 Logical Vector\nA vector of logical values will either contain TRUE or FALSE or both.\n\n# logical vector\nvect_logic &lt;- c(TRUE, FALSE, TRUE, TRUE, FALSE)\nvect_logic\n\n[1]  TRUE FALSE  TRUE  TRUE FALSE\n\n# check data type\nclass(vect_logic)\n\n[1] \"logical\"\n\n\nIn fact, you can create an integer vector and coerce it to type logical.\n\n# integer vector\nint_vect &lt;- rep(0L:1L, 3)\nint_vect\n\n[1] 0 1 0 1 0 1\n\n# coerce to logical vector\nlog_vect &lt;- as.logical(int_vect)\nlog_vect\n\n[1] FALSE  TRUE FALSE  TRUE FALSE  TRUE\n\n# check data type\nclass(log_vect)\n\n[1] \"logical\"",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Vectors in R</span>"
+    ]
+  },
+  {
+    "objectID": "vectors-in-r.html#naming-vector-elements",
+    "href": "vectors-in-r.html#naming-vector-elements",
+    "title": "7  Vectors in R",
+    "section": "7.6 Naming Vector Elements",
+    "text": "7.6 Naming Vector Elements\nIt is possible to name the different elements of a vector. The advantage of naming vector elements is that we can later on use these names to access the elements. Use names() to specify the names of a vector. You can specify the names while creating the vector or add them later.\n\n7.6.1 Method 1: Create vector and add names later\n\n# create vector and add names later\nvect1 &lt;- c(1, 2, 3)\n\n# name the elements of the vector\nnames(vect1) &lt;- c(\"One\", \"Two\", \"Three\")\n\n# call vect1\nvect1\n##   One   Two Three \n##     1     2     3\n\n\n\n7.6.2 Method 2: Specify names while creating vector\n\n# specify names while creating vector\nvect2 &lt;- c(John = 1, Jack = 2, Jill = 3, Jovial = 4)\n\n# call vect2\nvect2\n##   John   Jack   Jill Jovial \n##      1      2      3      4",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Vectors in R</span>"
+    ]
+  },
+  {
+    "objectID": "vectors-in-r.html#vector-coercion",
+    "href": "vectors-in-r.html#vector-coercion",
+    "title": "7  Vectors in R",
+    "section": "7.7 Vector Coercion",
+    "text": "7.7 Vector Coercion\nVectors are homogeneous i.e. all the elements of the vector must be of the same type. If we try to create a vector by combining different data types, the elements will be coerced to the most flexible type. The below table shows the order in which coercion occurs.\ncharacter data type is the most flexible while logical data type is the least flexible. If you try to combine any other data type with character, all the elements will be coerced to type character. In the absence of character data, all elements will be coerced to numeric. Finally, if the data does not include character or numeric types, all the elements will be coerced to integer type.\n\n7.7.1 Case 1: Different Data Types\n\n# vector of different data types\nvect1 &lt;- c(1, 1L, 'one', TRUE)\n\n# call vect1\nvect1\n## [1] \"1\"    \"1\"    \"one\"  \"TRUE\"\n\n# check data type\nclass(vect1)\n## [1] \"character\"\n\n\n\n7.7.2 Case 2: Numeric, Integer and Logical\n\n# vector of different data types\nvect1 &lt;- c(1, 1L, TRUE)\n\n# call vect1\nvect1\n## [1] 1 1 1\n\n# check data type\nclass(vect1)\n## [1] \"numeric\"\n\n\n\n7.7.3 Case 3: Integer and Logical\n\n# vector of different data types\nvect1 &lt;- c(1L, TRUE)\n\n# call vect1\nvect1\n## [1] 1 1\n\n# check data type\nclass(vect1)\n## [1] \"integer\"\n\nTo summarize, below is the order in which coercion takes place:\nlogical → integer → double/numeric → character\nR coerces toward the most flexible type. If a vector contains a character element, everything becomes character. Without character, elements coerce to numeric. Without numeric, elements coerce to integer.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Vectors in R</span>"
+    ]
+  },
+  {
+    "objectID": "vectors-in-r.html#vector-operations",
+    "href": "vectors-in-r.html#vector-operations",
+    "title": "7  Vectors in R",
+    "section": "7.8 Vector Operations",
+    "text": "7.8 Vector Operations\nIn this section, we look at simple operations that can be performed on vectors in R. Remember that the nature of the operations depends upon the type of data. Below are a few examples:\n\n7.8.1 Case 1: Vectors of same length\n\n# create two vectors\nvect1 &lt;- c(1, 3, 8, 4)\nvect2 &lt;- c(2, 7, 1, 9)\n\n# addition\nvect1 + vect2\n## [1]  3 10  9 13\n\n# subtraction\nvect1 - vect2\n## [1] -1 -4  7 -5\n\n# multiplication\nvect1 * vect2\n## [1]  2 21  8 36\n\n# division\nvect1 / vect2\n## [1] 0.5000000 0.4285714 8.0000000 0.4444444\n\n\n\n7.8.2 Case 2: Vectors of different length\nIn the previous case, the length i.e. the number of elements in the vectors were same. What happens if the length of the vectors are unequal? In such cases, the shorter vector is recycled to match the length of the longer vector. The below example should clear this concept:\n\n# create two vectors\nvect1 &lt;- c(2, 7)\nvect2 &lt;- c(1, 8, 5, 2)\n\n# addition\nvect1 + vect2\n## [1]  3 15  7  9\n\n# subtraction\nvect1 - vect2\n## [1]  1 -1 -3  5\n\n# multiplication\nvect1 * vect2\n## [1]  2 56 10 14\n\n# division\nvect1 / vect2\n## [1] 2.000 0.875 0.400 3.500",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Vectors in R</span>"
+    ]
+  },
+  {
+    "objectID": "vectors-in-r.html#missing-data",
+    "href": "vectors-in-r.html#missing-data",
+    "title": "7  Vectors in R",
+    "section": "7.9 Missing Data",
+    "text": "7.9 Missing Data\nMissing data is a reality. No matter how careful you are in collecting data for your analysis, chances are always high that you end up with some missing data. In R missing values are represented by NA. In this section, we will focus on the following:\n\ntest for missing data\nremove missing data\nexclude missing data from analysis\n\n\n7.9.1 Detect missing data\nWe first create a vector with missing values. After that, we will use is.na() to test whether the data contains missing values. is.na() returns a logical vector equal to the length of the vector being tested. Another function that can be used for detecting missing values is complete.cases(). Below is an example:\n\n# vector with missing values\nvect1 &lt;- c(1, 3, NA, 5, 2)\n\n# use is.na\nis.na(vect1)\n## [1] FALSE FALSE  TRUE FALSE FALSE\n\n# use complete.cases\ncomplete.cases(vect1)\n## [1]  TRUE  TRUE FALSE  TRUE  TRUE\n\n\n\n7.9.2 Omit missing data\nIn the presence of missing data, all computations in R will return NA. To avoid this, we might want to remove the missing data before doing any computation. na.omit() will remove all missing values from the data. Let us look at an example:\n\n# vector with missing values\nvect1 &lt;- c(1, 3, NA, 5, 2)\n\n# call vect1\nvect1\n## [1]  1  3 NA  5  2\n\n# omit missing values\nna.omit(vect1)\n## [1] 1 3 5 2\n## attr(,\"na.action\")\n## [1] 3\n## attr(,\"class\")\n## [1] \"omit\"\n\n\n\n7.9.3 Exclude missing data\nTo exclude missing values from computations, use na.rm and set it to TRUE.\n\n# vector with missing values\nvect1 &lt;- c(1, 3, NA, 5, 2)\n\n# compute mean\nmean(vect1)\n## [1] NA\n\n# compute mean by excluding missing value\nmean(vect1, na.rm = TRUE)\n## [1] 2.75",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Vectors in R</span>"
+    ]
+  },
+  {
+    "objectID": "vectors-in-r.html#index-vectors",
+    "href": "vectors-in-r.html#index-vectors",
+    "title": "7  Vectors in R",
+    "section": "7.10 Index Vectors",
+    "text": "7.10 Index Vectors\nOne of the most important steps in data analysis is selecting a subset of data from a bigger data set. Indexing helps in retrieving values individually or a set of values that meet a specific criteria. In this chapter, we look at various ways of indexing/subsetting vectors.\n[] is the index operator in R. We can use various expressions within [] to subset data. In R, index positions begin at 1 and not 0. To begin with, let us look at values in different index positions:\n\n# fixed seed so this chapter re-renders deterministically\nset.seed(42)\n\n# random sample of 10 values\nvect1 &lt;- sample(10)\nvect1\n\n [1]  1  5 10  8  2  4  6  9  7  3\n\n# return third element\nvect1[3]\n\n[1] 10\n\n# return seventh element\nvect1[7]    \n\n[1] 6\n\n\n\n7.10.1 Out of range index\n\n# random sample of 10 values\nvect1 &lt;- sample(10)\nvect1\n\n [1]  8  7  4  1  5 10  2  6  9  3\n\n# return value at index 0\nvect1[0]\n\ninteger(0)\n\n# length of the vector\nlength(vect1)\n\n[1] 10\n\n# out of range index\nvect1[11]   \n\n[1] NA\n\n\nIn the first case, we specified the index as 0 and in the second case we used the index 11, which is greater than the length of the vector. R returns an empty vector in the first case and NA in the second case.\n\n\n7.10.2 Negative Index\nUsing a negative index will delete the value in the said index position. Unlike other languages, it will not index elements from the end of the vector counting backwards. Let us look at an example to understand how negative index works in R:\n\n# random sample of 10 values\nvect1 &lt;- sample(10)\nvect1\n\n [1]  9 10  3  4  5  6  1  2  8  7\n\n# drop third element\nvect1[-3]\n\n[1]  9 10  4  5  6  1  2  8  7\n\n# drop seventh element\nvect1[-7]   \n\n[1]  9 10  3  4  5  6  2  8  7\n\n\n\n\n7.10.3 Subset Multiple Elements\nIf we do not specify anything within [], all the elements in the vector will be returned. We can specify the index elements using any expression that generates a sequence of integers. Let us look at a few examples:\n\n# random sample of 10 values\nvect1 &lt;- sample(10)\nvect1\n\n [1]  3  1  2  6 10  8  4  5  7  9\n\n# return all elements\nvect1[]\n\n [1]  3  1  2  6 10  8  4  5  7  9\n\n# return first 5 values\nvect1[1:5]\n\n[1]  3  1  2  6 10\n\n# return all values from the 5th position\nend &lt;- length(vect1)\nvect1[5:end]\n\n[1] 10  8  4  5  7  9\n\n\nIf you are using the colon to generate the index positions, you will have to specify both the starting and ending position, else, R will return an error.\nWhat if we want elements that are not in a sequence as we saw in the last example? In such cases, we have to create a vector using c() and use it to extract elements from the original vector. Below is an example:\n\n# random sample of 10 values\nvect1 &lt;- sample(10)\nvect1\n\n [1]  5  4  2  8  3  1 10  7  6  9\n\n# extract 2nd, 5th and 7th element\nselect &lt;- c(2, 5, 7)\nvect1[select]\n\n[1]  4  3 10\n\n# extract elements in position 1 to 4, 6 and 9\nselect &lt;- c(1:4, 6, 9)\nvect1[select]\n\n[1] 5 4 2 8 1 6",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Vectors in R</span>"
+    ]
+  },
+  {
+    "objectID": "vectors-in-r.html#try-it-in-your-browser",
+    "href": "vectors-in-r.html#try-it-in-your-browser",
+    "title": "7  Vectors in R",
+    "section": "Try it in your browser",
+    "text": "Try it in your browser\nEdit the code below and press Run. It executes entirely in your browser via WebR — no R installation needed. The runtime downloads once, on this page only.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n7.10.4 Subset Named Vectors\nVectors can be subset using the name of the elements. When using name of elements for subsetting, ensure that the names are enclosed in single or double quotations, else R will return an error. Let us look at a few examples:\n\nvect1 &lt;- c(score1 = 8, score2 = 6, score3 = 9)\nvect1\n\nscore1 score2 score3 \n     8      6      9 \n\n# extract score2\nvect1['score2']\n\nscore2 \n     6 \n\n# extract score1 and score3\nvect1[c('score1', 'score3')]\n\nscore1 score3 \n     8      9 \n\n\n\n\n7.10.5 Subset using logical values\nLogical values can be used to subset vectors. They are not very flexible but can be used for simple indexing. In all of the below examples, the logical vectors are recycled to match the length of the vector from which we subset data:\n\n# random sample of 10 values\nvect1 &lt;- sample(10)\nvect1\n\n [1]  6  2  4  3 10  5  9  7  8  1\n\n# returns all values\nvect1[TRUE]\n\n [1]  6  2  4  3 10  5  9  7  8  1\n\n# empty vector\nvect1[FALSE]\n\ninteger(0)\n\n# values in odd positions\nvect1[c(TRUE, FALSE)]\n\n[1]  6  4 10  9  8\n\n# values in even positions\nvect1[c(FALSE, TRUE)]\n\n[1] 2 3 5 7 1\n\n\n\n\n7.10.6 Subset using logical expressions\nLogical expressions can be used to extract elements that meet specific criteria. This method is most flexible and useful as we can combine multiple conditions using relational and logical operators. Before we use logical expressions, let us spend some time understanding comparison and logical operators as we will be using them extensively hereafter.\n\n7.10.6.1 Comparison Operators\nWhen you create an expression using a comparison operator, the output is always a logical value i.e. TRUE or FALSE. Let us see how we can use comparison operators to subset data:\n\n# random sample of 10 values\nvect1 &lt;- sample(10)\nvect1\n\n [1] 10  8  5  1  7  4  6  2  9  3\n\n# return elements greater than 5\nvect1 &gt; 5\n\n [1]  TRUE  TRUE FALSE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE\n\nvect1[vect1 &gt; 5]\n\n[1] 10  8  7  6  9\n\n# return elements greater than or equal to 5\nvect1 &gt;= 5\n\n [1]  TRUE  TRUE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE\n\nvect1[vect1 &gt;= 5]\n\n[1] 10  8  5  7  6  9\n\n# return elements lesser than 5\nvect1 &lt; 5\n\n [1] FALSE FALSE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE\n\nvect1[vect1 &lt; 5]\n\n[1] 1 4 2 3\n\n# return elements lesser than or equal to 5\nvect1 &lt;= 5\n\n [1] FALSE FALSE  TRUE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE\n\nvect1[vect1 &lt;= 5]\n\n[1] 5 1 4 2 3\n\n# return elements equal to 5\nvect1 == 5\n\n [1] FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE\n\nvect1[vect1 == 5]\n\n[1] 5\n\n# return elements not equal to 5\nvect1 != 5\n\n [1]  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE\n\nvect1[vect1 != 5]\n\n[1] 10  8  1  7  4  6  2  9  3\n\n\n\n\n\n7.10.7 Logical Operators\nLet us combine comparison and logical operators to create expressions and use them to subset vectors:\n\n# random sample of 10 values\nvect1 &lt;- sample(10)\nvect1\n\n [1]  4  9  3  8  5  6 10  2  1  7\n\n# return all elements less than 8 or divisible by 3\nvect1[(vect1 &lt; 8 | (vect1 %% 3 == 0))]\n\n[1] 4 9 3 5 6 2 1 7\n\n# return all elements less than 7 or divisible by 2\nvect1[(vect1 &lt; 7 | (vect1 %% 2 == 0))]\n\n[1]  4  3  8  5  6 10  2  1",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Vectors in R</span>"
+    ]
+  },
+  {
+    "objectID": "data-frames-in-r.html",
+    "href": "data-frames-in-r.html",
+    "title": "8  Dataframes in R",
+    "section": "",
+    "text": "8.1 Introduction\nIn this chapter, we will learn to:",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Dataframes in R</span>"
+    ]
+  },
+  {
+    "objectID": "data-frames-in-r.html#introduction",
+    "href": "data-frames-in-r.html#introduction",
+    "title": "8  Dataframes in R",
+    "section": "",
+    "text": "create dataframe\nselect columns\nselect rows\nutility functions",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Dataframes in R</span>"
+    ]
+  },
+  {
+    "objectID": "data-frames-in-r.html#create-dataframes",
+    "href": "data-frames-in-r.html#create-dataframes",
+    "title": "8  Dataframes in R",
+    "section": "8.2 Create dataframes",
+    "text": "8.2 Create dataframes\nUse data.frame to create dataframes. Below is the function syntax:\n\nargs(data.frame)\n\nfunction (..., row.names = NULL, check.rows = FALSE, check.names = TRUE, \n    fix.empty.names = TRUE, stringsAsFactors = FALSE) \nNULL\n\n\nData frames are basically lists with elements of equal length and as such, they are heterogeneous. Let us create a dataframe:\n\nname &lt;- c('John', 'Jack', 'Jill')\nage &lt;- c(29, 25, 27)\ngraduate &lt;- c(TRUE, TRUE, FALSE)\nstudents &lt;- data.frame(name, age, graduate)\nstudents\n\n  name age graduate\n1 John  29     TRUE\n2 Jack  25     TRUE\n3 Jill  27    FALSE",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Dataframes in R</span>"
+    ]
+  },
+  {
+    "objectID": "data-frames-in-r.html#basic-information",
+    "href": "data-frames-in-r.html#basic-information",
+    "title": "8  Dataframes in R",
+    "section": "8.3 Basic Information",
+    "text": "8.3 Basic Information\n\nclass(students)\n## [1] \"data.frame\"\nnames(students)\n## [1] \"name\"     \"age\"      \"graduate\"\ncolnames(students)\n## [1] \"name\"     \"age\"      \"graduate\"\nstr(students)\n## 'data.frame':    3 obs. of  3 variables:\n##  $ name    : chr  \"John\" \"Jack\" \"Jill\"\n##  $ age     : num  29 25 27\n##  $ graduate: logi  TRUE TRUE FALSE\ndim(students)\n## [1] 3 3\nnrow(students)\n## [1] 3\nncol(students)\n## [1] 3",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Dataframes in R</span>"
+    ]
+  },
+  {
+    "objectID": "data-frames-in-r.html#select-columns",
+    "href": "data-frames-in-r.html#select-columns",
+    "title": "8  Dataframes in R",
+    "section": "8.4 Select Columns",
+    "text": "8.4 Select Columns\n\n8.4.1 Single Column\n\n[]\n[[]]\n$\n\n\n# using [\nstudents[1]\n##   name\n## 1 John\n## 2 Jack\n## 3 Jill\n\n# using [[\nstudents[[1]]\n## [1] \"John\" \"Jack\" \"Jill\"\n\n# using $\nstudents$name\n## [1] \"John\" \"Jack\" \"Jill\"\n\n\n\n8.4.2 Multiple Columns\n\nstudents[, 1:3]\n##   name age graduate\n## 1 John  29     TRUE\n## 2 Jack  25     TRUE\n## 3 Jill  27    FALSE\n\nstudents[, c(1, 3)]\n##   name graduate\n## 1 John     TRUE\n## 2 Jack     TRUE\n## 3 Jill    FALSE",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Dataframes in R</span>"
+    ]
+  },
+  {
+    "objectID": "data-frames-in-r.html#select-rows",
+    "href": "data-frames-in-r.html#select-rows",
+    "title": "8  Dataframes in R",
+    "section": "8.5 Select Rows",
+    "text": "8.5 Select Rows\n\n# single row\nstudents[1, ]\n##   name age graduate\n## 1 John  29     TRUE\n\n# multiple row\nstudents[c(1, 3), ]\n##   name age graduate\n## 1 John  29     TRUE\n## 3 Jill  27    FALSE",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Dataframes in R</span>"
+    ]
+  },
+  {
+    "objectID": "data-frames-in-r.html#try-it-in-your-browser",
+    "href": "data-frames-in-r.html#try-it-in-your-browser",
+    "title": "8  Dataframes in R",
+    "section": "Try it in your browser",
+    "text": "Try it in your browser\nEdit the code below and press Run. It executes entirely in your browser via WebR — no R installation needed. The runtime downloads once, on this page only.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nStarting with R 4.0.0 (April 2020), the default value of stringsAsFactors in data.frame() is FALSE, meaning character columns remain as character type. In older versions of R (&lt; 4.0.0), the default was TRUE, which automatically converted character vectors to factors.\n\nstudents &lt;- data.frame(name, age, graduate, stringsAsFactors = FALSE)",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Dataframes in R</span>"
+    ]
+  },
+  {
+    "objectID": "factors-in-r.html",
+    "href": "factors-in-r.html",
+    "title": "9  Factors in R",
+    "section": "",
+    "text": "9.1 Introduction\nIn this chapter, we will learn to:\nCategorical or qualitative data in R is treated as data type factor.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Factors in R</span>"
+    ]
+  },
+  {
+    "objectID": "factors-in-r.html#introduction",
+    "href": "factors-in-r.html#introduction",
+    "title": "9  Factors in R",
+    "section": "",
+    "text": "create factors\norder levels\nspecify labels\ncheck levels\nnumber of levels",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Factors in R</span>"
+    ]
+  },
+  {
+    "objectID": "factors-in-r.html#create-factors",
+    "href": "factors-in-r.html#create-factors",
+    "title": "9  Factors in R",
+    "section": "9.2 Create Factors",
+    "text": "9.2 Create Factors\n\nargs(factor)\n\nfunction (x = character(), levels, labels = levels, exclude = NA, \n    ordered = is.ordered(x), nmax = NA) \nNULL\n\n\n\ndevices &lt;- factor(c('Mobile', 'Tablet', 'Desktop'))\ndevices\n\n[1] Mobile  Tablet  Desktop\nLevels: Desktop Mobile Tablet\n\n# number of levels\nnlevels(devices)\n\n[1] 3\n\n# levels\nlevels(devices)\n\n[1] \"Desktop\" \"Mobile\"  \"Tablet\"",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Factors in R</span>"
+    ]
+  },
+  {
+    "objectID": "factors-in-r.html#order-levels",
+    "href": "factors-in-r.html#order-levels",
+    "title": "9  Factors in R",
+    "section": "9.3 Order Levels",
+    "text": "9.3 Order Levels\nUse the levels argument together with ordered = TRUE when the categories have a natural order:\n\nsize &lt;- factor(c('Medium', 'Low', 'High', 'Low', 'Medium'),\n  levels = c('Low', 'Medium', 'High'), ordered = TRUE)\nsize\n\n[1] Medium Low    High   Low    Medium\nLevels: Low &lt; Medium &lt; High\n\nlevels(size)\n\n[1] \"Low\"    \"Medium\" \"High\"",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Factors in R</span>"
+    ]
+  },
+  {
+    "objectID": "factors-in-r.html#specify-labels",
+    "href": "factors-in-r.html#specify-labels",
+    "title": "9  Factors in R",
+    "section": "9.4 Specify Labels",
+    "text": "9.4 Specify Labels\nUse the labels argument to attach shorter or prettier display labels while keeping the underlying level order:\n\nsize_labeled &lt;- factor(c('Low', 'Medium', 'High'),\n  levels = c('Low', 'Medium', 'High'), labels = c('L', 'M', 'H'))\nsize_labeled\n\n[1] L M H\nLevels: L M H",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Factors in R</span>"
+    ]
+  },
+  {
+    "objectID": "factors-in-r.html#check-levels",
+    "href": "factors-in-r.html#check-levels",
+    "title": "9  Factors in R",
+    "section": "9.5 Check Levels",
+    "text": "9.5 Check Levels\n\n# existing levels\nlevels(size)\n\n[1] \"Low\"    \"Medium\" \"High\"  \n\n# number of levels\nnlevels(size)\n\n[1] 3\n\n# is this an ordered factor?\nis.ordered(size)\n\n[1] TRUE\n\n\nFor modern factor manipulation (reordering, recoding, lumping rare levels), see the forcats package.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Factors in R</span>"
+    ]
+  },
+  {
+    "objectID": "lists-in-r.html",
+    "href": "lists-in-r.html",
+    "title": "10  Lists in R",
+    "section": "",
+    "text": "10.1 Introduction\nLists are very useful as they are heterogeneous i.e. they can contain different data types. If you remember, vectors and matrices are homogeneous i.e. they can contain only one type of data. If you include different data types, they will all be coerced to the same type. With lists, it is different. In this chapter, we will delve deeper into lists.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Lists in R</span>"
+    ]
+  },
+  {
+    "objectID": "lists-in-r.html#introduction",
+    "href": "lists-in-r.html#introduction",
+    "title": "10  Lists in R",
+    "section": "",
+    "text": "how to create lists\naccess list elements\nname list elements\ncoerce other R objects to list\ncoerce list to other R objects",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Lists in R</span>"
+    ]
+  },
+  {
+    "objectID": "lists-in-r.html#creating-lists",
+    "href": "lists-in-r.html#creating-lists",
+    "title": "10  Lists in R",
+    "section": "10.2 Creating Lists",
+    "text": "10.2 Creating Lists\nTo create a list, we use the list() function. Let us create a simple list to demonstrate how they can contain different data types.\n\n# numeric vector\nvect1 &lt;- 1:10\n\n# character vector \nvect2 &lt;- c('Jack', 'John', 'Jill')\n\n# logical vector\nvect3 &lt;- c(TRUE, FALSE)\n\n# matrix\nmat &lt;- matrix(data = 1:9, nrow = 3)\n\n# list\nl &lt;- list(vect1, vect2, vect3, mat)\nl\n\n[[1]]\n [1]  1  2  3  4  5  6  7  8  9 10\n\n[[2]]\n[1] \"Jack\" \"John\" \"Jill\"\n\n[[3]]\n[1]  TRUE FALSE\n\n[[4]]\n     [,1] [,2] [,3]\n[1,]    1    4    7\n[2,]    2    5    8\n[3,]    3    6    9\n\n\nIf you observe the output, all the elements of the list retain their data types. Now let us learn how to access the elements of the list.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Lists in R</span>"
+    ]
+  },
+  {
+    "objectID": "lists-in-r.html#access-list-elements",
+    "href": "lists-in-r.html#access-list-elements",
+    "title": "10  Lists in R",
+    "section": "10.3 Access List Elements",
+    "text": "10.3 Access List Elements\nYou can access the elements of a list using the following operators:\n\n[[\n[\n$\n\nLet us try them one by one.\n\n# using [[\nl[[1]]\n\n [1]  1  2  3  4  5  6  7  8  9 10\n\n# using [\nl[1]\n\n[[1]]\n [1]  1  2  3  4  5  6  7  8  9 10\n\n\n[[ extracts the element itself (which may be a vector, matrix, data frame, or nested list), while [ returns a new list containing the selected element(s). The $ operator can be used only when we have named elements in the list. Let us add names to the elements. Use the names() function to add names to the list.\n\n# named elements\nnames(l) &lt;- c('vect1', 'vect2', 'vect3', 'mat')\nl\n\n$vect1\n [1]  1  2  3  4  5  6  7  8  9 10\n\n$vect2\n[1] \"Jack\" \"John\" \"Jill\"\n\n$vect3\n[1]  TRUE FALSE\n\n$mat\n     [,1] [,2] [,3]\n[1,]    1    4    7\n[2,]    2    5    8\n[3,]    3    6    9\n\n# use $\nl$vect1\n\n [1]  1  2  3  4  5  6  7  8  9 10\n\n# use [[\nl[['vect1']]\n\n [1]  1  2  3  4  5  6  7  8  9 10\n\n# use [\nl['vect1']\n\n$vect1\n [1]  1  2  3  4  5  6  7  8  9 10",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Lists in R</span>"
+    ]
+  },
+  {
+    "objectID": "lists-in-r.html#coerce-other-objects",
+    "href": "lists-in-r.html#coerce-other-objects",
+    "title": "10  Lists in R",
+    "section": "10.4 Coerce other objects",
+    "text": "10.4 Coerce other objects\nYou can coerce other objects to list using as.list().\n\n# vector\nvect1 &lt;- 1:10\nas.list(vect1)\n\n[[1]]\n[1] 1\n\n[[2]]\n[1] 2\n\n[[3]]\n[1] 3\n\n[[4]]\n[1] 4\n\n[[5]]\n[1] 5\n\n[[6]]\n[1] 6\n\n[[7]]\n[1] 7\n\n[[8]]\n[1] 8\n\n[[9]]\n[1] 9\n\n[[10]]\n[1] 10\n\n# matrix\nmat &lt;- matrix(data = 1:9, nrow = 3)\nas.list(mat)\n\n[[1]]\n[1] 1\n\n[[2]]\n[1] 2\n\n[[3]]\n[1] 3\n\n[[4]]\n[1] 4\n\n[[5]]\n[1] 5\n\n[[6]]\n[1] 6\n\n[[7]]\n[1] 7\n\n[[8]]\n[1] 8\n\n[[9]]\n[1] 9",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Lists in R</span>"
+    ]
+  },
+  {
+    "objectID": "lists-in-r.html#coerce-list-to-other-objects",
+    "href": "lists-in-r.html#coerce-list-to-other-objects",
+    "title": "10  Lists in R",
+    "section": "10.5 Coerce list to other objects",
+    "text": "10.5 Coerce list to other objects\nUse unlist() to coerce a list to a vector.\n\n# unlist\nunlist(l)\n\n vect11  vect12  vect13  vect14  vect15  vect16  vect17  vect18  vect19 vect110 \n    \"1\"     \"2\"     \"3\"     \"4\"     \"5\"     \"6\"     \"7\"     \"8\"     \"9\"    \"10\" \n vect21  vect22  vect23  vect31  vect32    mat1    mat2    mat3    mat4    mat5 \n \"Jack\"  \"John\"  \"Jill\"  \"TRUE\" \"FALSE\"     \"1\"     \"2\"     \"3\"     \"4\"     \"5\" \n   mat6    mat7    mat8    mat9 \n    \"6\"     \"7\"     \"8\"     \"9\" \n\n# remove names\nunlist(l, use.names = FALSE)\n\n [1] \"1\"     \"2\"     \"3\"     \"4\"     \"5\"     \"6\"     \"7\"     \"8\"     \"9\"    \n[10] \"10\"    \"Jack\"  \"John\"  \"Jill\"  \"TRUE\"  \"FALSE\" \"1\"     \"2\"     \"3\"    \n[19] \"4\"     \"5\"     \"6\"     \"7\"     \"8\"     \"9\"",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Lists in R</span>"
+    ]
+  },
+  {
+    "objectID": "install-update-r-packages.html",
+    "href": "install-update-r-packages.html",
+    "title": "11  Install & Update R Packages",
+    "section": "",
+    "text": "11.1 Introduction\nIn this chapter, we will learn about R packages. Packages are fundamental to R. There are more than 22,000 packages available on CRAN or the Comprehensive R Archive Network (as of September 2026; verify the current count at cran.r-project.org/web/packages).\nPackages are available for different topics. You should always look for a package before writing code from scratch. In case you have written your own codes for a new analysis or topic, do share it with the R community by converting the code into a package. You can learn more about building R packages from R Packages, a book written by Hadley Wickham.\nIn this chapter, we will learn to:",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Install & Update R Packages</span>"
+    ]
+  },
+  {
+    "objectID": "install-update-r-packages.html#introduction",
+    "href": "install-update-r-packages.html#introduction",
+    "title": "11  Install & Update R Packages",
+    "section": "",
+    "text": "install R packages from\n\nCRAN\nGitHub\nBitBucket\nBioconductor\nrForge\n\ninstall different versions of a package\nload, update & remove installed packages\naccess package documentation",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Install & Update R Packages</span>"
+    ]
+  },
+  {
+    "objectID": "install-update-r-packages.html#install-packages",
+    "href": "install-update-r-packages.html#install-packages",
+    "title": "11  Install & Update R Packages",
+    "section": "11.2 Install Packages",
+    "text": "11.2 Install Packages\n\n11.2.1 CRAN\nPackages from CRAN can be installed using install.packages(). The name of the package must be enclosed in single or double quotes.\n\ninstall.packages('ggplot2')\n\n\n\n11.2.2 GitHub\nSome R packages are made available on GitHub before releasing them on CRAN. Such packages can be installed using install_github() from devtools or remotes package. You need to specify the name of the repository and the package. For example, to download ggplot2 or dplyr, below is the code:\n\ndevtools::install_github(\"tidyverse/ggplot2\")\nremotes::install_github(\"tidyverse/dplyr\")\n\n\n\n11.2.3 BitBucket\nBitbucket is similar to GitHub. You can install packages from Bitbucket using install_bitbucket() from devtools or remotes package.\n\ndevtools::install_bitbucket(\"dannavarro/lsr-package\")\nremotes::install_bitbucket(\"dannavarro/lsr-package\")\n\n\n\n11.2.4 Bioconductor\nBioconductor provides tools for analysis and comprehension of high throughput genomic data. Install the BiocManager package and use BiocManager::install():\n\n# install BiocManager if needed\ninstall.packages(\"BiocManager\")\n\n# install a Bioconductor package\nBiocManager::install(\"GenomicFeatures\")\n\n\n\n11.2.5 rForge\nMany R packages are hosted at R-Forge, a platform for development of R packages. (Note: R-Forge is largely inactive today; prefer CRAN or GitHub for new work.)\n\ninstall.packages('quantstrat', repos = 'https://r-forge.r-project.org/')\n\n\nFor faster installs with dependency resolution, you can also try pak::pkg_install() from the pak package as a modern alternative.",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Install & Update R Packages</span>"
+    ]
+  },
+  {
+    "objectID": "install-update-r-packages.html#install-different-versions",
+    "href": "install-update-r-packages.html#install-different-versions",
+    "title": "11  Install & Update R Packages",
+    "section": "11.3 Install Different Versions",
+    "text": "11.3 Install Different Versions\nNow that we have learnt how to install packages, let us look at installing different versions of the same package.\n\nremotes::install_version('dplyr', version = 0.5.0)\n\nIf you want to install the latest release from GitHub, append @*release to the repository name. For example, to install the latest release of dplyr:\n\nremotes::install_github('tidyverse/dplyr@*release')",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Install & Update R Packages</span>"
+    ]
+  },
+  {
+    "objectID": "install-update-r-packages.html#installed-packages",
+    "href": "install-update-r-packages.html#installed-packages",
+    "title": "11  Install & Update R Packages",
+    "section": "11.4 Installed Packages",
+    "text": "11.4 Installed Packages\n\ninstalled.packages(): view currently installed packages\nlibrary('package_name'): load packages\nautoload('function_name', 'package_name'): load functions and data from packages only when called in the script\navailable.packages(): packages available for installation\nold.packages(): packages which have new versions available\nnew.packages(): packages already not installed\nupdate.packages(): update packages which have new versions\nremove.packages('package_name'): remove installed packages",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Install & Update R Packages</span>"
+    ]
+  },
+  {
+    "objectID": "install-update-r-packages.html#library-paths",
+    "href": "install-update-r-packages.html#library-paths",
+    "title": "11  Install & Update R Packages",
+    "section": "11.5 Library Paths",
+    "text": "11.5 Library Paths\nLibrary is a directory that contains all installed packages. Usually there will be more than one R library in your system. You can find the location of the libraries using .libPaths().\n\n.libPaths()\n\n[1] \"C:/Users/HP/AppData/Local/R/cache/R/renv/library/intro-r-15ca35ae/windows/R-4.5/x86_64-w64-mingw32\"\n[2] \"C:/Users/HP/AppData/Local/R/cache/R/renv/sandbox/windows/R-4.5/x86_64-w64-mingw32/ebc25411\"        \n\n\nYou can use lib when you want to install, load, update and remove packages from a particular library.\n\n11.5.1 Install\n\ninstall.packages('stringr', lib = .libPaths()[1])\n\n\n\n11.5.2 Load\n\nlibrary(lubridate, lib = .libPaths()[1])\n\n\n\n11.5.3 Update Packages\n\nupdate.packages(lib = .libPaths()[1])\n\n\n\n11.5.4 Remove Packages\n\nremove.packages('stringr', lib = .libPaths()[1])\n\n\nExplore Rsquared Academy’s own R packages and guides at pkgs.rsquaredacademy.com.",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Install & Update R Packages</span>"
+    ]
+  },
+  {
+    "objectID": "projects-import.html",
+    "href": "projects-import.html",
+    "title": "12  RStudio Projects & Data Import",
+    "section": "",
+    "text": "12.1 Why avoid setwd()\nsetwd(\"C:/Users/you/project\") hard-codes a path that exists only on your machine. Anyone else who opens the script — or you on a different computer — gets an error. An RStudio Project (.Rproj) fixes this: opening the .Rproj file sets the working directory to the project folder automatically, so relative paths just work.\nWorkflow: File → New Project → New Directory (or Existing Directory) → give it a name. From then on, open the .Rproj file, not individual scripts.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>RStudio Projects & Data Import</span>"
+    ]
+  },
+  {
+    "objectID": "projects-import.html#portable-paths-with-here",
+    "href": "projects-import.html#portable-paths-with-here",
+    "title": "12  RStudio Projects & Data Import",
+    "section": "12.2 Portable paths with here",
+    "text": "12.2 Portable paths with here\nThe here package builds paths from the project root, wherever the project lives on disk:\n\nhere(\"data\", \"students.csv\")\n\n[1] \"F:/R/ebooks/intro-r/data/students.csv\"\n\n\n\nCommon Mistake: Paths with ../ or C:/... break when the project moves. If a path starts with a drive letter or ../, rewrite it with here().",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>RStudio Projects & Data Import</span>"
+    ]
+  },
+  {
+    "objectID": "projects-import.html#reading-csv-files",
+    "href": "projects-import.html#reading-csv-files",
+    "title": "12  RStudio Projects & Data Import",
+    "section": "12.3 Reading CSV files",
+    "text": "12.3 Reading CSV files\nPractice data lives in the data/ directory (CC0 / public domain, created for this book). Read it with read_csv():\n\nstudents &lt;- read_csv(here(\"data\", \"students.csv\"))\nstudents\n\n# A tibble: 5 × 3\n  name    age score\n  &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 Asha     21    88\n2 Ravi     22    92\n3 Meera    20    79\n4 Arjun    23    95\n5 Divya    21    84",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>RStudio Projects & Data Import</span>"
+    ]
+  },
+  {
+    "objectID": "projects-import.html#reading-excel-files",
+    "href": "projects-import.html#reading-excel-files",
+    "title": "12  RStudio Projects & Data Import",
+    "section": "12.4 Reading Excel files",
+    "text": "12.4 Reading Excel files\nread_excel() works the same way for .xlsx files — sheet 1 by default:\n\nstudents_xl &lt;- read_excel(here(\"data\", \"students.xlsx\"))\nstudents_xl\n\n# A tibble: 5 × 3\n  name    age score\n  &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 Asha     21    88\n2 Ravi     22    92\n3 Meera    20    79\n4 Arjun    23    95\n5 Divya    21    84",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>RStudio Projects & Data Import</span>"
+    ]
+  },
+  {
+    "objectID": "projects-import.html#try-it-in-your-browser",
+    "href": "projects-import.html#try-it-in-your-browser",
+    "title": "12  RStudio Projects & Data Import",
+    "section": "Try it in your browser",
+    "text": "Try it in your browser\nEdit the code below and press Run. It executes entirely in your browser via WebR — no R installation needed. The runtime downloads once, on this page only.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>RStudio Projects & Data Import</span>"
+    ]
+  },
+  {
+    "objectID": "projects-import.html#practice-check",
+    "href": "projects-import.html#practice-check",
+    "title": "12  RStudio Projects & Data Import",
+    "section": "12.5 Practice Check",
+    "text": "12.5 Practice Check\nKnowledge Check: Project-relative paths Why does read_csv(here(\"data\", \"students.csv\")) keep working when you move the whole project folder to another computer, but read_csv(\"C:/Users/you/project/data/students.csv\") does not?\n\n\nClick to reveal answer\n\nAnswer: here() resolves the path relative to the project root at run time, so it adapts to the new location. The C:/... path is absolute and points to a folder that does not exist on the other computer.\nExplanation: Projects + here() keep every path portable (project root → data → file); absolute paths and setwd() tie the script to one machine.\n\nKnowledge Check: Why .Rproj beats setwd() What breaks when you share a script containing setwd(\"C:/Users/you/project\") with a colleague?\n\n\nClick to reveal answer\n\nAnswer: The script errors because that folder does not exist on your colleague’s machine.\nExplanation: setwd() with an absolute path ties the script to one computer; opening a shared .Rproj file sets everyone’s working directory to the project folder automatically.\n\nKnowledge Check: here() resolution Your project lives at D:/work/survey and contains data/resp.csv. What does here(\"data\", \"resp.csv\") return?\n\n\nClick to reveal answer\n\nAnswer: D:/work/survey/data/resp.csv (i.e. project root → data → resp.csv).\nExplanation: here() anchors paths at the project root (where the .Rproj file lives), joining each additional component with the correct separator for your OS.\n\nKnowledge Check: read_csv() vs read.csv() Name one practical advantage of readr::read_csv() over base R’s read.csv() for a beginner.\n\n\nClick to reveal answer\n\nAnswer: Any one of: it never converts strings to factors, it prints a compact tibble preview, or it reports column types as it reads.\nExplanation: read_csv() uses modern defaults (no stringsAsFactors surprises) and tells you the parsed type of each column, so mismatches are visible immediately.\n\nKnowledge Check: Excel sheets read_excel(here(\"data\", \"students.xlsx\")) reads which sheet by default, and how would you read the second sheet instead?\n\n\nClick to reveal answer\n\nAnswer: The first sheet by default; pass sheet = 2 (or the sheet name) to read the second sheet.\nExplanation: read_excel() defaults to sheet 1; the sheet argument selects another sheet by position or name.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>RStudio Projects & Data Import</span>"
+    ]
+  },
+  {
+    "objectID": "first-plot.html",
+    "href": "first-plot.html",
+    "title": "13  Your First Visualization",
+    "section": "",
+    "text": "13.1 Base R graphics\nplot(mpg$displ, mpg$hwy, xlab = \"Displacement\", ylab = \"Highway MPG\")",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Your First Visualization</span>"
+    ]
+  },
+  {
+    "objectID": "first-plot.html#ggplot2-graphics",
+    "href": "first-plot.html#ggplot2-graphics",
+    "title": "13  Your First Visualization",
+    "section": "13.2 ggplot2 graphics",
+    "text": "13.2 ggplot2 graphics\n\nggplot(mpg, aes(x = displ, y = hwy)) +\n  geom_point() +\n  labs(x = \"Displacement\", y = \"Highway MPG\")\n\n\n\n\n\n\n\n\nMental model: every ggplot is data (mpg) + aesthetics (aes(x, y)) + geometry (geom_point()). Change the geometry, keep the mapping.",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Your First Visualization</span>"
+    ]
+  },
+  {
+    "objectID": "first-plot.html#try-it-in-your-browser",
+    "href": "first-plot.html#try-it-in-your-browser",
+    "title": "13  Your First Visualization",
+    "section": "Try it in your browser",
+    "text": "Try it in your browser\nEdit the code below and press Run. It executes entirely in your browser via WebR — no R installation needed. The runtime downloads once, on this page only.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Your First Visualization</span>"
+    ]
+  },
+  {
+    "objectID": "first-plot.html#practice-check",
+    "href": "first-plot.html#practice-check",
+    "title": "13  Your First Visualization",
+    "section": "13.3 Practice Check",
+    "text": "13.3 Practice Check\nKnowledge Check: Data + aesthetics + geometry In ggplot(mpg, aes(x = displ, y = hwy)) + geom_point(), which part is the data, which is the aesthetics mapping, and which is the geometry?\n\n\nClick to reveal answer\n\nAnswer: Data: mpg. Aesthetics: aes(x = displ, y = hwy). Geometry: geom_point().\nExplanation: ggplot() takes the data and the variable mapping; each geom_*() layer decides how those mapped variables are drawn.\n\nKnowledge Check: Why library(ggplot2) comes first What error do you get from plot(mpg$displ, mpg$hwy) in a fresh R session, and why?\n\n\nClick to reveal answer\n\nAnswer: object 'mpg' not found — base R has no mpg dataset (it has mtcars); mpg only exists after library(ggplot2) (or data(mpg, package = \"ggplot2\")).\nExplanation: Datasets live inside packages. Until the package is loaded, its data is invisible to your session.\n\nKnowledge Check: Changing the geometry How would you turn the scatterplot into a smoothed trend line plot without changing the data or the variable mapping?\n\n\nClick to reveal answer\n\nAnswer: Replace geom_point() with geom_smooth() (or add it as a second layer).\nExplanation: Data + aesthetics stay fixed while geometries are interchangeable layers — that is the point of the grammar of graphics.\n\nKnowledge Check: Aesthetics mapping In aes(x = displ, y = hwy), what do x and y refer to — plot labels or dataset columns?\n\n\nClick to reveal answer\n\nAnswer: Dataset columns: mpg$displ mapped to horizontal position, mpg$hwy to vertical position.\nExplanation: aes() maps columns of the data to visual properties. Labels are set separately with labs().\n\nKnowledge Check: Base R vs ggplot2 The base R call repeats mpg$ twice; the ggplot2 call mentions mpg once. Why is that difference useful as plots get more complex?\n\n\nClick to reveal answer\n\nAnswer: Declaring the data once in ggplot(mpg, ...) means every layer inherits it — you never retype the data source per variable, so longer plots stay readable and less error-prone.\nExplanation: One data declaration shared across layers beats repeating data$column for every variable, especially with facets and multiple geoms.",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Your First Visualization</span>"
+    ]
+  },
+  {
+    "objectID": "first-wrangle.html",
+    "href": "first-wrangle.html",
+    "title": "14  Your First Data Wrangling",
+    "section": "",
+    "text": "14.1 The five verbs\nWe use the native base pipe |&gt; (standard since R 4.1.0; zero external dependencies). We do not use %&gt;%.\nmpg |&gt;\n  filter(manufacturer == \"audi\") |&gt;\n  select(manufacturer, model, displ, hwy) |&gt;\n  mutate(km_per_litre = hwy * 0.425144) |&gt;\n  arrange(desc(hwy))\n\n# A tibble: 18 × 5\n   manufacturer model      displ   hwy km_per_litre\n   &lt;chr&gt;        &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;        &lt;dbl&gt;\n 1 audi         a4           2      31        13.2 \n 2 audi         a4           2      30        12.8 \n 3 audi         a4           1.8    29        12.3 \n 4 audi         a4           1.8    29        12.3 \n 5 audi         a4 quattro   2      28        11.9 \n 6 audi         a4           3.1    27        11.5 \n 7 audi         a4 quattro   2      27        11.5 \n 8 audi         a4           2.8    26        11.1 \n 9 audi         a4           2.8    26        11.1 \n10 audi         a4 quattro   1.8    26        11.1 \n11 audi         a4 quattro   1.8    25        10.6 \n12 audi         a4 quattro   2.8    25        10.6 \n13 audi         a4 quattro   2.8    25        10.6 \n14 audi         a4 quattro   3.1    25        10.6 \n15 audi         a4 quattro   3.1    25        10.6 \n16 audi         a6 quattro   3.1    25        10.6 \n17 audi         a6 quattro   2.8    24        10.2 \n18 audi         a6 quattro   4.2    23         9.78\nmpg |&gt;\n  summarise(mean_hwy = mean(hwy), n = dplyr::n())\n\n# A tibble: 1 × 2\n  mean_hwy     n\n     &lt;dbl&gt; &lt;int&gt;\n1     23.4   234",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Your First Data Wrangling</span>"
+    ]
+  },
+  {
+    "objectID": "first-wrangle.html#the-five-verbs",
+    "href": "first-wrangle.html#the-five-verbs",
+    "title": "14  Your First Data Wrangling",
+    "section": "",
+    "text": "Common Mistake: mean() on a vector with NA returns NA. Add na.rm = TRUE when missing values are present.",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Your First Data Wrangling</span>"
+    ]
+  },
+  {
+    "objectID": "first-wrangle.html#try-it-in-your-browser",
+    "href": "first-wrangle.html#try-it-in-your-browser",
+    "title": "14  Your First Data Wrangling",
+    "section": "Try it in your browser",
+    "text": "Try it in your browser\nEdit the code below and press Run. It executes entirely in your browser via WebR — no R installation needed. The runtime downloads once, on this page only.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Your First Data Wrangling</span>"
+    ]
+  },
+  {
+    "objectID": "first-wrangle.html#practice-check",
+    "href": "first-wrangle.html#practice-check",
+    "title": "14  Your First Data Wrangling",
+    "section": "14.2 Practice Check",
+    "text": "14.2 Practice Check\nKnowledge Check: Filter then select What does mpg |&gt; filter(manufacturer == \"audi\") |&gt; select(model, hwy) return?\n\n\nClick to reveal answer\n\nAnswer: A data frame with two columns (model, hwy) containing only the rows where manufacturer is \"audi\".\nExplanation: filter() keeps matching rows; select() keeps matching columns. The |&gt; pipe passes the left-hand result into the first argument of the right-hand function.\n\nKnowledge Check: mutate() adds columns What does mpg |&gt; mutate(km_per_litre = hwy * 0.425144) return, and how many rows does the result have compared to mpg?\n\n\nClick to reveal answer\n\nAnswer: The full mpg data with one extra column (km_per_litre); the row count is unchanged.\nExplanation: mutate() adds (or modifies) columns row-wise — it never adds or removes rows. Use filter() to change row counts.\n\nKnowledge Check: arrange() ordering After mpg |&gt; arrange(desc(hwy)), which kind of car sits in row 1?\n\n\nClick to reveal answer\n\nAnswer: The car with the highest highway mileage (hwy).\nExplanation: arrange() sorts ascending by default; wrapping in desc() flips it to descending, so the maximum comes first.\n\nKnowledge Check: summarise() collapses rows How many rows does mpg |&gt; summarise(mean_hwy = mean(hwy), n = dplyr::n()) return, and why?\n\n\nClick to reveal answer\n\nAnswer: Exactly one row: the mean of hwy across the whole dataset and the total row count.\nExplanation: Without group_by(), summarise() collapses the entire data frame into a single summary row.\n\nKnowledge Check: Reading a pipeline Read this pipeline aloud in order: mpg |&gt; filter(manufacturer == \"audi\") |&gt; select(model, hwy) |&gt; arrange(desc(hwy)). What question does it answer?\n\n\nClick to reveal answer\n\nAnswer: “Among Audi models, which has the best (and worst) highway mileage?” — it keeps only Audis, keeps the model and mileage columns, and sorts best-first.\nExplanation: Pipelines read top-to-bottom as a sequence of verbs; narrating each step in plain words is the fastest way to check you built the right one.",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Your First Data Wrangling</span>"
+    ]
+  },
+  {
+    "objectID": "first-wrangle.html#where-to-go-next",
+    "href": "first-wrangle.html#where-to-go-next",
+    "title": "14  Your First Data Wrangling",
+    "section": "14.3 Where to go next",
+    "text": "14.3 Where to go next\n\nWhere to go next: - Book: R for Data Science (2e) — start at Chapter 1 - Courses: Rsquared Academy Data Wrangling series - More books: ebooks.rsquaredacademy.com",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Your First Data Wrangling</span>"
+    ]
+  }
+]
