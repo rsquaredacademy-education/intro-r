@@ -1,0 +1,71 @@
+name: CI
+
+on:
+  push:
+    branches: [master, "spike/**"]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: "4.5"
+
+      - uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: "1.6.40"
+
+      - name: Install R packages
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            bookdown
+            rmarkdown
+            knitr
+            readr
+            readxl
+            here
+            ggplot2
+            dplyr
+
+      - name: Render book
+        run: |
+          if ls *.qmd >/dev/null 2>&1; then
+            quarto render
+          else
+            Rscript -e 'bookdown::render_book("index.Rmd", "bookdown::gitbook")'
+            Rscript _post-render.R
+          fi
+
+      - name: Gate 1 - no unresolved cross-references
+        run: |
+          if grep -r '??</strong>' docs/*.html; then
+            echo 'FAIL: unresolved ?? references found'; exit 1
+          fi
+          echo 'OK: no ?? in published HTML'
+
+      - name: Gate 2 - redirect targets exist
+        run: |
+          missing=0
+          for dest in introduction-to-r about-the-author install-r-and-rstudio \
+            variables-in-r data-types-in-r getting-help-in-r vectors-in-r \
+            data-frames-in-r factors-in-r lists-in-r install-update-r-packages \
+            projects-import first-plot first-wrangle index; do
+            if [ ! -f "docs/${dest}.html" ]; then echo "MISSING: docs/${dest}.html"; missing=1; fi
+          done
+          # legacy slugs must not exist as stale files shadowing Netlify 301s
+          for stale in installation references; do
+            if [ -f "docs/${stale}.html" ]; then echo "STALE: docs/${stale}.html"; missing=1; fi
+          done
+          exit $missing
+
+      - name: Gate 3 - link check (advisory)
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --exclude-mail --max-concurrency 8 --exclude '/libs/' 'docs/**/*.html'
+          fail: false
