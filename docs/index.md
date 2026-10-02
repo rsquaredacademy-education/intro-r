@@ -1,7 +1,7 @@
 --- 
 title: "Introduction to R"
 author: "Aravind Hebbali"
-date: "2026-09-29"
+date: "2026-10-02"
 site: bookdown::bookdown_site
 lang: en
 documentclass: book
