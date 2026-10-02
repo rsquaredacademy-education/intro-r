@@ -10,7 +10,9 @@ SITE_URL="${2:-https://intro-r.rsquaredacademy.com}"
   echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
   for f in "$DOCS_DIR"/*.html; do
     page=$(basename "$f")
+    # 404 and the Search Console verification file are not content pages
     [ "$page" = "404.html" ] && continue
+    case "$page" in google*.html) continue ;; esac
     echo "  <url><loc>${SITE_URL}/${page}</loc></url>"
   done
   echo '</urlset>'

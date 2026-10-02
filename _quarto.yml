@@ -3,9 +3,9 @@ project:
   output-dir: docs
   resources:
     - "robots.txt"
-    - "sitemap.xml"
     - "google02e424888b5e2def.html"
     - "404.html"
+    - "img/og-card.png"
 
 quarto-required: ">=1.6.0"
 sitemap: true
