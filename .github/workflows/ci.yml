@@ -20,6 +20,8 @@ jobs:
         with:
           version: "1.6.40"
 
+      - uses: typst-community/setup-typst@v4
+
       - name: Install R packages
         uses: r-lib/actions/setup-r-dependencies@v2
         with:
