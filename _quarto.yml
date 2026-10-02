@@ -17,20 +17,20 @@ book:
   description: "A beginner-friendly introduction to the R programming language."
   chapters:
     - index.qmd
-    - 00-author.qmd
-    - 01-intro.qmd
-    - 02-installation.qmd
-    - 03-variables.qmd
-    - 04-data-types.qmd
-    - 05-getting-help.qmd
-    - 06-vectors.qmd
-    - 07-data-frames.qmd
-    - 08-factors.qmd
-    - 09-lists.qmd
-    - 10-packages.qmd
-    - 11-projects-import.qmd
-    - 12-first-plot.qmd
-    - 13-first-wrangle.qmd
+    - about-the-author.qmd
+    - introduction-to-r.qmd
+    - install-r-and-rstudio.qmd
+    - variables-in-r.qmd
+    - data-types-in-r.qmd
+    - getting-help-in-r.qmd
+    - vectors-in-r.qmd
+    - data-frames-in-r.qmd
+    - factors-in-r.qmd
+    - lists-in-r.qmd
+    - install-update-r-packages.qmd
+    - projects-import.qmd
+    - first-plot.qmd
+    - first-wrangle.qmd
 
 website:
   site-url: https://intro-r.rsquaredacademy.com
@@ -66,6 +66,7 @@ format:
     pdf-engine: typst
     keep-typ: false
     code-overflow: wrap
+    fig-format: png
     toc: true
     number-sections: true
   epub:
