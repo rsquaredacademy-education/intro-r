@@ -78,7 +78,7 @@ jobs:
 
       - name: Gate 3 - sitemap covers every page
         run: |
-          pages=$(ls docs/*.html | grep -v 404.html | wc -l)
+          pages=$(ls docs/*.html | grep -v 404.html | grep -v 'google.*\.html' | wc -l)
           urls=$(grep -c '<url>' docs/sitemap.xml)
           if [ "$pages" -ne "$urls" ]; then
             echo "FAIL: $pages pages but $urls sitemap URLs"; exit 1
