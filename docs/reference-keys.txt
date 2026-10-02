@@ -119,3 +119,11 @@ portable-paths-with-here
 reading-csv-files
 reading-excel-files
 practice-check
+first-plot
+base-r-graphics
+ggplot2-graphics
+practice-check-1
+first-wrangle
+the-five-verbs
+practice-check-2
+where-to-go-next

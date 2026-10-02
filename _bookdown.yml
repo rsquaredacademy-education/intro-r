@@ -18,5 +18,7 @@ rmd_files: [
   "08-factors.Rmd",
   "09-lists.Rmd",
   "10-packages.Rmd",
-  "11-projects-import.Rmd"
+  "11-projects-import.Rmd",
+  "12-first-plot.Rmd",
+  "13-first-wrangle.Rmd"
 ]

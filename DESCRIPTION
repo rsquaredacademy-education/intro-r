@@ -12,6 +12,8 @@ Suggests:
     knitr,
     readr,
     readxl,
-    here
+    here,
+    ggplot2,
+    dplyr
 URL: https://intro-r.rsquaredacademy.com,
     https://github.com/rsquaredacademy-education/intro-r

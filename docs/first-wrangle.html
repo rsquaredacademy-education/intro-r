@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Page not found | Introduction to R</title>
+  <title>Chapter 13 Your First Data Wrangling | Introduction to R</title>
   <meta name="description" content="A beginner-friendly introduction to the R programming language." />
   <meta name="generator" content="bookdown 0.48 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Page not found | Introduction to R" />
+  <meta property="og:title" content="Chapter 13 Your First Data Wrangling | Introduction to R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="A beginner-friendly introduction to the R programming language." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | Introduction to R" />
+  <meta name="twitter:title" content="Chapter 13 Your First Data Wrangling | Introduction to R" />
   
   <meta name="twitter:description" content="A beginner-friendly introduction to the R programming language." />
   
@@ -30,7 +30,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
+<link rel="prev" href="first-plot.html"/>
 
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -122,10 +122,10 @@
 <meta property="og:image" content="https://intro-r.rsquaredacademy.com/img/og-card.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="Page not found | Introduction to R — book preview card" />
+<meta property="og:image:alt" content="Chapter 13 Your First Data Wrangling | Introduction to R — book preview card" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://intro-r.rsquaredacademy.com/img/og-card.png" />
-<meta name="twitter:image:alt" content="Page not found | Introduction to R — book preview card" />
+<meta name="twitter:image:alt" content="Chapter 13 Your First Data Wrangling | Introduction to R — book preview card" />
 <link rel="canonical" href="https://intro-r.rsquaredacademy.com/index.html" />
 
 
@@ -424,11 +424,131 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="first-wrangle" class="section level1 hasAnchor" number="13">
+<h1><span class="header-section-number">Chapter 13</span> Your First Data Wrangling<a href="first-wrangle.html#first-wrangle" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<blockquote>
+<p><strong>Learning Objectives:</strong> After this chapter you will be able to:
+- Use the five core <code>dplyr</code> verbs: <code>filter()</code>, <code>select()</code>, <code>mutate()</code>,
+<code>arrange()</code>, <code>summarise()</code>.
+- Chain steps with the native base pipe <code>|&gt;</code>.
+- Know where to go next after this book.</p>
+</blockquote>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="first-wrangle.html#cb301-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
+<pre><code>## Warning: package &#39;dplyr&#39; was built under R version 4.5.3</code></pre>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="first-wrangle.html#cb303-1" tabindex="-1"></a><span class="co"># ggplot2 bundles the `mpg` dataset (MIT license, same as ggplot2 itself)</span></span>
+<span id="cb303-2"><a href="first-wrangle.html#cb303-2" tabindex="-1"></a><span class="fu">data</span>(mpg, <span class="at">package =</span> <span class="st">&quot;ggplot2&quot;</span>)</span></code></pre></div>
+<p>We use the native base pipe <code>|&gt;</code> (standard since R 4.1.0; zero external
+dependencies). We do <strong>not</strong> use <code>%&gt;%</code>.</p>
+<div id="the-five-verbs" class="section level2 hasAnchor" number="13.1">
+<h2><span class="header-section-number">13.1</span> The five verbs<a href="first-wrangle.html#the-five-verbs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="first-wrangle.html#cb304-1" tabindex="-1"></a>mpg <span class="sc">|&gt;</span></span>
+<span id="cb304-2"><a href="first-wrangle.html#cb304-2" tabindex="-1"></a>  <span class="fu">filter</span>(manufacturer <span class="sc">==</span> <span class="st">&quot;audi&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb304-3"><a href="first-wrangle.html#cb304-3" tabindex="-1"></a>  <span class="fu">select</span>(manufacturer, model, displ, hwy) <span class="sc">|&gt;</span></span>
+<span id="cb304-4"><a href="first-wrangle.html#cb304-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">km_per_litre =</span> hwy <span class="sc">*</span> <span class="fl">0.425144</span>) <span class="sc">|&gt;</span></span>
+<span id="cb304-5"><a href="first-wrangle.html#cb304-5" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(hwy))</span></code></pre></div>
+<pre><code>## # A tibble: 18 × 5
+##    manufacturer model      displ   hwy km_per_litre
+##    &lt;chr&gt;        &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;        &lt;dbl&gt;
+##  1 audi         a4           2      31        13.2 
+##  2 audi         a4           2      30        12.8 
+##  3 audi         a4           1.8    29        12.3 
+##  4 audi         a4           1.8    29        12.3 
+##  5 audi         a4 quattro   2      28        11.9 
+##  6 audi         a4           3.1    27        11.5 
+##  7 audi         a4 quattro   2      27        11.5 
+##  8 audi         a4           2.8    26        11.1 
+##  9 audi         a4           2.8    26        11.1 
+## 10 audi         a4 quattro   1.8    26        11.1 
+## 11 audi         a4 quattro   1.8    25        10.6 
+## 12 audi         a4 quattro   2.8    25        10.6 
+## 13 audi         a4 quattro   2.8    25        10.6 
+## 14 audi         a4 quattro   3.1    25        10.6 
+## 15 audi         a4 quattro   3.1    25        10.6 
+## 16 audi         a6 quattro   3.1    25        10.6 
+## 17 audi         a6 quattro   2.8    24        10.2 
+## 18 audi         a6 quattro   4.2    23         9.78</code></pre>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="first-wrangle.html#cb306-1" tabindex="-1"></a>mpg <span class="sc">|&gt;</span></span>
+<span id="cb306-2"><a href="first-wrangle.html#cb306-2" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_hwy =</span> <span class="fu">mean</span>(hwy), <span class="at">n =</span> dplyr<span class="sc">::</span><span class="fu">n</span>())</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 2
+##   mean_hwy     n
+##      &lt;dbl&gt; &lt;int&gt;
+## 1     23.4   234</code></pre>
+<blockquote>
+<p><strong>Common Mistake:</strong> <code>mean()</code> on a vector with <code>NA</code> returns <code>NA</code>.
+Add <code>na.rm = TRUE</code> when missing values are present.</p>
+</blockquote>
+</div>
+<div id="practice-check-2" class="section level2 hasAnchor" number="13.2">
+<h2><span class="header-section-number">13.2</span> Practice Check<a href="first-wrangle.html#practice-check-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Knowledge Check:</strong> <em>Filter then select</em>
+What does <code>mpg |&gt; filter(manufacturer == "audi") |&gt; select(model, hwy)</code> return?</p>
+<details>
+<summary>
+Click to reveal answer
+</summary>
+<p><strong>Answer:</strong> A data frame with two columns (<code>model</code>, <code>hwy</code>) containing only
+the rows where <code>manufacturer</code> is <code>"audi"</code>.</p>
+<em>Explanation:</em> <code>filter()</code> keeps matching rows; <code>select()</code> keeps matching
+columns. The <code>|&gt;</code> pipe passes the left-hand result into the first argument
+of the right-hand function.
+</details>
+<p><strong>Knowledge Check:</strong> <em><code>mutate()</code> adds columns</em>
+What does <code>mpg |&gt; mutate(km_per_litre = hwy * 0.425144)</code> return, and how many
+rows does the result have compared to <code>mpg</code>?</p>
+<details>
+<summary>
+Click to reveal answer
+</summary>
+<p><strong>Answer:</strong> The full <code>mpg</code> data with one extra column (<code>km_per_litre</code>); the
+row count is unchanged.</p>
+<em>Explanation:</em> <code>mutate()</code> adds (or modifies) columns row-wise — it never
+adds or removes rows. Use <code>filter()</code> to change row counts.
+</details>
+<p><strong>Knowledge Check:</strong> <em><code>arrange()</code> ordering</em>
+After <code>mpg |&gt; arrange(desc(hwy))</code>, which kind of car sits in row 1?</p>
+<details>
+<summary>
+Click to reveal answer
+</summary>
+<p><strong>Answer:</strong> The car with the highest highway mileage (<code>hwy</code>).</p>
+<em>Explanation:</em> <code>arrange()</code> sorts ascending by default; wrapping in <code>desc()</code>
+flips it to descending, so the maximum comes first.
+</details>
+<p><strong>Knowledge Check:</strong> <em><code>summarise()</code> collapses rows</em>
+How many rows does <code>mpg |&gt; summarise(mean_hwy = mean(hwy), n = dplyr::n())</code>
+return, and why?</p>
+<details>
+<summary>
+Click to reveal answer
+</summary>
+<p><strong>Answer:</strong> Exactly one row: the mean of <code>hwy</code> across the whole dataset and
+the total row count.</p>
+<em>Explanation:</em> Without <code>group_by()</code>, <code>summarise()</code> collapses the entire data
+frame into a single summary row.
+</details>
+<p><strong>Knowledge Check:</strong> <em>Reading a pipeline</em>
+Read this pipeline aloud in order: <code>mpg |&gt; filter(manufacturer == "audi") |&gt; select(model, hwy) |&gt; arrange(desc(hwy))</code>. What question does it answer?</p>
+<details>
+<summary>
+Click to reveal answer
+</summary>
+<p><strong>Answer:</strong> “Among Audi models, which has the best (and worst) highway
+mileage?” — it keeps only Audis, keeps the model and mileage columns, and
+sorts best-first.</p>
+<em>Explanation:</em> Pipelines read top-to-bottom as a sequence of verbs; narrating
+each step in plain words is the fastest way to check you built the right one.
+</details>
+</div>
+<div id="where-to-go-next" class="section level2 hasAnchor" number="13.3">
+<h2><span class="header-section-number">13.3</span> Where to go next<a href="first-wrangle.html#where-to-go-next" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<blockquote>
+<p><strong>Where to go next:</strong>
+- Book: <a href="https://r4ds.hadley.nz/">R for Data Science (2e)</a> — start at Chapter 1
+- Courses: <a href="https://www.rsquaredacademy.com/">Rsquared Academy</a> Data Wrangling series
+- More books: <a href="https://ebooks.rsquaredacademy.com/">ebooks.rsquaredacademy.com</a></p>
+</blockquote>
+
+</div>
 </div>
 <footer class="rsite-footer">
   <p>Free and open — enjoy the full book online. Explore more at
@@ -440,7 +560,7 @@ the table of contents to find the page you are looking for.</p>
           </div>
         </div>
       </div>
-
+<a href="first-plot.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>
@@ -473,7 +593,7 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/rsquaredacademy-education/intro-r/edit/master/%s",
+    "link": "https://github.com/rsquaredacademy-education/intro-r/edit/master/13-first-wrangle.Rmd",
     "text": "Edit this page"
   },
   "history": {
