@@ -30,8 +30,6 @@ jobs:
         uses: r-lib/actions/setup-r-dependencies@v2
         with:
           packages: |
-            bookdown
-            rmarkdown
             knitr
             readr
             readxl
@@ -43,13 +41,7 @@ jobs:
         run: Rscript scripts/webr-smoke.R
 
       - name: Render book
-        run: |
-          if ls *.qmd >/dev/null 2>&1; then
-            quarto render
-          else
-            Rscript -e 'bookdown::render_book("index.Rmd", "bookdown::gitbook")'
-            Rscript _post-render.R
-          fi
+        run: quarto render
 
       - name: Sitemap
         run: bash scripts/make-sitemap.sh docs https://intro-r.rsquaredacademy.com

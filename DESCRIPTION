@@ -4,11 +4,9 @@ Version: 1.1.0
 Authors@R: person("Aravind", "Hebbali", email = "books@rsquaredacademy.com", role = c("aut", "cre"))
 Description: A beginner's guide to the R programming language covering
     installation, variables, data types, vectors, data frames, factors,
-    lists, and package management.
+    lists, package management, data import, visualization and wrangling.
 License: CC-BY-NC-SA-4.0
 Suggests:
-    bookdown,
-    rmarkdown,
     knitr,
     readr,
     readxl,
