@@ -6,6 +6,9 @@ on:
   pull_request:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-24.04
@@ -85,3 +88,14 @@ jobs:
         with:
           args: --exclude-mail --max-concurrency 8 --exclude 'site_libs/' 'docs/**/*.html'
           fail: false
+
+      # Keeps docs/ in step with the .qmd sources. Without this, the site only
+      # changes when a human remembers to commit a local render. Safe from
+      # feedback loops: pushes made with GITHUB_TOKEN do not trigger further
+      # workflow runs, even though PDF/ePub differ on every build.
+      - name: Commit docs
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "docs: rebuild site via ci"
+          file_pattern: docs/
