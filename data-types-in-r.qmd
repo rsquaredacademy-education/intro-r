@@ -179,4 +179,7 @@ independence_day
 format(independence_day, "%B %d, %Y")
 ```
 
-For date-times, use `as.POSIXct()` (or the `lubridate` package, see the appendix in Phase 3).
+For date-times, use `as.POSIXct()`. Once you need to do arithmetic with dates —
+finding differences, adding months, handling time zones — reach for the
+[lubridate](https://lubridate.tidyverse.org/) package, which provides a
+consistent, readable vocabulary for all of it.

@@ -76,7 +76,10 @@ jobs:
           done
           exit $missing
 
-      - name: Gate 3 - sitemap covers every page
+      - name: Gate 3 - redirect targets resolve
+        run: bash scripts/test-redirects.sh docs
+
+      - name: Gate 4 - sitemap covers every page
         run: |
           pages=$(ls docs/*.html | grep -v 404.html | grep -v 'google.*\.html' | wc -l)
           urls=$(grep -c '<url>' docs/sitemap.xml)
@@ -85,7 +88,7 @@ jobs:
           fi
           echo "OK: $urls pages in sitemap"
 
-      - name: Gate 4 - link check (advisory)
+      - name: Gate 5 - link check (advisory)
         uses: lycheeverse/lychee-action@v2
         with:
           args: --exclude-mail --max-concurrency 8 --exclude 'site_libs/' 'docs/**/*.html'

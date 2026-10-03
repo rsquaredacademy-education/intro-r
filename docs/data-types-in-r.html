@@ -106,72 +106,139 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 <!-- GA4 with GDPR consent-first loading (Measurement ID G-W92F847S2X).
+
      Phase 0 decision: GA4. No tracking request is made until the visitor
+
      clicks "Accept". Choice persists in localStorage ("intro-r-consent").
+
      Declining (or ignoring) means gtag.js is never loaded. -->
+
 <script>
+
   (function () {
+
     var MEASUREMENT_ID = "G-W92F847S2X";
+
     var STORAGE_KEY = "intro-r-consent";
 
+
+
     function loadGtag() {
+
       var s = document.createElement("script");
+
       s.async = true;
+
       s.src = "https://www.googletagmanager.com/gtag/js?id=" + MEASUREMENT_ID;
+
       document.head.appendChild(s);
+
       window.dataLayer = window.dataLayer || [];
+
       function gtag() { dataLayer.push(arguments); }
+
       window.gtag = gtag;
+
       gtag("js", new Date());
+
       gtag("config", MEASUREMENT_ID);
+
     }
+
+
 
     function hideBanner() {
+
       var banner = document.getElementById("consent-banner");
+
       if (banner) banner.remove();
+
     }
+
+
 
     try {
+
       var choice = localStorage.getItem(STORAGE_KEY);
+
       if (choice === "granted") {
+
         loadGtag();
+
         return; // returning visitor who already accepted: no banner
+
       }
+
       if (choice === "denied") return; // returning visitor who declined: stay silent
+
     } catch (e) { /* storage unavailable: fall through and show banner */ }
 
+
+
     // First visit (or no stored choice): show banner once the DOM is ready.
+
     function showBanner() {
+
       if (document.getElementById("consent-banner")) return;
+
       var banner = document.createElement("div");
+
       banner.id = "consent-banner";
+
       banner.setAttribute("role", "dialog");
+
       banner.setAttribute("aria-live", "polite");
+
       banner.setAttribute("aria-label", "Cookie consent");
+
       banner.innerHTML =
+
         "<p>This site uses Google Analytics to understand visits. " +
+
         "No tracking loads unless you accept.</p>" +
+
         '<p><button id="consent-accept" type="button">Accept</button> ' +
+
         '<button id="consent-decline" type="button">Decline</button></p>';
+
       document.body.appendChild(banner);
+
       document.getElementById("consent-accept").onclick = function () {
+
         try { localStorage.setItem(STORAGE_KEY, "granted"); } catch (e) {}
+
         hideBanner();
+
         loadGtag();
+
       };
+
       document.getElementById("consent-decline").onclick = function () {
+
         try { localStorage.setItem(STORAGE_KEY, "denied"); } catch (e) {}
+
         hideBanner();
+
       };
+
     }
 
+
+
     if (document.readyState === "loading") {
+
       document.addEventListener("DOMContentLoaded", showBanner);
+
     } else {
+
       showBanner();
+
     }
+
   })();
+
 </script>
+
 <meta property="og:image" content="https://intro-r.rsquaredacademy.com/img/og-card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -484,7 +551,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.character</span>(today)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2026-10-02 23:11:17.29978"</code></pre>
+<pre><code>[1] "2026-10-03 09:36:40.9227"</code></pre>
 </div>
 </div>
 </section>
@@ -594,7 +661,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>today_date <span class="ot">&lt;-</span> <span class="fu">Sys.Date</span>()</span>
 <span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>today_date</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2026-10-02"</code></pre>
+<pre><code>[1] "2026-10-03"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(today_date)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -612,7 +679,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[1] "January 15, 2026"</code></pre>
 </div>
 </div>
-<p>For date-times, use <code>as.POSIXct()</code> (or the <code>lubridate</code> package, see the appendix in Phase 3).</p>
+<p>For date-times, use <code>as.POSIXct()</code>. Once you need to do arithmetic with dates — finding differences, adding months, handling time zones — reach for the <a href="https://lubridate.tidyverse.org/">lubridate</a> package, which provides a consistent, readable vocabulary for all of it.</p>
 
 
 </section>
