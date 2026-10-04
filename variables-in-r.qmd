@@ -60,9 +60,12 @@ area
 
 ## Components of a Variable
 
-```{r img1, fig.align='center', echo=FALSE, fig.alt='Diagram of the components of a variable in R'}
-knitr::include_graphics('img/components.png')
-```
+<figure class="quarto-figure-center figure" style="text-align:center">
+<picture>
+  <source srcset="img/components.webp" type="image/webp">
+  <img src="img/components.png" style="width:100.0%" width="739" height="359" loading="lazy" decoding="async" alt="Diagram of the components of a variable in R">
+</picture>
+</figure>
 
 ## Naming Conventions
 

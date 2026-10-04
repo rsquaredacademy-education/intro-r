@@ -77,8 +77,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-3846d7266b04868d3ce6ba15eaa41f0f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-9193e7c8f6e0ad4307b1caa0c157c415.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-3fccb1efae0c779f8bb3c794ad9fe263.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-9f0510f3fd2ea1c285a3fce2d4521767.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -107,72 +107,139 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 <!-- GA4 with GDPR consent-first loading (Measurement ID G-W92F847S2X).
+
      Phase 0 decision: GA4. No tracking request is made until the visitor
+
      clicks "Accept". Choice persists in localStorage ("intro-r-consent").
+
      Declining (or ignoring) means gtag.js is never loaded. -->
+
 <script>
+
   (function () {
+
     var MEASUREMENT_ID = "G-W92F847S2X";
+
     var STORAGE_KEY = "intro-r-consent";
 
+
+
     function loadGtag() {
+
       var s = document.createElement("script");
+
       s.async = true;
+
       s.src = "https://www.googletagmanager.com/gtag/js?id=" + MEASUREMENT_ID;
+
       document.head.appendChild(s);
+
       window.dataLayer = window.dataLayer || [];
+
       function gtag() { dataLayer.push(arguments); }
+
       window.gtag = gtag;
+
       gtag("js", new Date());
+
       gtag("config", MEASUREMENT_ID);
+
     }
+
+
 
     function hideBanner() {
+
       var banner = document.getElementById("consent-banner");
+
       if (banner) banner.remove();
+
     }
+
+
 
     try {
+
       var choice = localStorage.getItem(STORAGE_KEY);
+
       if (choice === "granted") {
+
         loadGtag();
+
         return; // returning visitor who already accepted: no banner
+
       }
+
       if (choice === "denied") return; // returning visitor who declined: stay silent
+
     } catch (e) { /* storage unavailable: fall through and show banner */ }
 
+
+
     // First visit (or no stored choice): show banner once the DOM is ready.
+
     function showBanner() {
+
       if (document.getElementById("consent-banner")) return;
+
       var banner = document.createElement("div");
+
       banner.id = "consent-banner";
+
       banner.setAttribute("role", "dialog");
+
       banner.setAttribute("aria-live", "polite");
+
       banner.setAttribute("aria-label", "Cookie consent");
+
       banner.innerHTML =
+
         "<p>This site uses Google Analytics to understand visits. " +
+
         "No tracking loads unless you accept.</p>" +
+
         '<p><button id="consent-accept" type="button">Accept</button> ' +
+
         '<button id="consent-decline" type="button">Decline</button></p>';
+
       document.body.appendChild(banner);
+
       document.getElementById("consent-accept").onclick = function () {
+
         try { localStorage.setItem(STORAGE_KEY, "granted"); } catch (e) {}
+
         hideBanner();
+
         loadGtag();
+
       };
+
       document.getElementById("consent-decline").onclick = function () {
+
         try { localStorage.setItem(STORAGE_KEY, "denied"); } catch (e) {}
+
         hideBanner();
+
       };
+
     }
 
+
+
     if (document.readyState === "loading") {
+
       document.addEventListener("DOMContentLoaded", showBanner);
+
     } else {
+
       showBanner();
+
     }
+
   })();
+
 </script>
+
 <meta property="og:image" content="https://intro-r.rsquaredacademy.com/img/og-card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -371,15 +438,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="preface" class="level1 unnumbered">
 <h1 class="unnumbered">Preface</h1>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/intro-r.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%" alt="Introduction to R book cover"></p>
+<figure class="quarto-figure-center figure" style="text-align:center">
+<picture> <source srcset="img/intro-r.webp" type="image/webp"> <img src="img/intro-r.png" style="width:60.0%" width="1080" height="1723" fetchpriority="high" decoding="async" alt="Introduction to R book cover" class="figure-img"> </picture>
 </figure>
-</div>
-</div>
-</div>
 <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a><br>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
 <section id="structure-of-the-book" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="structure-of-the-book">Structure of the book</h2>
@@ -391,31 +452,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R version 4.5.3 (2026-03-11)
-Platform: x86_64-pc-linux-gnu
-Running under: Ubuntu 24.04.5 LTS
+<pre><code>R version 4.5.2 (2025-10-31 ucrt)
+Platform: x86_64-w64-mingw32/x64
+Running under: Windows 10 x64 (build 19045)
 
 Matrix products: default
-BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3 
-LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.26.so;  LAPACK version 3.12.0
+  LAPACK version 3.12.1
 
 locale:
- [1] LC_CTYPE=C.UTF-8       LC_NUMERIC=C           LC_TIME=C.UTF-8       
- [4] LC_COLLATE=C.UTF-8     LC_MONETARY=C.UTF-8    LC_MESSAGES=C.UTF-8   
- [7] LC_PAPER=C.UTF-8       LC_NAME=C              LC_ADDRESS=C          
-[10] LC_TELEPHONE=C         LC_MEASUREMENT=C.UTF-8 LC_IDENTIFICATION=C   
+[1] LC_COLLATE=English_India.utf8  LC_CTYPE=English_India.utf8   
+[3] LC_MONETARY=English_India.utf8 LC_NUMERIC=C                  
+[5] LC_TIME=English_India.utf8    
 
-time zone: UTC
-tzcode source: system (glibc)
+time zone: Asia/Calcutta
+tzcode source: internal
 
 attached base packages:
 [1] stats     graphics  grDevices datasets  utils     methods   base     
 
 loaded via a namespace (and not attached):
- [1] htmlwidgets_1.6.4 compiler_4.5.3    fastmap_1.2.0     cli_3.6.6        
- [5] htmltools_0.5.9   tools_4.5.3       otel_0.2.0        yaml_2.3.12      
- [9] rmarkdown_2.32    knitr_1.52        jsonlite_2.0.0    xfun_0.61        
-[13] digest_0.6.39     rlang_1.3.0       renv_1.2.4        evaluate_1.0.5   </code></pre>
+ [1] compiler_4.5.2  fastmap_1.2.0   cli_3.6.6       htmltools_0.5.9
+ [5] tools_4.5.2     yaml_2.3.12     rmarkdown_2.32  knitr_1.52     
+ [9] jsonlite_2.0.0  xfun_0.61       digest_0.6.39   rlang_1.3.0    
+[13] renv_1.2.4      evaluate_1.0.5 </code></pre>
 </div>
 </div>
 <p>We do not add prompts (<code>&gt;</code> and <code>+</code>) to R source code in this book, and we comment out the text output with two hashes <code>##</code> by default, as you can see from the R session information above. This is for your convenience when you want to copy and run the code (the text output will be ignored since it is commented out). Package names are in bold text (e.g., <strong>rmarkdown</strong>), and function names are followed by parentheses (e.g., <code>mean()</code>). The double-colon operator <code>::</code> means accessing an object from a package.</p>

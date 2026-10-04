@@ -76,8 +76,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-3846d7266b04868d3ce6ba15eaa41f0f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-9193e7c8f6e0ad4307b1caa0c157c415.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-3fccb1efae0c779f8bb3c794ad9fe263.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-9f0510f3fd2ea1c285a3fce2d4521767.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -106,72 +106,139 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 <!-- GA4 with GDPR consent-first loading (Measurement ID G-W92F847S2X).
+
      Phase 0 decision: GA4. No tracking request is made until the visitor
+
      clicks "Accept". Choice persists in localStorage ("intro-r-consent").
+
      Declining (or ignoring) means gtag.js is never loaded. -->
+
 <script>
+
   (function () {
+
     var MEASUREMENT_ID = "G-W92F847S2X";
+
     var STORAGE_KEY = "intro-r-consent";
 
+
+
     function loadGtag() {
+
       var s = document.createElement("script");
+
       s.async = true;
+
       s.src = "https://www.googletagmanager.com/gtag/js?id=" + MEASUREMENT_ID;
+
       document.head.appendChild(s);
+
       window.dataLayer = window.dataLayer || [];
+
       function gtag() { dataLayer.push(arguments); }
+
       window.gtag = gtag;
+
       gtag("js", new Date());
+
       gtag("config", MEASUREMENT_ID);
+
     }
+
+
 
     function hideBanner() {
+
       var banner = document.getElementById("consent-banner");
+
       if (banner) banner.remove();
+
     }
+
+
 
     try {
+
       var choice = localStorage.getItem(STORAGE_KEY);
+
       if (choice === "granted") {
+
         loadGtag();
+
         return; // returning visitor who already accepted: no banner
+
       }
+
       if (choice === "denied") return; // returning visitor who declined: stay silent
+
     } catch (e) { /* storage unavailable: fall through and show banner */ }
 
+
+
     // First visit (or no stored choice): show banner once the DOM is ready.
+
     function showBanner() {
+
       if (document.getElementById("consent-banner")) return;
+
       var banner = document.createElement("div");
+
       banner.id = "consent-banner";
+
       banner.setAttribute("role", "dialog");
+
       banner.setAttribute("aria-live", "polite");
+
       banner.setAttribute("aria-label", "Cookie consent");
+
       banner.innerHTML =
+
         "<p>This site uses Google Analytics to understand visits. " +
+
         "No tracking loads unless you accept.</p>" +
+
         '<p><button id="consent-accept" type="button">Accept</button> ' +
+
         '<button id="consent-decline" type="button">Decline</button></p>';
+
       document.body.appendChild(banner);
+
       document.getElementById("consent-accept").onclick = function () {
+
         try { localStorage.setItem(STORAGE_KEY, "granted"); } catch (e) {}
+
         hideBanner();
+
         loadGtag();
+
       };
+
       document.getElementById("consent-decline").onclick = function () {
+
         try { localStorage.setItem(STORAGE_KEY, "denied"); } catch (e) {}
+
         hideBanner();
+
       };
+
     }
 
+
+
     if (document.readyState === "loading") {
+
       document.addEventListener("DOMContentLoaded", showBanner);
+
     } else {
+
       showBanner();
+
     }
+
   })();
+
 </script>
+
 <meta property="og:image" content="https://intro-r.rsquaredacademy.com/img/og-card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -2208,7 +2275,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"students.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "/home/runner/work/intro-r/intro-r/data/students.csv"</code></pre>
+<pre><code>[1] "F:/R/ebooks/intro-r/data/students.csv"</code></pre>
 </div>
 </div>
 <blockquote class="blockquote">

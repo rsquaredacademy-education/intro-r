@@ -83,8 +83,11 @@ built to suit the data science work flow. RStudio is developed by Posit (formerl
 RStudio, rebranded in 2022); [Positron](https://positron.posit.co/) is a modern
 alternative IDE for R and Python.
 
-```{r rstudio, fig.align='center', echo=FALSE, fig.alt='Screenshot of the RStudio IDE panes'}
-knitr::include_graphics('img/rstudio_ide.png')
-```
+<figure class="quarto-figure-center figure" style="text-align:center">
+<picture>
+  <source srcset="img/rstudio_ide.webp" type="image/webp">
+  <img src="img/rstudio_ide.png" style="width:100.0%" width="707" height="541" loading="lazy" decoding="async" alt="Screenshot of the RStudio IDE panes">
+</picture>
+</figure>
 
 

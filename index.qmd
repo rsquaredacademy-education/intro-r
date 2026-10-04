@@ -10,9 +10,12 @@ description: "A beginner-friendly introduction to the R programming language."
 
 # Preface {.unnumbered}
 
-```{r fig.align='center', echo=FALSE, out.width="60%", fig.alt='Introduction to R book cover'}
-knitr::include_graphics('img/intro-r.png')
-```
+<figure class="quarto-figure-center figure" style="text-align:center">
+<picture>
+  <source srcset="img/intro-r.webp" type="image/webp">
+  <img src="img/intro-r.png" style="width:60.0%" width="1080" height="1723" fetchpriority="high" decoding="async" alt="Introduction to R book cover">
+</picture>
+</figure>
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
 
