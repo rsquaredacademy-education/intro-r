@@ -1,6 +1,7 @@
 # Your First Data Wrangling {#sec-first-wrangle}
 
 > **Learning Objectives:** After this chapter you will be able to:
+>
 > - Use the five core `dplyr` verbs: `filter()`, `select()`, `mutate()`,
 >   `arrange()`, `summarise()`.
 > - Chain steps with the native base pipe `|>`.

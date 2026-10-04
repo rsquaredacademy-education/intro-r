@@ -1,6 +1,7 @@
 # Factors in R {#sec-factors-in-r}
 
 > **Learning Objectives:** After this chapter you will be able to:
+>
 > - Create a factor from a character vector.
 > - Inspect and count levels with `levels()` and `nlevels()`.
 > - Impose a natural order with `levels=` together with `ordered = TRUE`.

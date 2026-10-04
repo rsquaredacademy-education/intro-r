@@ -1,6 +1,7 @@
 # Install & Update R Packages {#sec-install-update-r-packages}
 
 > **Learning Objectives:** After this chapter you will be able to:
+>
 > - Install packages from CRAN, GitHub, Bitbucket, and Bioconductor.
 > - Install a specific archived version of a package.
 > - List, update, and remove installed packages.

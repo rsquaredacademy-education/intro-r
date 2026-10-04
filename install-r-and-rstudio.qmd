@@ -1,6 +1,7 @@
 # Install R & RStudio {#sec-install-r-and-rstudio}
 
 > **Learning Objectives:** After this chapter you will be able to:
+>
 > - Install R on Windows, macOS, or Linux from a CRAN mirror.
 > - Verify an installation by running `R.version.string`.
 > - Install RStudio Desktop, after R itself is in place.

@@ -1,6 +1,7 @@
 # RStudio Projects & Data Import {#sec-projects-import}
 
 > **Learning Objectives:** After this chapter you will be able to:
+>
 > - Work inside an RStudio Project (`.Rproj`) instead of `setwd()`.
 > - Build portable paths with `here::here()`.
 > - Read CSV files with `readr::read_csv()` and Excel files with `readxl::read_excel()`.

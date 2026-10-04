@@ -1,6 +1,7 @@
 # Lists in R {#sec-lists-in-r}
 
 > **Learning Objectives:** After this chapter you will be able to:
+>
 > - Create a list that holds elements of different types.
 > - Name list elements with `names()`.
 > - Access elements with `[[`, `[`, and `$`.

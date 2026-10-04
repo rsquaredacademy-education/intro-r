@@ -1,6 +1,7 @@
 # Data Types in R {#sec-data-types-in-r}
 
 > **Learning Objectives:** After this chapter you will be able to:
+>
 > - Create numeric, integer, character, and logical values.
 > - Check a value's type with `is.numeric()`, `is.integer()`, `is.character()`,
 >   and `is.logical()`.

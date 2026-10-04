@@ -1,6 +1,7 @@
 # Vectors in R {#sec-vectors-in-r}
 
 > **Learning Objectives:** After this chapter you will be able to:
+>
 > - Create atomic vectors of type numeric, integer, character, and logical.
 > - Name vector elements, and select elements by name.
 > - Apply arithmetic across a whole vector at once.

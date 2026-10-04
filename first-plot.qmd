@@ -1,6 +1,7 @@
 # Your First Visualization {#sec-first-plot}
 
 > **Learning Objectives:** After this chapter you will be able to:
+>
 > - Load `ggplot2` and its bundled `mpg` dataset.
 > - Draw the same scatterplot in base R and in ggplot2.
 > - Describe a plot as data + aesthetics + geometry.

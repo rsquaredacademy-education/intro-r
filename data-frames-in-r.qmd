@@ -1,6 +1,7 @@
 # Dataframes in R {#sec-data-frames-in-r}
 
 > **Learning Objectives:** After this chapter you will be able to:
+>
 > - Create a data frame from equal-length vectors.
 > - Inspect one with `str()`, `dim()`, `names()`, and `nrow()`/`ncol()`.
 > - Select columns with `[`, `[[`, and `$`.

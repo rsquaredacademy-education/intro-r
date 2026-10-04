@@ -1,6 +1,7 @@
 # Variables in R {#sec-variables-in-r}
 
 > **Learning Objectives:** After this chapter you will be able to:
+>
 > - Explain what a variable is and why programs use them.
 > - Create and reassign variables with `<-`.
 > - Use variables in arithmetic and in function calls.
