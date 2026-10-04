@@ -21,10 +21,13 @@ are `.qmd`, rendered with `quarto render` into `docs/`.
   to draw 5 icons, and Lato's `@import` inside the compiled theme CSS
   serialises the critical path. Both need a post-render patch of vendored
   Quarto output.
-- **Perf budgets are advisory.** `.github/workflows/ci.yml` runs
-  `scripts/perf-audit.mjs --runs 3` with `continue-on-error: true`; GitHub's
-  runners throttle ~2.6x harder than a workstation, so the budgets need
-  runner-specific recalibration before they can block.
+- **There is no perf gate in CI, on purpose.** `scripts/perf-audit.mjs` is a
+  local tool you run deliberately, not a CI step. Lighthouse mobile scores were
+  too noisy on shared runners to gate on, and a gate that reddens on
+  measurement noise gets ignored. Run it locally with `--runs 3`. The 4500ms
+  threshold is runner-calibrated; this machine has measured 4172ms and 4703ms on
+  the same build, so if it trips, add `--lcp-budget 5000` rather than editing the
+  committed budget. Do not re-add a Lighthouse step without RUM to back it.
 
 ## Notes
 
