@@ -89,23 +89,23 @@ jobs:
           args: --exclude-mail --max-concurrency 8 --exclude 'site_libs/' 'docs/**/*.html'
           fail: false
 
-      # Advisory only, and deliberately so. Lighthouse under simulated mobile
-      # throttling swings wildly between runs: the same unchanged page measured
-      # Perf 51-74 and LCP 4112-6793ms across repeated runs on identical
-      # hardware. --runs 3 gates on the median rather than a single sample, but
-      # the budgets in scripts/perf-audit.mjs were calibrated on a Windows
-      # workstation, not a shared GitHub runner, so this step may fail until they
-      # are recalibrated. Flip continue-on-error once the medians hold.
+      # Mobile perf budget. Advisory only, and deliberately so: GitHub's shared
+      # runners throttle harder than a workstation. The image-free control page
+      # factors-in-r.html measured LCP 3936ms locally but 10424ms on the runner,
+      # so the two environments are not comparable and the budgets are not yet
+      # trustworthy as gates. Flip continue-on-error once runner medians are
+      # recalibrated into scripts/perf-audit.mjs.
       #
-      # index.html is the known LCP outlier; factors-in-r.html is an image-free
-      # control, so if the control also moves the runner is under load and the
-      # index.html number can be ignored.
+      # Serve with `npx serve`, not `python3 -m http.server`: the latter sends no
+      # Content-Encoding, so transferSize came back as 1688KB uncompressed
+      # against 502KB locally and the weight budget could never pass. The server
+      # must match the one used for local runs or the weight number is fiction.
       - name: Mobile performance budget (advisory)
         continue-on-error: true
         run: |
-          python3 -m http.server 4321 --directory docs >/dev/null 2>&1 &
-          for i in $(seq 1 30); do
-            curl -sf -o /dev/null http://localhost:4321/index.html && break
+          npx --yes serve docs -l 4321 >/dev/null 2>&1 &
+          for i in $(seq 1 60); do
+            curl -sf -o /dev/null http://localhost:4321/ && break
             sleep 1
           done
           chrome="$(command -v google-chrome-stable || command -v google-chrome || command -v chromium || true)"
