@@ -1,5 +1,11 @@
 # Getting Help in R {#sec-getting-help-in-r}
 
+> **Learning Objectives:** After this chapter you will be able to:
+> - Look up any known function with `?name` or `help()`.
+> - Search help topics when you do not know the function name.
+> - Read a package's documentation, examples, and vignettes.
+> - Decide when the built-in help system is enough and when to go online.
+
 ## Introduction
 
 In this chapter, we will learn about the different methods of getting help in R. Often we get stuck while doing some analysis as either we do not know the correct function to use or its syntax. It is important for anyone who is new to R to know the right place to look for help. There are two ways to look for help in R:

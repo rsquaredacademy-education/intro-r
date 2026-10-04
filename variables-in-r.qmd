@@ -1,5 +1,12 @@
 # Variables in R {#sec-variables-in-r}
 
+> **Learning Objectives:** After this chapter you will be able to:
+> - Explain what a variable is and why programs use them.
+> - Create and reassign variables with `<-`.
+> - Use variables in arithmetic and in function calls.
+> - Name variables legally, including the rule that permits a leading `.`.
+> - Choose `snake_case` over periods, which are legal but discouraged.
+
 ## Introduction
 
 In the previous chapter, we learnt to install RStudio. In this chapter, we will learn about variables and data types. You can skip this chapter, if you have prior experience in any other programming language.

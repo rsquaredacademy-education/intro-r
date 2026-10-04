@@ -1,5 +1,11 @@
 # Introduction to R {#sec-introduction-to-r}
 
+> **Learning Objectives:** After this chapter you will be able to:
+> - Describe what R is and why it is widely used for data science.
+> - Name the organizations that steward R and its ecosystem.
+> - Distinguish RStudio Desktop from Positron as an IDE for R.
+> - Locate the panes you will work in: script editor, console, and output.
+
 ## Overview
 
 R is a free and open source programming language widely used in academia, 

@@ -1,14 +1,18 @@
 # Data Types in R {#sec-data-types-in-r}
 
-## Introduction
+> **Learning Objectives:** After this chapter you will be able to:
+> - Create numeric, integer, character, and logical values.
+> - Check a value's type with `is.numeric()`, `is.integer()`, `is.character()`,
+>   and `is.logical()`.
+> - Convert between types with `as.integer()`, `as.character()`, and friends.
+> - Explain implicit coercion when a vector mixes types.
+> - Create and format a date, and recognise `POSIXct` for date-times.
 
-In this chapter, we will learn about the following data types:
-
-- numeric/double
-- integer
-- character
-- logical
-- date/time
+Every value in R has a type, and the type decides what you can do with it. This
+chapter walks through the five you will meet first: `numeric` (double),
+`integer`, `character`, `logical`, and `date`/`time`. Most of the time you will
+let R infer the type for you, and then use the `is.*()` and `as.*()` functions
+to check or change it.
 
 ## Numeric
 

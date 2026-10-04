@@ -1,5 +1,13 @@
 # Vectors in R {#sec-vectors-in-r}
 
+> **Learning Objectives:** After this chapter you will be able to:
+> - Create atomic vectors of type numeric, integer, character, and logical.
+> - Name vector elements, and select elements by name.
+> - Apply arithmetic across a whole vector at once.
+> - Explain the coercion order `logical` → `integer` → `double` → `character`.
+> - Subset using positive, negative, and logical indices.
+> - Find missing values with `is.na()` and exclude them with `na.rm = TRUE`.
+
 ## Introduction
 
 Vector is the most basic data structure in R. It is a sequence of elements of the same data type. If the elements are of different data types, they will be coerced to a common type that can accommodate all the elements. Vectors are generally created using `c()` (concatenate function), although depending on the data type of vector being created, other methods can be used.
@@ -283,6 +291,10 @@ mean(vect1)
 mean(vect1, na.rm = TRUE)
 ```
 
+> **Common Mistake:** `mean()` on a vector containing `NA` returns `NA`, not the
+> mean of the values that are present. Add `na.rm = TRUE` to drop missing values
+> first, and check whether dropping them is defensible for your data.
+
 ## Index Vectors
 
 One of the most important steps in data analysis is selecting a subset of data from a bigger data set. Indexing helps in retrieving values individually or a set of values that meet a specific criteria. In this chapter, we look at various ways of indexing/subsetting vectors.
@@ -327,6 +339,10 @@ In the first case, we specified the index as 0 and in the second case we used th
 
 Using a negative index will delete the value in the said index position. Unlike other languages, it will not index elements from the
 end of the vector counting backwards. Let us look at an example to understand how negative index works in R:
+
+> **Common Mistake:** `vect1[-3]` does not mean "the third element from the
+> end". A negative index **deletes** that position. Use `tail(vect1, 3)` when
+> you actually want the last three elements.
 
 ```{r vect32}
 # random sample of 10 values
@@ -489,3 +505,88 @@ vect1[(vect1 < 8 | (vect1 %% 3 == 0))]
 # return all elements less than 7 or divisible by 2
 vect1[(vect1 < 7 | (vect1 %% 2 == 0))]
 ```
+
+## Practice Check
+
+**Knowledge Check:** *Index positions start at 1*
+What does `vect1[3]` return, and what does `vect1[0]` return?
+
+<details>
+<summary>Click to reveal answer</summary>
+
+**Answer:** `vect1[3]` returns the **third** element. `vect1[0]` returns an
+empty vector.
+
+*Explanation:* R counts positions starting at 1, so the first element is
+`vect1[1]`. Position 0 does not exist, so you get nothing back rather than the
+first element the way a 0-based language would give you.
+</details>
+
+**Knowledge Check:** *Out of range indices*
+`vect1` has 10 elements. What does `vect1[11]` return?
+
+<details>
+<summary>Click to reveal answer</summary>
+
+**Answer:** `NA`.
+
+*Explanation:* Index 0 returns an empty vector, but an index that is past the
+end of the vector returns `NA` instead. An empty result means "you asked for a
+position that cannot exist"; `NA` means "that element is missing".
+</details>
+
+**Knowledge Check:** *Negative indices delete*
+What does `vect1[-3]` do — return the third element from the end, or something
+else?
+
+<details>
+<summary>Click to reveal answer</summary>
+
+**Answer:** It **drops** the third element and returns everything else.
+
+*Explanation:* Unlike Python and most other languages, R does not count
+backwards from the end for you. A negative index removes that position, so
+`vect1[-3]` is "all elements except the third". Use `tail(vect1, 3)` if you
+actually want the last three.
+</details>
+
+**Knowledge Check:** *Coercion to the most flexible type*
+What is the data type of `c(1, 1L, 'one', TRUE)`?
+
+<details>
+<summary>Click to reveal answer</summary>
+
+**Answer:** `character`, giving `c("1", "1", "one", "TRUE")`.
+
+*Explanation:* Coercion runs `logical` → `integer` → `double/numeric` →
+`character`, always toward the most flexible type. The single `'one'` forces
+everything to `character`.
+</details>
+
+**Knowledge Check:** *Coercion without a character element*
+What is the data type of `c(1, 1L, TRUE)`?
+
+<details>
+<summary>Click to reveal answer</summary>
+
+**Answer:** `numeric` (double), giving `c(1, 1, 1)`.
+
+*Explanation:* With no `character` present, the most flexible type available
+is `numeric`, so the integer and the logical are promoted to double. You only
+fall back to `integer` when the data contains neither `character` nor
+`numeric`, as in `c(1L, TRUE)`.
+</details>
+
+**Knowledge Check:** *Missing values in a computation*
+What does `mean(c(1, 3, NA, 5, 2))` return?
+
+<details>
+<summary>Click to reveal answer</summary>
+
+**Answer:** `NA`. Use `mean(c(1, 3, NA, 5, 2), na.rm = TRUE)` to get `2.75`.
+
+*Explanation:* `NA` means "unknown", not "zero", so one unknown value makes the
+whole mean unknown. `na.rm = TRUE` drops the missing values first, leaving
+1, 3, 5, 2 — whose mean is 11 / 4 = 2.75. Decide deliberately whether dropping
+missing values is appropriate for your data.
+</details>

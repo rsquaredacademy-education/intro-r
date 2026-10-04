@@ -1,13 +1,17 @@
 # Dataframes in R {#sec-data-frames-in-r}
 
+> **Learning Objectives:** After this chapter you will be able to:
+> - Create a data frame from equal-length vectors.
+> - Inspect one with `str()`, `dim()`, `names()`, and `nrow()`/`ncol()`.
+> - Select columns with `[`, `[[`, and `$`.
+> - Select rows by position and by condition.
+> - Subset rows and columns independently.
+> - Explain why `stringsAsFactors` defaults to `FALSE` in R 4.0.0 and later.
+
 ## Introduction
 
-In this chapter, we will learn to:
-
-- create dataframe
-- select columns 
-- select rows
-- utility functions
+Data frames are lists of equal-length vectors, so they can hold columns of
+different types.
 
 ## Create dataframes
 
@@ -105,9 +109,89 @@ in `data.frame()` is `FALSE`, meaning character columns remain as character
 type. In older versions of R (< 4.0.0), the default was `TRUE`, which
 automatically converted character vectors to factors.
 
+> **Common Mistake:** Assuming `data.frame()` still converts strings to factors.
+> That was the default before R 4.0.0 and was a frequent source of confusion.
+> On R >= 4.0.0 the default is `FALSE`.
+
 ```{r df7}
 students <- data.frame(name, age, graduate, stringsAsFactors = FALSE)
 ```
+
+## Practice Check
+
+**Knowledge Check:** *One column, three operators*
+What do `students[1]`, `students[[1]]`, and `students$name` each return?
+
+<details>
+<summary>Click to reveal answer</summary>
+
+**Answer:** A one-column **data frame**; a **vector**; and the same **vector**.
+
+*Explanation:* `[` always returns a data frame, even for a single column, so
+downstream code that expects a vector breaks. `[[` and `$` both extract the
+column itself as a vector. Reach for `[[` or `$` whenever you want the values.
+</details>
+
+**Knowledge Check:** *Rows and columns are indexed separately*
+What does `students[1, ]` return, and how does that differ from
+`students[, 1]`?
+
+<details>
+<summary>Click to reveal answer</summary>
+
+**Answer:** `students[1, ]` returns the **first row**; `students[, 1]` returns
+the **first column**. The comma is what separates the two.
+
+*Explanation:* Inside `[` the first position selects rows and the second selects
+columns. Leaving one side empty means "all of them". So `students[1, ]` is
+row 1, `students[, 1]` is column 1, and `students[1, 1]` is the single cell
+where they cross.
+</details>
+
+**Knowledge Check:** *Filtering rows by a condition*
+How do you return only the students older than 26?
+
+<details>
+<summary>Click to reveal answer</summary>
+
+**Answer:** `students[students$age > 26, ]`, which gives John (29) and Jill (27).
+
+*Explanation:* The condition builds a logical vector with one value per row.
+Using it as the row index keeps the rows where the condition is `TRUE` and drops
+the rest. Because the condition has the same length as the data frame, the
+column is left out of the result.
+</details>
+
+**Knowledge Check:** *How many rows and columns?*
+The data frame has three columns and three rows. Which two functions report
+those counts directly?
+
+<details>
+<summary>Click to reveal answer</summary>
+
+**Answer:** `nrow(students)` gives `3` and `ncol(students)` gives `3`. Both are
+also available together as `dim(students)`, which returns `c(3, 3)`.
+
+*Explanation:* `dim()` returns rows first, then columns, so `dim(students)[1]`
+is the row count. `str()` gives you a structural overview while `nrow()` and
+`ncol()` answer the two specific questions directly.
+</details>
+
+**Knowledge Check:** *`stringsAsFactors` changed in R 4.0.0*
+In R 4.0.0 and later, what does `data.frame(name, age, graduate)` do with the
+character column `name`?
+
+<details>
+<summary>Click to reveal answer</summary>
+
+**Answer:** It keeps it as `character`. Before R 4.0.0 the default was `TRUE`,
+which silently converted character columns to factors.
+
+*Explanation:* The old default caused endless confusion, because strings became
+categories and levels were alphabetised behind your back. Passing
+`stringsAsFactors = FALSE` is now redundant on R >= 4.0.0, but it keeps code
+readable and portable to older R.
+</details>
 
 
 

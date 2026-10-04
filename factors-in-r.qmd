@@ -1,14 +1,14 @@
 # Factors in R {#sec-factors-in-r}
 
+> **Learning Objectives:** After this chapter you will be able to:
+> - Create a factor from a character vector.
+> - Inspect and count levels with `levels()` and `nlevels()`.
+> - Impose a natural order with `levels=` together with `ordered = TRUE`.
+> - Attach shorter display labels with `labels=`.
+> - Test for ordering with `is.ordered()`.
+> - Reach for `forcats` when you need to recode, reorder, or lump levels.
+
 ## Introduction
-
-In this chapter, we will learn to:
-
-- create factors
-- order levels
-- specify labels
-- check levels
-- number of levels
 
 Categorical or qualitative data in R is treated as data type `factor`. 
 

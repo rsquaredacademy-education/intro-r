@@ -1,22 +1,16 @@
 # Install & Update R Packages {#sec-install-update-r-packages}
 
+> **Learning Objectives:** After this chapter you will be able to:
+> - Install packages from CRAN, GitHub, Bitbucket, and Bioconductor.
+> - Install a specific archived version of a package.
+> - List, update, and remove installed packages.
+> - Find library paths with `.libPaths()` instead of hardcoding a path.
+
 ## Introduction
 
 In this chapter, we will learn about R packages. Packages are fundamental to R. There are more than 22,000 packages available on [CRAN](https://cran.r-project.org/) or the Comprehensive R Archive Network (as of September 2026; verify the current count at [cran.r-project.org/web/packages](https://cran.r-project.org/web/packages/)).
 
 Packages are available for different [topics](https://cran.r-project.org/web/views/). You should always look for a package before writing code from scratch. In case you have written your own codes for a new analysis or topic, do share it with the R community by converting the code into a package. You can learn more about building R packages from [R Packages](https://r-pkgs.had.co.nz/), a book written by [Hadley Wickham](https://hadley.nz/).
-
-In this chapter, we will learn to:
-
-- install R packages from 
-    - CRAN
-    - GitHub
-    - BitBucket
-    - Bioconductor
-    - rForge
-- install different versions of a package
-- load, update & remove installed packages
-- access package documentation
 
 ## Install Packages
 

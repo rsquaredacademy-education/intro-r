@@ -1,14 +1,16 @@
 # Lists in R {#sec-lists-in-r}
 
+> **Learning Objectives:** After this chapter you will be able to:
+> - Create a list that holds elements of different types.
+> - Name list elements with `names()`.
+> - Access elements with `[[`, `[`, and `$`.
+> - Explain why `[[` returns the element while `[` returns a list.
+> - Convert a vector or matrix into a list with `as.list()`.
+> - Convert a list back into a vector with `unlist()`.
+
 ## Introduction
 
 Lists are very useful as they are heterogeneous i.e. they can contain different data types. If you remember, vectors and matrices are homogeneous i.e. they can contain only one type of data. If you include different data types, they will all be coerced to the same type. With lists, it is different. In this chapter, we will delve deeper into lists.
-
-- how to create lists
-- access list elements
-- name list elements
-- coerce other R objects to list
-- coerce list to other R objects
 
 ## Creating Lists
 
@@ -94,3 +96,76 @@ unlist(l)
 # remove names
 unlist(l, use.names = FALSE)
 ```
+
+## Practice Check
+
+**Knowledge Check:** *Why use a list at all?*
+`vect1 <- 1:10`, `vect2 <- c('Jack', 'John', 'Jill')`, and `vect3 <- c(TRUE, FALSE)`.
+Why not just `c(vect1, vect2, vect3)`?
+
+<details>
+<summary>Click to reveal answer</summary>
+
+**Answer:** That would coerce everything to `character`, because `character` is
+the most flexible type. A list keeps each element's own type.
+
+*Explanation:* `c(vect1, vect2, vect3)` gives you
+`c("1", "2", ..., "10", "Jack", ...)`. Vectors and matrices are homogeneous, so
+mixing types destroys information. `list(vect1, vect2, vect3)` stores the three
+vectors side by side with their types intact.
+</details>
+
+**Knowledge Check:** *`[[` versus `[`*
+Given `l <- list(1:10, c('Jack', 'John'))`, what is the difference between
+`l[[1]]` and `l[1]`?
+
+<details>
+<summary>Click to reveal answer</summary>
+
+**Answer:** `l[[1]]` is the vector `1:10` itself. `l[1]` is a list containing
+one element, which is that same vector.
+
+*Explanation:* `[[` extracts the element, so you get the object and can operate
+on it directly. `[` builds a new list holding the selection, which is what you
+want when you want to delete or keep several elements. Square brackets are for
+selecting; double square brackets are for extracting.
+</details>
+
+**Knowledge Check:** *`$` needs names*
+Why does `l$vect1` fail before you run `names(l) <- c('vect1', 'vect2', 'vect3', 'mat')`?
+
+<details>
+<summary>Click to reveal answer</summary>
+
+**Answer:** The elements have no names, so there is nothing for `$` to match.
+
+*Explanation:* `$` looks up elements **by name**, not by position. Until the
+list has names, use `l[[1]]` or `l[1]`. Once named, `l$vect1` and
+`l[['vect1']]` both return the vector.
+</details>
+
+**Knowledge Check:** *Coercing to a list*
+How do you turn the vector `vect1 <- 1:10` into a list, one element per value?
+
+<details>
+<summary>Click to reveal answer</summary>
+
+**Answer:** `as.list(vect1)`, which gives a list of ten single numbers.
+
+*Explanation:* `as.list()` splits the vector into its individual elements. The
+same call works on a matrix, in which case it splits the matrix into columns.
+The reverse direction is `unlist()`.
+</details>
+
+**Knowledge Check:** *Flattening a list*
+What does `unlist(l, use.names = FALSE)` do differently from `unlist(l)`?
+
+<details>
+<summary>Click to reveal answer</summary>
+
+**Answer:** It returns the same values but without the names.
+
+*Explanation:* `unlist()` concatenates every element into one vector and keeps
+the names it finds, so you get a named vector. Setting `use.names = FALSE` drops
+the names, which is usually what you want for further calculation.
+</details>
