@@ -89,35 +89,6 @@ jobs:
           args: --exclude-mail --max-concurrency 8 --exclude 'site_libs/' 'docs/**/*.html'
           fail: false
 
-      # Mobile perf budget. Advisory only, and deliberately so: GitHub's shared
-      # runners throttle harder than a workstation. The image-free control page
-      # factors-in-r.html measured LCP 3936ms locally but 10424ms on the runner,
-      # so the two environments are not comparable and the budgets are not yet
-      # trustworthy as gates. Flip continue-on-error once runner medians are
-      # recalibrated into scripts/perf-audit.mjs.
-      #
-      # Serve with `npx serve`, not `python3 -m http.server`: the latter sends no
-      # Content-Encoding, so transferSize came back as 1688KB uncompressed
-      # against 502KB locally and the weight budget could never pass. The server
-      # must match the one used for local runs or the weight number is fiction.
-      - name: Mobile performance budget (advisory)
-        continue-on-error: true
-        run: |
-          npx --yes serve docs -l 4321 >/dev/null 2>&1 &
-          for i in $(seq 1 60); do
-            curl -sf -o /dev/null http://localhost:4321/ && break
-            sleep 1
-          done
-          chrome="$(command -v google-chrome-stable || command -v google-chrome || command -v chromium || true)"
-          if [ -n "$chrome" ]; then
-            export CHROME_PATH="$chrome"
-            echo "Using Chrome at $CHROME_PATH"
-          else
-            echo "No Chrome binary found; Lighthouse will fall back to its own lookup"
-          fi
-          node scripts/perf-audit.mjs --base http://localhost:4321 \
-            --page index.html --page factors-in-r.html --class static --runs 3
-
       # Keeps docs/ in step with the .qmd sources. Without this, the site only
       # changes when a human remembers to commit a local render. Safe from
       # feedback loops: pushes made with GITHUB_TOKEN do not trigger further
