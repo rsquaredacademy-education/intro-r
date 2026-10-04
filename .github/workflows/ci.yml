@@ -89,6 +89,35 @@ jobs:
           args: --exclude-mail --max-concurrency 8 --exclude 'site_libs/' 'docs/**/*.html'
           fail: false
 
+      # Advisory only, and deliberately so. Lighthouse under simulated mobile
+      # throttling swings wildly between runs: the same unchanged page measured
+      # Perf 51-74 and LCP 4112-6793ms across repeated runs on identical
+      # hardware. --runs 3 gates on the median rather than a single sample, but
+      # the budgets in scripts/perf-audit.mjs were calibrated on a Windows
+      # workstation, not a shared GitHub runner, so this step may fail until they
+      # are recalibrated. Flip continue-on-error once the medians hold.
+      #
+      # index.html is the known LCP outlier; factors-in-r.html is an image-free
+      # control, so if the control also moves the runner is under load and the
+      # index.html number can be ignored.
+      - name: Mobile performance budget (advisory)
+        continue-on-error: true
+        run: |
+          python3 -m http.server 4321 --directory docs >/dev/null 2>&1 &
+          for i in $(seq 1 30); do
+            curl -sf -o /dev/null http://localhost:4321/index.html && break
+            sleep 1
+          done
+          chrome="$(command -v google-chrome-stable || command -v google-chrome || command -v chromium || true)"
+          if [ -n "$chrome" ]; then
+            export CHROME_PATH="$chrome"
+            echo "Using Chrome at $CHROME_PATH"
+          else
+            echo "No Chrome binary found; Lighthouse will fall back to its own lookup"
+          fi
+          node scripts/perf-audit.mjs --base http://localhost:4321 \
+            --page index.html --page factors-in-r.html --class static --runs 3
+
       # Keeps docs/ in step with the .qmd sources. Without this, the site only
       # changes when a human remembers to commit a local render. Safe from
       # feedback loops: pushes made with GITHUB_TOKEN do not trigger further

@@ -17,6 +17,12 @@
 //
 // Exit code 1 if any budget is exceeded. INP is unmeasurable without
 // interaction, so TBT is reported as its stand-in.
+//
+// --runs N (default 1) repeats each page N times and gates on the MEDIAN.
+// Single samples are not trustworthy: the same unchanged page measured Perf
+// 53-74 and LCP 4112-6217ms across five runs on the same machine, and the first
+// run of a session is consistently the worst because npx/Lighthouse/Chrome
+// caches are cold. Use --runs 3 or more for any gating decision.
 
 const BUDGETS = {
   static: {
@@ -52,6 +58,11 @@ if (!BUDGET) {
   console.error('unknown --class; use static or webr');
   process.exit(2);
 }
+const RUNS = Number(get('--runs', '1'));
+if (!Number.isInteger(RUNS) || RUNS < 1) {
+  console.error('--runs must be a positive integer');
+  process.exit(2);
+}
 const pages = [];
 for (let i = 0; i < args.length; i++) {
   if (args[i] === '--page') pages.push(args[i + 1]);
@@ -69,69 +80,97 @@ const path = await import('node:path');
 const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'lh-'));
 let failed = false;
 
+const median = (xs) => {
+  const s = [...xs].sort((a, b) => a - b);
+  const mid = Math.floor(s.length / 2);
+  return s.length % 2 ? s[mid] : (s[mid - 1] + s[mid]) / 2;
+};
+const ms = (x) => `${Math.round(x)}ms`;
+const int = (x) => `${Math.round(x)}`;
+const dec = (x) => x.toFixed(3);
+
 for (const page of pages) {
   const url = `${base}/${page}`;
-  const out = path.join(tmp, page.replace(/\W+/g, '_') + '.json');
+  const samples = [];
+  const warnings = new Set();
 
-  // On Windows the npm launcher is npx.cmd, so spawn through the shell.
-  execFileSync(
-    'npx',
-    ['--yes', 'lighthouse', url,
-     '--output=json', `--output-path=${out}`,
-     '--chrome-flags=--headless=new --no-sandbox',
-     '--quiet'],
-    { stdio: ['ignore', 'ignore', 'inherit'], shell: true }
-  );
+  for (let run = 1; run <= RUNS; run++) {
+    const out = path.join(tmp, page.replace(/\W+/g, '_') + `_${run}.json`);
 
-  const lh = JSON.parse(fs.readFileSync(out, 'utf8'));
-  const a = lh.audits;
-  const perf = lh.categories.performance.score * 100;
-  const lcp = a['largest-contentful-paint'].numericValue;
-  const tbt = a['total-blocking-time'].numericValue;
-  const cls = a['cumulative-layout-shift'].numericValue;
-  const inp = a['interaction-to-next-paint']?.numericValue ?? null;
+    // On Windows the npm launcher is npx.cmd, so spawn through the shell.
+    execFileSync(
+      'npx',
+      ['--yes', 'lighthouse', url,
+       '--output=json', `--output-path=${out}`,
+       '--chrome-flags=--headless=new --no-sandbox',
+       '--quiet'],
+      { stdio: ['ignore', 'ignore', 'inherit'], shell: true }
+    );
 
-  console.log(`\n== ${page} (${PAGE_CLASS}) ==`);
-  const check = (label, value, limit, unit, higherIsBetter) => {
+    const lh = JSON.parse(fs.readFileSync(out, 'utf8'));
+    const a = lh.audits;
+    const reqs = a['network-requests'].details.items;
+    const wasm = reqs.filter(r => /\.wasm(\?|$)/.test(r.url) || /webr|wasi/i.test(r.url));
+    samples.push({
+      perf: lh.categories.performance.score * 100,
+      lcp: a['largest-contentful-paint'].numericValue,
+      tbt: a['total-blocking-time'].numericValue,
+      cls: a['cumulative-layout-shift'].numericValue,
+      inp: a['interaction-to-next-paint']?.numericValue ?? null,
+      wasmBytes: wasm.reduce((s, r) => s + (r.transferSize || 0), 0),
+      bigWasm: wasm.filter(r => r.transferSize > 50_000)
+        .map(r => `${Math.round(r.transferSize / 1024)}KB  ${r.url}`),
+      wasmCount: wasm.length,
+      totalBytes: reqs.reduce((s, r) => s + (r.transferSize || 0), 0),
+      reqCount: reqs.length
+    });
+    for (const w of lh.runWarnings ?? []) warnings.add(w);
+    if (RUNS > 1) process.stderr.write(`  (${page} run ${run}/${RUNS})\n`);
+  }
+
+  const med = (key) => median(samples.map(s => s[key]));
+  const spread = (key, fmt) => {
+    if (RUNS < 2) return '';
+    const xs = samples.map(s => s[key]);
+    return `   [${fmt(Math.min(...xs))}-${fmt(Math.max(...xs))}]`;
+  };
+
+  console.log(`\n== ${page} (${PAGE_CLASS}, median of ${RUNS}) ==`);
+  const check = (label, value, limit, unit, higherIsBetter, spreadFmt) => {
     const ok = higherIsBetter ? value >= limit : value <= limit;
     if (!ok) failed = true;
     const shown = higherIsBetter || limit < 1 ? value.toFixed(2) : Math.round(value);
     console.log(
       `  ${ok ? 'PASS' : 'FAIL'}  ${label.padEnd(10)} ${String(shown).padStart(8)}${unit}` +
-      `   budget ${higherIsBetter ? '>=' : '<='} ${limit}${unit}`
+      `   budget ${higherIsBetter ? '>=' : '<='} ${limit}${unit}` + spread(label.toLowerCase(), spreadFmt)
     );
   };
 
-  check('Perf', perf, BUDGET.performance, '', true);
-  check('LCP', lcp, BUDGET.lcp, 'ms');
-  check('TBT', tbt, BUDGET.tbt, 'ms');
-  check('CLS', cls, BUDGET.cls, '');
-  if (inp != null) check('INP', inp, BUDGET.inp, 'ms');
+  check('Perf', med('perf'), BUDGET.performance, '', true, int);
+  check('LCP', med('lcp'), BUDGET.lcp, 'ms', false, ms);
+  check('TBT', med('tbt'), BUDGET.tbt, 'ms', false, ms);
+  check('CLS', med('cls'), BUDGET.cls, '', false, dec);
+  const inps = samples.map(s => s.inp).filter(v => v != null);
+  if (inps.length) check('INP', median(inps), BUDGET.inp, 'ms', false, ms);
 
-  const reqs = a['network-requests'].details.items;
-  const wasm = reqs.filter(r => /\.wasm(\?|$)/.test(r.url) || /webr|wasi/i.test(r.url));
-  const wasmBytes = wasm.reduce((s, r) => s + (r.transferSize || 0), 0);
+  const wasmBytes = med('wasmBytes');
   const wasmOk = wasmBytes <= BUDGET.initialWasmBytes;
   if (!wasmOk) failed = true;
   console.log(
-    `  ${wasmOk ? 'PASS' : 'FAIL'}  WASM      ${String(wasmBytes).padStart(8)}B` +
-    `   budget <= ${BUDGET.initialWasmBytes}B initial, ${wasm.length} request(s)`
+    `  ${wasmOk ? 'PASS' : 'FAIL'}  WASM      ${String(Math.round(wasmBytes)).padStart(8)}B` +
+    `   budget <= ${BUDGET.initialWasmBytes}B initial, ${samples[0].wasmCount} request(s)`
   );
-  for (const r of wasm.filter(r => r.transferSize > 50_000)) {
-    console.log(`          ${Math.round(r.transferSize / 1024)}KB  ${r.url}`);
-  }
+  for (const line of samples[0].bigWasm) console.log(`          ${line}`);
 
-  const total = reqs.reduce((s, r) => s + (r.transferSize || 0), 0);
+  const total = med('totalBytes');
   const totalOk = total <= BUDGET.totalBytes;
   if (!totalOk) failed = true;
   console.log(
     `  ${totalOk ? 'PASS' : 'FAIL'}  Weight    ${String(Math.round(total / 1024)).padStart(8)}KB` +
-    `   budget <= ${Math.round(BUDGET.totalBytes / 1024)}KB, ${reqs.length} requests`
+    `   budget <= ${Math.round(BUDGET.totalBytes / 1024)}KB, ${samples[0].reqCount} requests`
   );
 
-  if (lh.runWarnings?.length) {
-    for (const w of lh.runWarnings) console.log(`  WARN  ${w}`);
-  }
+  for (const w of warnings) console.log(`  WARN  ${w}`);
 }
 
 fs.rmSync(tmp, { recursive: true, force: true });
