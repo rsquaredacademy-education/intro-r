@@ -1884,6 +1884,7 @@ globalThis.qwebrExecuteCode = async function (
   </ul></li>
   <li><a href="#select-rows" id="toc-select-rows" class="nav-link" data-scroll-target="#select-rows"><span class="header-section-number">8.5</span> Select Rows</a></li>
   <li><a href="#try-it-in-your-browser" id="toc-try-it-in-your-browser" class="nav-link" data-scroll-target="#try-it-in-your-browser">Try it in your browser</a></li>
+  <li><a href="#practice-check" id="toc-practice-check" class="nav-link" data-scroll-target="#practice-check"><span class="header-section-number">8.6</span> Practice Check</a></li>
   </ul>
 </nav>
     </div>
@@ -2193,15 +2194,20 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </header>
 
 
+<blockquote class="blockquote">
+<p><strong>Learning Objectives:</strong> After this chapter you will be able to:</p>
+<ul>
+<li>Create a data frame from equal-length vectors.</li>
+<li>Inspect one with <code>str()</code>, <code>dim()</code>, <code>names()</code>, and <code>nrow()</code>/<code>ncol()</code>.</li>
+<li>Select columns with <code>[</code>, <code>[[</code>, and <code>$</code>.</li>
+<li>Select rows by position and by condition.</li>
+<li>Subset rows and columns independently.</li>
+<li>Explain why <code>stringsAsFactors</code> defaults to <code>FALSE</code> in R 4.0.0 and later.</li>
+</ul>
+</blockquote>
 <section id="introduction" class="level2" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">8.1</span> Introduction</h2>
-<p>In this chapter, we will learn to:</p>
-<ul>
-<li>create dataframe</li>
-<li>select columns</li>
-<li>select rows</li>
-<li>utility functions</li>
-</ul>
+<p>Data frames are lists of equal-length vectors, so they can hold columns of different types.</p>
 </section>
 <section id="create-dataframes" class="level2" data-number="8.2">
 <h2 data-number="8.2" class="anchored" data-anchor-id="create-dataframes"><span class="header-section-number">8.2</span> Create dataframes</h2>
@@ -2315,9 +2321,55 @@ NULL</code></pre>
 <div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>Starting with R 4.0.0 (April 2020), the default value of <code>stringsAsFactors</code> in <code>data.frame()</code> is <code>FALSE</code>, meaning character columns remain as character type. In older versions of R (&lt; 4.0.0), the default was <code>TRUE</code>, which automatically converted character vectors to factors.</p>
+<blockquote class="blockquote">
+<p><strong>Common Mistake:</strong> Assuming <code>data.frame()</code> still converts strings to factors. That was the default before R 4.0.0 and was a frequent source of confusion. On R &gt;= 4.0.0 the default is <code>FALSE</code>.</p>
+</blockquote>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(name, age, graduate, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="practice-check" class="level2" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="practice-check"><span class="header-section-number">8.6</span> Practice Check</h2>
+<p><strong>Knowledge Check:</strong> <em>One column, three operators</em> What do <code>students[1]</code>, <code>students[[1]]</code>, and <code>students$name</code> each return?</p>
+<details>
+<summary>
+Click to reveal answer
+</summary>
+<p><strong>Answer:</strong> A one-column <strong>data frame</strong>; a <strong>vector</strong>; and the same <strong>vector</strong>.</p>
+<em>Explanation:</em> <code>[</code> always returns a data frame, even for a single column, so downstream code that expects a vector breaks. <code>[[</code> and <code>$</code> both extract the column itself as a vector. Reach for <code>[[</code> or <code>$</code> whenever you want the values.
+</details>
+<p><strong>Knowledge Check:</strong> <em>Rows and columns are indexed separately</em> What does <code>students[1, ]</code> return, and how does that differ from <code>students[, 1]</code>?</p>
+<details>
+<summary>
+Click to reveal answer
+</summary>
+<p><strong>Answer:</strong> <code>students[1, ]</code> returns the <strong>first row</strong>; <code>students[, 1]</code> returns the <strong>first column</strong>. The comma is what separates the two.</p>
+<em>Explanation:</em> Inside <code>[</code> the first position selects rows and the second selects columns. Leaving one side empty means “all of them”. So <code>students[1, ]</code> is row 1, <code>students[, 1]</code> is column 1, and <code>students[1, 1]</code> is the single cell where they cross.
+</details>
+<p><strong>Knowledge Check:</strong> <em>Filtering rows by a condition</em> How do you return only the students older than 26?</p>
+<details>
+<summary>
+Click to reveal answer
+</summary>
+<p><strong>Answer:</strong> <code>students[students$age &gt; 26, ]</code>, which gives John (29) and Jill (27).</p>
+<em>Explanation:</em> The condition builds a logical vector with one value per row. Using it as the row index keeps the rows where the condition is <code>TRUE</code> and drops the rest. Because the condition has the same length as the data frame, the column is left out of the result.
+</details>
+<p><strong>Knowledge Check:</strong> <em>How many rows and columns?</em> The data frame has three columns and three rows. Which two functions report those counts directly?</p>
+<details>
+<summary>
+Click to reveal answer
+</summary>
+<p><strong>Answer:</strong> <code>nrow(students)</code> gives <code>3</code> and <code>ncol(students)</code> gives <code>3</code>. Both are also available together as <code>dim(students)</code>, which returns <code>c(3, 3)</code>.</p>
+<em>Explanation:</em> <code>dim()</code> returns rows first, then columns, so <code>dim(students)[1]</code> is the row count. <code>str()</code> gives you a structural overview while <code>nrow()</code> and <code>ncol()</code> answer the two specific questions directly.
+</details>
+<p><strong>Knowledge Check:</strong> <em><code>stringsAsFactors</code> changed in R 4.0.0</em> In R 4.0.0 and later, what does <code>data.frame(name, age, graduate)</code> do with the character column <code>name</code>?</p>
+<details>
+<summary>
+Click to reveal answer
+</summary>
+<p><strong>Answer:</strong> It keeps it as <code>character</code>. Before R 4.0.0 the default was <code>TRUE</code>, which silently converted character columns to factors.</p>
+<em>Explanation:</em> The old default caused endless confusion, because strings became categories and levels were alphabetised behind your back. Passing <code>stringsAsFactors = FALSE</code> is now redundant on R &gt;= 4.0.0, but it keeps code readable and portable to older R.
+</details>
 
 
 </section>

@@ -174,17 +174,7 @@
     "href": "data-types-in-r.html",
     "title": "5  Data Types in R",
     "section": "",
-    "text": "5.1 Introduction\nIn this chapter, we will learn about the following data types:",
-    "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Types in R</span>"
-    ]
-  },
-  {
-    "objectID": "data-types-in-r.html#introduction",
-    "href": "data-types-in-r.html#introduction",
-    "title": "5  Data Types in R",
-    "section": "",
-    "text": "numeric/double\ninteger\ncharacter\nlogical\ndate/time",
+    "text": "5.1 Numeric\nEvery value in R has a type, and the type decides what you can do with it. This chapter walks through the five you will meet first: numeric (double), integer, character, logical, and date/time. Most of the time you will let R infer the type for you, and then use the is.*() and as.*() functions to check or change it.\nIn R, numbers are represented by the data type numeric. We will first create a variable and assign it a value. Next we will learn a few methods of checking the type of the variable.\n# create two variables\nnumber1 &lt;- 3.5\nnumber2 &lt;- 3\n\n# check data type\nclass(number1)\n\n[1] \"numeric\"\n\nclass(number2)\n\n[1] \"numeric\"\n\n# check if data type is numeric\nis.numeric(number1)\n\n[1] TRUE\n\nis.numeric(number2)\n\n[1] TRUE\nIf you carefully observe, integers are also treated as numeric/double. We will learn to create integers in a while. In the meanwhile, we have introduced two new functions in the above example:",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Types in R</span>"
     ]
@@ -193,8 +183,8 @@
     "objectID": "data-types-in-r.html#numeric",
     "href": "data-types-in-r.html#numeric",
     "title": "5  Data Types in R",
-    "section": "5.2 Numeric",
-    "text": "5.2 Numeric\nIn R, numbers are represented by the data type numeric. We will first create a variable and assign it a value. Next we will learn a few methods of checking the type of the variable.\n\n# create two variables\nnumber1 &lt;- 3.5\nnumber2 &lt;- 3\n\n# check data type\nclass(number1)\n\n[1] \"numeric\"\n\nclass(number2)\n\n[1] \"numeric\"\n\n# check if data type is numeric\nis.numeric(number1)\n\n[1] TRUE\n\nis.numeric(number2)\n\n[1] TRUE\n\n\nIf you carefully observe, integers are also treated as numeric/double. We will learn to create integers in a while. In the meanwhile, we have introduced two new functions in the above example:\n\nclass(): returns the class or type\nis.numeric(): tests whether the variable is of type numeric",
+    "section": "",
+    "text": "class(): returns the class or type\nis.numeric(): tests whether the variable is of type numeric",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Types in R</span>"
     ]
@@ -203,8 +193,8 @@
     "objectID": "data-types-in-r.html#integer",
     "href": "data-types-in-r.html#integer",
     "title": "5  Data Types in R",
-    "section": "5.3 Integer",
-    "text": "5.3 Integer\nUnless specified otherwise, integers are treated as numeric or double. In this section, we will learn to create variables of the type integer and to convert other data types to integer.\n\ncreate a variable number1 and assign it the value 3\ncheck the data type of number1 using class\ncreate a second variable number2 using as.integer and assign it the value 3\ncheck the data type of number2 using class\nfinally use is.integer to check the data type of both number1 and number2\n\n\n# create a variable and assign it an integer value\nnumber1 &lt;- 3\n\n# create another variable using as.integer\nnumber2 &lt;- as.integer(3)\n\n# check the data type\nclass(number1)\n\n[1] \"numeric\"\n\nclass(number2)\n\n[1] \"integer\"\n\n# use is.integer to check data type\nis.integer(number1)\n\n[1] FALSE\n\nis.integer(number2)\n\n[1] TRUE",
+    "section": "5.2 Integer",
+    "text": "5.2 Integer\nUnless specified otherwise, integers are treated as numeric or double. In this section, we will learn to create variables of the type integer and to convert other data types to integer.\n\ncreate a variable number1 and assign it the value 3\ncheck the data type of number1 using class\ncreate a second variable number2 using as.integer and assign it the value 3\ncheck the data type of number2 using class\nfinally use is.integer to check the data type of both number1 and number2\n\n\n# create a variable and assign it an integer value\nnumber1 &lt;- 3\n\n# create another variable using as.integer\nnumber2 &lt;- as.integer(3)\n\n# check the data type\nclass(number1)\n\n[1] \"numeric\"\n\nclass(number2)\n\n[1] \"integer\"\n\n# use is.integer to check data type\nis.integer(number1)\n\n[1] FALSE\n\nis.integer(number2)\n\n[1] TRUE",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Types in R</span>"
     ]
@@ -213,8 +203,8 @@
     "objectID": "data-types-in-r.html#character",
     "href": "data-types-in-r.html#character",
     "title": "5  Data Types in R",
-    "section": "5.4 Character",
-    "text": "5.4 Character\nLetters, words and group of words are represented by the data type character. All data of type character must be enclosed in single or double quotation marks. In fact any value enclosed in quotes will be treated as character. Let us create two variables to store the first and last name of some random guy.\n\n# first name\nfirst_name &lt;- \"jovial\"\n\n# last name\nlast_name &lt;- 'mann'\n\n# check data type\nclass(first_name)\n\n[1] \"character\"\n\nclass(last_name)\n\n[1] \"character\"\n\n# use is.character to check data type\nis.character(first_name)\n\n[1] TRUE\n\nis.character(last_name)\n\n[1] TRUE\n\n\nYou can coerce any data type to character using as.character().\n\n# create variable of different data types\nage &lt;- as.integer(30) # integer\nscore &lt;- 9.8          # numeric/double\nopt_course &lt;- TRUE    # logical\ntoday &lt;- Sys.time()   # date time\n\nas.character(age) \n\n[1] \"30\"\n\nas.character(score)\n\n[1] \"9.8\"\n\nas.character(opt_course)\n\n[1] \"TRUE\"\n\nas.character(today)\n\n[1] \"2026-10-04 07:49:28.93426\"",
+    "section": "5.3 Character",
+    "text": "5.3 Character\nLetters, words and group of words are represented by the data type character. All data of type character must be enclosed in single or double quotation marks. In fact any value enclosed in quotes will be treated as character. Let us create two variables to store the first and last name of some random guy.\n\n# first name\nfirst_name &lt;- \"jovial\"\n\n# last name\nlast_name &lt;- 'mann'\n\n# check data type\nclass(first_name)\n\n[1] \"character\"\n\nclass(last_name)\n\n[1] \"character\"\n\n# use is.character to check data type\nis.character(first_name)\n\n[1] TRUE\n\nis.character(last_name)\n\n[1] TRUE\n\n\nYou can coerce any data type to character using as.character().\n\n# create variable of different data types\nage &lt;- as.integer(30) # integer\nscore &lt;- 9.8          # numeric/double\nopt_course &lt;- TRUE    # logical\ntoday &lt;- Sys.time()   # date time\n\nas.character(age) \n\n[1] \"30\"\n\nas.character(score)\n\n[1] \"9.8\"\n\nas.character(opt_course)\n\n[1] \"TRUE\"\n\nas.character(today)\n\n[1] \"2026-10-04 14:58:59.461551\"",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Types in R</span>"
     ]
@@ -223,8 +213,8 @@
     "objectID": "data-types-in-r.html#logical",
     "href": "data-types-in-r.html#logical",
     "title": "5  Data Types in R",
-    "section": "5.5 Logical",
-    "text": "5.5 Logical\nLogical data types take only 2 values. Either TRUE or FALSE (plus NA for missing values, giving three-valued logic in R). Such data types are created when we compare two objects in R using comparison or logical operators.\n\ncreate two variables x and y\nassign them the values TRUE and FALSE respectively\nuse is.logical to check data type\nuse as.logical to coerce other data types to logical\n\n\n# create variables x and y\nx &lt;- TRUE\ny &lt;- FALSE\n\n# check data type\nclass(x)\n\n[1] \"logical\"\n\nis.logical(y)\n\n[1] TRUE\n\n\nThe outcome of comparison operators is always logical. In the below example, we compare two numbers to see the outcome.\n\n# create two numeric variables\nx &lt;- 3\ny &lt;- 4\n\n# compare x and y\nx &gt; y\n\n[1] FALSE\n\nx &lt; y\n\n[1] TRUE\n\n# store the result\nz &lt;- x &gt; y\nclass(z)\n\n[1] \"logical\"\n\n\nTRUE is represented by all numbers except 0. FALSE is represented only by 0 and no other numbers.\n\n# TRUE and FALSE are represented by 1 and 0\nas.logical(1)\n\n[1] TRUE\n\nas.logical(0)\n\n[1] FALSE\n\n# using numbers\nas.numeric(TRUE)\n\n[1] 1\n\nas.numeric(FALSE)\n\n[1] 0\n\n# using different numbers\nas.logical(c(-2, -1.5, -1, 0, 1, 2))\n\n[1]  TRUE  TRUE  TRUE FALSE  TRUE  TRUE\n\n\nUse as.logical() to coerce other data types to logical.\n\n# create variable of different data types\nage &lt;- as.integer(30) # integer\nscore &lt;- 9.8          # numeric/double\nopt_course &lt;- TRUE    # logical\ntoday &lt;- Sys.time()   # date time\n\nas.logical(age) \n\n[1] TRUE\n\nas.logical(score)\n\n[1] TRUE\n\nas.logical(opt_course)\n\n[1] TRUE\n\nas.logical(today)\n\n[1] TRUE",
+    "section": "5.4 Logical",
+    "text": "5.4 Logical\nLogical data types take only 2 values. Either TRUE or FALSE (plus NA for missing values, giving three-valued logic in R). Such data types are created when we compare two objects in R using comparison or logical operators.\n\ncreate two variables x and y\nassign them the values TRUE and FALSE respectively\nuse is.logical to check data type\nuse as.logical to coerce other data types to logical\n\n\n# create variables x and y\nx &lt;- TRUE\ny &lt;- FALSE\n\n# check data type\nclass(x)\n\n[1] \"logical\"\n\nis.logical(y)\n\n[1] TRUE\n\n\nThe outcome of comparison operators is always logical. In the below example, we compare two numbers to see the outcome.\n\n# create two numeric variables\nx &lt;- 3\ny &lt;- 4\n\n# compare x and y\nx &gt; y\n\n[1] FALSE\n\nx &lt; y\n\n[1] TRUE\n\n# store the result\nz &lt;- x &gt; y\nclass(z)\n\n[1] \"logical\"\n\n\nTRUE is represented by all numbers except 0. FALSE is represented only by 0 and no other numbers.\n\n# TRUE and FALSE are represented by 1 and 0\nas.logical(1)\n\n[1] TRUE\n\nas.logical(0)\n\n[1] FALSE\n\n# using numbers\nas.numeric(TRUE)\n\n[1] 1\n\nas.numeric(FALSE)\n\n[1] 0\n\n# using different numbers\nas.logical(c(-2, -1.5, -1, 0, 1, 2))\n\n[1]  TRUE  TRUE  TRUE FALSE  TRUE  TRUE\n\n\nUse as.logical() to coerce other data types to logical.\n\n# create variable of different data types\nage &lt;- as.integer(30) # integer\nscore &lt;- 9.8          # numeric/double\nopt_course &lt;- TRUE    # logical\ntoday &lt;- Sys.time()   # date time\n\nas.logical(age) \n\n[1] TRUE\n\nas.logical(score)\n\n[1] TRUE\n\nas.logical(opt_course)\n\n[1] TRUE\n\nas.logical(today)\n\n[1] TRUE",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Types in R</span>"
     ]
@@ -233,8 +223,8 @@
     "objectID": "data-types-in-r.html#date",
     "href": "data-types-in-r.html#date",
     "title": "5  Data Types in R",
-    "section": "5.6 Date",
-    "text": "5.6 Date\nR has dedicated types for dates and date-times. Use Date for calendar dates and POSIXct for date-times:\n\n# today's date\ntoday_date &lt;- Sys.Date()\ntoday_date\n\n[1] \"2026-10-04\"\n\nclass(today_date)\n\n[1] \"Date\"\n\n# create a date from a string\nindependence_day &lt;- as.Date(\"2026-01-15\")\nindependence_day\n\n[1] \"2026-01-15\"\n\n# pretty-print a date\nformat(independence_day, \"%B %d, %Y\")\n\n[1] \"January 15, 2026\"\n\n\nFor date-times, use as.POSIXct(). Once you need to do arithmetic with dates — finding differences, adding months, handling time zones — reach for the lubridate package, which provides a consistent, readable vocabulary for all of it.",
+    "section": "5.5 Date",
+    "text": "5.5 Date\nR has dedicated types for dates and date-times. Use Date for calendar dates and POSIXct for date-times:\n\n# today's date\ntoday_date &lt;- Sys.Date()\ntoday_date\n\n[1] \"2026-10-04\"\n\nclass(today_date)\n\n[1] \"Date\"\n\n# create a date from a string\nindependence_day &lt;- as.Date(\"2026-01-15\")\nindependence_day\n\n[1] \"2026-01-15\"\n\n# pretty-print a date\nformat(independence_day, \"%B %d, %Y\")\n\n[1] \"January 15, 2026\"\n\n\nFor date-times, use as.POSIXct(). Once you need to do arithmetic with dates — finding differences, adding months, handling time zones — reach for the lubridate package, which provides a consistent, readable vocabulary for all of it.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Types in R</span>"
     ]
@@ -374,7 +364,7 @@
     "href": "vectors-in-r.html#missing-data",
     "title": "7  Vectors in R",
     "section": "7.9 Missing Data",
-    "text": "7.9 Missing Data\nMissing data is a reality. No matter how careful you are in collecting data for your analysis, chances are always high that you end up with some missing data. In R missing values are represented by NA. In this section, we will focus on the following:\n\ntest for missing data\nremove missing data\nexclude missing data from analysis\n\n\n7.9.1 Detect missing data\nWe first create a vector with missing values. After that, we will use is.na() to test whether the data contains missing values. is.na() returns a logical vector equal to the length of the vector being tested. Another function that can be used for detecting missing values is complete.cases(). Below is an example:\n\n# vector with missing values\nvect1 &lt;- c(1, 3, NA, 5, 2)\n\n# use is.na\nis.na(vect1)\n## [1] FALSE FALSE  TRUE FALSE FALSE\n\n# use complete.cases\ncomplete.cases(vect1)\n## [1]  TRUE  TRUE FALSE  TRUE  TRUE\n\n\n\n7.9.2 Omit missing data\nIn the presence of missing data, all computations in R will return NA. To avoid this, we might want to remove the missing data before doing any computation. na.omit() will remove all missing values from the data. Let us look at an example:\n\n# vector with missing values\nvect1 &lt;- c(1, 3, NA, 5, 2)\n\n# call vect1\nvect1\n## [1]  1  3 NA  5  2\n\n# omit missing values\nna.omit(vect1)\n## [1] 1 3 5 2\n## attr(,\"na.action\")\n## [1] 3\n## attr(,\"class\")\n## [1] \"omit\"\n\n\n\n7.9.3 Exclude missing data\nTo exclude missing values from computations, use na.rm and set it to TRUE.\n\n# vector with missing values\nvect1 &lt;- c(1, 3, NA, 5, 2)\n\n# compute mean\nmean(vect1)\n## [1] NA\n\n# compute mean by excluding missing value\nmean(vect1, na.rm = TRUE)\n## [1] 2.75",
+    "text": "7.9 Missing Data\nMissing data is a reality. No matter how careful you are in collecting data for your analysis, chances are always high that you end up with some missing data. In R missing values are represented by NA. In this section, we will focus on the following:\n\ntest for missing data\nremove missing data\nexclude missing data from analysis\n\n\n7.9.1 Detect missing data\nWe first create a vector with missing values. After that, we will use is.na() to test whether the data contains missing values. is.na() returns a logical vector equal to the length of the vector being tested. Another function that can be used for detecting missing values is complete.cases(). Below is an example:\n\n# vector with missing values\nvect1 &lt;- c(1, 3, NA, 5, 2)\n\n# use is.na\nis.na(vect1)\n## [1] FALSE FALSE  TRUE FALSE FALSE\n\n# use complete.cases\ncomplete.cases(vect1)\n## [1]  TRUE  TRUE FALSE  TRUE  TRUE\n\n\n\n7.9.2 Omit missing data\nIn the presence of missing data, all computations in R will return NA. To avoid this, we might want to remove the missing data before doing any computation. na.omit() will remove all missing values from the data. Let us look at an example:\n\n# vector with missing values\nvect1 &lt;- c(1, 3, NA, 5, 2)\n\n# call vect1\nvect1\n## [1]  1  3 NA  5  2\n\n# omit missing values\nna.omit(vect1)\n## [1] 1 3 5 2\n## attr(,\"na.action\")\n## [1] 3\n## attr(,\"class\")\n## [1] \"omit\"\n\n\n\n7.9.3 Exclude missing data\nTo exclude missing values from computations, use na.rm and set it to TRUE.\n\n# vector with missing values\nvect1 &lt;- c(1, 3, NA, 5, 2)\n\n# compute mean\nmean(vect1)\n## [1] NA\n\n# compute mean by excluding missing value\nmean(vect1, na.rm = TRUE)\n## [1] 2.75\n\n\nCommon Mistake: mean() on a vector containing NA returns NA, not the mean of the values that are present. Add na.rm = TRUE to drop missing values first, and check whether dropping them is defensible for your data.",
     "crumbs": [
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Vectors in R</span>"
     ]
@@ -384,7 +374,7 @@
     "href": "vectors-in-r.html#index-vectors",
     "title": "7  Vectors in R",
     "section": "7.10 Index Vectors",
-    "text": "7.10 Index Vectors\nOne of the most important steps in data analysis is selecting a subset of data from a bigger data set. Indexing helps in retrieving values individually or a set of values that meet a specific criteria. In this chapter, we look at various ways of indexing/subsetting vectors.\n[] is the index operator in R. We can use various expressions within [] to subset data. In R, index positions begin at 1 and not 0. To begin with, let us look at values in different index positions:\n\n# fixed seed so this chapter re-renders deterministically\nset.seed(42)\n\n# random sample of 10 values\nvect1 &lt;- sample(10)\nvect1\n\n [1]  1  5 10  8  2  4  6  9  7  3\n\n# return third element\nvect1[3]\n\n[1] 10\n\n# return seventh element\nvect1[7]    \n\n[1] 6\n\n\n\n7.10.1 Out of range index\n\n# random sample of 10 values\nvect1 &lt;- sample(10)\nvect1\n\n [1]  8  7  4  1  5 10  2  6  9  3\n\n# return value at index 0\nvect1[0]\n\ninteger(0)\n\n# length of the vector\nlength(vect1)\n\n[1] 10\n\n# out of range index\nvect1[11]   \n\n[1] NA\n\n\nIn the first case, we specified the index as 0 and in the second case we used the index 11, which is greater than the length of the vector. R returns an empty vector in the first case and NA in the second case.\n\n\n7.10.2 Negative Index\nUsing a negative index will delete the value in the said index position. Unlike other languages, it will not index elements from the end of the vector counting backwards. Let us look at an example to understand how negative index works in R:\n\n# random sample of 10 values\nvect1 &lt;- sample(10)\nvect1\n\n [1]  9 10  3  4  5  6  1  2  8  7\n\n# drop third element\nvect1[-3]\n\n[1]  9 10  4  5  6  1  2  8  7\n\n# drop seventh element\nvect1[-7]   \n\n[1]  9 10  3  4  5  6  2  8  7\n\n\n\n\n7.10.3 Subset Multiple Elements\nIf we do not specify anything within [], all the elements in the vector will be returned. We can specify the index elements using any expression that generates a sequence of integers. Let us look at a few examples:\n\n# random sample of 10 values\nvect1 &lt;- sample(10)\nvect1\n\n [1]  3  1  2  6 10  8  4  5  7  9\n\n# return all elements\nvect1[]\n\n [1]  3  1  2  6 10  8  4  5  7  9\n\n# return first 5 values\nvect1[1:5]\n\n[1]  3  1  2  6 10\n\n# return all values from the 5th position\nend &lt;- length(vect1)\nvect1[5:end]\n\n[1] 10  8  4  5  7  9\n\n\nIf you are using the colon to generate the index positions, you will have to specify both the starting and ending position, else, R will return an error.\nWhat if we want elements that are not in a sequence as we saw in the last example? In such cases, we have to create a vector using c() and use it to extract elements from the original vector. Below is an example:\n\n# random sample of 10 values\nvect1 &lt;- sample(10)\nvect1\n\n [1]  5  4  2  8  3  1 10  7  6  9\n\n# extract 2nd, 5th and 7th element\nselect &lt;- c(2, 5, 7)\nvect1[select]\n\n[1]  4  3 10\n\n# extract elements in position 1 to 4, 6 and 9\nselect &lt;- c(1:4, 6, 9)\nvect1[select]\n\n[1] 5 4 2 8 1 6",
+    "text": "7.10 Index Vectors\nOne of the most important steps in data analysis is selecting a subset of data from a bigger data set. Indexing helps in retrieving values individually or a set of values that meet a specific criteria. In this chapter, we look at various ways of indexing/subsetting vectors.\n[] is the index operator in R. We can use various expressions within [] to subset data. In R, index positions begin at 1 and not 0. To begin with, let us look at values in different index positions:\n\n# fixed seed so this chapter re-renders deterministically\nset.seed(42)\n\n# random sample of 10 values\nvect1 &lt;- sample(10)\nvect1\n\n [1]  1  5 10  8  2  4  6  9  7  3\n\n# return third element\nvect1[3]\n\n[1] 10\n\n# return seventh element\nvect1[7]    \n\n[1] 6\n\n\n\n7.10.1 Out of range index\n\n# random sample of 10 values\nvect1 &lt;- sample(10)\nvect1\n\n [1]  8  7  4  1  5 10  2  6  9  3\n\n# return value at index 0\nvect1[0]\n\ninteger(0)\n\n# length of the vector\nlength(vect1)\n\n[1] 10\n\n# out of range index\nvect1[11]   \n\n[1] NA\n\n\nIn the first case, we specified the index as 0 and in the second case we used the index 11, which is greater than the length of the vector. R returns an empty vector in the first case and NA in the second case.\n\n\n7.10.2 Negative Index\nUsing a negative index will delete the value in the said index position. Unlike other languages, it will not index elements from the end of the vector counting backwards. Let us look at an example to understand how negative index works in R:\n\nCommon Mistake: vect1[-3] does not mean “the third element from the end”. A negative index deletes that position. Use tail(vect1, 3) when you actually want the last three elements.\n\n\n# random sample of 10 values\nvect1 &lt;- sample(10)\nvect1\n\n [1]  9 10  3  4  5  6  1  2  8  7\n\n# drop third element\nvect1[-3]\n\n[1]  9 10  4  5  6  1  2  8  7\n\n# drop seventh element\nvect1[-7]   \n\n[1]  9 10  3  4  5  6  2  8  7\n\n\n\n\n7.10.3 Subset Multiple Elements\nIf we do not specify anything within [], all the elements in the vector will be returned. We can specify the index elements using any expression that generates a sequence of integers. Let us look at a few examples:\n\n# random sample of 10 values\nvect1 &lt;- sample(10)\nvect1\n\n [1]  3  1  2  6 10  8  4  5  7  9\n\n# return all elements\nvect1[]\n\n [1]  3  1  2  6 10  8  4  5  7  9\n\n# return first 5 values\nvect1[1:5]\n\n[1]  3  1  2  6 10\n\n# return all values from the 5th position\nend &lt;- length(vect1)\nvect1[5:end]\n\n[1] 10  8  4  5  7  9\n\n\nIf you are using the colon to generate the index positions, you will have to specify both the starting and ending position, else, R will return an error.\nWhat if we want elements that are not in a sequence as we saw in the last example? In such cases, we have to create a vector using c() and use it to extract elements from the original vector. Below is an example:\n\n# random sample of 10 values\nvect1 &lt;- sample(10)\nvect1\n\n [1]  5  4  2  8  3  1 10  7  6  9\n\n# extract 2nd, 5th and 7th element\nselect &lt;- c(2, 5, 7)\nvect1[select]\n\n[1]  4  3 10\n\n# extract elements in position 1 to 4, 6 and 9\nselect &lt;- c(1:4, 6, 9)\nvect1[select]\n\n[1] 5 4 2 8 1 6",
     "crumbs": [
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Vectors in R</span>"
     ]
@@ -400,21 +390,21 @@
     ]
   },
   {
+    "objectID": "vectors-in-r.html#practice-check",
+    "href": "vectors-in-r.html#practice-check",
+    "title": "7  Vectors in R",
+    "section": "7.11 Practice Check",
+    "text": "7.11 Practice Check\nKnowledge Check: Index positions start at 1 What does vect1[3] return, and what does vect1[0] return?\n\n\nClick to reveal answer\n\nAnswer: vect1[3] returns the third element. vect1[0] returns an empty vector.\nExplanation: R counts positions starting at 1, so the first element is vect1[1]. Position 0 does not exist, so you get nothing back rather than the first element the way a 0-based language would give you.\n\nKnowledge Check: Out of range indices vect1 has 10 elements. What does vect1[11] return?\n\n\nClick to reveal answer\n\nAnswer: NA.\nExplanation: Index 0 returns an empty vector, but an index that is past the end of the vector returns NA instead. An empty result means “you asked for a position that cannot exist”; NA means “that element is missing”.\n\nKnowledge Check: Negative indices delete What does vect1[-3] do — return the third element from the end, or something else?\n\n\nClick to reveal answer\n\nAnswer: It drops the third element and returns everything else.\nExplanation: Unlike Python and most other languages, R does not count backwards from the end for you. A negative index removes that position, so vect1[-3] is “all elements except the third”. Use tail(vect1, 3) if you actually want the last three.\n\nKnowledge Check: Coercion to the most flexible type What is the data type of c(1, 1L, 'one', TRUE)?\n\n\nClick to reveal answer\n\nAnswer: character, giving c(\"1\", \"1\", \"one\", \"TRUE\").\nExplanation: Coercion runs logical → integer → double/numeric → character, always toward the most flexible type. The single 'one' forces everything to character.\n\nKnowledge Check: Coercion without a character element What is the data type of c(1, 1L, TRUE)?\n\n\nClick to reveal answer\n\nAnswer: numeric (double), giving c(1, 1, 1).\nExplanation: With no character present, the most flexible type available is numeric, so the integer and the logical are promoted to double. You only fall back to integer when the data contains neither character nor numeric, as in c(1L, TRUE).\n\nKnowledge Check: Missing values in a computation What does mean(c(1, 3, NA, 5, 2)) return?\n\n\nClick to reveal answer\n\nAnswer: NA. Use mean(c(1, 3, NA, 5, 2), na.rm = TRUE) to get 2.75.\nExplanation: NA means “unknown”, not “zero”, so one unknown value makes the whole mean unknown. na.rm = TRUE drops the missing values first, leaving 1, 3, 5, 2 — whose mean is 11 / 4 = 2.75. Decide deliberately whether dropping missing values is appropriate for your data.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Vectors in R</span>"
+    ]
+  },
+  {
     "objectID": "data-frames-in-r.html",
     "href": "data-frames-in-r.html",
     "title": "8  Dataframes in R",
     "section": "",
-    "text": "8.1 Introduction\nIn this chapter, we will learn to:",
-    "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Dataframes in R</span>"
-    ]
-  },
-  {
-    "objectID": "data-frames-in-r.html#introduction",
-    "href": "data-frames-in-r.html#introduction",
-    "title": "8  Dataframes in R",
-    "section": "",
-    "text": "create dataframe\nselect columns\nselect rows\nutility functions",
+    "text": "8.1 Introduction\nData frames are lists of equal-length vectors, so they can hold columns of different types.",
     "crumbs": [
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Dataframes in R</span>"
     ]
@@ -464,7 +454,17 @@
     "href": "data-frames-in-r.html#try-it-in-your-browser",
     "title": "8  Dataframes in R",
     "section": "Try it in your browser",
-    "text": "Try it in your browser\nEdit the code below and press Run. It executes entirely in your browser via WebR — no R installation needed. The runtime downloads once, on this page only.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nStarting with R 4.0.0 (April 2020), the default value of stringsAsFactors in data.frame() is FALSE, meaning character columns remain as character type. In older versions of R (&lt; 4.0.0), the default was TRUE, which automatically converted character vectors to factors.\n\nstudents &lt;- data.frame(name, age, graduate, stringsAsFactors = FALSE)",
+    "text": "Try it in your browser\nEdit the code below and press Run. It executes entirely in your browser via WebR — no R installation needed. The runtime downloads once, on this page only.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nStarting with R 4.0.0 (April 2020), the default value of stringsAsFactors in data.frame() is FALSE, meaning character columns remain as character type. In older versions of R (&lt; 4.0.0), the default was TRUE, which automatically converted character vectors to factors.\n\nCommon Mistake: Assuming data.frame() still converts strings to factors. That was the default before R 4.0.0 and was a frequent source of confusion. On R &gt;= 4.0.0 the default is FALSE.\n\n\nstudents &lt;- data.frame(name, age, graduate, stringsAsFactors = FALSE)",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Dataframes in R</span>"
+    ]
+  },
+  {
+    "objectID": "data-frames-in-r.html#practice-check",
+    "href": "data-frames-in-r.html#practice-check",
+    "title": "8  Dataframes in R",
+    "section": "8.6 Practice Check",
+    "text": "8.6 Practice Check\nKnowledge Check: One column, three operators What do students[1], students[[1]], and students$name each return?\n\n\nClick to reveal answer\n\nAnswer: A one-column data frame; a vector; and the same vector.\nExplanation: [ always returns a data frame, even for a single column, so downstream code that expects a vector breaks. [[ and $ both extract the column itself as a vector. Reach for [[ or $ whenever you want the values.\n\nKnowledge Check: Rows and columns are indexed separately What does students[1, ] return, and how does that differ from students[, 1]?\n\n\nClick to reveal answer\n\nAnswer: students[1, ] returns the first row; students[, 1] returns the first column. The comma is what separates the two.\nExplanation: Inside [ the first position selects rows and the second selects columns. Leaving one side empty means “all of them”. So students[1, ] is row 1, students[, 1] is column 1, and students[1, 1] is the single cell where they cross.\n\nKnowledge Check: Filtering rows by a condition How do you return only the students older than 26?\n\n\nClick to reveal answer\n\nAnswer: students[students$age &gt; 26, ], which gives John (29) and Jill (27).\nExplanation: The condition builds a logical vector with one value per row. Using it as the row index keeps the rows where the condition is TRUE and drops the rest. Because the condition has the same length as the data frame, the column is left out of the result.\n\nKnowledge Check: How many rows and columns? The data frame has three columns and three rows. Which two functions report those counts directly?\n\n\nClick to reveal answer\n\nAnswer: nrow(students) gives 3 and ncol(students) gives 3. Both are also available together as dim(students), which returns c(3, 3).\nExplanation: dim() returns rows first, then columns, so dim(students)[1] is the row count. str() gives you a structural overview while nrow() and ncol() answer the two specific questions directly.\n\nKnowledge Check: stringsAsFactors changed in R 4.0.0 In R 4.0.0 and later, what does data.frame(name, age, graduate) do with the character column name?\n\n\nClick to reveal answer\n\nAnswer: It keeps it as character. Before R 4.0.0 the default was TRUE, which silently converted character columns to factors.\nExplanation: The old default caused endless confusion, because strings became categories and levels were alphabetised behind your back. Passing stringsAsFactors = FALSE is now redundant on R &gt;= 4.0.0, but it keeps code readable and portable to older R.",
     "crumbs": [
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Dataframes in R</span>"
     ]
@@ -474,17 +474,7 @@
     "href": "factors-in-r.html",
     "title": "9  Factors in R",
     "section": "",
-    "text": "9.1 Introduction\nIn this chapter, we will learn to:\nCategorical or qualitative data in R is treated as data type factor.",
-    "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Factors in R</span>"
-    ]
-  },
-  {
-    "objectID": "factors-in-r.html#introduction",
-    "href": "factors-in-r.html#introduction",
-    "title": "9  Factors in R",
-    "section": "",
-    "text": "create factors\norder levels\nspecify labels\ncheck levels\nnumber of levels",
+    "text": "9.1 Introduction\nCategorical or qualitative data in R is treated as data type factor.",
     "crumbs": [
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Factors in R</span>"
     ]
@@ -540,16 +530,6 @@
     ]
   },
   {
-    "objectID": "lists-in-r.html#introduction",
-    "href": "lists-in-r.html#introduction",
-    "title": "10  Lists in R",
-    "section": "",
-    "text": "how to create lists\naccess list elements\nname list elements\ncoerce other R objects to list\ncoerce list to other R objects",
-    "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Lists in R</span>"
-    ]
-  },
-  {
     "objectID": "lists-in-r.html#creating-lists",
     "href": "lists-in-r.html#creating-lists",
     "title": "10  Lists in R",
@@ -590,21 +570,21 @@
     ]
   },
   {
+    "objectID": "lists-in-r.html#practice-check",
+    "href": "lists-in-r.html#practice-check",
+    "title": "10  Lists in R",
+    "section": "10.6 Practice Check",
+    "text": "10.6 Practice Check\nKnowledge Check: Why use a list at all? vect1 &lt;- 1:10, vect2 &lt;- c('Jack', 'John', 'Jill'), and vect3 &lt;- c(TRUE, FALSE). Why not just c(vect1, vect2, vect3)?\n\n\nClick to reveal answer\n\nAnswer: That would coerce everything to character, because character is the most flexible type. A list keeps each element’s own type.\nExplanation: c(vect1, vect2, vect3) gives you c(\"1\", \"2\", ..., \"10\", \"Jack\", ...). Vectors and matrices are homogeneous, so mixing types destroys information. list(vect1, vect2, vect3) stores the three vectors side by side with their types intact.\n\nKnowledge Check: [[ versus [ Given l &lt;- list(1:10, c('Jack', 'John')), what is the difference between l[[1]] and l[1]?\n\n\nClick to reveal answer\n\nAnswer: l[[1]] is the vector 1:10 itself. l[1] is a list containing one element, which is that same vector.\nExplanation: [[ extracts the element, so you get the object and can operate on it directly. [ builds a new list holding the selection, which is what you want when you want to delete or keep several elements. Square brackets are for selecting; double square brackets are for extracting.\n\nKnowledge Check: $ needs names Why does l$vect1 fail before you run names(l) &lt;- c('vect1', 'vect2', 'vect3', 'mat')?\n\n\nClick to reveal answer\n\nAnswer: The elements have no names, so there is nothing for $ to match.\nExplanation: $ looks up elements by name, not by position. Until the list has names, use l[[1]] or l[1]. Once named, l$vect1 and l[['vect1']] both return the vector.\n\nKnowledge Check: Coercing to a list How do you turn the vector vect1 &lt;- 1:10 into a list, one element per value?\n\n\nClick to reveal answer\n\nAnswer: as.list(vect1), which gives a list of ten single numbers.\nExplanation: as.list() splits the vector into its individual elements. The same call works on a matrix, in which case it splits the matrix into columns. The reverse direction is unlist().\n\nKnowledge Check: Flattening a list What does unlist(l, use.names = FALSE) do differently from unlist(l)?\n\n\nClick to reveal answer\n\nAnswer: It returns the same values but without the names.\nExplanation: unlist() concatenates every element into one vector and keeps the names it finds, so you get a named vector. Setting use.names = FALSE drops the names, which is usually what you want for further calculation.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Lists in R</span>"
+    ]
+  },
+  {
     "objectID": "install-update-r-packages.html",
     "href": "install-update-r-packages.html",
     "title": "11  Install & Update R Packages",
     "section": "",
-    "text": "11.1 Introduction\nIn this chapter, we will learn about R packages. Packages are fundamental to R. There are more than 22,000 packages available on CRAN or the Comprehensive R Archive Network (as of September 2026; verify the current count at cran.r-project.org/web/packages).\nPackages are available for different topics. You should always look for a package before writing code from scratch. In case you have written your own codes for a new analysis or topic, do share it with the R community by converting the code into a package. You can learn more about building R packages from R Packages, a book written by Hadley Wickham.\nIn this chapter, we will learn to:",
-    "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Install & Update R Packages</span>"
-    ]
-  },
-  {
-    "objectID": "install-update-r-packages.html#introduction",
-    "href": "install-update-r-packages.html#introduction",
-    "title": "11  Install & Update R Packages",
-    "section": "",
-    "text": "install R packages from\n\nCRAN\nGitHub\nBitBucket\nBioconductor\nrForge\n\ninstall different versions of a package\nload, update & remove installed packages\naccess package documentation",
+    "text": "11.1 Introduction\nIn this chapter, we will learn about R packages. Packages are fundamental to R. There are more than 22,000 packages available on CRAN or the Comprehensive R Archive Network (as of September 2026; verify the current count at cran.r-project.org/web/packages).\nPackages are available for different topics. You should always look for a package before writing code from scratch. In case you have written your own codes for a new analysis or topic, do share it with the R community by converting the code into a package. You can learn more about building R packages from R Packages, a book written by Hadley Wickham.",
     "crumbs": [
       "<span class='chapter-number'>11</span>  <span class='chapter-title'>Install & Update R Packages</span>"
     ]

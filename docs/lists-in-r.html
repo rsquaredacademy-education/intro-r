@@ -326,6 +326,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#access-list-elements" id="toc-access-list-elements" class="nav-link" data-scroll-target="#access-list-elements"><span class="header-section-number">10.3</span> Access List Elements</a></li>
   <li><a href="#coerce-other-objects" id="toc-coerce-other-objects" class="nav-link" data-scroll-target="#coerce-other-objects"><span class="header-section-number">10.4</span> Coerce other objects</a></li>
   <li><a href="#coerce-list-to-other-objects" id="toc-coerce-list-to-other-objects" class="nav-link" data-scroll-target="#coerce-list-to-other-objects"><span class="header-section-number">10.5</span> Coerce list to other objects</a></li>
+  <li><a href="#practice-check" id="toc-practice-check" class="nav-link" data-scroll-target="#practice-check"><span class="header-section-number">10.6</span> Practice Check</a></li>
   </ul>
 </nav>
     </div>
@@ -351,16 +352,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<blockquote class="blockquote">
+<p><strong>Learning Objectives:</strong> After this chapter you will be able to:</p>
+<ul>
+<li>Create a list that holds elements of different types.</li>
+<li>Name list elements with <code>names()</code>.</li>
+<li>Access elements with <code>[[</code>, <code>[</code>, and <code>$</code>.</li>
+<li>Explain why <code>[[</code> returns the element while <code>[</code> returns a list.</li>
+<li>Convert a vector or matrix into a list with <code>as.list()</code>.</li>
+<li>Convert a list back into a vector with <code>unlist()</code>.</li>
+</ul>
+</blockquote>
 <section id="introduction" class="level2" data-number="10.1">
 <h2 data-number="10.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">10.1</span> Introduction</h2>
 <p>Lists are very useful as they are heterogeneous i.e.&nbsp;they can contain different data types. If you remember, vectors and matrices are homogeneous i.e.&nbsp;they can contain only one type of data. If you include different data types, they will all be coerced to the same type. With lists, it is different. In this chapter, we will delve deeper into lists.</p>
-<ul>
-<li>how to create lists</li>
-<li>access list elements</li>
-<li>name list elements</li>
-<li>coerce other R objects to list</li>
-<li>coerce list to other R objects</li>
-</ul>
 </section>
 <section id="creating-lists" class="level2" data-number="10.2">
 <h2 data-number="10.2" class="anchored" data-anchor-id="creating-lists"><span class="header-section-number">10.2</span> Creating Lists</h2>
@@ -554,6 +559,49 @@ $mat
 [19] "4"     "5"     "6"     "7"     "8"     "9"    </code></pre>
 </div>
 </div>
+</section>
+<section id="practice-check" class="level2" data-number="10.6">
+<h2 data-number="10.6" class="anchored" data-anchor-id="practice-check"><span class="header-section-number">10.6</span> Practice Check</h2>
+<p><strong>Knowledge Check:</strong> <em>Why use a list at all?</em> <code>vect1 &lt;- 1:10</code>, <code>vect2 &lt;- c('Jack', 'John', 'Jill')</code>, and <code>vect3 &lt;- c(TRUE, FALSE)</code>. Why not just <code>c(vect1, vect2, vect3)</code>?</p>
+<details>
+<summary>
+Click to reveal answer
+</summary>
+<p><strong>Answer:</strong> That would coerce everything to <code>character</code>, because <code>character</code> is the most flexible type. A list keeps each element’s own type.</p>
+<em>Explanation:</em> <code>c(vect1, vect2, vect3)</code> gives you <code>c("1", "2", ..., "10", "Jack", ...)</code>. Vectors and matrices are homogeneous, so mixing types destroys information. <code>list(vect1, vect2, vect3)</code> stores the three vectors side by side with their types intact.
+</details>
+<p><strong>Knowledge Check:</strong> <em><code>[[</code> versus <code>[</code></em> Given <code>l &lt;- list(1:10, c('Jack', 'John'))</code>, what is the difference between <code>l[[1]]</code> and <code>l[1]</code>?</p>
+<details>
+<summary>
+Click to reveal answer
+</summary>
+<p><strong>Answer:</strong> <code>l[[1]]</code> is the vector <code>1:10</code> itself. <code>l[1]</code> is a list containing one element, which is that same vector.</p>
+<em>Explanation:</em> <code>[[</code> extracts the element, so you get the object and can operate on it directly. <code>[</code> builds a new list holding the selection, which is what you want when you want to delete or keep several elements. Square brackets are for selecting; double square brackets are for extracting.
+</details>
+<p><strong>Knowledge Check:</strong> <em><code>$</code> needs names</em> Why does <code>l$vect1</code> fail before you run <code>names(l) &lt;- c('vect1', 'vect2', 'vect3', 'mat')</code>?</p>
+<details>
+<summary>
+Click to reveal answer
+</summary>
+<p><strong>Answer:</strong> The elements have no names, so there is nothing for <code>$</code> to match.</p>
+<em>Explanation:</em> <code>$</code> looks up elements <strong>by name</strong>, not by position. Until the list has names, use <code>l[[1]]</code> or <code>l[1]</code>. Once named, <code>l$vect1</code> and <code>l[['vect1']]</code> both return the vector.
+</details>
+<p><strong>Knowledge Check:</strong> <em>Coercing to a list</em> How do you turn the vector <code>vect1 &lt;- 1:10</code> into a list, one element per value?</p>
+<details>
+<summary>
+Click to reveal answer
+</summary>
+<p><strong>Answer:</strong> <code>as.list(vect1)</code>, which gives a list of ten single numbers.</p>
+<em>Explanation:</em> <code>as.list()</code> splits the vector into its individual elements. The same call works on a matrix, in which case it splits the matrix into columns. The reverse direction is <code>unlist()</code>.
+</details>
+<p><strong>Knowledge Check:</strong> <em>Flattening a list</em> What does <code>unlist(l, use.names = FALSE)</code> do differently from <code>unlist(l)</code>?</p>
+<details>
+<summary>
+Click to reveal answer
+</summary>
+<p><strong>Answer:</strong> It returns the same values but without the names.</p>
+<em>Explanation:</em> <code>unlist()</code> concatenates every element into one vector and keeps the names it finds, so you get a named vector. Setting <code>use.names = FALSE</code> drops the names, which is usually what you want for further calculation.
+</details>
 
 
 </section>

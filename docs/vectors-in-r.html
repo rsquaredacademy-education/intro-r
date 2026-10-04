@@ -1914,6 +1914,7 @@ globalThis.qwebrExecuteCode = async function (
   <li><a href="#subset-using-logical-expressions" id="toc-subset-using-logical-expressions" class="nav-link" data-scroll-target="#subset-using-logical-expressions"><span class="header-section-number">7.10.6</span> Subset using logical expressions</a></li>
   <li><a href="#logical-operators" id="toc-logical-operators" class="nav-link" data-scroll-target="#logical-operators"><span class="header-section-number">7.10.7</span> Logical Operators</a></li>
   </ul></li>
+  <li><a href="#practice-check" id="toc-practice-check" class="nav-link" data-scroll-target="#practice-check"><span class="header-section-number">7.11</span> Practice Check</a></li>
   </ul>
 </nav>
     </div>
@@ -2223,6 +2224,17 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </header>
 
 
+<blockquote class="blockquote">
+<p><strong>Learning Objectives:</strong> After this chapter you will be able to:</p>
+<ul>
+<li>Create atomic vectors of type numeric, integer, character, and logical.</li>
+<li>Name vector elements, and select elements by name.</li>
+<li>Apply arithmetic across a whole vector at once.</li>
+<li>Explain the coercion order <code>logical</code> → <code>integer</code> → <code>double</code> → <code>character</code>.</li>
+<li>Subset using positive, negative, and logical indices.</li>
+<li>Find missing values with <code>is.na()</code> and exclude them with <code>na.rm = TRUE</code>.</li>
+</ul>
+</blockquote>
 <section id="introduction" class="level2" data-number="7.1">
 <h2 data-number="7.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">7.1</span> Introduction</h2>
 <p>Vector is the most basic data structure in R. It is a sequence of elements of the same data type. If the elements are of different data types, they will be coerced to a common type that can accommodate all the elements. Vectors are generally created using <code>c()</code> (concatenate function), although depending on the data type of vector being created, other methods can be used.</p>
@@ -2557,6 +2569,9 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(vect1, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 2.75</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<blockquote class="blockquote">
+<p><strong>Common Mistake:</strong> <code>mean()</code> on a vector containing <code>NA</code> returns <code>NA</code>, not the mean of the values that are present. Add <code>na.rm = TRUE</code> to drop missing values first, and check whether dropping them is defensible for your data.</p>
+</blockquote>
 </section>
 </section>
 <section id="index-vectors" class="level2" data-number="7.10">
@@ -2614,6 +2629,9 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <section id="negative-index" class="level3" data-number="7.10.2">
 <h3 data-number="7.10.2" class="anchored" data-anchor-id="negative-index"><span class="header-section-number">7.10.2</span> Negative Index</h3>
 <p>Using a negative index will delete the value in the said index position. Unlike other languages, it will not index elements from the end of the vector counting backwards. Let us look at an example to understand how negative index works in R:</p>
+<blockquote class="blockquote">
+<p><strong>Common Mistake:</strong> <code>vect1[-3]</code> does not mean “the third element from the end”. A negative index <strong>deletes</strong> that position. Use <code>tail(vect1, 3)</code> when you actually want the last three elements.</p>
+</blockquote>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="co"># random sample of 10 values</span></span>
 <span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>vect1 <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">10</span>)</span>
@@ -2836,9 +2854,60 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <pre><code>[1]  4  3  8  5  6 10  2  1</code></pre>
 </div>
 </div>
-
-
 </section>
+</section>
+<section id="practice-check" class="level2" data-number="7.11">
+<h2 data-number="7.11" class="anchored" data-anchor-id="practice-check"><span class="header-section-number">7.11</span> Practice Check</h2>
+<p><strong>Knowledge Check:</strong> <em>Index positions start at 1</em> What does <code>vect1[3]</code> return, and what does <code>vect1[0]</code> return?</p>
+<details>
+<summary>
+Click to reveal answer
+</summary>
+<p><strong>Answer:</strong> <code>vect1[3]</code> returns the <strong>third</strong> element. <code>vect1[0]</code> returns an empty vector.</p>
+<em>Explanation:</em> R counts positions starting at 1, so the first element is <code>vect1[1]</code>. Position 0 does not exist, so you get nothing back rather than the first element the way a 0-based language would give you.
+</details>
+<p><strong>Knowledge Check:</strong> <em>Out of range indices</em> <code>vect1</code> has 10 elements. What does <code>vect1[11]</code> return?</p>
+<details>
+<summary>
+Click to reveal answer
+</summary>
+<p><strong>Answer:</strong> <code>NA</code>.</p>
+<em>Explanation:</em> Index 0 returns an empty vector, but an index that is past the end of the vector returns <code>NA</code> instead. An empty result means “you asked for a position that cannot exist”; <code>NA</code> means “that element is missing”.
+</details>
+<p><strong>Knowledge Check:</strong> <em>Negative indices delete</em> What does <code>vect1[-3]</code> do — return the third element from the end, or something else?</p>
+<details>
+<summary>
+Click to reveal answer
+</summary>
+<p><strong>Answer:</strong> It <strong>drops</strong> the third element and returns everything else.</p>
+<em>Explanation:</em> Unlike Python and most other languages, R does not count backwards from the end for you. A negative index removes that position, so <code>vect1[-3]</code> is “all elements except the third”. Use <code>tail(vect1, 3)</code> if you actually want the last three.
+</details>
+<p><strong>Knowledge Check:</strong> <em>Coercion to the most flexible type</em> What is the data type of <code>c(1, 1L, 'one', TRUE)</code>?</p>
+<details>
+<summary>
+Click to reveal answer
+</summary>
+<p><strong>Answer:</strong> <code>character</code>, giving <code>c("1", "1", "one", "TRUE")</code>.</p>
+<em>Explanation:</em> Coercion runs <code>logical</code> → <code>integer</code> → <code>double/numeric</code> → <code>character</code>, always toward the most flexible type. The single <code>'one'</code> forces everything to <code>character</code>.
+</details>
+<p><strong>Knowledge Check:</strong> <em>Coercion without a character element</em> What is the data type of <code>c(1, 1L, TRUE)</code>?</p>
+<details>
+<summary>
+Click to reveal answer
+</summary>
+<p><strong>Answer:</strong> <code>numeric</code> (double), giving <code>c(1, 1, 1)</code>.</p>
+<em>Explanation:</em> With no <code>character</code> present, the most flexible type available is <code>numeric</code>, so the integer and the logical are promoted to double. You only fall back to <code>integer</code> when the data contains neither <code>character</code> nor <code>numeric</code>, as in <code>c(1L, TRUE)</code>.
+</details>
+<p><strong>Knowledge Check:</strong> <em>Missing values in a computation</em> What does <code>mean(c(1, 3, NA, 5, 2))</code> return?</p>
+<details>
+<summary>
+Click to reveal answer
+</summary>
+<p><strong>Answer:</strong> <code>NA</code>. Use <code>mean(c(1, 3, NA, 5, 2), na.rm = TRUE)</code> to get <code>2.75</code>.</p>
+<em>Explanation:</em> <code>NA</code> means “unknown”, not “zero”, so one unknown value makes the whole mean unknown. <code>na.rm = TRUE</code> drops the missing values first, leaving 1, 3, 5, 2 — whose mean is 11 / 4 = 2.75. Decide deliberately whether dropping missing values is appropriate for your data.
+</details>
+
+
 </section>
 
 </main> <!-- /main -->
