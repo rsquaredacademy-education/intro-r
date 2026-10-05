@@ -23,11 +23,20 @@ jobs:
         with:
           version: "1.6.40"
 
+      # Pin Typst as well as Quarto, and bump them together — never one alone.
+      # Quarto 1.7+ ships a Typst template that Typst 0.11 cannot compile.
       - uses: typst-community/setup-typst@v4
+        with:
+          version: "0.11.0"
 
+      # Typst ships no fonts and the bare runner has none either, so a stale
+      # fontconfig cache fails the PDF with "font fallback list must not be
+      # empty". fc-cache -f makes the resolver see what we just installed.
       - name: Install fonts and zip tools
-        run: sudo apt-get update && sudo apt-get install -y
-          fonts-linuxlibertine fonts-dejavu-core zip unzip
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-linuxlibertine fonts-libertinus fonts-dejavu-core zip unzip
+          fc-cache -f
 
       - name: Install R packages
         uses: r-lib/actions/setup-r-dependencies@v2
@@ -45,6 +54,13 @@ jobs:
 
       - name: Render book
         run: quarto render
+
+      # downloads: [pdf, epub] is advertised on the landing page; assert the
+      # artifacts really shipped rather than trusting the assemble step.
+      - name: Verify downloads are present
+        run: |
+          ls docs/*.pdf || { echo "PDF MISSING"; exit 1; }
+          ls docs/*.epub || { echo "EPUB MISSING"; exit 1; }
 
       - name: Sitemap
         run: bash scripts/make-sitemap.sh docs https://intro-r.rsquaredacademy.com

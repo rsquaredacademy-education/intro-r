@@ -33,6 +33,7 @@ book:
     - projects-import.qmd
     - first-plot.qmd
     - first-wrangle.qmd
+  downloads: [pdf, epub]
 
 website:
   site-url: https://intro-r.rsquaredacademy.com
