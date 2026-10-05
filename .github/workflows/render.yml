@@ -72,34 +72,31 @@ jobs:
           fi
           echo 'OK: no ?? in published HTML'
 
-      - name: Gate 2 - redirect targets exist
-        run: |
-          missing=0
-          for dest in introduction-to-r about-the-author install-r-and-rstudio \
-            variables-in-r data-types-in-r getting-help-in-r vectors-in-r \
-            data-frames-in-r factors-in-r lists-in-r install-update-r-packages \
-            projects-import first-plot first-wrangle index; do
-            if [ ! -f "docs/${dest}.html" ]; then echo "MISSING: docs/${dest}.html"; missing=1; fi
-          done
-          # legacy slugs must not exist as stale files shadowing Netlify 301s
-          for stale in installation references; do
-            if [ -f "docs/${stale}.html" ]; then echo "STALE: docs/${stale}.html"; missing=1; fi
-          done
-          exit $missing
+      # Replaces the hand-maintained slug list this book carried. The list was
+      # accurate when written and had to be updated by hand on every new chapter.
+      - name: Gate 2 - slugs rendered
+        run: sh scripts/verify-slugs.sh docs
 
-      - name: Gate 3 - redirect targets resolve
+      # legacy slugs must not exist as stale files shadowing Netlify 301s
+      - name: Gate 3 - no stale legacy slugs
+        run: |
+          stale_found=0
+          for stale in installation references; do
+            if [ -f "docs/${stale}.html" ]; then
+              echo "STALE: docs/${stale}.html shadows a Netlify 301"; stale_found=1
+            fi
+          done
+          exit $stale_found
+
+      - name: Gate 4 - redirect targets resolve
         run: bash scripts/test-redirects.sh docs
 
-      - name: Gate 4 - sitemap covers every page
-        run: |
-          pages=$(ls docs/*.html | grep -v 404.html | grep -v 'google.*\.html' | wc -l)
-          urls=$(grep -c '<url>' docs/sitemap.xml)
-          if [ "$pages" -ne "$urls" ]; then
-            echo "FAIL: $pages pages but $urls sitemap URLs"; exit 1
-          fi
-          echo "OK: $urls pages in sitemap"
+      # Set comparison, not a count. The old count check passed even with a page
+      # missing, because a bare "/" root entry offset it.
+      - name: Gate 5 - sitemap covers every page
+        run: sh scripts/verify-sitemap.sh docs docs/sitemap.xml
 
-      - name: Gate 5 - link check (advisory)
+      - name: Gate 6 - link check (advisory)
         uses: lycheeverse/lychee-action@v2
         with:
           args: --exclude-mail --max-concurrency 8 --exclude 'site_libs/' 'docs/**/*.html'
