@@ -44,4 +44,4 @@ Record your exact runtime with `R.version.string` when reporting build issues.
 
 - Author: [Aravind Hebbali](https://www.aravindhebbali.com)
 - Maintainer: books@rsquaredacademy.com
-- Issues: https://github.com/rsquaredacademy-education/intro-r/issues
+- Issues: https://github.com/rsquaredacademy-publications/intro-r/issues

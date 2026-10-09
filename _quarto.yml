@@ -40,11 +40,11 @@ website:
   description: "A beginner-friendly introduction to the R programming language."
   open-graph: true
   twitter-card: true
-  repo-url: https://github.com/rsquaredacademy-education/intro-r/
+  repo-url: https://github.com/rsquaredacademy-publications/intro-r/
   navbar:
     right:
       - text: "GitHub"
-        href: https://github.com/rsquaredacademy-education/intro-r/
+        href: https://github.com/rsquaredacademy-publications/intro-r/
 
 execute:
   warning: false
