@@ -1,10 +1,4 @@
---- 
-title: "Introduction to R"
-author: "Aravind Hebbali"
-date: "`r Sys.Date()`"
-lang: en
-documentclass: book
-link-citations: true
+---
 description: "A beginner-friendly introduction to the R programming language."
 ---
 
